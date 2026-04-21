@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jackson's SSAT Prep</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --card-hover: #222633;
+    --accent: #4f8cff;
+    --accent2: #34d399;
+    --red: #f87171;
+    --yellow: #fbbf24;
+    --text: #e4e4e7;
+    --text-dim: #9ca3af;
+    --border: #2a2d3a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+
+  /* Header */
+  header {
+    text-align: center;
+    padding: 40px 20px 30px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 30px;
+  }
+  header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 6px; }
+  header p { color: var(--text-dim); font-size: 0.95rem; }
+  .test-date {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 12px;
+  }
+
+  /* Section headings */
+  .section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 40px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+  }
+
+  /* Score cards */
+  .scores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .score-card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+  .score-card .label { font-size: 0.8rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+  .score-card .value { font-size: 2rem; font-weight: 700; }
+  .score-card .sub { font-size: 0.85rem; color: var(--text-dim); margin-top: 4px; }
+  .score-green .value { color: var(--accent2); }
+  .score-yellow .value { color: var(--yellow); }
+  .score-red .value { color: var(--red); }
+
+  /* Topic breakdown */
+  .topic-grid { margin: 16px 0; }
+  .topic-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: var(--card);
+    border-radius: 8px;
+    margin-bottom: 6px;
+    border: 1px solid var(--border);
+  }
+  .topic-row .name { font-size: 0.9rem; }
+  .topic-row .result { font-size: 0.85rem; font-weight: 600; }
+  .result-correct { color: var(--accent2); }
+  .result-wrong { color: var(--red); }
+  .result-partial { color: var(--yellow); }
+
+  /* Video section */
+  .video-topic {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+  }
+  .video-topic h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .video-topic h3 .priority {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .priority-high { background: rgba(248,113,113,0.2); color: var(--red); }
+  .priority-med { background: rgba(251,191,36,0.2); color: var(--yellow); }
+  .priority-low { background: rgba(52,211,153,0.2); color: var(--accent2); }
+  .video-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 6px 0;
+    transition: opacity 0.15s;
+  }
+  .video-link:hover { opacity: 0.8; }
+  .video-link svg { flex-shrink: 0; }
+  .practice-link {
+    display: inline-block;
+    color: var(--accent2);
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-top: 6px;
+    padding: 4px 0;
+  }
+  .practice-link:hover { text-decoration: underline; }
+
+  /* Flashcard section */
+  .flashcard-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .fc-tab {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.15s;
+  }
+  .fc-tab:hover { border-color: var(--accent); color: var(--text); }
+  .fc-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  .flashcard-area {
+    position: relative;
+    min-height: 260px;
+    margin-bottom: 16px;
+  }
+  .flashcard {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px 24px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .flashcard:hover { border-color: var(--accent); }
+  .flashcard:active { transform: scale(0.98); }
+  .flashcard .front { font-size: 1.1rem; font-weight: 600; }
+  .flashcard .back {
+    display: none;
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+  .flashcard.flipped .front { display: none; }
+  .flashcard.flipped .back { display: block; }
+  .flashcard .hint { font-size: 0.75rem; color: var(--text-dim); margin-top: 16px; }
+  .flashcard.flipped .hint { display: none; }
+  .fc-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .fc-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.15s;
+  }
+  .fc-btn:hover { border-color: var(--accent); background: var(--card-hover); }
+  .fc-counter { color: var(--text-dim); font-size: 0.85rem; min-width: 60px; text-align: center; }
+
+  /* Synonym table */
+  .synonym-section { margin-top: 20px; }
+  .synonym-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .syn-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 120px;
+    gap: 12px;
+    padding: 10px 14px;
+    background: var(--card);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    align-items: center;
+    font-size: 0.88rem;
+  }
+  .syn-word { font-weight: 600; color: var(--accent); }
+  .syn-def { color: var(--text); }
+  .syn-think { color: var(--text-dim); font-style: italic; }
+  @media (max-width: 500px) {
+    .syn-row { grid-template-columns: 1fr; gap: 2px; }
+    .syn-think { display: none; }
+  }
+
+  /* Schedule */
+  .schedule-block {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+  }
+  .schedule-block h3 { font-size: 1rem; font-weight: 600; margin-bottom: 10px; color: var(--accent); }
+  .schedule-block ol { padding-left: 20px; }
+  .schedule-block li { margin-bottom: 6px; font-size: 0.9rem; }
+  .schedule-block li a { color: var(--accent); text-decoration: none; }
+  .schedule-block li a:hover { text-decoration: underline; }
+
+  /* Quick ref */
+  .quick-ref {
+    background: linear-gradient(135deg, #1e2a3a, #1a2233);
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #2a3a4a;
+    margin: 20px 0;
+  }
+  .quick-ref h3 { font-size: 1rem; margin-bottom: 14px; color: var(--accent); }
+  .quick-ref ul { list-style: none; padding: 0; }
+  .quick-ref li {
+    padding: 6px 0;
+    font-size: 0.9rem;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    color: var(--accent2);
+  }
+  .quick-ref li span { color: var(--text-dim); font-family: -apple-system, system-ui, sans-serif; }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 30px 0;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+
+  /* Portal button */
+  .portal-btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin: 16px 0;
+    transition: opacity 0.15s;
+  }
+  .portal-btn:hover { opacity: 0.85; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Jackson's SSAT Prep</h1>
+  <p>Upper Level &middot; Focused Study Guide</p>
+  <div class="test-date">Test Day: Saturday, April 19</div>
+</header>
+
+<div class="container">
+
+  <!-- SCORES -->
+  <div class="section-title">Your Practice Test</div>
+  <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 16px;">Mini Practice Test &middot; April 20, 2026 &middot; 30 questions in 21 minutes</p>
+
+  <div class="scores">
+    <div class="score-card score-green">
+      <div class="label">Verbal</div>
+      <div class="value">80%</div>
+      <div class="sub">8 / 10</div>
+    </div>
+    <div class="score-card score-yellow">
+      <div class="label">Reading</div>
+      <div class="value">70%</div>
+      <div class="sub">7 / 10</div>
+    </div>
+    <div class="score-card score-red">
+      <div class="label">Math</div>
+      <div class="value">50%</div>
+      <div class="sub">5 / 10</div>
+    </div>
+    <div class="score-card" style="border-color: var(--accent);">
+      <div class="label">Overall</div>
+      <div class="value" style="color: var(--accent);">67%</div>
+      <div class="sub">20 / 30</div>
+    </div>
+  </div>
+
+  <p style="font-size: 0.9rem; margin-top: 12px; color: var(--text-dim);">Your verbal and reading are in good shape. Math is where you can pick up the most points. You missed 5 specific topics — that's what we're going to work on.</p>
+
+  <!-- TOPIC BREAKDOWN -->
+  <div class="section-title">Math Breakdown</div>
+  <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 12px;">What you got right (leave these alone) and what to study.</p>
+
+  <div class="topic-grid">
+    <div class="topic-row"><span class="name">Exponential Expressions</span><span class="result result-correct">1/1 &#10003;</span></div>
+    <div class="topic-row"><span class="name">Mean, Median, Mode, Range</span><span class="result result-correct">1/1 &#10003;</span></div>
+    <div class="topic-row"><span class="name">Algebra Word Problems</span><span class="result result-correct">1/1 &#10003;</span></div>
+    <div class="topic-row"><span class="name">Area</span><span class="result result-correct">1/1 &#10003;</span></div>
+    <div class="topic-row" style="border-color: var(--red);"><span class="name"><strong>Slope</strong></span><span class="result result-wrong">0/1 &#10007;</span></div>
+    <div class="topic-row" style="border-color: var(--red);"><span class="name"><strong>Rates / Ratios / Proportions</strong></span><span class="result result-wrong">0/1 &#10007;</span></div>
+    <div class="topic-row" style="border-color: var(--red);"><span class="name"><strong>Coordinate Geometry</strong></span><span class="result result-wrong">0/1 &#10007;</span></div>
+    <div class="topic-row" style="border-color: var(--red);"><span class="name"><strong>Probability</strong></span><span class="result result-wrong">0/1 &#10007;</span></div>
+    <div class="topic-row" style="border-color: var(--yellow);"><span class="name"><strong>Factoring</strong></span><span class="result result-partial">1/2 ~</span></div>
+  </div>
+
+  <!-- VIDEOS -->
+  <div class="section-title">Watch These</div>
+  <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 16px;">Short videos for each topic you need to review. Start with the top ones.</p>
+
+  <div class="video-topic">
+    <h3>Slope <span class="priority priority-high">High Priority</span></h3>
+    <a class="video-link" href="https://www.khanacademy.org/math/cc-eighth-grade-math/cc-8th-linear-equations-functions/8th-slope/v/introduction-to-slope" target="_blank">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      Khan Academy: Intro to Slope
+    </a>
+    <a class="video-link" href="https://www.khanacademy.org/math/cc-eighth-grade-math/cc-8th-linear-equations-functions/8th-slope/a/slope-formula" target="_blank">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      Khan Academy: Slope Formula
+    </a>
+    <a class="practice-link" href="https://www.varsitytutors.com/ssat_upper_level_math-help/coordinate-geometry/geometry/slope" target="_blank">Practice problems (Varsity Tutors) &rarr;</a>
+  </div>
+
+  <div class="video-topic">
+    <h3>Rates, Ratios, Proportions <span class="priority priority-high">High Priority</span></h3>
+    <a class="video-link" href="https://www.youtube.com/watch?v=bIKmw0aTmYc" target="_blank">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      Khan Academy: Introduction to Ratios (3:58)
+    </a>
+    <a class="video-link" href="https://www.youtube.com/watch?v=Wvmd1VFQdII" target="_blank">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      Khan Academy: Solving Ratios, Rates &amp; Proportions
+    </a>
+    <a class="practice-link" href="https://www.varsitytutors.com/ssat_upper_level_math-help/fractions/rational-numbers/number-concepts-and-operations/proportion-ratio-rate" target="_blank">Practice problems (Varsity Tutors) &rarr;</a>
+  </div>
+
+  <div class="video-topic">
+    <h3>Coordinate Geometry <span class="priority priority-high">High Priority</span></h3>
+    <a class="video-link" href="https://www.youtube.com/watch?v=N4nrdf0yYfM" target="_blank">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      Khan Academy: Intro to the Coordinate Plane (11:22)
+    </a>
+    <a class="video-link" href="https://www.khanacademy.org/math/basic-geo/basic-geo-coordinate-plane/coordinate-plane-intro/v/the-coordinate-plane" target="_blank">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      Khan Academy: The Coordinate Plane
+    </a>
+  </div>
+
+  <div class="video-topic">
+    <h3>Probability <span class="priority priority-high">High Priority</span></h3>
+    <a class="video-link" href="https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-probability-statistics/cc-7th-basic-prob/v/basic-probability" target="_blank">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      Khan Academy: Basic Probability
+    </a>
+    <a class="video-link" href="https://www.youtube.com/watch?v=uzkc-qNVoOk" target="_blank">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      Khan Academy: Independent &amp; Dependent Events (8:18)
+    </a>
+  </div>
+
+  <div class="video-topic">
+    <h3>Factoring <span class="priority priority-med">Medium</span></h3>
+    <a class="video-link" href="https://www.youtube.com/watch?v=I6TBBzIvgB8" target="_blank">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      Khan Academy: Factoring Algebraic Expressions (6 min)
+    </a>
+    <a class="video-link" href="https://www.khanacademy.org/math/algebra-basics/alg-basics-quadratics-and-polynomials/alg-basics-factoring-polynomials-1-common-factors/v/factoring-a-common-binomial-factor" target="_blank">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      Khan Academy: Factoring Common Factors
+    </a>
+  </div>
+
+  <div class="video-topic">
+    <h3>Synonyms Strategy <span class="priority priority-low">Light Review</span></h3>
+    <a class="video-link" href="https://prepmaven.com/blog/test-prep/ssat-synonym-practice/" target="_blank">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"/></svg>
+      PrepMaven: 4 Synonym Strategies &amp; 3 Drills
+    </a>
+    <a class="video-link" href="https://prepmaven.com/blog/preparing/ssat-vocabulary-prep/" target="_blank">
+      <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"/></svg>
+      PrepMaven: No Time to Prep? 6 Vocabulary Hacks
+    </a>
+  </div>
+
+  <!-- SSAT PORTAL -->
+  <div style="text-align: center; margin: 30px 0;">
+    <a class="portal-btn" href="https://portal.ssat.org" target="_blank">Open SSAT Practice Portal</a>
+    <p style="color: var(--text-dim); font-size: 0.8rem; margin-top: 8px;">Take quizzes and section tests after reviewing each topic</p>
+  </div>
+
+  <!-- FLASHCARDS -->
+  <div class="section-title">Flashcards</div>
+  <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 16px;">Click a card to flip it. Use the arrows to move through each deck.</p>
+
+  <div class="flashcard-nav">
+    <button class="fc-tab active" onclick="switchDeck('slope')">Slope</button>
+    <button class="fc-tab" onclick="switchDeck('ratios')">Ratios</button>
+    <button class="fc-tab" onclick="switchDeck('coord')">Coordinates</button>
+    <button class="fc-tab" onclick="switchDeck('prob')">Probability</button>
+    <button class="fc-tab" onclick="switchDeck('factor')">Factoring</button>
+  </div>
+
+  <div class="flashcard-area">
+    <div class="flashcard" onclick="flipCard()">
+      <div class="front" id="fc-front"></div>
+      <div class="back" id="fc-back"></div>
+      <div class="hint">tap to flip</div>
+    </div>
+  </div>
+  <div class="fc-controls">
+    <button class="fc-btn" onclick="prevCard()">&larr; Prev</button>
+    <span class="fc-counter" id="fc-counter"></span>
+    <button class="fc-btn" onclick="nextCard()">Next &rarr;</button>
+  </div>
+
+  <!-- QUICK REF -->
+  <div class="quick-ref" style="margin-top: 30px;">
+    <h3>Formulas to Know Cold</h3>
+    <ul>
+      <li>Slope = (y&#8322; - y&#8321;) / (x&#8322; - x&#8321;) <span>&mdash; rise over run</span></li>
+      <li>a/b = c/d &rarr; ad = bc <span>&mdash; cross multiply</span></li>
+      <li>P(event) = favorable / total <span>&mdash; basic probability</span></li>
+      <li>P(not A) = 1 - P(A) <span>&mdash; complement</span></li>
+      <li>Distance = &radic;[(x&#8322;-x&#8321;)&sup2; + (y&#8322;-y&#8321;)&sup2;]</li>
+      <li>Midpoint = ((x&#8321;+x&#8322;)/2, (y&#8321;+y&#8322;)/2)</li>
+      <li>y = mx + b <span>&mdash; slope-intercept form</span></li>
+      <li>a&sup2; - b&sup2; = (a+b)(a-b) <span>&mdash; difference of squares</span></li>
+      <li>Percent = (part / whole) &times; 100</li>
+    </ul>
+  </div>
+
+  <!-- SYNONYMS -->
+  <div class="section-title">Synonym Word List</div>
+  <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 16px;">High-frequency SSAT words. Read through these a couple times before Saturday.</p>
+
+  <div class="synonym-grid" id="synonym-grid"></div>
+
+  <!-- SCHEDULE -->
+  <div class="section-title">The Plan</div>
+
+  <div class="schedule-block">
+    <h3>Thursday Night</h3>
+    <ol>
+      <li>Watch the <a href="https://www.khanacademy.org/math/cc-eighth-grade-math/cc-8th-linear-equations-functions/8th-slope/v/introduction-to-slope" target="_blank">Slope video</a> (~10 min)</li>
+      <li>Watch the <a href="https://www.youtube.com/watch?v=bIKmw0aTmYc" target="_blank">Ratios video</a> (~4 min)</li>
+      <li>Go through the Slope and Ratios flashcard decks above</li>
+      <li>Log into the <a href="https://portal.ssat.org" target="_blank">SSAT portal</a> &rarr; Study &amp; Quiz &rarr; take the Slope quiz and Rates quiz</li>
+    </ol>
+  </div>
+
+  <div class="schedule-block">
+    <h3>Friday</h3>
+    <ol>
+      <li>Watch the <a href="https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-probability-statistics/cc-7th-basic-prob/v/basic-probability" target="_blank">Probability video</a> (~8 min)</li>
+      <li>Watch the <a href="https://www.youtube.com/watch?v=I6TBBzIvgB8" target="_blank">Factoring video</a> (~6 min)</li>
+      <li>Go through Probability, Factoring, and Coordinates flashcard decks</li>
+      <li>Take one <strong>Quantitative Section Test</strong> in the portal (~40 min) &mdash; treat it like the real thing</li>
+      <li>Read through the synonym word list above &mdash; cover the "Think..." column and quiz yourself</li>
+    </ol>
+  </div>
+
+  <div class="schedule-block">
+    <h3>Saturday Morning</h3>
+    <ol>
+      <li>Skim the Formulas to Know Cold section above</li>
+      <li>Quick pass through the synonym list</li>
+      <li>Don't cram anything new. Trust what you've put in.</li>
+    </ol>
+  </div>
+
+  <footer>
+    Built for Jackson &middot; April 2026
+  </footer>
+
+</div>
+
+<script>
+const decks = {
+  slope: [
+    { q: "What is slope?", a: "Slope measures how steep a line is.\n\nSlope = rise / run\n\nIt's the ratio of vertical change to horizontal change between two points." },
+    { q: "Slope formula", a: "Given two points (x\u2081, y\u2081) and (x\u2082, y\u2082):\n\nm = (y\u2082 - y\u2081) / (x\u2082 - x\u2081)\n\nSubtract the y's on top, subtract the x's on bottom." },
+    { q: "Find the slope between (2, 3) and (6, 11)", a: "m = (11 - 3) / (6 - 2)\nm = 8 / 4\nm = 2\n\nThe slope is 2." },
+    { q: "Positive slope vs. negative slope?", a: "Positive slope: line goes UP left to right \u2197\nNegative slope: line goes DOWN left to right \u2198\nZero slope: horizontal line \u2192\nUndefined: vertical line \u2191" },
+    { q: "What is slope-intercept form?", a: "y = mx + b\n\nm = slope\nb = y-intercept (where the line crosses the y-axis)\n\nIf y = 3x + 5, the slope is 3 and it crosses y at 5." },
+    { q: "Parallel and perpendicular slopes?", a: "Parallel lines: SAME slope\nPerpendicular lines: NEGATIVE RECIPROCALS\n\nIf slope = 2/3\nParallel slope = 2/3\nPerpendicular slope = -3/2\n\n(Flip the fraction and change the sign)" }
+  ],
+  ratios: [
+    { q: "What is a ratio?", a: "A ratio compares two quantities.\n\n3 apples to 5 oranges = 3:5 = 3/5\n\nIt can be written three ways:\n3 to 5, 3:5, or 3/5" },
+    { q: "What is a proportion?", a: "A proportion says two ratios are equal.\n\na/b = c/d\n\nExample: 2/3 = 4/6" },
+    { q: "How do you solve a proportion?", a: "Cross multiply!\n\na/b = c/d \u2192 a \u00d7 d = b \u00d7 c\n\nExample: 3/4 = x/20\n3 \u00d7 20 = 4 \u00d7 x\n60 = 4x\nx = 15" },
+    { q: "How do you solve rate problems?", a: "Find the rate per ONE unit first, then multiply.\n\n150 miles in 3 hours:\n150 \u00f7 3 = 50 mph\n\nHow far in 7 hours?\n50 \u00d7 7 = 350 miles" },
+    { q: "How do you find a percentage?", a: "Percentage = (part / whole) \u00d7 100\n\nWhat percent is 15 out of 60?\n(15 / 60) \u00d7 100 = 25%" },
+    { q: "What is 25% of 80?", a: "Convert the percent to a decimal and multiply.\n\n25% = 0.25\n0.25 \u00d7 80 = 20\n\nAnswer: 20" },
+    { q: "Percent change formula?", a: "Percent change = (new - original) / original \u00d7 100\n\nPrice went from $40 to $50:\n(50 - 40) / 40 \u00d7 100 = 25% increase" }
+  ],
+  coord: [
+    { q: "What are the parts of the coordinate plane?", a: "Horizontal line = x-axis\nVertical line = y-axis\nThey cross at the origin (0, 0)\n\nA point is written (x, y)\nx = left/right, y = up/down" },
+    { q: "What are the four quadrants?", a: "Quadrant I: (+, +) \u2014 upper right\nQuadrant II: (\u2013, +) \u2014 upper left\nQuadrant III: (\u2013, \u2013) \u2014 lower left\nQuadrant IV: (+, \u2013) \u2014 lower right\n\nThey go counterclockwise starting from the upper right." },
+    { q: "Distance formula", a: "Distance between (x\u2081, y\u2081) and (x\u2082, y\u2082):\n\nd = \u221a[(x\u2082 - x\u2081)\u00b2 + (y\u2082 - y\u2081)\u00b2]\n\nIt's the Pythagorean theorem applied to coordinates." },
+    { q: "Find the distance between (1, 2) and (4, 6)", a: "d = \u221a[(4-1)\u00b2 + (6-2)\u00b2]\nd = \u221a[9 + 16]\nd = \u221a25\nd = 5" },
+    { q: "Midpoint formula", a: "Midpoint between (x\u2081, y\u2081) and (x\u2082, y\u2082):\n\n((x\u2081 + x\u2082)/2, (y\u2081 + y\u2082)/2)\n\nAverage the x's, average the y's." },
+    { q: "Find the midpoint of (2, 4) and (8, 10)", a: "((2 + 8)/2, (4 + 10)/2)\n= (10/2, 14/2)\n= (5, 7)" }
+  ],
+  prob: [
+    { q: "Basic probability formula", a: "P(event) = favorable outcomes / total possible outcomes\n\nAlways a number between 0 and 1.\n0 = impossible, 1 = certain" },
+    { q: "A bag has 3 red, 4 blue, 5 green marbles.\nP(red)?", a: "P(red) = 3 / (3 + 4 + 5)\nP(red) = 3/12\nP(red) = 1/4 = 0.25 = 25%" },
+    { q: "Probability of something NOT happening?", a: "P(not A) = 1 \u2013 P(A)\n\nIf P(rain) = 0.3\nP(no rain) = 1 \u2013 0.3 = 0.7" },
+    { q: "Two independent events happening together?", a: "MULTIPLY their probabilities.\n\nP(A and B) = P(A) \u00d7 P(B)\n\nFlip heads AND roll a 6:\n1/2 \u00d7 1/6 = 1/12" },
+    { q: "Counting outcomes", a: "If you have 3 shirts and 4 pants, how many outfits?\n\n3 \u00d7 4 = 12 outfits\n\nMultiply the number of choices at each step." },
+    { q: "A die is rolled. P(even number)?", a: "Even numbers on a die: 2, 4, 6 = 3 outcomes\nTotal outcomes: 6\n\nP(even) = 3/6 = 1/2" }
+  ],
+  factor: [
+    { q: "What is factoring?", a: "Breaking an expression into pieces (factors) that multiply together to give the original expression.\n\nIt's the reverse of distributing / expanding." },
+    { q: "Greatest Common Factor (GCF)", a: "Find the largest number or variable that divides into every term.\n\n6x + 9\nGCF = 3\n= 3(2x + 3)" },
+    { q: "Factor: 4x\u00b2 + 8x", a: "GCF = 4x\n\n4x\u00b2 + 8x = 4x(x + 2)\n\nCheck: 4x \u00d7 x = 4x\u00b2 and 4x \u00d7 2 = 8x \u2713" },
+    { q: "Difference of squares pattern", a: "a\u00b2 \u2013 b\u00b2 = (a + b)(a \u2013 b)\n\nExample:\nx\u00b2 \u2013 25 = (x + 5)(x \u2013 5)\n\nOnly works with SUBTRACTION between two perfect squares." },
+    { q: "Factor: x\u00b2 + 7x + 12", a: "Find two numbers that:\n\u2022 MULTIPLY to 12\n\u2022 ADD to 7\n\nNumbers: 3 and 4\n\n= (x + 3)(x + 4)" },
+    { q: "How do you check your factoring?", a: "FOIL it back out!\n\n(x + 3)(x + 4)\n= x\u00b2 + 4x + 3x + 12\n= x\u00b2 + 7x + 12 \u2713\n\nIf it matches the original, you're good." }
+  ]
+};
+
+const synonyms = [
+  ["Abundant","plentiful, more than enough","a lot"],
+  ["Adept","highly skilled","good at"],
+  ["Admonish","warn, scold gently","tell off"],
+  ["Adversary","opponent, enemy","rival"],
+  ["Amiable","friendly, pleasant","nice"],
+  ["Apprehension","worry, anxiety","nervousness"],
+  ["Austere","strict, plain, severe","no-frills"],
+  ["Benevolent","kind, generous","good-hearted"],
+  ["Bolster","support, strengthen","prop up"],
+  ["Candid","honest, straightforward","real"],
+  ["Coerce","force, pressure","make someone"],
+  ["Cunning","clever, sly","tricky"],
+  ["Dejection","sadness, low spirits","bummed out"],
+  ["Diligent","hardworking, careful","grinding"],
+  ["Disparage","criticize, belittle","put down"],
+  ["Docile","easily managed, gentle","calm"],
+  ["Eloquent","well-spoken, expressive","smooth talker"],
+  ["Ephemeral","short-lived, temporary","gone quick"],
+  ["Exasperate","annoy greatly, frustrate","drive crazy"],
+  ["Feign","pretend, fake","front"],
+  ["Fickle","changing often, not loyal","flip-flopping"],
+  ["Frugal","careful with money","cheap"],
+  ["Furtive","secretive, sneaky","low-key"],
+  ["Haughty","arrogant, acting superior","stuck-up"],
+  ["Irate","extremely angry","furious"],
+  ["Jubilant","very happy, celebrating","hyped"],
+  ["Meticulous","very careful, detail-oriented","precise"],
+  ["Ominous","threatening, warning of bad things","scary vibe"],
+  ["Prudent","wise, careful, sensible","smart move"],
+  ["Tenacious","persistent, not giving up","won't quit"]
+];
+
+let currentDeck = 'slope';
+let currentIndex = 0;
+
+function switchDeck(name) {
+  currentDeck = name;
+  currentIndex = 0;
+  document.querySelectorAll('.fc-tab').forEach(t => t.classList.remove('active'));
+  event.target.classList.add('active');
+  renderCard();
+}
+
+function renderCard() {
+  const deck = decks[currentDeck];
+  const card = deck[currentIndex];
+  document.getElementById('fc-front').textContent = card.q;
+  document.getElementById('fc-back').textContent = card.a;
+  document.getElementById('fc-back').style.whiteSpace = 'pre-line';
+  document.getElementById('fc-counter').textContent = (currentIndex + 1) + ' / ' + deck.length;
+  document.querySelector('.flashcard').classList.remove('flipped');
+}
+
+function flipCard() {
+  document.querySelector('.flashcard').classList.toggle('flipped');
+}
+
+function nextCard() {
+  const deck = decks[currentDeck];
+  currentIndex = (currentIndex + 1) % deck.length;
+  renderCard();
+}
+
+function prevCard() {
+  const deck = decks[currentDeck];
+  currentIndex = (currentIndex - 1 + deck.length) % deck.length;
+  renderCard();
+}
+
+function renderSynonyms() {
+  const grid = document.getElementById('synonym-grid');
+  grid.innerHTML = synonyms.map(s =>
+    `<div class="syn-row"><span class="syn-word">${s[0]}</span><span class="syn-def">${s[1]}</span><span class="syn-think">${s[2]}</span></div>`
+  ).join('');
+}
+
+renderCard();
+renderSynonyms();
+</script>
+</body>
+</html>
