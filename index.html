@@ -14,6 +14,7 @@
     --card-hover: #1c2030;
     --accent: #5b9aff;
     --accent-glow: rgba(91,154,255,0.12);
+    --accent-grad: linear-gradient(135deg, #5b9aff, #3b7aef);
     --green: #34d399;
     --green-dim: rgba(52,211,153,0.15);
     --red: #f87171;
@@ -27,6 +28,42 @@
     --border2: #2e3347;
     --radius: 14px;
     --radius-sm: 10px;
+    --header-bg: linear-gradient(180deg, rgba(91,154,255,0.06) 0%, transparent 100%);
+    --h1-grad: linear-gradient(135deg, #fff 30%, var(--accent));
+    --fc-back-bg: linear-gradient(135deg, #1a2233, #161d2d);
+    --qr-bg: linear-gradient(135deg, #131a28, #151c2a);
+    --qr-border: #1e2a3d;
+    --portal-bg: linear-gradient(135deg, rgba(91,154,255,0.08), rgba(52,211,153,0.06));
+    --btn-shadow: rgba(91,154,255,0.3);
+    --btn-shadow-hover: rgba(91,154,255,0.4);
+  }
+  [data-theme="light"] {
+    --bg: #f5f6f8;
+    --bg2: #edeef2;
+    --card: #ffffff;
+    --card-hover: #f9f9fb;
+    --accent: #2563eb;
+    --accent-glow: rgba(37,99,235,0.08);
+    --accent-grad: linear-gradient(135deg, #2563eb, #1d4ed8);
+    --green: #059669;
+    --green-dim: rgba(5,150,105,0.1);
+    --red: #dc2626;
+    --red-dim: rgba(220,38,38,0.08);
+    --yellow: #d97706;
+    --yellow-dim: rgba(217,119,6,0.08);
+    --text: #1a1a2e;
+    --text2: #4b5563;
+    --text3: #9ca3af;
+    --border: #e2e4ea;
+    --border2: #d1d5db;
+    --header-bg: linear-gradient(180deg, rgba(37,99,235,0.04) 0%, transparent 100%);
+    --h1-grad: linear-gradient(135deg, #1a1a2e 30%, var(--accent));
+    --fc-back-bg: linear-gradient(135deg, #eef2ff, #e8ecf8);
+    --qr-bg: linear-gradient(135deg, #eef2ff, #e8f0fe);
+    --qr-border: #d1d9e8;
+    --portal-bg: linear-gradient(135deg, rgba(37,99,235,0.05), rgba(5,150,105,0.04));
+    --btn-shadow: rgba(37,99,235,0.2);
+    --btn-shadow-hover: rgba(37,99,235,0.3);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -43,13 +80,13 @@
   header {
     text-align: center;
     padding: 52px 20px 36px;
-    background: linear-gradient(180deg, rgba(91,154,255,0.06) 0%, transparent 100%);
+    background: var(--header-bg);
   }
   header h1 {
     font-size: 2rem;
     font-weight: 800;
     letter-spacing: -0.03em;
-    background: linear-gradient(135deg, #fff 30%, var(--accent));
+    background: var(--h1-grad);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -57,14 +94,14 @@
   header .subtitle { color: var(--text3); font-size: 0.9rem; margin-top: 4px; font-weight: 500; }
   .badge {
     display: inline-block;
-    background: linear-gradient(135deg, var(--accent), #3b7aef);
+    background: var(--accent-grad);
     color: #fff;
     padding: 6px 18px;
     border-radius: 24px;
     font-size: 0.82rem;
     font-weight: 600;
     margin-top: 16px;
-    box-shadow: 0 2px 12px rgba(91,154,255,0.25);
+    box-shadow: 0 2px 12px var(--btn-shadow);
   }
 
   /* Sections */
@@ -199,13 +236,13 @@
     text-align: center;
     padding: 32px 20px;
     margin: 36px 0;
-    background: linear-gradient(135deg, rgba(91,154,255,0.08), rgba(52,211,153,0.06));
+    background: var(--portal-bg);
     border-radius: var(--radius);
     border: 1px solid var(--border);
   }
   .portal-btn {
     display: inline-block;
-    background: linear-gradient(135deg, var(--accent), #3b7aef);
+    background: var(--accent-grad);
     color: #fff;
     padding: 14px 36px;
     border-radius: 12px;
@@ -214,9 +251,9 @@
     font-size: 0.95rem;
     letter-spacing: -0.01em;
     transition: transform 0.15s, box-shadow 0.15s;
-    box-shadow: 0 2px 16px rgba(91,154,255,0.3);
+    box-shadow: 0 2px 16px var(--btn-shadow);
   }
-  .portal-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 24px rgba(91,154,255,0.4); }
+  .portal-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 24px var(--btn-shadow-hover); }
   .portal-cta .hint { color: var(--text3); font-size: 0.8rem; margin-top: 10px; }
 
   /* Flashcard section */
@@ -240,10 +277,10 @@
   }
   .fc-tab:hover { border-color: var(--accent); color: var(--text); }
   .fc-tab.active {
-    background: linear-gradient(135deg, var(--accent), #3b7aef);
+    background: var(--accent-grad);
     color: #fff;
     border-color: transparent;
-    box-shadow: 0 2px 12px rgba(91,154,255,0.25);
+    box-shadow: 0 2px 12px var(--btn-shadow);
   }
 
   /* 3D Flip Card */
@@ -291,7 +328,7 @@
     font-weight: 500;
   }
   .fc-back {
-    background: linear-gradient(135deg, #1a2233, #161d2d);
+    background: var(--fc-back-bg);
     border: 1px solid var(--accent);
     transform: rotateY(180deg);
     box-shadow: 0 0 24px var(--accent-glow);
@@ -332,10 +369,10 @@
 
   /* Quick Ref */
   .quick-ref {
-    background: linear-gradient(135deg, #131a28, #151c2a);
+    background: var(--qr-bg);
     border-radius: var(--radius);
     padding: 28px;
-    border: 1px solid #1e2a3d;
+    border: 1px solid var(--qr-border);
   }
   .quick-ref h3 {
     font-size: 0.95rem;
@@ -396,9 +433,55 @@
 
   /* Play icon */
   .play-icon { width: 16px; height: 16px; fill: currentColor; }
+
+  /* Theme toggle */
+  .theme-toggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 100;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.25s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .theme-toggle:hover { border-color: var(--accent); transform: scale(1.08); }
+
+  /* Light mode card shadow */
+  [data-theme="light"] .score-card,
+  [data-theme="light"] .vid-card,
+  [data-theme="light"] .sched-card,
+  [data-theme="light"] .topic-row {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  [data-theme="light"] .fc-front {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  [data-theme="light"] .fc-back {
+    box-shadow: 0 2px 12px rgba(37,99,235,0.1);
+  }
+  [data-theme="light"] .theme-toggle {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+
+  /* Smooth transition */
+  body, .score-card, .vid-card, .sched-card, .topic-row, .fc-front, .fc-back,
+  .fc-tab, .fc-btn, .quick-ref, .portal-cta, header, .theme-toggle, .badge {
+    transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+  }
 </style>
 </head>
 <body>
+
+<button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">🌙</button>
 
 <header>
   <h1>Jackson's SSAT Prep</h1>
@@ -726,6 +809,28 @@ function prevCard() {
   currentIndex = (currentIndex - 1 + cards.length) % cards.length;
   renderCard();
 }
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.getElementById('theme-toggle');
+  if (html.getAttribute('data-theme') === 'light') {
+    html.removeAttribute('data-theme');
+    btn.textContent = '🌙';
+    localStorage.setItem('theme', 'dark');
+  } else {
+    html.setAttribute('data-theme', 'light');
+    btn.textContent = '☀️';
+    localStorage.setItem('theme', 'light');
+  }
+}
+
+(function initTheme() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.getElementById('theme-toggle').textContent = '☀️';
+  }
+})();
 
 buildTabs();
 renderCard();
