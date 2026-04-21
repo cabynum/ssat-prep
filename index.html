@@ -541,6 +541,19 @@
     font-weight: 700;
     color: var(--green);
   }
+  .qr-diagram {
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .qr-diagram svg {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .qr-diagram svg text {
+    font-family: 'Inter', sans-serif;
+  }
 
   /* Footer */
   footer {
@@ -839,6 +852,20 @@
             <div class="qr-explain"><strong>Slope.</strong> Subtract the y-values on top, x-values on bottom. Positive = up, negative = down.</div>
             <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
               <div class="qr-example">
+                <div class="qr-diagram"><svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="40" y1="180" x2="300" y2="180" stroke="var(--text3)" stroke-width="1"/>
+                  <line x1="40" y1="180" x2="40" y2="10" stroke="var(--text3)" stroke-width="1"/>
+                  <line x1="40" y1="180" x2="40" y2="180" stroke="var(--text3)"/>
+                  <line x1="80" y1="140" x2="280" y2="20" stroke="var(--accent-light)" stroke-width="2.5"/>
+                  <circle cx="80" cy="140" r="5" fill="var(--gold)"/>
+                  <circle cx="280" cy="20" r="5" fill="var(--gold)"/>
+                  <line x1="80" y1="140" x2="280" y2="140" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="6,4"/>
+                  <line x1="280" y1="140" x2="280" y2="20" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="6,4"/>
+                  <text x="170" y="160" fill="var(--text2)" font-size="12" text-anchor="middle">run = 3</text>
+                  <text x="296" y="85" fill="var(--text2)" font-size="12" text-anchor="start">rise = 12</text>
+                  <text x="60" y="152" fill="var(--gold)" font-size="11" font-weight="600">(1, 3)</text>
+                  <text x="230" y="16" fill="var(--gold)" font-size="11" font-weight="600">(4, 15)</text>
+                </svg></div>
                 <div class="ex-q">What is the slope of the line passing through (1, 3) and (4, 15)?</div>
                 <div class="ex-choices">(A) 2 &nbsp; (B) 3 &nbsp; (C) 4 &nbsp; (D) 5 &nbsp; (E) 6</div>
                 <div class="ex-solve">Solution</div>
@@ -856,6 +883,20 @@ m = 4</div>
             <div class="qr-explain"><strong>Slope-intercept form.</strong> m is the slope, b is the y-intercept.</div>
             <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
               <div class="qr-example">
+                <div class="qr-diagram"><svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="160" y1="190" x2="160" y2="10" stroke="var(--text3)" stroke-width="1"/>
+                  <line x1="20" y1="100" x2="300" y2="100" stroke="var(--text3)" stroke-width="1"/>
+                  <line x1="60" y1="20" x2="280" y2="180" stroke="var(--accent-light)" stroke-width="2.5"/>
+                  <circle cx="160" cy="30" r="6" fill="var(--gold)"/>
+                  <text x="172" y="28" fill="var(--gold)" font-size="12" font-weight="700">b = 7</text>
+                  <text x="164" y="48" fill="var(--text2)" font-size="10">(y-intercept)</text>
+                  <path d="M220,75 L220,115 L260,115" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="5,3"/>
+                  <text x="226" y="100" fill="var(--text2)" font-size="10">-2</text>
+                  <text x="232" y="128" fill="var(--text2)" font-size="10">1</text>
+                  <text x="100" y="190" fill="var(--text2)" font-size="13" font-weight="600">y = -2x + 7</text>
+                  <text x="14" y="14" fill="var(--text3)" font-size="10">y</text>
+                  <text x="290" y="96" fill="var(--text3)" font-size="10">x</text>
+                </svg></div>
                 <div class="ex-q">What is the slope of the line y = &minus;2x + 7?</div>
                 <div class="ex-choices">(A) 7 &nbsp; (B) 2 &nbsp; (C) &minus;2 &nbsp; (D) &minus;7 &nbsp; (E) 1/2</div>
                 <div class="ex-solve">Solution</div>
@@ -873,6 +914,21 @@ The slope is the number in front of x.</div>
             <div class="qr-explain"><strong>Cross multiplication.</strong> When two fractions are equal, cross multiply to solve.</div>
             <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
               <div class="qr-example">
+                <div class="qr-diagram"><svg viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg">
+                  <text x="90" y="35" fill="var(--text)" font-size="22" font-weight="700" text-anchor="middle">5</text>
+                  <line x1="70" y1="45" x2="110" y2="45" stroke="var(--text)" stroke-width="2"/>
+                  <text x="90" y="75" fill="var(--text)" font-size="22" font-weight="700" text-anchor="middle">8</text>
+                  <text x="160" y="55" fill="var(--text)" font-size="22" font-weight="700" text-anchor="middle">=</text>
+                  <text x="230" y="35" fill="var(--gold)" font-size="22" font-weight="700" text-anchor="middle">x</text>
+                  <line x1="210" y1="45" x2="250" y2="45" stroke="var(--text)" stroke-width="2"/>
+                  <text x="230" y="75" fill="var(--text)" font-size="22" font-weight="700" text-anchor="middle">24</text>
+                  <path d="M100,30 Q160,0 220,70" fill="none" stroke="var(--accent-light)" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+                  <path d="M100,80 Q160,110 220,40" fill="none" stroke="var(--gold)" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arr2)"/>
+                  <defs><marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="var(--accent-light)"/></marker>
+                  <marker id="arr2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="var(--gold)"/></marker></defs>
+                  <text x="160" y="105" fill="var(--accent-light)" font-size="12" font-weight="600" text-anchor="middle">5 &times; 24 = 8 &times; x</text>
+                  <text x="160" y="125" fill="var(--text2)" font-size="11" text-anchor="middle">cross multiply the diagonals</text>
+                </svg></div>
                 <div class="ex-q">If 5/8 = x/24, what is x?</div>
                 <div class="ex-choices">(A) 10 &nbsp; (B) 12 &nbsp; (C) 15 &nbsp; (D) 18 &nbsp; (E) 20</div>
                 <div class="ex-solve">Solution</div>
@@ -891,6 +947,15 @@ x = 15</div>
             <div class="qr-explain"><strong>Finding a percentage.</strong> Divide the part by the whole, multiply by 100.</div>
             <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
               <div class="qr-example">
+                <div class="qr-diagram"><svg viewBox="0 0 320 80" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="10" y="15" width="300" height="30" rx="6" fill="var(--border)" stroke="var(--border2)" stroke-width="1"/>
+                  <rect x="10" y="15" width="225" height="30" rx="6" fill="var(--accent-light)"/>
+                  <text x="120" y="36" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">18 wins</text>
+                  <text x="268" y="36" fill="var(--text3)" font-size="11" text-anchor="middle">6</text>
+                  <text x="160" y="65" fill="var(--gold)" font-size="14" font-weight="700" text-anchor="middle">75%</text>
+                  <text x="10" y="65" fill="var(--text3)" font-size="10">0</text>
+                  <text x="300" y="65" fill="var(--text3)" font-size="10">24 games</text>
+                </svg></div>
                 <div class="ex-q">A basketball team won 18 out of 24 games. What percentage of games did they win?</div>
                 <div class="ex-choices">(A) 60% &nbsp; (B) 70% &nbsp; (C) 75% &nbsp; (D) 80% &nbsp; (E) 85%</div>
                 <div class="ex-solve">Solution</div>
@@ -908,6 +973,20 @@ x = 15</div>
             <div class="qr-explain"><strong>Probability.</strong> Count what you want, divide by everything possible.</div>
             <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
               <div class="qr-example">
+                <div class="qr-diagram"><svg viewBox="0 0 320 90" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="22" cy="30" r="10" fill="#c62828" opacity="0.7"/><circle cx="44" cy="30" r="10" fill="#c62828" opacity="0.7"/>
+                  <circle cx="66" cy="30" r="10" fill="#c62828" opacity="0.7"/><circle cx="88" cy="30" r="10" fill="#c62828" opacity="0.7"/>
+                  <circle cx="116" cy="30" r="10" fill="#2979ff" stroke="var(--gold)" stroke-width="2"/><circle cx="138" cy="30" r="10" fill="#2979ff" stroke="var(--gold)" stroke-width="2"/>
+                  <circle cx="160" cy="30" r="10" fill="#2979ff" stroke="var(--gold)" stroke-width="2"/><circle cx="182" cy="30" r="10" fill="#2979ff" stroke="var(--gold)" stroke-width="2"/>
+                  <circle cx="204" cy="30" r="10" fill="#2979ff" stroke="var(--gold)" stroke-width="2"/><circle cx="226" cy="30" r="10" fill="#2979ff" stroke="var(--gold)" stroke-width="2"/>
+                  <circle cx="254" cy="30" r="10" fill="#2e7d32" opacity="0.7"/><circle cx="276" cy="30" r="10" fill="#2e7d32" opacity="0.7"/>
+                  <circle cx="298" cy="30" r="10" fill="#2e7d32" opacity="0.7"/><circle cx="254" cy="56" r="10" fill="#2e7d32" opacity="0.7"/>
+                  <circle cx="276" cy="56" r="10" fill="#2e7d32" opacity="0.7"/>
+                  <text x="55" y="70" fill="#c62828" font-size="10" font-weight="600" text-anchor="middle">4 red</text>
+                  <text x="171" y="70" fill="#2979ff" font-size="10" font-weight="600" text-anchor="middle">6 blue</text>
+                  <text x="265" y="85" fill="#2e7d32" font-size="10" font-weight="600" text-anchor="middle">5 green</text>
+                  <text x="171" y="85" fill="var(--gold)" font-size="12" font-weight="700" text-anchor="middle">P(blue) = 6/15</text>
+                </svg></div>
                 <div class="ex-q">A bag has 4 red, 6 blue, and 5 green marbles. If you pick one at random, what is the probability it is blue?</div>
                 <div class="ex-choices">(A) 1/5 &nbsp; (B) 1/3 &nbsp; (C) 2/5 &nbsp; (D) 2/3 &nbsp; (E) 6/10</div>
                 <div class="ex-solve">Solution</div>
@@ -924,6 +1003,16 @@ P(blue) = 6/15 = 2/5</div>
             <div class="qr-explain"><strong>Complement.</strong> Probability of something NOT happening = 1 minus the probability it does.</div>
             <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
               <div class="qr-example">
+                <div class="qr-diagram"><svg viewBox="0 0 320 170" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="160" cy="85" r="70" fill="none" stroke="var(--border2)" stroke-width="2"/>
+                  <path d="M160,85 L160,15 A70,70 0 0,1 220,135 Z" fill="var(--accent-light)" opacity="0.6"/>
+                  <path d="M160,85 L220,135 A70,70 0 1,1 160,15 Z" fill="var(--green)" opacity="0.25"/>
+                  <text x="190" y="65" fill="var(--accent-light)" font-size="14" font-weight="700">1/4</text>
+                  <text x="190" y="80" fill="var(--accent-light)" font-size="9">red</text>
+                  <text x="110" y="110" fill="var(--green)" font-size="16" font-weight="700">3/4</text>
+                  <text x="110" y="126" fill="var(--green)" font-size="9">NOT red</text>
+                  <text x="160" y="168" fill="var(--text2)" font-size="11" text-anchor="middle">1 &minus; 1/4 = 3/4</text>
+                </svg></div>
                 <div class="ex-q">The probability of picking a red card from a deck is 1/4. What is the probability of NOT picking a red card?</div>
                 <div class="ex-choices">(A) 1/4 &nbsp; (B) 1/2 &nbsp; (C) 3/4 &nbsp; (D) 1/3 &nbsp; (E) 2/3</div>
                 <div class="ex-solve">Solution</div>
@@ -940,6 +1029,27 @@ P(blue) = 6/15 = 2/5</div>
             <div class="qr-explain"><strong>Distance formula.</strong> Pythagorean theorem on a coordinate plane.</div>
             <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
               <div class="qr-example">
+                <div class="qr-diagram"><svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="40" y1="180" x2="300" y2="180" stroke="var(--text3)" stroke-width="0.5"/>
+                  <line x1="40" y1="180" x2="40" y2="10" stroke="var(--text3)" stroke-width="0.5"/>
+                  <line x1="40" y1="140" x2="300" y2="140" stroke="var(--border)" stroke-width="0.3"/>
+                  <line x1="40" y1="100" x2="300" y2="100" stroke="var(--border)" stroke-width="0.3"/>
+                  <line x1="40" y1="60" x2="300" y2="60" stroke="var(--border)" stroke-width="0.3"/>
+                  <line x1="40" y1="20" x2="300" y2="20" stroke="var(--border)" stroke-width="0.3"/>
+                  <line x1="105" y1="180" x2="105" y2="10" stroke="var(--border)" stroke-width="0.3"/>
+                  <line x1="170" y1="180" x2="170" y2="10" stroke="var(--border)" stroke-width="0.3"/>
+                  <line x1="235" y1="180" x2="235" y2="10" stroke="var(--border)" stroke-width="0.3"/>
+                  <line x1="105" y1="140" x2="235" y2="140" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="6,4"/>
+                  <line x1="235" y1="140" x2="235" y2="20" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="6,4"/>
+                  <line x1="105" y1="140" x2="235" y2="20" stroke="var(--accent-light)" stroke-width="3"/>
+                  <circle cx="105" cy="140" r="6" fill="var(--gold)"/>
+                  <circle cx="235" cy="20" r="6" fill="var(--gold)"/>
+                  <text x="160" y="158" fill="var(--text2)" font-size="12" font-weight="600" text-anchor="middle">3</text>
+                  <text x="250" y="85" fill="var(--text2)" font-size="12" font-weight="600">4</text>
+                  <text x="148" y="72" fill="var(--accent-light)" font-size="13" font-weight="700">d = 5</text>
+                  <text x="70" y="155" fill="var(--gold)" font-size="10" font-weight="600">(2, 1)</text>
+                  <text x="242" y="18" fill="var(--gold)" font-size="10" font-weight="600">(5, 5)</text>
+                </svg></div>
                 <div class="ex-q">What is the distance between points (2, 1) and (5, 5)?</div>
                 <div class="ex-choices">(A) 3 &nbsp; (B) 4 &nbsp; (C) 5 &nbsp; (D) 6 &nbsp; (E) 7</div>
                 <div class="ex-solve">Solution</div>
@@ -958,6 +1068,20 @@ d = 5</div>
             <div class="qr-explain"><strong>Midpoint.</strong> Average the x's, average the y's.</div>
             <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
               <div class="qr-example">
+                <div class="qr-diagram"><svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="40" y1="160" x2="300" y2="160" stroke="var(--text3)" stroke-width="0.5"/>
+                  <line x1="40" y1="160" x2="40" y2="10" stroke="var(--text3)" stroke-width="0.5"/>
+                  <line x1="80" y1="30" x2="260" y2="150" stroke="var(--text2)" stroke-width="2"/>
+                  <circle cx="80" cy="30" r="6" fill="var(--gold)"/>
+                  <circle cx="260" cy="150" r="6" fill="var(--gold)"/>
+                  <circle cx="170" cy="90" r="8" fill="var(--accent-light)" stroke="var(--gold)" stroke-width="2"/>
+                  <line x1="170" y1="90" x2="170" y2="160" stroke="var(--gold)" stroke-width="1" stroke-dasharray="4,3"/>
+                  <line x1="40" y1="90" x2="170" y2="90" stroke="var(--gold)" stroke-width="1" stroke-dasharray="4,3"/>
+                  <text x="55" y="24" fill="var(--gold)" font-size="11" font-weight="600">(3, 7)</text>
+                  <text x="265" y="148" fill="var(--gold)" font-size="11" font-weight="600">(9, 1)</text>
+                  <text x="175" y="82" fill="var(--accent-light)" font-size="12" font-weight="700">(6, 4)</text>
+                  <text x="170" y="176" fill="var(--text3)" font-size="10" text-anchor="middle">midpoint = average of both points</text>
+                </svg></div>
                 <div class="ex-q">What is the midpoint between (3, 7) and (9, 1)?</div>
                 <div class="ex-choices">(A) (6, 4) &nbsp; (B) (5, 3) &nbsp; (C) (6, 3) &nbsp; (D) (12, 8) &nbsp; (E) (3, 4)</div>
                 <div class="ex-solve">Solution</div>
@@ -975,6 +1099,20 @@ d = 5</div>
             <div class="qr-explain"><strong>Difference of squares.</strong> One perfect square minus another factors into two binomials.</div>
             <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
               <div class="qr-example">
+                <div class="qr-diagram"><svg viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="20" y="10" width="120" height="120" rx="4" fill="var(--accent-light)" opacity="0.2" stroke="var(--accent-light)" stroke-width="1.5"/>
+                  <text x="80" y="75" fill="var(--text)" font-size="16" font-weight="700" text-anchor="middle">x&sup2;</text>
+                  <text x="80" y="145" fill="var(--text2)" font-size="11" text-anchor="middle">x</text>
+                  <text x="8" y="75" fill="var(--text2)" font-size="11" text-anchor="middle">x</text>
+                  <text x="168" y="75" fill="var(--text)" font-size="22" font-weight="700" text-anchor="middle">&minus;</text>
+                  <rect x="195" y="50" width="60" height="60" rx="4" fill="var(--gold)" opacity="0.2" stroke="var(--gold)" stroke-width="1.5"/>
+                  <text x="225" y="86" fill="var(--text)" font-size="14" font-weight="700" text-anchor="middle">36</text>
+                  <text x="225" y="125" fill="var(--text2)" font-size="11" text-anchor="middle">6</text>
+                  <text x="188" y="86" fill="var(--text2)" font-size="11" text-anchor="middle">6</text>
+                  <text x="280" y="60" fill="var(--text3)" font-size="11" text-anchor="start">=</text>
+                  <text x="280" y="80" fill="var(--gold)" font-size="12" font-weight="700" text-anchor="start">(x+6)</text>
+                  <text x="280" y="100" fill="var(--gold)" font-size="12" font-weight="700" text-anchor="start">(x&minus;6)</text>
+                </svg></div>
                 <div class="ex-q">Factor: x&sup2; &minus; 36</div>
                 <div class="ex-choices">(A) (x+6)(x+6) &nbsp; (B) (x&minus;6)(x&minus;6) &nbsp; (C) (x+6)(x&minus;6) &nbsp; (D) (x+9)(x&minus;4) &nbsp; (E) (x+12)(x&minus;3)</div>
                 <div class="ex-solve">Solution</div>
