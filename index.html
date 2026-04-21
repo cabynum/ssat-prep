@@ -377,21 +377,37 @@
   .quick-ref h3 {
     font-size: 0.95rem;
     font-weight: 700;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     color: var(--accent);
   }
-  .quick-ref ul { list-style: none; }
-  .quick-ref li {
-    padding: 5px 0;
-    font-size: 0.88rem;
-    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-    color: var(--green);
-    line-height: 1.6;
+  .qr-grid { display: flex; flex-direction: column; gap: 10px; }
+  .qr-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 12px 14px;
+    background: var(--card);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
   }
-  .quick-ref li span {
-    color: var(--text3);
-    font-family: 'Inter', system-ui, sans-serif;
-    font-size: 0.82rem;
+  .qr-formula {
+    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    font-size: 0.88rem;
+    color: var(--green);
+    white-space: nowrap;
+    min-width: 180px;
+    padding-top: 1px;
+    line-height: 1.5;
+  }
+  .qr-explain {
+    font-size: 0.85rem;
+    color: var(--text2);
+    line-height: 1.55;
+  }
+  .qr-explain strong { color: var(--text); font-weight: 600; }
+  @media (max-width: 560px) {
+    .qr-item { flex-direction: column; gap: 4px; }
+    .qr-formula { min-width: unset; }
   }
 
   /* Schedule */
@@ -634,17 +650,44 @@
   <div class="section">
     <div class="quick-ref">
       <h3>Formulas to Know Cold</h3>
-      <ul>
-        <li>Slope = (y&#8322; - y&#8321;) / (x&#8322; - x&#8321;) <span>&mdash; rise over run</span></li>
-        <li>a/b = c/d &rarr; ad = bc <span>&mdash; cross multiply</span></li>
-        <li>P(event) = favorable / total <span>&mdash; probability</span></li>
-        <li>P(not A) = 1 - P(A) <span>&mdash; complement</span></li>
-        <li>d = &radic;[(x&#8322;-x&#8321;)&sup2; + (y&#8322;-y&#8321;)&sup2;] <span>&mdash; distance</span></li>
-        <li>mid = ((x&#8321;+x&#8322;)/2, (y&#8321;+y&#8322;)/2) <span>&mdash; midpoint</span></li>
-        <li>y = mx + b <span>&mdash; slope-intercept</span></li>
-        <li>a&sup2; - b&sup2; = (a+b)(a-b) <span>&mdash; difference of squares</span></li>
-        <li>% = (part / whole) &times; 100 <span>&mdash; percentages</span></li>
-      </ul>
+      <div class="qr-grid">
+        <div class="qr-item">
+          <div class="qr-formula">m = (y&#8322; - y&#8321;) / (x&#8322; - x&#8321;)</div>
+          <div class="qr-explain"><strong>Slope.</strong> Subtract the y-values on top, x-values on bottom. Tells you how steep the line is. Positive = goes up, negative = goes down.</div>
+        </div>
+        <div class="qr-item">
+          <div class="qr-formula">y = mx + b</div>
+          <div class="qr-explain"><strong>Slope-intercept form.</strong> m is the slope, b is where the line crosses the y-axis. If they give you an equation like y&nbsp;=&nbsp;3x&nbsp;+&nbsp;5, the slope is 3.</div>
+        </div>
+        <div class="qr-item">
+          <div class="qr-formula">a/b = c/d &rarr; ad = bc</div>
+          <div class="qr-explain"><strong>Cross multiplication.</strong> When two fractions are equal, cross multiply to solve for the unknown. Example: 3/4&nbsp;=&nbsp;x/20 &rarr; 60&nbsp;=&nbsp;4x &rarr; x&nbsp;=&nbsp;15.</div>
+        </div>
+        <div class="qr-item">
+          <div class="qr-formula">% = (part / whole) &times; 100</div>
+          <div class="qr-explain"><strong>Finding a percentage.</strong> Divide the part by the whole, multiply by 100. Example: 15 out of 60 = (15/60)&times;100 = 25%.</div>
+        </div>
+        <div class="qr-item">
+          <div class="qr-formula">P = favorable / total</div>
+          <div class="qr-explain"><strong>Probability.</strong> Count what you want, divide by everything possible. 3 red marbles out of 12 total = 3/12 = 1/4.</div>
+        </div>
+        <div class="qr-item">
+          <div class="qr-formula">P(not A) = 1 - P(A)</div>
+          <div class="qr-explain"><strong>Probability of something NOT happening.</strong> Subtract from 1. If there's a 30% chance of rain, there's a 70% chance of no rain.</div>
+        </div>
+        <div class="qr-item">
+          <div class="qr-formula">d = &radic;[(x&#8322;-x&#8321;)&sup2;+(y&#8322;-y&#8321;)&sup2;]</div>
+          <div class="qr-explain"><strong>Distance between two points.</strong> Subtract the x's, subtract the y's, square both, add them, take the square root. It's just the Pythagorean theorem on a graph.</div>
+        </div>
+        <div class="qr-item">
+          <div class="qr-formula">mid = ((x&#8321;+x&#8322;)/2, (y&#8321;+y&#8322;)/2)</div>
+          <div class="qr-explain"><strong>Midpoint.</strong> Average the two x-values, average the two y-values. That gives you the point exactly in the middle.</div>
+        </div>
+        <div class="qr-item">
+          <div class="qr-formula">a&sup2; - b&sup2; = (a+b)(a-b)</div>
+          <div class="qr-explain"><strong>Difference of squares.</strong> When you see one perfect square minus another, it factors into two binomials. Example: x&sup2;&nbsp;-&nbsp;25 = (x+5)(x-5).</div>
+        </div>
+      </div>
     </div>
   </div>
 
