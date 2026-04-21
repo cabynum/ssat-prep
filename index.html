@@ -8,62 +8,68 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0b0d11;
-    --bg2: #10131a;
-    --card: #161923;
-    --card-hover: #1c2030;
-    --accent: #5b9aff;
-    --accent-glow: rgba(91,154,255,0.12);
-    --accent-grad: linear-gradient(135deg, #5b9aff, #3b7aef);
+    --bg: #0f0a0a;
+    --bg2: #151010;
+    --card: #1c1515;
+    --card-hover: #241c1c;
+    --accent: #8b1a1a;
+    --accent-light: #c62828;
+    --accent-glow: rgba(139,26,26,0.15);
+    --accent-grad: linear-gradient(135deg, #8b1a1a, #c62828);
+    --gold: #d4a843;
+    --gold-dim: rgba(212,168,67,0.12);
     --green: #34d399;
     --green-dim: rgba(52,211,153,0.15);
     --red: #f87171;
     --red-dim: rgba(248,113,113,0.12);
-    --yellow: #fbbf24;
-    --yellow-dim: rgba(251,191,36,0.12);
-    --text: #e8eaed;
-    --text2: #b0b5c0;
-    --text3: #6b7280;
-    --border: #232736;
-    --border2: #2e3347;
+    --yellow: #d4a843;
+    --yellow-dim: rgba(212,168,67,0.12);
+    --text: #f0e8e8;
+    --text2: #bfb0b0;
+    --text3: #7a6b6b;
+    --border: #2d2222;
+    --border2: #3d2e2e;
     --radius: 14px;
     --radius-sm: 10px;
-    --header-bg: linear-gradient(180deg, rgba(91,154,255,0.06) 0%, transparent 100%);
-    --h1-grad: linear-gradient(135deg, #fff 30%, var(--accent));
-    --fc-back-bg: linear-gradient(135deg, #1a2233, #161d2d);
-    --qr-bg: linear-gradient(135deg, #131a28, #151c2a);
-    --qr-border: #1e2a3d;
-    --portal-bg: linear-gradient(135deg, rgba(91,154,255,0.08), rgba(52,211,153,0.06));
-    --btn-shadow: rgba(91,154,255,0.3);
-    --btn-shadow-hover: rgba(91,154,255,0.4);
+    --header-bg: linear-gradient(180deg, rgba(139,26,26,0.15) 0%, rgba(212,168,67,0.03) 50%, transparent 100%);
+    --h1-grad: linear-gradient(135deg, #fff 20%, var(--gold));
+    --fc-back-bg: linear-gradient(135deg, #1c1218, #1a1520);
+    --qr-bg: linear-gradient(135deg, #1a1212, #1c1515);
+    --qr-border: #2d2020;
+    --portal-bg: linear-gradient(135deg, rgba(139,26,26,0.1), rgba(212,168,67,0.06));
+    --btn-shadow: rgba(139,26,26,0.4);
+    --btn-shadow-hover: rgba(198,40,40,0.5);
   }
   [data-theme="light"] {
-    --bg: #f5f6f8;
-    --bg2: #edeef2;
+    --bg: #faf7f5;
+    --bg2: #f2eeeb;
     --card: #ffffff;
-    --card-hover: #f9f9fb;
-    --accent: #2563eb;
-    --accent-glow: rgba(37,99,235,0.08);
-    --accent-grad: linear-gradient(135deg, #2563eb, #1d4ed8);
+    --card-hover: #fdfbf9;
+    --accent: #8b1a1a;
+    --accent-light: #c62828;
+    --accent-glow: rgba(139,26,26,0.06);
+    --accent-grad: linear-gradient(135deg, #8b1a1a, #a52222);
+    --gold: #b8922e;
+    --gold-dim: rgba(184,146,46,0.1);
     --green: #059669;
     --green-dim: rgba(5,150,105,0.1);
-    --red: #dc2626;
-    --red-dim: rgba(220,38,38,0.08);
-    --yellow: #d97706;
-    --yellow-dim: rgba(217,119,6,0.08);
-    --text: #1a1a2e;
-    --text2: #4b5563;
-    --text3: #9ca3af;
-    --border: #e2e4ea;
-    --border2: #d1d5db;
-    --header-bg: linear-gradient(180deg, rgba(37,99,235,0.04) 0%, transparent 100%);
-    --h1-grad: linear-gradient(135deg, #1a1a2e 30%, var(--accent));
-    --fc-back-bg: linear-gradient(135deg, #eef2ff, #e8ecf8);
-    --qr-bg: linear-gradient(135deg, #eef2ff, #e8f0fe);
-    --qr-border: #d1d9e8;
-    --portal-bg: linear-gradient(135deg, rgba(37,99,235,0.05), rgba(5,150,105,0.04));
-    --btn-shadow: rgba(37,99,235,0.2);
-    --btn-shadow-hover: rgba(37,99,235,0.3);
+    --red: #c62828;
+    --red-dim: rgba(198,40,40,0.08);
+    --yellow: #b8922e;
+    --yellow-dim: rgba(184,146,46,0.08);
+    --text: #1a1010;
+    --text2: #5a4a4a;
+    --text3: #9a8a8a;
+    --border: #e8e0dd;
+    --border2: #d8ccc8;
+    --header-bg: linear-gradient(180deg, rgba(139,26,26,0.06) 0%, rgba(212,168,67,0.02) 50%, transparent 100%);
+    --h1-grad: linear-gradient(135deg, #1a1010 20%, var(--accent));
+    --fc-back-bg: linear-gradient(135deg, #fdf5f5, #f8f0ee);
+    --qr-bg: linear-gradient(135deg, #fdf5f5, #faf2ef);
+    --qr-border: #e0d4d0;
+    --portal-bg: linear-gradient(135deg, rgba(139,26,26,0.04), rgba(212,168,67,0.03));
+    --btn-shadow: rgba(139,26,26,0.2);
+    --btn-shadow-hover: rgba(139,26,26,0.3);
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -82,8 +88,20 @@
     padding: 52px 20px 36px;
     background: var(--header-bg);
   }
+  .gac-crest {
+    font-size: 2.8rem;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 2px 8px rgba(139,26,26,0.3));
+  }
+  .future-tag {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
   header h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 800;
     letter-spacing: -0.03em;
     background: var(--h1-grad);
@@ -91,17 +109,58 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  header .subtitle { color: var(--text3); font-size: 0.9rem; margin-top: 4px; font-weight: 500; }
+  header .subtitle { color: var(--text3); font-size: 0.85rem; margin-top: 4px; font-weight: 500; letter-spacing: 0.02em; }
+  .tagline {
+    font-size: 1.1rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text2);
+    margin-top: 8px;
+    letter-spacing: 0.04em;
+  }
   .badge {
     display: inline-block;
     background: var(--accent-grad);
     color: #fff;
-    padding: 6px 18px;
+    padding: 8px 22px;
     border-radius: 24px;
     font-size: 0.82rem;
     font-weight: 600;
-    margin-top: 16px;
-    box-shadow: 0 2px 12px var(--btn-shadow);
+    margin-top: 18px;
+    box-shadow: 0 2px 16px var(--btn-shadow);
+  }
+  .mission-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 28px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 560px) { .mission-bar { grid-template-columns: repeat(2, 1fr); } }
+  .mission-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 8px;
+    background: var(--card);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+  }
+  .mission-num {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--gold);
+    letter-spacing: -0.02em;
+  }
+  .mission-label {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text3);
+    margin-top: 2px;
   }
 
   /* Sections */
@@ -111,7 +170,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--accent);
+    color: var(--gold);
     margin-bottom: 8px;
   }
   .section-title {
@@ -378,7 +437,7 @@
     font-size: 0.95rem;
     font-weight: 700;
     margin-bottom: 20px;
-    color: var(--accent);
+    color: var(--gold);
   }
   .qr-grid { display: flex; flex-direction: column; gap: 10px; }
   .qr-item {
@@ -393,7 +452,7 @@
   .qr-formula {
     font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
     font-size: 0.88rem;
-    color: var(--green);
+    color: var(--gold);
     white-space: nowrap;
     min-width: 180px;
     padding-top: 1px;
@@ -421,7 +480,7 @@
   .sched-card h3 {
     font-size: 0.95rem;
     font-weight: 700;
-    color: var(--accent);
+    color: var(--accent-light);
     margin-bottom: 12px;
     display: flex;
     align-items: center;
@@ -490,7 +549,8 @@
 
   /* Smooth transition */
   body, .score-card, .vid-card, .sched-card, .topic-row, .fc-front, .fc-back,
-  .fc-tab, .fc-btn, .quick-ref, .portal-cta, header, .theme-toggle, .badge {
+  .fc-tab, .fc-btn, .quick-ref, .portal-cta, header, .theme-toggle, .badge,
+  .mission-item, .future-tag, .tagline {
     transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
   }
 </style>
@@ -500,9 +560,18 @@
 <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">🌙</button>
 
 <header>
-  <h1>Jackson's SSAT Prep</h1>
-  <p class="subtitle">Upper Level &middot; Focused Study Guide</p>
-  <div class="badge">Test Day: Saturday, April 25</div>
+  <div class="gac-crest">⚔️</div>
+  <p class="future-tag">FUTURE SPARTAN</p>
+  <h1>Jackson Bynum</h1>
+  <p class="subtitle">SSAT Upper Level &middot; Greater Atlanta Christian School</p>
+  <div class="tagline">Be greater.</div>
+  <div class="badge">🎯 Test Day: Saturday, April 25 &middot; 4 Days</div>
+  <div class="mission-bar">
+    <div class="mission-item"><span class="mission-num">50th+</span><span class="mission-label">Percentile Target</span></div>
+    <div class="mission-item"><span class="mission-num">3</span><span class="mission-label">Scored Sections</span></div>
+    <div class="mission-item"><span class="mission-num">3 hrs</span><span class="mission-label">Test Length</span></div>
+    <div class="mission-item"><span class="mission-num">2026</span><span class="mission-label">Fall Enrollment</span></div>
+  </div>
 </header>
 
 <div class="container">
@@ -816,7 +885,7 @@
     </div>
   </div>
 
-  <footer>Built for Jackson &middot; April 2026</footer>
+  <footer>Built for Jackson Bynum &middot; Future GAC Spartan &middot; April 2026</footer>
 </div>
 
 <script>
