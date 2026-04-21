@@ -441,21 +441,16 @@
   }
   .qr-grid { display: flex; flex-direction: column; gap: 10px; }
   .qr-item {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-    padding: 12px 14px;
+    padding: 16px 18px;
     background: var(--card);
     border-radius: var(--radius-sm);
     border: 1px solid var(--border);
   }
   .qr-formula {
     font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-    font-size: 0.88rem;
+    font-size: 0.92rem;
     color: var(--gold);
-    white-space: nowrap;
-    min-width: 180px;
-    padding-top: 1px;
+    margin-bottom: 6px;
     line-height: 1.5;
   }
   .qr-explain {
@@ -464,10 +459,6 @@
     line-height: 1.55;
   }
   .qr-explain strong { color: var(--text); font-weight: 600; }
-  @media (max-width: 560px) {
-    .qr-item { flex-direction: column; gap: 4px; }
-    .qr-formula { min-width: unset; }
-  }
 
   /* Schedule */
   .sched-cards { display: flex; flex-direction: column; gap: 10px; }
@@ -495,6 +486,61 @@
   .sched-card li strong { color: var(--text); font-weight: 600; }
   .sched-card a { color: var(--accent); text-decoration: none; font-weight: 500; }
   .sched-card a:hover { text-decoration: underline; }
+
+  /* Try-it examples */
+  .qr-try {
+    margin-top: 8px;
+  }
+  .qr-try-btn {
+    background: none;
+    border: none;
+    color: var(--accent-light);
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 4px 0;
+    transition: opacity 0.15s;
+  }
+  .qr-try-btn:hover { opacity: 0.7; }
+  .qr-example {
+    display: none;
+    margin-top: 10px;
+    padding: 14px 16px;
+    background: var(--card);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border2);
+    font-size: 0.84rem;
+    line-height: 1.7;
+  }
+  .qr-example.open { display: block; }
+  .qr-example .ex-q {
+    color: var(--text);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .qr-example .ex-choices {
+    color: var(--text2);
+    margin-bottom: 10px;
+    padding-left: 8px;
+  }
+  .qr-example .ex-solve {
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .qr-example .ex-steps {
+    color: var(--text2);
+    white-space: pre-line;
+  }
+  .qr-example .ex-answer {
+    margin-top: 6px;
+    font-weight: 700;
+    color: var(--green);
+  }
 
   /* Footer */
   footer {
@@ -788,40 +834,157 @@
       <h3>Formulas to Know Cold</h3>
       <div class="qr-grid">
         <div class="qr-item">
-          <div class="qr-formula">m = (y&#8322; - y&#8321;) / (x&#8322; - x&#8321;)</div>
-          <div class="qr-explain"><strong>Slope.</strong> Subtract the y-values on top, x-values on bottom. Tells you how steep the line is. Positive = goes up, negative = goes down.</div>
+          <div>
+            <div class="qr-formula">m = (y&#8322; - y&#8321;) / (x&#8322; - x&#8321;)</div>
+            <div class="qr-explain"><strong>Slope.</strong> Subtract the y-values on top, x-values on bottom. Positive = up, negative = down.</div>
+            <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
+              <div class="qr-example">
+                <div class="ex-q">What is the slope of the line passing through (1, 3) and (4, 15)?</div>
+                <div class="ex-choices">(A) 2 &nbsp; (B) 3 &nbsp; (C) 4 &nbsp; (D) 5 &nbsp; (E) 6</div>
+                <div class="ex-solve">Solution</div>
+                <div class="ex-steps">m = (15 &minus; 3) / (4 &minus; 1)
+m = 12 / 3
+m = 4</div>
+                <div class="ex-answer">Answer: (C) 4</div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="qr-item">
-          <div class="qr-formula">y = mx + b</div>
-          <div class="qr-explain"><strong>Slope-intercept form.</strong> m is the slope, b is where the line crosses the y-axis. If they give you an equation like y&nbsp;=&nbsp;3x&nbsp;+&nbsp;5, the slope is 3.</div>
+          <div>
+            <div class="qr-formula">y = mx + b</div>
+            <div class="qr-explain"><strong>Slope-intercept form.</strong> m is the slope, b is the y-intercept.</div>
+            <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
+              <div class="qr-example">
+                <div class="ex-q">What is the slope of the line y = &minus;2x + 7?</div>
+                <div class="ex-choices">(A) 7 &nbsp; (B) 2 &nbsp; (C) &minus;2 &nbsp; (D) &minus;7 &nbsp; (E) 1/2</div>
+                <div class="ex-solve">Solution</div>
+                <div class="ex-steps">The equation is already in y = mx + b form.
+m = &minus;2, b = 7
+The slope is the number in front of x.</div>
+                <div class="ex-answer">Answer: (C) &minus;2</div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="qr-item">
-          <div class="qr-formula">a/b = c/d &rarr; ad = bc</div>
-          <div class="qr-explain"><strong>Cross multiplication.</strong> When two fractions are equal, cross multiply to solve for the unknown. Example: 3/4&nbsp;=&nbsp;x/20 &rarr; 60&nbsp;=&nbsp;4x &rarr; x&nbsp;=&nbsp;15.</div>
+          <div>
+            <div class="qr-formula">a/b = c/d &rarr; ad = bc</div>
+            <div class="qr-explain"><strong>Cross multiplication.</strong> When two fractions are equal, cross multiply to solve.</div>
+            <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
+              <div class="qr-example">
+                <div class="ex-q">If 5/8 = x/24, what is x?</div>
+                <div class="ex-choices">(A) 10 &nbsp; (B) 12 &nbsp; (C) 15 &nbsp; (D) 18 &nbsp; (E) 20</div>
+                <div class="ex-solve">Solution</div>
+                <div class="ex-steps">Cross multiply: 5 &times; 24 = 8 &times; x
+120 = 8x
+x = 120 &divide; 8
+x = 15</div>
+                <div class="ex-answer">Answer: (C) 15</div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="qr-item">
-          <div class="qr-formula">% = (part / whole) &times; 100</div>
-          <div class="qr-explain"><strong>Finding a percentage.</strong> Divide the part by the whole, multiply by 100. Example: 15 out of 60 = (15/60)&times;100 = 25%.</div>
+          <div>
+            <div class="qr-formula">% = (part / whole) &times; 100</div>
+            <div class="qr-explain"><strong>Finding a percentage.</strong> Divide the part by the whole, multiply by 100.</div>
+            <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
+              <div class="qr-example">
+                <div class="ex-q">A basketball team won 18 out of 24 games. What percentage of games did they win?</div>
+                <div class="ex-choices">(A) 60% &nbsp; (B) 70% &nbsp; (C) 75% &nbsp; (D) 80% &nbsp; (E) 85%</div>
+                <div class="ex-solve">Solution</div>
+                <div class="ex-steps">(18 / 24) &times; 100
+= 0.75 &times; 100
+= 75%</div>
+                <div class="ex-answer">Answer: (C) 75%</div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="qr-item">
-          <div class="qr-formula">P = favorable / total</div>
-          <div class="qr-explain"><strong>Probability.</strong> Count what you want, divide by everything possible. 3 red marbles out of 12 total = 3/12 = 1/4.</div>
+          <div>
+            <div class="qr-formula">P = favorable / total</div>
+            <div class="qr-explain"><strong>Probability.</strong> Count what you want, divide by everything possible.</div>
+            <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
+              <div class="qr-example">
+                <div class="ex-q">A bag has 4 red, 6 blue, and 5 green marbles. If you pick one at random, what is the probability it is blue?</div>
+                <div class="ex-choices">(A) 1/5 &nbsp; (B) 1/3 &nbsp; (C) 2/5 &nbsp; (D) 2/3 &nbsp; (E) 6/10</div>
+                <div class="ex-solve">Solution</div>
+                <div class="ex-steps">Total marbles = 4 + 6 + 5 = 15
+P(blue) = 6/15 = 2/5</div>
+                <div class="ex-answer">Answer: (C) 2/5</div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="qr-item">
-          <div class="qr-formula">P(not A) = 1 - P(A)</div>
-          <div class="qr-explain"><strong>Probability of something NOT happening.</strong> Subtract from 1. If there's a 30% chance of rain, there's a 70% chance of no rain.</div>
+          <div>
+            <div class="qr-formula">P(not A) = 1 - P(A)</div>
+            <div class="qr-explain"><strong>Complement.</strong> Probability of something NOT happening = 1 minus the probability it does.</div>
+            <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
+              <div class="qr-example">
+                <div class="ex-q">The probability of picking a red card from a deck is 1/4. What is the probability of NOT picking a red card?</div>
+                <div class="ex-choices">(A) 1/4 &nbsp; (B) 1/2 &nbsp; (C) 3/4 &nbsp; (D) 1/3 &nbsp; (E) 2/3</div>
+                <div class="ex-solve">Solution</div>
+                <div class="ex-steps">P(not red) = 1 &minus; 1/4
+= 3/4</div>
+                <div class="ex-answer">Answer: (C) 3/4</div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="qr-item">
-          <div class="qr-formula">d = &radic;[(x&#8322;-x&#8321;)&sup2;+(y&#8322;-y&#8321;)&sup2;]</div>
-          <div class="qr-explain"><strong>Distance between two points.</strong> Subtract the x's, subtract the y's, square both, add them, take the square root. It's just the Pythagorean theorem on a graph.</div>
+          <div>
+            <div class="qr-formula">d = &radic;[(x&#8322;-x&#8321;)&sup2;+(y&#8322;-y&#8321;)&sup2;]</div>
+            <div class="qr-explain"><strong>Distance formula.</strong> Pythagorean theorem on a coordinate plane.</div>
+            <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
+              <div class="qr-example">
+                <div class="ex-q">What is the distance between points (2, 1) and (5, 5)?</div>
+                <div class="ex-choices">(A) 3 &nbsp; (B) 4 &nbsp; (C) 5 &nbsp; (D) 6 &nbsp; (E) 7</div>
+                <div class="ex-solve">Solution</div>
+                <div class="ex-steps">d = &radic;[(5&minus;2)&sup2; + (5&minus;1)&sup2;]
+d = &radic;[9 + 16]
+d = &radic;25
+d = 5</div>
+                <div class="ex-answer">Answer: (C) 5</div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="qr-item">
-          <div class="qr-formula">mid = ((x&#8321;+x&#8322;)/2, (y&#8321;+y&#8322;)/2)</div>
-          <div class="qr-explain"><strong>Midpoint.</strong> Average the two x-values, average the two y-values. That gives you the point exactly in the middle.</div>
+          <div>
+            <div class="qr-formula">mid = ((x&#8321;+x&#8322;)/2, (y&#8321;+y&#8322;)/2)</div>
+            <div class="qr-explain"><strong>Midpoint.</strong> Average the x's, average the y's.</div>
+            <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
+              <div class="qr-example">
+                <div class="ex-q">What is the midpoint between (3, 7) and (9, 1)?</div>
+                <div class="ex-choices">(A) (6, 4) &nbsp; (B) (5, 3) &nbsp; (C) (6, 3) &nbsp; (D) (12, 8) &nbsp; (E) (3, 4)</div>
+                <div class="ex-solve">Solution</div>
+                <div class="ex-steps">mid = ((3+9)/2, (7+1)/2)
+= (12/2, 8/2)
+= (6, 4)</div>
+                <div class="ex-answer">Answer: (A) (6, 4)</div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="qr-item">
-          <div class="qr-formula">a&sup2; - b&sup2; = (a+b)(a-b)</div>
-          <div class="qr-explain"><strong>Difference of squares.</strong> When you see one perfect square minus another, it factors into two binomials. Example: x&sup2;&nbsp;-&nbsp;25 = (x+5)(x-5).</div>
+          <div>
+            <div class="qr-formula">a&sup2; - b&sup2; = (a+b)(a-b)</div>
+            <div class="qr-explain"><strong>Difference of squares.</strong> One perfect square minus another factors into two binomials.</div>
+            <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
+              <div class="qr-example">
+                <div class="ex-q">Factor: x&sup2; &minus; 36</div>
+                <div class="ex-choices">(A) (x+6)(x+6) &nbsp; (B) (x&minus;6)(x&minus;6) &nbsp; (C) (x+6)(x&minus;6) &nbsp; (D) (x+9)(x&minus;4) &nbsp; (E) (x+12)(x&minus;3)</div>
+                <div class="ex-solve">Solution</div>
+                <div class="ex-steps">x&sup2; &minus; 36 is a difference of squares.
+a = x, b = 6 (because 6&sup2; = 36)
+= (x + 6)(x &minus; 6)</div>
+                <div class="ex-answer">Answer: (C) (x+6)(x&minus;6)</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1035,6 +1198,13 @@ function toggleTheme() {
     document.getElementById('theme-toggle').textContent = '☀️';
   }
 })();
+
+function toggleEx(btn) {
+  const ex = btn.nextElementSibling;
+  const isOpen = ex.classList.contains('open');
+  ex.classList.toggle('open');
+  btn.textContent = isOpen ? 'Try one \u2192' : 'Hide \u2191';
+}
 
 buildTabs();
 renderCard();
