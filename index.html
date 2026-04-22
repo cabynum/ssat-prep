@@ -427,6 +427,89 @@
   }
 
   /* Quick Ref */
+  /* Collapsible sections */
+  .collapsible {
+    margin-top: 48px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .collapsible summary {
+    padding: 18px 22px;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--card);
+    transition: background 0.2s;
+    user-select: none;
+  }
+  .collapsible summary:hover { background: var(--card-hover); }
+  .collapsible summary::-webkit-details-marker { display: none; }
+  .collapsible summary::marker { display: none; content: ''; }
+  .collapsible-head { display: flex; flex-direction: column; gap: 2px; }
+  .collapsible-head .section-label { margin-bottom: 0; }
+  .collapsible-head .section-title { margin-bottom: 0; font-size: 1.1rem; }
+  .collapsible-arrow {
+    font-size: 0.8rem;
+    color: var(--text3);
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+  .collapsible[open] .collapsible-arrow { transform: rotate(180deg); }
+  .collapsible-body { padding: 0 22px 22px; background: var(--bg); }
+
+  /* Practice word problems */
+  .wp-grid { display: flex; flex-direction: column; gap: 10px; }
+  .wp-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 20px;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  .wp-card:hover { border-color: var(--border2); }
+  .wp-num {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text3);
+    margin-bottom: 8px;
+  }
+  .wp-question { font-size: 0.9rem; margin-bottom: 10px; line-height: 1.7; }
+  .wp-choices { font-size: 0.85rem; color: var(--text2); margin-bottom: 10px; padding-left: 4px; }
+  .wp-reveal {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--accent);
+    padding: 8px 20px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+  .wp-reveal:hover { border-color: var(--accent); background: var(--card-hover); }
+  .wp-answer {
+    display: none;
+    margin-top: 12px;
+    padding: 14px 16px;
+    background: var(--card);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border2);
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--text2);
+    white-space: pre-line;
+  }
+  .wp-answer.open { display: block; }
+  .wp-answer strong { color: var(--text); }
+  .wp-answer .wp-topic { color: var(--gold); font-weight: 700; display: block; margin-bottom: 6px; }
+  .wp-answer .wp-final { color: var(--green); font-weight: 700; margin-top: 6px; }
+
   .quick-ref {
     background: var(--qr-bg);
     border-radius: var(--radius);
@@ -709,10 +792,16 @@
 <div class="container">
 
   <!-- HOW THE TEST WORKS -->
-  <div class="section">
-    <div class="section-label">Know the Test</div>
-    <div class="section-title">How the SSAT Works</div>
-    <p class="section-desc">Upper Level. 5 scored sections + 1 unscored writing sample. About 3 hours total.</p>
+  <details class="collapsible" open>
+    <summary>
+      <div class="collapsible-head">
+        <div class="section-label">Know the Test</div>
+        <div class="section-title">How the SSAT Works</div>
+      </div>
+      <span class="collapsible-arrow">&#9660;</span>
+    </summary>
+    <div class="collapsible-body">
+    <p class="section-desc" style="margin-top:14px">Upper Level. 5 scored sections + 1 unscored writing sample. About 3 hours total.</p>
     <div class="sched-cards">
       <div class="sched-card">
         <h3>&#128203; The Sections (in order)</h3>
@@ -737,13 +826,20 @@
         </ol>
       </div>
     </div>
-  </div>
+    </div>
+  </details>
 
   <!-- TEST STRATEGY -->
-  <div class="section">
-    <div class="section-label">Game Time</div>
-    <div class="section-title">Test Day Strategy</div>
-    <p class="section-desc">Smart play beats hard play. These rules are worth points.</p>
+  <details class="collapsible" open>
+    <summary>
+      <div class="collapsible-head">
+        <div class="section-label">Game Time</div>
+        <div class="section-title">Test Day Strategy</div>
+      </div>
+      <span class="collapsible-arrow">&#9660;</span>
+    </summary>
+    <div class="collapsible-body">
+    <p class="section-desc" style="margin-top:14px">Smart play beats hard play. These rules are worth points.</p>
     <div class="sched-cards">
       <div class="sched-card">
         <h3>&#129504; The 4 Rules</h3>
@@ -773,7 +869,8 @@
         </ol>
       </div>
     </div>
-  </div>
+    </div>
+  </details>
 
   <!-- SCORES -->
   <div class="section">
@@ -832,8 +929,8 @@
       <div class="vid-card">
         <h3>Slope <span class="priority-tag pt-high">High Priority</span></h3>
         <div class="vid-links">
-          <a class="vid-link" href="https://www.khanacademy.org/math/cc-eighth-grade-math/cc-8th-linear-equations-functions/8th-slope/v/introduction-to-slope" target="_blank"><svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Khan Academy: Intro to Slope</a>
-          <a class="vid-link" href="https://www.khanacademy.org/math/cc-eighth-grade-math/cc-8th-linear-equations-functions/8th-slope/a/slope-formula" target="_blank"><svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Khan Academy: Slope Formula</a>
+          <a class="vid-link" href="https://www.youtube.com/watch?v=Azh3iWkexNA" target="_blank"><svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Math with Mr. J: Slope &mdash; A Beginner's Guide (57 min)</a>
+          <a class="vid-link" href="https://www.youtube.com/watch?v=hkzV24Hmj_A" target="_blank"><svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Math with Mr. J: Finding Slope from a Graph (14 min)</a>
         </div>
         <a class="extra-link" href="https://www.varsitytutors.com/ssat_upper_level_math-help/coordinate-geometry/geometry/slope" target="_blank">Practice problems &rarr;</a>
       </div>
@@ -841,8 +938,8 @@
       <div class="vid-card">
         <h3>Rates, Ratios, Proportions <span class="priority-tag pt-high">High Priority</span></h3>
         <div class="vid-links">
-          <a class="vid-link" href="https://www.youtube.com/watch?v=bIKmw0aTmYc" target="_blank"><svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Khan Academy: Introduction to Ratios (3:58)</a>
-          <a class="vid-link" href="https://www.youtube.com/watch?v=Wvmd1VFQdII" target="_blank"><svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Khan Academy: Solving Ratios &amp; Proportions</a>
+          <a class="vid-link" href="https://www.youtube.com/@MathwithMrJ/search?query=ratios" target="_blank"><svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Math with Mr. J: Ratios videos</a>
+          <a class="vid-link" href="https://www.youtube.com/@MathwithMrJ/search?query=proportions" target="_blank"><svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Math with Mr. J: Proportions videos</a>
         </div>
         <a class="extra-link" href="https://www.varsitytutors.com/ssat_upper_level_math-help/fractions/rational-numbers/number-concepts-and-operations/proportion-ratio-rate" target="_blank">Practice problems &rarr;</a>
       </div>
@@ -850,24 +947,24 @@
       <div class="vid-card">
         <h3>Coordinate Geometry <span class="priority-tag pt-high">High Priority</span></h3>
         <div class="vid-links">
-          <a class="vid-link" href="https://www.youtube.com/watch?v=N4nrdf0yYfM" target="_blank"><svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Khan Academy: Intro to the Coordinate Plane (11:22)</a>
-          <a class="vid-link" href="https://www.khanacademy.org/math/basic-geo/basic-geo-coordinate-plane/coordinate-plane-intro/v/the-coordinate-plane" target="_blank"><svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Khan Academy: The Coordinate Plane</a>
+          <a class="vid-link" href="https://www.youtube.com/@MathwithMrJ/search?query=coordinate+plane" target="_blank"><svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Math with Mr. J: Coordinate Plane videos</a>
+          <a class="vid-link" href="https://www.youtube.com/@MathwithMrJ/search?query=distance+formula" target="_blank"><svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Math with Mr. J: Distance Formula</a>
         </div>
       </div>
 
       <div class="vid-card">
         <h3>Probability <span class="priority-tag pt-high">High Priority</span></h3>
         <div class="vid-links">
-          <a class="vid-link" href="https://www.khanacademy.org/math/cc-seventh-grade-math/cc-7th-probability-statistics/cc-7th-basic-prob/v/basic-probability" target="_blank"><svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Khan Academy: Basic Probability</a>
-          <a class="vid-link" href="https://www.youtube.com/watch?v=uzkc-qNVoOk" target="_blank"><svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Khan Academy: Independent &amp; Dependent Events (8:18)</a>
+          <a class="vid-link" href="https://www.youtube.com/@MathwithMrJ/search?query=probability" target="_blank"><svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Math with Mr. J: Probability videos</a>
+          <a class="vid-link" href="https://www.youtube.com/watch?v=e3uY2LraXts" target="_blank"><svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Math with Mr. J: Mean, Median, Mode, and Range</a>
         </div>
       </div>
 
       <div class="vid-card">
         <h3>Factoring <span class="priority-tag pt-med">Medium</span></h3>
         <div class="vid-links">
-          <a class="vid-link" href="https://www.youtube.com/watch?v=I6TBBzIvgB8" target="_blank"><svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Khan Academy: Factoring Expressions (6 min)</a>
-          <a class="vid-link" href="https://www.khanacademy.org/math/algebra-basics/alg-basics-quadratics-and-polynomials/alg-basics-factoring-polynomials-1-common-factors/v/factoring-a-common-binomial-factor" target="_blank"><svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Khan Academy: Factoring Common Factors</a>
+          <a class="vid-link" href="https://www.youtube.com/@MathwithMrJ/search?query=factoring" target="_blank"><svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Math with Mr. J: Factoring videos</a>
+          <a class="vid-link" href="https://www.youtube.com/watch?v=nuDz3O3yZOA" target="_blank"><svg class="play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Math with Mr. J: Exponents</a>
         </div>
       </div>
 
@@ -930,6 +1027,185 @@
     </div>
   </div>
 
+  <!-- PRACTICE WORD PROBLEMS -->
+  <div class="section">
+    <div class="section-label">Practice</div>
+    <div class="section-title">Word Problems</div>
+    <p class="section-desc">SSAT math loves word problems. These are the 5 topics you missed on your practice test. Each answer shows you how to read the question, connect the words to the math, and solve it.</p>
+
+    <div class="wp-grid">
+      <div class="wp-card">
+        <div class="wp-num">Problem 1 &middot; Slope</div>
+        <div class="wp-question">A hiker starts at an elevation of 200 feet. After walking 4 miles, he is at 600 feet. What is his rate of elevation change per mile?</div>
+        <div class="wp-choices">(A) 50 ft/mile &nbsp; (B) 100 ft/mile &nbsp; (C) 150 ft/mile &nbsp; (D) 200 ft/mile &nbsp; (E) 400 ft/mile</div>
+        <button class="wp-reveal" onclick="toggleWP(this)">Show Answer</button>
+        <div class="wp-answer"><span class="wp-topic">Topic: Slope &mdash; Rate of Change</span>
+<strong>Reading the question:</strong> "Rate of elevation change per mile" = slope. "Starts at 200 feet" = first y-value. "After 4 miles, at 600 feet" = second point. Miles = x, elevation = y.
+
+Two points: (0, 200) and (4, 600)
+Slope = (600 &minus; 200) / (4 &minus; 0) = 400 / 4 = 100
+
+In plain English: He climbed 400 feet over 4 miles. Divide the total climb by the total distance to get the rate &mdash; 100 feet per mile.
+
+<span class="wp-final">Answer: (B) 100 ft/mile</span></div>
+      </div>
+
+      <div class="wp-card">
+        <div class="wp-num">Problem 2 &middot; Slope</div>
+        <div class="wp-question">A pool is being drained. It starts with 1,200 gallons and loses 150 gallons per hour. Which equation represents the amount of water w after h hours?</div>
+        <div class="wp-choices">(A) w = 150h + 1200 &nbsp; (B) w = 1200 &minus; 150h &nbsp; (C) w = 1200h &minus; 150 &nbsp; (D) w = 150 &minus; 1200h &nbsp; (E) w = 1200 + 150h</div>
+        <button class="wp-reveal" onclick="toggleWP(this)">Show Answer</button>
+        <div class="wp-answer"><span class="wp-topic">Topic: Slope-Intercept Form (y = mx + b)</span>
+<strong>Reading the question:</strong> "1,200 gallons" = starting amount = <strong>b</strong>. "Loses 150 gallons per hour" = rate = <strong>m = &minus;150</strong> (negative because it's going down). "After h hours" = the variable.
+
+w = &minus;150h + 1200, or equivalently w = 1200 &minus; 150h
+
+In plain English: You start with 1,200 and subtract 150 every hour. "Loses," "drains," "decreases" &rarr; the slope is negative.
+
+<span class="wp-final">Answer: (B) w = 1200 &minus; 150h</span></div>
+      </div>
+
+      <div class="wp-card">
+        <div class="wp-num">Problem 3 &middot; Ratios</div>
+        <div class="wp-question">A recipe calls for 3 cups of flour for every 2 cups of sugar. If a baker uses 12 cups of flour, how many cups of sugar does she need?</div>
+        <div class="wp-choices">(A) 6 &nbsp; (B) 8 &nbsp; (C) 9 &nbsp; (D) 10 &nbsp; (E) 18</div>
+        <button class="wp-reveal" onclick="toggleWP(this)">Show Answer</button>
+        <div class="wp-answer"><span class="wp-topic">Topic: Proportions &mdash; Cross Multiplication</span>
+<strong>Reading the question:</strong> "3 cups of flour for every 2 cups of sugar" = ratio of flour to sugar = 3/2. "12 cups of flour" = the new flour amount. Sugar = x.
+
+Set up the proportion: 3/2 = 12/x
+Cross multiply: 3x = 24
+Divide: x = 8
+
+In plain English: If 3 cups of flour goes with 2 cups of sugar, then 12 cups of flour (which is 4 times as much) needs 4 &times; 2 = 8 cups of sugar. Proportions just scale the recipe up or down.
+
+<span class="wp-final">Answer: (B) 8</span></div>
+      </div>
+
+      <div class="wp-card">
+        <div class="wp-num">Problem 4 &middot; Percentages</div>
+        <div class="wp-question">Jackson scored 27 points in a basketball game. His team scored 90 points total. What percentage of the team's points did Jackson score?</div>
+        <div class="wp-choices">(A) 25% &nbsp; (B) 27% &nbsp; (C) 30% &nbsp; (D) 33% &nbsp; (E) 35%</div>
+        <button class="wp-reveal" onclick="toggleWP(this)">Show Answer</button>
+        <div class="wp-answer"><span class="wp-topic">Topic: Percentages</span>
+<strong>Reading the question:</strong> "27 points" = the part. "90 points total" = the whole. "What percentage" = (part / whole) &times; 100.
+
+27 / 90 = 0.3
+0.3 &times; 100 = 30%
+
+In plain English: What fraction of 90 is 27? Divide 27 by 90. You get 0.3, which is 30 out of 100, which is 30%. Shortcut: 27/90 &rarr; both divisible by 9 &rarr; 3/10 = 30%.
+
+<span class="wp-final">Answer: (C) 30%</span></div>
+      </div>
+
+      <div class="wp-card">
+        <div class="wp-num">Problem 5 &middot; Probability</div>
+        <div class="wp-question">A spinner has 8 equal sections: 3 red, 2 blue, 2 green, and 1 yellow. What is the probability of NOT landing on red?</div>
+        <div class="wp-choices">(A) 3/8 &nbsp; (B) 1/2 &nbsp; (C) 5/8 &nbsp; (D) 3/5 &nbsp; (E) 7/8</div>
+        <button class="wp-reveal" onclick="toggleWP(this)">Show Answer</button>
+        <div class="wp-answer"><span class="wp-topic">Topic: Probability &mdash; Complement ("NOT")</span>
+<strong>Reading the question:</strong> "NOT landing on red" = complement. First find P(red), then subtract from 1.
+
+P(red) = 3/8
+P(NOT red) = 1 &minus; 3/8 = 8/8 &minus; 3/8 = 5/8
+
+In plain English: 3 out of 8 slices are red. That means 5 out of 8 are NOT red. When the question says "NOT," use the complement: subtract the probability from 1.
+
+<span class="wp-final">Answer: (C) 5/8</span></div>
+      </div>
+
+      <div class="wp-card">
+        <div class="wp-num">Problem 6 &middot; Coordinate Geometry</div>
+        <div class="wp-question">Two corners of a rectangular field are at (1, 3) and (7, 11). What is the length of the diagonal of the field?</div>
+        <div class="wp-choices">(A) 6 &nbsp; (B) 8 &nbsp; (C) 10 &nbsp; (D) 12 &nbsp; (E) 14</div>
+        <button class="wp-reveal" onclick="toggleWP(this)">Show Answer</button>
+        <div class="wp-answer"><span class="wp-topic">Topic: Distance Formula</span>
+<strong>Reading the question:</strong> "Two corners" = two points. "Length of the diagonal" = distance between them. Use the distance formula.
+
+Horizontal gap: 7 &minus; 1 = 6
+Vertical gap: 11 &minus; 3 = 8
+d = &radic;(6&sup2; + 8&sup2;) = &radic;(36 + 64) = &radic;100 = 10
+
+In plain English: The diagonal of this rectangle makes a right triangle with legs of 6 and 8. That's the 6-8-10 Pythagorean triple &mdash; the answer is 10 without any heavy calculation.
+
+<span class="wp-final">Answer: (C) 10</span></div>
+      </div>
+
+      <div class="wp-card">
+        <div class="wp-num">Problem 7 &middot; Factoring</div>
+        <div class="wp-question">The area of a square garden is (x&sup2; &minus; 16) square meters. Which expression represents the length of one side?</div>
+        <div class="wp-choices">(A) (x &minus; 4) &nbsp; (B) (x + 4) &nbsp; (C) (x &minus; 8) &nbsp; (D) (x &minus; 2) &nbsp; (E) (x + 16)</div>
+        <button class="wp-reveal" onclick="toggleWP(this)">Show Answer</button>
+        <div class="wp-answer"><span class="wp-topic">Topic: Factoring &mdash; Difference of Squares</span>
+<strong>Reading the question:</strong> "Area of a square" = side &times; side. "x&sup2; &minus; 16" is a difference of squares since x&sup2; and 16 (= 4&sup2;) are both perfect squares.
+
+x&sup2; &minus; 16 = (x + 4)(x &minus; 4)
+
+Since a square has equal sides, and the area factors into (x+4)(x&minus;4), each side must be one of these factors. Since a length must be positive, and both factors are used: one side = (x &minus; 4), as long as x &gt; 4.
+
+In plain English: Recognize the pattern &mdash; something squared minus a perfect square number. It always splits into (something + root)(something &minus; root).
+
+<span class="wp-final">Answer: (A) (x &minus; 4)</span></div>
+      </div>
+
+      <div class="wp-card">
+        <div class="wp-num">Problem 8 &middot; Ratios</div>
+        <div class="wp-question">A car travels 240 miles on 8 gallons of gas. At the same rate, how many gallons are needed to travel 420 miles?</div>
+        <div class="wp-choices">(A) 12 &nbsp; (B) 14 &nbsp; (C) 16 &nbsp; (D) 18 &nbsp; (E) 20</div>
+        <button class="wp-reveal" onclick="toggleWP(this)">Show Answer</button>
+        <div class="wp-answer"><span class="wp-topic">Topic: Rates &amp; Proportions</span>
+<strong>Reading the question:</strong> "240 miles on 8 gallons" = a rate. "At the same rate" = set up a proportion. "How many gallons for 420 miles" = solve for the unknown.
+
+Step 1: Find the rate. 240 &divide; 8 = 30 miles per gallon.
+Step 2: Use the rate. 420 &divide; 30 = 14 gallons.
+
+Or set up the proportion: 240/8 = 420/x
+Cross multiply: 240x = 3360
+x = 3360 &divide; 240 = 14
+
+In plain English: The car gets 30 miles per gallon. To go 420 miles, divide 420 by 30. Both methods &mdash; unit rate or proportion &mdash; give you the same answer.
+
+<span class="wp-final">Answer: (B) 14</span></div>
+      </div>
+
+      <div class="wp-card">
+        <div class="wp-num">Problem 9 &middot; Probability</div>
+        <div class="wp-question">A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. If Marcus picks one marble and then, without replacing it, picks a second marble, what is the probability that both marbles are red?</div>
+        <div class="wp-choices">(A) 1/4 &nbsp; (B) 2/9 &nbsp; (C) 1/5 &nbsp; (D) 25/100 &nbsp; (E) 5/10</div>
+        <button class="wp-reveal" onclick="toggleWP(this)">Show Answer</button>
+        <div class="wp-answer"><span class="wp-topic">Topic: Probability &mdash; Dependent Events ("without replacing")</span>
+<strong>Reading the question:</strong> "Without replacing" is the key phrase. After the first pick, the total and the count change. This is dependent probability &mdash; multiply, but update the numbers after the first pick.
+
+First pick: P(red) = 5/10 = 1/2
+After removing 1 red: 4 red left, 9 total left.
+Second pick: P(red) = 4/9
+
+P(both red) = 1/2 &times; 4/9 = 4/18 = 2/9
+
+In plain English: The first pick is 5 out of 10. But now there are only 9 marbles left and only 4 red ones. Multiply the two probabilities. "Without replacing" always means the second probability changes.
+
+<span class="wp-final">Answer: (B) 2/9</span></div>
+      </div>
+
+      <div class="wp-card">
+        <div class="wp-num">Problem 10 &middot; Coordinate Geometry</div>
+        <div class="wp-question">Point A is at (&minus;2, 5) and Point B is at (6, 1). What are the coordinates of the midpoint of segment AB?</div>
+        <div class="wp-choices">(A) (4, 6) &nbsp; (B) (2, 3) &nbsp; (C) (4, 3) &nbsp; (D) (2, 6) &nbsp; (E) (8, 4)</div>
+        <button class="wp-reveal" onclick="toggleWP(this)">Show Answer</button>
+        <div class="wp-answer"><span class="wp-topic">Topic: Midpoint Formula</span>
+<strong>Reading the question:</strong> "Midpoint of segment AB" = the point exactly halfway between A and B. Average the x's, average the y's.
+
+x: (&minus;2 + 6) / 2 = 4 / 2 = 2
+y: (5 + 1) / 2 = 6 / 2 = 3
+Midpoint = (2, 3)
+
+In plain English: Add the two x-coordinates and divide by 2. Do the same for y. Watch the negative sign &mdash; &minus;2 + 6 = 4, not 8.
+
+<span class="wp-final">Answer: (B) (2, 3)</span></div>
+      </div>
+    </div>
+  </div>
+
   <!-- QUICK REF -->
   <div class="section">
     <div class="quick-ref">
@@ -938,7 +1214,7 @@
         <div class="qr-item">
           <div>
             <div class="qr-formula">m = (y&#8322; - y&#8321;) / (x&#8322; - x&#8321;)</div>
-            <div class="qr-explain"><strong>Slope.</strong> Subtract the y-values on top, x-values on bottom. Positive = up, negative = down.</div>
+            <div class="qr-explain"><strong>Slope — how steep is the line?</strong> Think of walking on a hill. Slope tells you how much you go up (or down) for every step forward. Subtract the y's on top, the x's on bottom. If the answer is positive, the line goes uphill. Negative means downhill. Zero means flat.</div>
             <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
               <div class="qr-example">
                 <div class="qr-diagram"><svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
@@ -979,7 +1255,7 @@ Trick: Always do y's on top, x's on bottom. If you mix them up, you get the wron
         <div class="qr-item">
           <div>
             <div class="qr-formula">y = mx + b</div>
-            <div class="qr-explain"><strong>Slope-intercept form.</strong> m is the slope, b is the y-intercept.</div>
+            <div class="qr-explain"><strong>The straight line formula.</strong> Every straight line can be written this way. <strong>m</strong> is the slope (how steep). <strong>b</strong> is where the line starts when x = 0. In word problems, m is usually a rate ("$30 per month") and b is a one-time fee ("$50 to sign up").</div>
             <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
               <div class="qr-example">
                 <div class="qr-diagram"><svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
@@ -1016,7 +1292,7 @@ Trick: If the equation isn't in y = _x + _ form yet, solve for y first. Get y al
         <div class="qr-item">
           <div>
             <div class="qr-formula">a/b = c/d &rarr; ad = bc</div>
-            <div class="qr-explain"><strong>Cross multiplication.</strong> When two fractions are equal, cross multiply to solve.</div>
+            <div class="qr-explain"><strong>Cross multiplication — solving fraction equations.</strong> When two fractions are equal, draw an X connecting the diagonals and multiply across. It's a shortcut to get rid of both fractions at once. Then solve for the missing number like a normal equation.</div>
             <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
               <div class="qr-example">
                 <div class="qr-diagram"><svg viewBox="0 0 320 140" xmlns="http://www.w3.org/2000/svg">
@@ -1066,7 +1342,7 @@ Multiplication shortcut: When one number is 5, multiply by 10 first and cut in h
         <div class="qr-item">
           <div>
             <div class="qr-formula">% = (part / whole) &times; 100</div>
-            <div class="qr-explain"><strong>Finding a percentage.</strong> Divide the part by the whole, multiply by 100.</div>
+            <div class="qr-explain"><strong>Finding a percentage — "what slice of the pie?"</strong> Put the part you're looking at on top, the whole thing on the bottom, then multiply by 100 to turn it into a percent. Example: you made 18 out of 24 free throws — that's 18/24 = 0.75 = 75%.</div>
             <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
               <div class="qr-example">
                 <div class="qr-diagram"><svg viewBox="0 0 320 80" xmlns="http://www.w3.org/2000/svg">
@@ -1120,7 +1396,7 @@ Fractions to know by heart (saves time on test day):
         <div class="qr-item">
           <div>
             <div class="qr-formula">P = favorable / total</div>
-            <div class="qr-explain"><strong>Probability.</strong> Count what you want, divide by everything possible.</div>
+            <div class="qr-explain"><strong>Probability — what are the chances?</strong> Count the outcomes you want, divide by the total number of outcomes. If there are 6 blue marbles in a bag of 15, the chance of grabbing blue is 6/15. Always simplify the fraction at the end.</div>
             <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
               <div class="qr-example">
                 <div class="qr-diagram"><svg viewBox="0 0 320 90" xmlns="http://www.w3.org/2000/svg">
@@ -1172,7 +1448,7 @@ How to check if 3 goes into a number:
         <div class="qr-item">
           <div>
             <div class="qr-formula">P(not A) = 1 - P(A)</div>
-            <div class="qr-explain"><strong>Complement.</strong> Probability of something NOT happening = 1 minus the probability it does.</div>
+            <div class="qr-explain"><strong>The "NOT" shortcut.</strong> If you know the chance of something happening, subtract it from 1 to get the chance of it NOT happening. Think pizza: if 1 out of 4 slices is pepperoni, then 3 out of 4 are NOT pepperoni. 1 − 1/4 = 3/4.</div>
             <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
               <div class="qr-example">
                 <div class="qr-diagram"><svg viewBox="0 0 320 170" xmlns="http://www.w3.org/2000/svg">
@@ -1219,7 +1495,7 @@ Shortcut for next time:
         <div class="qr-item">
           <div>
             <div class="qr-formula">d = &radic;[(x&#8322;-x&#8321;)&sup2;+(y&#8322;-y&#8321;)&sup2;]</div>
-            <div class="qr-explain"><strong>Distance formula.</strong> Pythagorean theorem on a coordinate plane.</div>
+            <div class="qr-explain"><strong>How far apart are two points?</strong> Find the horizontal gap (subtract the x's) and the vertical gap (subtract the y's). Square both, add them, take the square root. It's just the Pythagorean theorem in disguise. Shortcut: if you see gaps of 3 and 4, the distance is 5. Gaps of 6 and 8 → distance is 10.</div>
             <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
               <div class="qr-example">
                 <div class="qr-diagram"><svg viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg">
@@ -1279,7 +1555,7 @@ If you know these, you can work backwards to find square roots instantly.</div>
         <div class="qr-item">
           <div>
             <div class="qr-formula">mid = ((x&#8321;+x&#8322;)/2, (y&#8321;+y&#8322;)/2)</div>
-            <div class="qr-explain"><strong>Midpoint.</strong> Average the x's, average the y's.</div>
+            <div class="qr-explain"><strong>Finding the exact middle between two points.</strong> Add the two x-values and divide by 2. Add the two y-values and divide by 2. You're just averaging each coordinate separately — same thing you'd do to find the average of two test scores.</div>
             <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
               <div class="qr-example">
                 <div class="qr-diagram"><svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
@@ -1323,7 +1599,7 @@ Trick: Midpoint = average. You're just finding the middle of each coordinate sep
         <div class="qr-item">
           <div>
             <div class="qr-formula">a&sup2; - b&sup2; = (a+b)(a-b)</div>
-            <div class="qr-explain"><strong>Difference of squares.</strong> One perfect square minus another factors into two binomials.</div>
+            <div class="qr-explain"><strong>A shortcut for factoring.</strong> When you see something squared minus a number, check if that number is a perfect square (4, 9, 16, 25, 36...). If it is, you can split it into two pieces instantly: one with a plus and one with a minus. x² − 36 = (x+6)(x−6). No guessing needed.</div>
             <div class="qr-try"><button class="qr-try-btn" onclick="toggleEx(this)">Try one &rarr;</button>
               <div class="qr-example">
                 <div class="qr-diagram"><svg viewBox="0 0 320 150" xmlns="http://www.w3.org/2000/svg">
@@ -1369,10 +1645,16 @@ Trick: If you see [something] &minus; [a number], check if that number is a perf
   </div>
 
   <!-- SCHEDULE -->
-  <div class="section">
-    <div class="section-label">Game Plan</div>
-    <div class="section-title">The Schedule</div>
-    <p class="section-desc">What to do tonight, tomorrow, and Saturday morning.</p>
+  <details class="collapsible" open>
+    <summary>
+      <div class="collapsible-head">
+        <div class="section-label">Game Plan</div>
+        <div class="section-title">The Schedule</div>
+      </div>
+      <span class="collapsible-arrow">&#9660;</span>
+    </summary>
+    <div class="collapsible-body">
+    <p class="section-desc" style="margin-top:14px">What to do tonight, tomorrow, and Saturday morning.</p>
     <div class="sched-cards">
       <div class="sched-card">
         <h3>&#127769; Monday (Tonight)</h3>
@@ -1427,7 +1709,8 @@ Trick: If you see [something] &minus; [a number], check if that number is a perf
         </ol>
       </div>
     </div>
-  </div>
+    </div>
+  </details>
 
   <footer>Built for Jackson Bynum &middot; Future GAC Spartan &middot; April 2026</footer>
 </div>
@@ -1435,45 +1718,45 @@ Trick: If you see [something] &minus; [a number], check if that number is a perf
 <script>
 const decks = {
   slope: { label: "Slope", cards: [
-    { q: "What is slope?", a: "Slope measures how steep a line is.\n\nSlope = rise \u00f7 run\n\nIt's the ratio of vertical change to horizontal change between two points on a line." },
-    { q: "Slope formula", a: "Given two points (x\u2081, y\u2081) and (x\u2082, y\u2082):\n\nm = (y\u2082 \u2013 y\u2081) / (x\u2082 \u2013 x\u2081)\n\nSubtract the y's on top.\nSubtract the x's on bottom." },
-    { q: "Find the slope between\n(2, 3) and (6, 11)", a: "m = (11 \u2013 3) / (6 \u2013 2)\nm = 8 / 4\nm = 2" },
-    { q: "Positive vs. negative slope?", a: "Positive: line goes UP left to right \u2197\nNegative: line goes DOWN left to right \u2198\nZero: horizontal line \u2192\nUndefined: vertical line \u2191" },
-    { q: "What is slope-intercept form?", a: "y = mx + b\n\nm = slope\nb = y-intercept (where line crosses the y-axis)\n\nExample: y = 3x + 5\nSlope is 3, crosses y-axis at 5" },
-    { q: "Parallel vs. perpendicular slopes?", a: "Parallel lines = SAME slope\nPerpendicular lines = NEGATIVE RECIPROCALS\n\nIf slope = 2/3\nParallel = 2/3\nPerpendicular = \u20133/2\n\nFlip the fraction, change the sign." }
+    { q: "What is slope?", a: "Slope tells you how steep a line is.\n\nSlope = rise \u00f7 run\n\nThink of it like walking on a hill \u2014 how much you go UP for every step FORWARD. A slope of 2 means you climb 2 for every 1 step right." },
+    { q: "Slope formula", a: "Given two points (x\u2081, y\u2081) and (x\u2082, y\u2082):\n\nm = (y\u2082 \u2013 y\u2081) / (x\u2082 \u2013 x\u2081)\n\ny's on top, x's on bottom. Always.\n\nIn other words: subtract the heights, then subtract the positions. Divide to see how steep." },
+    { q: "Find the slope between\n(2, 3) and (6, 11)", a: "m = (11 \u2013 3) / (6 \u2013 2)\nm = 8 / 4\nm = 2\n\nThe line goes up 8 over a run of 4 \u2014 that simplifies to 2 up for every 1 over." },
+    { q: "Positive vs. negative slope?", a: "Positive: line goes UP left to right \u2197 (like climbing a hill)\nNegative: line goes DOWN left to right \u2198 (like going downhill)\nZero: horizontal line \u2192 (flat road)\nUndefined: vertical line \u2191 (straight up a wall \u2014 can't walk that)" },
+    { q: "What is slope-intercept form?", a: "y = mx + b\n\nm = slope (the rate \u2014 how much it changes)\nb = starting point (where it begins when x = 0)\n\nExample: A gym costs $30/month with a $50 sign-up fee \u2192 y = 30x + 50\nThe 30 is the monthly rate, the 50 is the one-time fee." },
+    { q: "Parallel vs. perpendicular slopes?", a: "Parallel lines = SAME slope (they go in the same direction, never cross)\nPerpendicular lines = NEGATIVE RECIPROCALS (they cross at a 90\u00b0 angle)\n\nIf slope = 2/3:\n\u2022 Parallel = 2/3\n\u2022 Perpendicular = \u20133/2 (flip it AND change the sign)" }
   ]},
   ratios: { label: "Ratios", cards: [
-    { q: "What is a ratio?", a: "A ratio compares two quantities.\n\n3 apples to 5 oranges = 3:5 = 3/5\n\nCan be written three ways:\n3 to 5 \u2022 3:5 \u2022 3/5" },
-    { q: "What is a proportion?", a: "A proportion says two ratios are equal.\n\na/b = c/d\n\nExample: 2/3 = 4/6" },
-    { q: "How do you solve a proportion?", a: "Cross multiply!\n\na/b = c/d \u2192 a \u00d7 d = b \u00d7 c\n\nExample: 3/4 = x/20\n3 \u00d7 20 = 4 \u00d7 x\n60 = 4x\nx = 15" },
-    { q: "How do you solve rate problems?", a: "Find the rate per ONE unit first.\n\n150 miles in 3 hours:\n150 \u00f7 3 = 50 mph\n\nHow far in 7 hours?\n50 \u00d7 7 = 350 miles" },
-    { q: "How do you find a percentage?", a: "Percentage = (part / whole) \u00d7 100\n\nWhat percent is 15 out of 60?\n(15 / 60) \u00d7 100 = 25%" },
-    { q: "What is 25% of 80?", a: "Convert percent to decimal, then multiply.\n\n25% = 0.25\n0.25 \u00d7 80 = 20" },
-    { q: "Percent change formula?", a: "% change = (new \u2013 original) / original \u00d7 100\n\nPrice: $40 \u2192 $50\n(50 \u2013 40) / 40 \u00d7 100 = 25% increase" }
+    { q: "What is a ratio?", a: "A ratio compares two things.\n\n3 apples to 5 oranges = 3:5 = 3/5\n\nIn other words: for every 3 apples, there are 5 oranges. It\u2019s about the relationship between two numbers, not the numbers themselves." },
+    { q: "What is a proportion?", a: "A proportion says two ratios are equal.\n\na/b = c/d\n\nExample: 2/3 = 4/6\n\nIn other words: if the recipe calls for 2 cups of flour for every 3 cups of sugar, then 4 cups of flour with 6 cups of sugar is the same ratio." },
+    { q: "How do you solve a proportion?", a: "Cross multiply!\n\na/b = c/d \u2192 a \u00d7 d = b \u00d7 c\n\nExample: 3/4 = x/20\n3 \u00d7 20 = 4 \u00d7 x\n60 = 4x \u2192 x = 15\n\nIn other words: draw an X between the diagonals, multiply each pair, then solve." },
+    { q: "How do you solve rate problems?", a: "Find the rate per ONE unit first.\n\n150 miles in 3 hours:\n150 \u00f7 3 = 50 mph\n\nHow far in 7 hours?\n50 \u00d7 7 = 350 miles\n\nIn other words: break it down to \u201chow much for just 1?\u201d first, then scale up." },
+    { q: "How do you find a percentage?", a: "Percentage = (part / whole) \u00d7 100\n\nMade 15 out of 60 free throws?\n(15 / 60) \u00d7 100 = 25%\n\nIn other words: turn it into a fraction, then convert to out-of-100." },
+    { q: "What is 25% of 80?", a: "Convert percent to decimal, then multiply.\n\n25% = 0.25\n0.25 \u00d7 80 = 20\n\nShortcut: 25% = one quarter. One quarter of 80 = 80 \u00f7 4 = 20. Think money \u2014 a quarter is 25 cents out of a dollar." },
+    { q: "Percent change formula?", a: "% change = (new \u2013 original) / original \u00d7 100\n\nPrice: $40 \u2192 $50\n(50 \u2013 40) / 40 \u00d7 100 = 25% increase\n\nIn other words: how much did it change? Divide that change by where it started. That tells you the percentage it moved." }
   ]},
   coord: { label: "Coordinates", cards: [
-    { q: "Parts of the coordinate plane?", a: "Horizontal = x-axis\nVertical = y-axis\nThey cross at the origin (0, 0)\n\nPoints are written (x, y)\nx = left/right, y = up/down" },
-    { q: "What are the four quadrants?", a: "I: (+, +) upper right\nII: (\u2013, +) upper left\nIII: (\u2013, \u2013) lower left\nIV: (+, \u2013) lower right\n\nCounterclockwise from upper right." },
-    { q: "Distance formula", a: "d = \u221a[(x\u2082 \u2013 x\u2081)\u00b2 + (y\u2082 \u2013 y\u2081)\u00b2]\n\nIt's the Pythagorean theorem applied to coordinates." },
-    { q: "Distance between\n(1, 2) and (4, 6)?", a: "d = \u221a[(4\u20131)\u00b2 + (6\u20132)\u00b2]\nd = \u221a[9 + 16]\nd = \u221a25\nd = 5" },
-    { q: "Midpoint formula", a: "Midpoint = ((x\u2081+x\u2082)/2, (y\u2081+y\u2082)/2)\n\nJust average the x's and average the y's." },
-    { q: "Midpoint of (2, 4) and (8, 10)?", a: "((2+8)/2, (4+10)/2)\n= (10/2, 14/2)\n= (5, 7)" }
+    { q: "Parts of the coordinate plane?", a: "Horizontal line = x-axis (left/right)\nVertical line = y-axis (up/down)\nThey cross at the origin (0, 0)\n\nPoints are written (x, y) \u2014 always x first, y second.\n\nThink of it like a map: x is how far over, y is how far up." },
+    { q: "What are the four quadrants?", a: "I: (+, +) upper right \u2014 both positive\nII: (\u2013, +) upper left \u2014 x goes negative\nIII: (\u2013, \u2013) lower left \u2014 both negative\nIV: (+, \u2013) lower right \u2014 y goes negative\n\nThey go counterclockwise starting from upper right. Think of a backwards C." },
+    { q: "Distance formula", a: "d = \u221a[(x\u2082 \u2013 x\u2081)\u00b2 + (y\u2082 \u2013 y\u2081)\u00b2]\n\nIn other words: find the horizontal gap and the vertical gap. Square both, add, take the square root. It\u2019s the Pythagorean theorem \u2014 the two gaps are legs of a right triangle." },
+    { q: "Distance between\n(1, 2) and (4, 6)?", a: "Horizontal gap: 4 \u2013 1 = 3\nVertical gap: 6 \u2013 2 = 4\n\nd = \u221a[3\u00b2 + 4\u00b2] = \u221a[9 + 16] = \u221a25 = 5\n\nShortcut: 3-4-5 is a Pythagorean triple. If you see those numbers, the answer is always 5." },
+    { q: "Midpoint formula", a: "Midpoint = ((x\u2081+x\u2082)/2, (y\u2081+y\u2082)/2)\n\nIn other words: average the x\u2019s, average the y\u2019s. Same thing you\u2019d do to find the average of two test scores \u2014 add them up and divide by 2." },
+    { q: "Midpoint of (2, 4) and (8, 10)?", a: "x: (2+8)/2 = 10/2 = 5\ny: (4+10)/2 = 14/2 = 7\n\nMidpoint = (5, 7)\n\nThe point exactly halfway between the two." }
   ]},
   prob: { label: "Probability", cards: [
-    { q: "Basic probability formula", a: "P(event) = favorable outcomes / total outcomes\n\nAlways between 0 and 1.\n0 = impossible\n1 = certain" },
-    { q: "Bag: 3 red, 4 blue, 5 green.\nP(red)?", a: "P(red) = 3 / (3+4+5)\n= 3/12\n= 1/4\n= 25%" },
-    { q: "Probability of NOT happening?", a: "P(not A) = 1 \u2013 P(A)\n\nIf P(rain) = 0.3\nP(no rain) = 1 \u2013 0.3 = 0.7" },
-    { q: "Two independent events\nhappening together?", a: "MULTIPLY their probabilities.\n\nP(A and B) = P(A) \u00d7 P(B)\n\nHeads AND roll a 6:\n1/2 \u00d7 1/6 = 1/12" },
-    { q: "Counting outcomes", a: "Multiply choices at each step.\n\n3 shirts and 4 pants:\n3 \u00d7 4 = 12 outfits" },
-    { q: "Roll a die. P(even)?", a: "Even numbers: 2, 4, 6 = 3 outcomes\nTotal: 6\n\nP(even) = 3/6 = 1/2" }
+    { q: "Basic probability formula", a: "P(event) = what you want / everything possible\n\nAlways between 0 and 1.\n0 = no chance. 1 = guaranteed.\n\nIn other words: count the good outcomes, divide by all outcomes." },
+    { q: "Bag: 3 red, 4 blue, 5 green.\nP(red)?", a: "Total marbles: 3 + 4 + 5 = 12\nRed marbles: 3\n\nP(red) = 3/12 = 1/4 = 25%\n\nIn other words: 3 out of 12 marbles are red. Simplify the fraction." },
+    { q: "Probability of NOT happening?", a: "P(not A) = 1 \u2013 P(A)\n\nIf P(rain) = 0.3\nP(no rain) = 1 \u2013 0.3 = 0.7\n\nIn other words: everything has to add up to 1 (100%). If rain is 30%, then no-rain is the leftover 70%." },
+    { q: "Two independent events\nhappening together?", a: "MULTIPLY their probabilities.\n\nP(A and B) = P(A) \u00d7 P(B)\n\nFlipping heads AND rolling a 6:\n1/2 \u00d7 1/6 = 1/12\n\nIn other words: each event makes the other less likely, so you multiply to get a smaller number." },
+    { q: "Counting outcomes", a: "Multiply the number of choices at each step.\n\n3 shirts and 4 pants: 3 \u00d7 4 = 12 outfits\n\nIn other words: for each shirt, you can pick any of the 4 pants. So 3 groups of 4 = 12 combos total." },
+    { q: "Roll a die. P(even)?", a: "Even numbers on a die: 2, 4, 6 = 3 outcomes\nTotal faces: 6\n\nP(even) = 3/6 = 1/2 = 50%\n\nIn other words: half the numbers on a die are even, so it\u2019s a coin flip." }
   ]},
   factor: { label: "Factoring", cards: [
-    { q: "What is factoring?", a: "Breaking an expression into pieces (factors) that multiply to give the original.\n\nIt's the reverse of distributing." },
-    { q: "Greatest Common Factor (GCF)", a: "Find the largest number/variable that divides into every term.\n\n6x + 9 \u2192 GCF is 3\n= 3(2x + 3)" },
-    { q: "Factor: 4x\u00b2 + 8x", a: "GCF = 4x\n\n4x(x + 2)\n\nCheck: 4x\u00d7x = 4x\u00b2 and 4x\u00d72 = 8x \u2713" },
-    { q: "Difference of squares pattern?", a: "a\u00b2 \u2013 b\u00b2 = (a + b)(a \u2013 b)\n\nx\u00b2 \u2013 25 = (x+5)(x\u20135)\n\nOnly works with SUBTRACTION between two perfect squares." },
-    { q: "Factor: x\u00b2 + 7x + 12", a: "Find two numbers that:\n\u2022 multiply to 12\n\u2022 add to 7\n\nNumbers: 3 and 4\n\n= (x + 3)(x + 4)" },
-    { q: "How do you check your factoring?", a: "FOIL it back out!\n\n(x+3)(x+4)\n= x\u00b2 + 4x + 3x + 12\n= x\u00b2 + 7x + 12 \u2713\n\nMatches? You're good." }
+    { q: "What is factoring?", a: "Breaking an expression into pieces that multiply back to the original.\n\nIn other words: if multiplying is putting things together (3 \u00d7 4 = 12), factoring is taking them apart (12 = 3 \u00d7 4). It\u2019s reverse multiplication." },
+    { q: "Greatest Common Factor (GCF)", a: "The biggest number (or variable) that divides evenly into every term.\n\n6x + 9 \u2192 GCF is 3\n= 3(2x + 3)\n\nIn other words: what\u2019s the largest thing they ALL share? Pull it out front." },
+    { q: "Factor: 4x\u00b2 + 8x", a: "Both terms have 4x in common.\n\n4x(x + 2)\n\nCheck: 4x \u00d7 x = 4x\u00b2 \u2713  and  4x \u00d7 2 = 8x \u2713\n\nIn other words: pull out the biggest thing both terms share, then see what\u2019s left inside the parentheses." },
+    { q: "Difference of squares pattern?", a: "a\u00b2 \u2013 b\u00b2 = (a + b)(a \u2013 b)\n\nx\u00b2 \u2013 25 = (x+5)(x\u20135)\n\nIn other words: if you see something\u00b2 MINUS a perfect square, it splits into one with a plus and one with a minus. Only works with subtraction, never addition." },
+    { q: "Factor: x\u00b2 + 7x + 12", a: "Find two numbers that:\n\u2022 multiply to 12 (the last number)\n\u2022 add to 7 (the middle number)\n\n3 \u00d7 4 = 12 \u2713  and  3 + 4 = 7 \u2713\n\n= (x + 3)(x + 4)\n\nIn other words: play a guessing game with factor pairs of the last number until one pair also adds to the middle number." },
+    { q: "How do you check your factoring?", a: "FOIL it back out!\n\n(x+3)(x+4):\nFirst: x\u00d7x = x\u00b2\nOuter: x\u00d74 = 4x\nInner: 3\u00d7x = 3x\nLast: 3\u00d74 = 12\n\nx\u00b2 + 4x + 3x + 12 = x\u00b2 + 7x + 12 \u2713\n\nIf it matches the original, you factored correctly." }
   ]},
   synonyms: { label: "Synonyms", cards: [
     { q: "Abundant", a: "plentiful, more than enough\n\nThink: a lot" },
@@ -1576,6 +1859,13 @@ function toggleTheme() {
     document.getElementById('theme-toggle').textContent = '☀️';
   }
 })();
+
+function toggleWP(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = answer.classList.contains('open');
+  answer.classList.toggle('open');
+  btn.textContent = isOpen ? 'Show Answer' : 'Hide Answer';
+}
 
 function toggleEx(btn) {
   const ex = btn.nextElementSibling;
