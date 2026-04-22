@@ -489,6 +489,7 @@
     font-size: 0.85rem;
     color: var(--text2);
     line-height: 1.65;
+    white-space: pre-line;
   }
   .concept-card .concept-explain strong { color: var(--text); }
   .concept-card .concept-external {
@@ -670,60 +671,150 @@ No calculator on some sections. Desmos graphing calculator provided on others.</
     <p class="section-desc" style="margin-top:14px">Quick reference for the building blocks. Answers link here when a concept comes up.</p>
 
     <div class="concept-card" id="vertex-form">
-      <h4>Vertex Form of a Quadratic</h4>
+      <h4>Vertex Form — Finding the Highest or Lowest Point</h4>
       <div class="concept-formula">f(x) = a(x − h)² + k</div>
-      <div class="concept-explain"><strong>The vertex is the point (h, k).</strong> If a is negative, the parabola opens downward and the vertex is the <strong>maximum</strong>. If a is positive, it opens upward and the vertex is the <strong>minimum</strong>.
-To read the vertex, look at what's subtracted from x (that's h) and what's added at the end (that's k). Watch the signs: f(x) = −(x − 3)² + 16 means h = 3, k = 16, so the vertex is (3, 16).</div>
-      <a class="concept-external" href="https://www.youtube.com/watch?v=SGUP6BkA870" target="_blank">📺 Quadratics Top 10 Must Knows (covers vertex form) →</a>
+      <div class="concept-explain">Think of throwing a basketball in the air. It goes up, hits a peak, and comes back down. That peak is the <strong>vertex</strong> — the turning point.
+
+This formula tells you exactly where that turning point is. The number after the minus sign inside the parentheses is <strong>how far over</strong> (h). The number at the end is <strong>how high</strong> (k). So <strong>(h, k) is the peak</strong>.
+
+Example: f(x) = −(x − 3)² + 16. The peak is at x = 3, height = 16, so the vertex is (3, 16).
+
+One more thing: if there's a <strong>negative sign in front</strong> (like the − here), the curve opens downward like an upside-down U, and the vertex is the <strong>highest point</strong>. If it's positive, the curve opens upward like a U, and the vertex is the <strong>lowest point</strong>.
+
+<em>On the test, they call this "vertex form." You'll see it when they ask for the maximum height or the minimum value.</em></div>
+      <a class="concept-external" href="https://www.youtube.com/watch?v=SGUP6BkA870" target="_blank">📺 Quadratics Top 10 Must Knows →</a>
     </div>
 
     <div class="concept-card" id="standard-form">
-      <h4>Standard Form of a Quadratic</h4>
+      <h4>Standard Form — When the Equation Looks Different</h4>
       <div class="concept-formula">f(x) = ax² + bx + c</div>
-      <div class="concept-explain"><strong>a</strong> determines direction (positive = opens up, negative = opens down). <strong>c</strong> is the y-intercept. To find the vertex from standard form, use <strong>x = −b/(2a)</strong>, then plug that x back into the equation to get the y-value.</div>
-      <a class="concept-external" href="https://www.youtube.com/watch?v=SGUP6BkA870" target="_blank">📺 Quadratics Top 10 Must Knows (covers standard form) →</a>
+      <div class="concept-explain">Sometimes the equation isn't written in the nice vertex form above. Instead it looks like this: f(x) = −16x² + 64x + 6. That's <strong>standard form</strong>.
+
+You can still find the turning point. Here's how:
+<strong>1.</strong> Take the number in front of x (that's b = 64) and the number in front of x² (that's a = −16).
+<strong>2.</strong> Plug them into: <strong>x = −b ÷ (2 × a)</strong>. That gives you the x-value of the peak.
+<strong>3.</strong> Plug that x back into the original equation to get the height.
+
+Also useful: the number at the end with no x (that's c) is where the graph <strong>crosses the y-axis</strong> — the starting height.
+
+<em>On the test: if the equation has ax² + bx + c and they ask for the maximum, use x = −b/(2a).</em></div>
+      <a class="concept-external" href="https://www.youtube.com/watch?v=SGUP6BkA870" target="_blank">📺 Quadratics Top 10 Must Knows →</a>
     </div>
 
     <div class="concept-card" id="slope-intercept">
-      <h4>Slope-Intercept Form</h4>
+      <h4>Slope-Intercept — The Straight Line Formula</h4>
       <div class="concept-formula">y = mx + b</div>
-      <div class="concept-explain"><strong>m = slope</strong> (rate of change — how much y changes per unit of x). <strong>b = y-intercept</strong> (the value when x = 0, i.e., the starting point). A positive slope means the line goes up; negative means it goes down.</div>
+      <div class="concept-explain">This is the formula for any straight line. Two things control it:
+
+<strong>m is the slope</strong> — how steep the line is. Think of it as "for every 1 step to the right, how much does the line go up or down?" Positive = going uphill. Negative = going downhill. Zero = flat.
+
+<strong>b is the starting point</strong> — where the line is when x = 0. In word problems, this is usually a one-time fee, a starting amount, or an initial value.
+
+Example: A gym charges $30/month with a $50 sign-up fee → y = 30x + 50. The slope is 30 (costs $30 per month) and b is 50 (the fee you pay once).
+
+<em>On the test, they call b the "y-intercept." They'll ask things like "what does the slope represent?" or "what does the y-intercept mean in this situation?" Always answer using the words from the problem — dollars, hours, points — not just numbers.</em></div>
       <a class="concept-external" href="https://www.youtube.com/watch?v=Azh3iWkexNA" target="_blank">📺 Math with Mr. J: Slope — A Beginner's Guide →</a>
     </div>
 
     <div class="concept-card" id="exponential-form">
-      <h4>Exponential Growth &amp; Decay</h4>
+      <h4>Exponential Growth &amp; Decay — Things That Multiply</h4>
       <div class="concept-formula">f(t) = a · b^t</div>
-      <div class="concept-explain"><strong>a = initial value</strong> (what you start with). <strong>b = growth/decay factor</strong>. If b &gt; 1, it's growth. If 0 &lt; b &lt; 1, it's decay.
-"Grows by 10%" → b = 1.10. "Decays by 20%" → b = 0.80. "Doubles" → b = 2. "Halves" → b = 0.5.</div>
+      <div class="concept-explain">Some things don't grow by the same amount each time — they grow by the same <strong>percentage</strong>. A bank account earning interest. A population doubling. A car losing value. These are all exponential.
+
+<strong>a</strong> = what you start with (the initial amount).
+<strong>b</strong> = what you multiply by each time period:
+  — "Doubles" → b = 2
+  — "Grows by 10%" → b = 1.10 (you keep the original 100% plus 10% more)
+  — "Loses 20%" → b = 0.80 (you keep 80% of what's left)
+  — "Cut in half" → b = 0.5
+<strong>t</strong> = how many time periods have passed.
+
+The key difference from a straight line: with a line, you <strong>add</strong> the same amount each time. With exponential, you <strong>multiply</strong>. That's why exponential growth eventually gets way bigger than linear growth.
+
+<em>On the test: if the problem says "doubles," "triples," "half-life," "depreciates," or "percent increase/decrease," it's exponential.</em></div>
       <a class="concept-external" href="https://www.youtube.com/watch?v=nuDz3O3yZOA" target="_blank">📺 Math with Mr. J: Exponents →</a>
     </div>
 
     <div class="concept-card" id="factoring">
-      <h4>Factoring Quadratics</h4>
-      <div class="concept-formula">x² + bx + c = (x + p)(x + q) where p × q = c and p + q = b</div>
-      <div class="concept-explain">Find two numbers that <strong>multiply to the constant</strong> and <strong>add to the middle coefficient</strong>. For equations like ax² + bx + c = 0, factor then set each factor = 0 to solve. Always check by FOILing back out.</div>
+      <h4>Factoring — Breaking an Expression Apart</h4>
+      <div class="concept-formula">x² + bx + c = (x + p)(x + q)</div>
+      <div class="concept-explain">Factoring is like reverse multiplication. If someone tells you 3 × 4 = 12, factoring is looking at 12 and figuring out it came from 3 × 4.
+
+With quadratics like x² + 7x + 12, you need to find two numbers that:
+<strong>1.</strong> <strong>Multiply</strong> to the last number (12)
+<strong>2.</strong> <strong>Add up</strong> to the middle number (7)
+
+What two numbers multiply to 12 and add to 7? That's 3 and 4.
+So x² + 7x + 12 = (x + 3)(x + 4).
+
+To <strong>solve</strong> an equation like x² + 7x + 12 = 0, factor it, then set each piece equal to zero:
+(x + 3) = 0 → x = −3
+(x + 4) = 0 → x = −4
+
+Always check your answer by multiplying it back out (FOIL) to make sure you get the original.
+
+<em>On the test: factoring shows up in word problems about area, projectile motion ("when does it hit the ground?"), and anytime they ask you to "solve" a quadratic.</em></div>
       <a class="concept-external" href="https://www.youtube.com/@MathwithMrJ/search?query=factoring" target="_blank">📺 Math with Mr. J: Factoring videos →</a>
     </div>
 
     <div class="concept-card" id="distance-formula">
-      <h4>Distance Formula</h4>
+      <h4>Distance Formula — How Far Apart Are Two Points?</h4>
       <div class="concept-formula">d = √[(x₂ − x₁)² + (y₂ − y₁)²]</div>
-      <div class="concept-explain">Finds the straight-line distance between two points on a coordinate plane. It's the Pythagorean theorem in disguise. Subtract the x's, subtract the y's, square both, add them, take the square root. Knowing Pythagorean triples (3-4-5, 5-12-13, 6-8-10) saves time.</div>
+      <div class="concept-explain">If you have two points on a graph and you want to know the straight-line distance between them, here's what you do:
+
+<strong>1.</strong> Subtract the two x-values. That's the horizontal gap.
+<strong>2.</strong> Subtract the two y-values. That's the vertical gap.
+<strong>3.</strong> Square both of those numbers (multiply each by itself).
+<strong>4.</strong> Add them together.
+<strong>5.</strong> Take the square root of the result.
+
+That's it. It's really just the Pythagorean theorem (a² + b² = c²) — the two gaps are the legs of a right triangle, and the distance is the hypotenuse.
+
+Shortcut: memorize these common combos so you don't have to calculate every time:
+  3 and 4 → distance = 5
+  5 and 12 → distance = 13
+  6 and 8 → distance = 10
+  8 and 15 → distance = 17
+
+<em>On the test: "how far apart," "what is the length of segment AB," or "find the distance between" → use this formula.</em></div>
       <a class="concept-external" href="https://www.youtube.com/@MathwithMrJ/search?query=distance+formula" target="_blank">📺 Math with Mr. J: Distance Formula →</a>
     </div>
 
     <div class="concept-card" id="radicals">
-      <h4>Simplifying Radicals</h4>
+      <h4>Simplifying Radicals — Cleaning Up Square Roots</h4>
       <div class="concept-formula">√(a × b) = √a × √b</div>
-      <div class="concept-explain">Find the <strong>largest perfect square</strong> that divides into the number under the radical. Split it, simplify the perfect square side. Example: √72 = √(36 × 2) = 6√2. You can only add/subtract radicals with the same number under the √ sign.</div>
+      <div class="concept-explain">When you see something like √72, the test wants you to simplify it — write it in a cleaner way.
+
+Here's how: find the <strong>biggest perfect square</strong> hiding inside the number.
+
+Perfect squares are numbers like 4, 9, 16, 25, 36, 49, 64, 81, 100 — numbers that come from multiplying something by itself (6 × 6 = 36).
+
+<strong>Example:</strong> √72
+Ask: what's the biggest perfect square that goes into 72? That's 36, because 36 × 2 = 72.
+Split it: √72 = √(36 × 2) = √36 × √2 = 6√2. Done.
+
+<strong>Adding radicals:</strong> You can only add them if the number under the √ is the same.
+3√5 + 2√5 = 5√5 ✓ (same as 3x + 2x = 5x)
+3√5 + 2√3 = can't combine ✗ (different numbers under the √)
+
+<em>On the test: they'll ask you to "simplify" or give you two radicals to add. Always simplify each one first, then see if they match.</em></div>
       <a class="concept-external" href="https://www.youtube.com/watch?v=GjiA0nGYlLM" target="_blank">📺 Math with Mr. J: Simplifying Square Roots →</a>
     </div>
 
     <div class="concept-card" id="line-of-best-fit">
-      <h4>Line of Best Fit (Trend Line)</h4>
+      <h4>Line of Best Fit — Drawing a Line Through Messy Data</h4>
       <div class="concept-formula">y = mx + b (fitted to a scatter plot)</div>
-      <div class="concept-explain"><strong>Slope</strong> = rate of change in context (e.g., "for each additional hour, the score increases by 4 points"). <strong>y-intercept</strong> = the predicted value when x = 0. <strong>Interpolation</strong> = predicting within the data range. <strong>Extrapolation</strong> = predicting outside it (less reliable).</div>
+      <div class="concept-explain">When you collect real-world data (like hours studied vs. test scores), the dots on the graph don't make a perfect line. A <strong>line of best fit</strong> is the straight line that comes closest to all the dots. It lets you make predictions.
+
+The line has the same y = mx + b structure:
+<strong>Slope (m)</strong> = what changes and by how much. "For every extra hour of sleep, the test score goes up 4 points." That 4 is the slope.
+<strong>Y-intercept (b)</strong> = the prediction when x is zero. "A student who studies 0 hours would score about 55." That 55 is b. (It might not be realistic, but it's where the line crosses the y-axis.)
+
+Two vocab words they'll test you on:
+<strong>Interpolation</strong> = predicting within your data range. If your data goes from x = 2 to x = 10, predicting at x = 6 is interpolation. This is reliable.
+<strong>Extrapolation</strong> = predicting outside your data range. Predicting at x = 20 is extrapolation. This is risky because the pattern might not hold.
+
+<em>On the test: they'll give you the equation and ask "what does the slope mean?" or "predict y when x = ___." Always answer in the real-world terms from the problem.</em></div>
       <a class="concept-external" href="https://www.youtube.com/watch?v=e3uY2LraXts" target="_blank">📺 Math with Mr. J: Mean, Median, Mode, and Range →</a>
     </div>
     </div>
