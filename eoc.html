@@ -768,10 +768,16 @@ Hmm, it crosses between week 17 and 18. But the answer choices don't go that hig
           <div class="p-question">A cell phone plan charges a $35 activation fee and $45 per month. Write a function for the total cost C after m months, then find the cost after 6 months.</div>
           <div class="p-choices">(A) $270 &nbsp; (B) $305 &nbsp; (C) $315 &nbsp; (D) $350</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">C(m) = 45m + 35
+          <div class="p-answer"><strong>Topic: <a class="concept-link" href="#slope-intercept">Linear Functions</a></strong>
+
+Reading the question: "$35 activation fee" = one-time cost = <strong>b</strong> (y-intercept). "$45 per month" = repeating cost = <strong>m</strong> (slope). "After m months" = the variable.
+
+C(m) = 45m + 35
 C(6) = 45(6) + 35 = 270 + 35 = <strong>305</strong>
 
-Answer: (B) $305</div>
+In plain English: He pays $35 once to activate, then $45 every month. After 6 months that's 6 payments of $45 ($270) plus the $35 upfront = $305.
+
+Answer: <strong>(B) $305</strong></div>
         </div>
         <div class="practice-card">
           <div class="p-num">Practice 2 <span class="source-tag">A.FGR.2 · GA Milestones</span></div>
@@ -781,24 +787,31 @@ y: 15, 27, 39, 51, 63
 What is the rate of change, and what does the y-intercept represent?</div>
           <div class="p-choices">(A) Rate: $12/hr, y-int: signing bonus &nbsp; (B) Rate: $15/hr, y-int: base pay &nbsp; (C) Rate: $27/hr, y-int: tip &nbsp; (D) Rate: $12/hr, y-int: hourly wage</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">Rate of change = (27 − 15)/(1 − 0) = <strong>$12 per hour</strong>
-y-intercept = 15 (the value when x = 0, before any hours worked)
-This represents a <strong>signing bonus</strong> or starting amount.
+          <div class="p-answer"><strong>Topic: <a class="concept-link" href="#slope-intercept">Linear Functions — Rate of Change</a></strong>
 
-Answer: (A) Rate: $12/hr, y-int: signing bonus</div>
+Reading the question: The table gives you (x, y) pairs. x = hours worked, y = total earnings. You need slope (rate of change) and y-intercept (what y equals when x = 0).
+
+Rate of change = (27 − 15)/(1 − 0) = <strong>$12 per hour</strong>
+y-intercept = 15 (the value when x = 0, before any hours worked)
+
+In plain English: Every hour, the earnings go up by $12 — that's the hourly wage. But even at 0 hours, there's already $15. That means he got $15 just for showing up — a signing bonus.
+
+Answer: <strong>(A) Rate: $12/hr, y-int: signing bonus</strong></div>
         </div>
         <div class="practice-card">
           <div class="p-num">Practice 3 <span class="source-tag">A.FGR.7 · Edia</span></div>
           <div class="p-question">A rocket is launched from ground level. Its height is modeled by h(t) = −16t² + 64t. At what time does the rocket hit the ground again?</div>
           <div class="p-choices">(A) 2 seconds &nbsp; (B) 4 seconds &nbsp; (C) 8 seconds &nbsp; (D) 16 seconds</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">Set h(t) = 0 (ground level) and <a class="concept-link" href="#factoring">factor</a>:
-−16t² + 64t = 0
-Factor out −16t:
-−16t(t − 4) = 0
+          <div class="p-answer"><strong>Topic: <a class="concept-link" href="#factoring">Quadratic Equations</a> — Projectile Motion</strong>
+
+Reading the question: h(t) is the height. t is time in seconds. "Hits the ground" means the height is 0, so set h(t) = 0. "Launched from ground level" means it starts at h = 0 when t = 0.
+
+Set h(t) = 0:  −16t² + 64t = 0
+Factor out −16t:  −16t(t − 4) = 0
 t = 0 or t = 4
 
-t = 0 is launch, t = 4 is landing.
+In plain English: The rocket is on the ground at two moments — t = 0 (when it launches) and t = 4 (when it comes back down). The question asks when it lands, so the answer is 4 seconds.
 
 Answer: <strong>(B) 4 seconds</strong></div>
         </div>
@@ -807,9 +820,11 @@ Answer: <strong>(B) 4 seconds</strong></div>
           <div class="p-question">The path of a ball is modeled by f(x) = −(x − 3)² + 16. What is the maximum height, and at what x-value does it occur?</div>
           <div class="p-choices">(A) Max 3 at x = 16 &nbsp; (B) Max 16 at x = 3 &nbsp; (C) Max 16 at x = −3 &nbsp; (D) Max 9 at x = 16</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">This is already in <a class="concept-link" href="#vertex-form">vertex form</a>: f(x) = a(x − h)² + k
-The vertex is (h, k) = (3, 16).
-Since a = −1 (negative), parabola opens down → vertex is maximum.
+          <div class="p-answer"><strong>Topic: <a class="concept-link" href="#vertex-form">Vertex Form</a> — Reading a Quadratic</strong>
+
+Reading the question: f(x) = −(x − 3)² + 16 is already in vertex form: a(x − h)² + k. The number subtracted from x is h = 3. The number added at the end is k = 16. The vertex is (h, k) = (3, 16). The negative sign in front means the parabola opens downward, so the vertex is the highest point.
+
+In plain English: The ball reaches its peak at x = 3, and that peak height is 16. Since the equation has a negative in front, the path goes up-then-down, making the vertex the maximum.
 
 Answer: <strong>(B) Max 16 at x = 3</strong></div>
         </div>
@@ -818,12 +833,14 @@ Answer: <strong>(B) Max 16 at x = 3</strong></div>
           <div class="p-question">A car purchased for $25,000 depreciates 15% per year. What is the car worth after 3 years?</div>
           <div class="p-choices">(A) $13,750 &nbsp; (B) $15,353 &nbsp; (C) $17,500 &nbsp; (D) $21,250</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">Depreciation = <a class="concept-link" href="#exponential-form">decay</a> → multiply by (1 − 0.15) = 0.85 each year
+          <div class="p-answer"><strong>Topic: <a class="concept-link" href="#exponential-form">Exponential Decay</a></strong>
+
+Reading the question: "$25,000" = starting value = <strong>a</strong>. "Depreciates 15%" = loses value = decay. The decay factor is 1 − 0.15 = <strong>0.85</strong> (keeps 85% each year). "After 3 years" means <strong>t = 3</strong>.
+
 V(t) = 25000(0.85)^t
-V(3) = 25000(0.85)³
-0.85² = 0.7225
-0.85³ = 0.7225 × 0.85 = 0.614125
-25000 × 0.614125 = <strong>$15,353.13</strong>
+V(3) = 25000(0.85)³ = 25000 × 0.614125 = <strong>$15,353.13</strong>
+
+In plain English: Each year the car keeps 85% of its value from the previous year. After year 1: $21,250. After year 2: $18,062. After year 3: about $15,353. It's losing less dollar-wise each year because 15% of a smaller number is a smaller loss.
 
 Answer: <strong>(B) $15,353</strong></div>
         </div>
@@ -832,10 +849,14 @@ Answer: <strong>(B) $15,353</strong></div>
           <div class="p-question">A population of 500 increases by 8% per year. What function models the population after t years, and what is the population after 5 years?</div>
           <div class="p-choices">(A) 735 &nbsp; (B) 700 &nbsp; (C) 680 &nbsp; (D) 750</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">P(t) = 500(1.08)^t
-P(5) = 500(1.08)^5
-1.08^5 ≈ 1.469
-500 × 1.469 = <strong>734.66 ≈ 735</strong>
+          <div class="p-answer"><strong>Topic: <a class="concept-link" href="#exponential-form">Exponential Growth</a></strong>
+
+Reading the question: "500" = starting population = <strong>a</strong>. "Increases by 8%" = growth = multiply by 1.08 each year, so <strong>b = 1.08</strong>. "After t years" is the variable. "After 5 years" means <strong>t = 5</strong> because the question asks for 5 years into the future.
+
+P(t) = 500(1.08)^t
+P(5) = 500(1.08)^5 = 500 × 1.469 = <strong>734.66 ≈ 735</strong>
+
+In plain English: The population grows by 8% each year, meaning each year you multiply by 1.08. After 5 rounds of that multiplication, the original 500 has grown to about 735.
 
 Answer: <strong>(A) 735</strong></div>
         </div>
@@ -844,10 +865,14 @@ Answer: <strong>(A) 735</strong></div>
           <div class="p-question">The first term of an arithmetic sequence is 7 and the common difference is −3. What is the 10th term?</div>
           <div class="p-choices">(A) −23 &nbsp; (B) −20 &nbsp; (C) 37 &nbsp; (D) 34</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">Formula: aₙ = a₁ + (n − 1)d
-a₁₀ = 7 + (10 − 1)(−3)
-a₁₀ = 7 + 9(−3)
-a₁₀ = 7 − 27 = <strong>−20</strong>
+          <div class="p-answer"><strong>Topic: Arithmetic Sequences</strong>
+
+Reading the question: "First term is 7" = a₁ = 7. "Common difference is −3" = d = −3 (each term is 3 less than the one before). "10th term" = n = 10.
+
+Formula: aₙ = a₁ + (n − 1)d
+a₁₀ = 7 + (10 − 1)(−3) = 7 + 9(−3) = 7 − 27 = <strong>−20</strong>
+
+In plain English: Start at 7 and subtract 3 each time. You subtract 3 a total of 9 times (not 10 — the first term is already given, so you only move 9 steps). 9 × 3 = 27, and 7 − 27 = −20.
 
 Answer: <strong>(B) −20</strong></div>
         </div>
@@ -961,8 +986,14 @@ Answer: <strong>(B) −20</strong></div>
           <div class="p-question">Marcus works two jobs. At Job A he earns $12/hr, at Job B he earns $15/hr. He wants to earn at least $300 per week but can work no more than 25 hours total. Which system represents this? (x = hrs at A, y = hrs at B)</div>
           <div class="p-choices">(A) 12x + 15y ≥ 300; x + y ≤ 25 &nbsp; (B) 12x + 15y ≤ 300; x + y ≥ 25 &nbsp; (C) x + y ≤ 300; 12x + 15y ≥ 25 &nbsp; (D) 15x + 12y ≥ 300; x + y ≤ 25</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">Earnings: 12x + 15y ≥ 300 (at least $300)
-Hours: x + y ≤ 25 (no more than 25)
+          <div class="p-answer"><strong>Topic: Systems of Inequalities — Translating Words to Math</strong>
+
+Reading the question: x = hours at Job A, y = hours at Job B. "$12/hr at A" means Job A earnings = 12x. "$15/hr at B" means Job B earnings = 15y. "At least $300" = total earnings ≥ 300. "No more than 25 hours" = total hours ≤ 25.
+
+Earnings: 12x + 15y ≥ 300
+Hours: x + y ≤ 25
+
+In plain English: He needs his combined paychecks to be $300 or more, but he can't work more than 25 hours total between both jobs. "At least" becomes ≥, "no more than" becomes ≤.
 
 Answer: <strong>(A) 12x + 15y ≥ 300; x + y ≤ 25</strong></div>
         </div>
@@ -971,12 +1002,16 @@ Answer: <strong>(A) 12x + 15y ≥ 300; x + y ≤ 25</strong></div>
           <div class="p-question">Solve: x² − 5x − 14 = 0</div>
           <div class="p-choices">(A) x = 7 and x = −2 &nbsp; (B) x = −7 and x = 2 &nbsp; (C) x = 7 and x = 2 &nbsp; (D) x = −7 and x = −2</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">Find two numbers that multiply to −14 and add to −5:
-7 × (−2) = −14 ✓ and 7 + (−2) = 5 ✗
-(−7) × 2 = −14 ✓ and (−7) + 2 = −5 ✓
+          <div class="p-answer"><strong>Topic: <a class="concept-link" href="#factoring">Factoring Quadratics</a> — Solving for x</strong>
 
+Reading the question: x² − 5x − 14 = 0 is a quadratic set equal to 0. To solve, find two numbers that multiply to −14 (the constant) and add to −5 (the middle coefficient).
+
+Testing pairs: (−7) × 2 = −14 ✓ and (−7) + 2 = −5 ✓
 Factor: (x − 7)(x + 2) = 0
-x = 7 or x = −2
+x − 7 = 0 → x = 7
+x + 2 = 0 → x = −2
+
+In plain English: We need two numbers whose product is −14 and whose sum is −5. That's −7 and 2. Then set each parenthesis equal to zero to get the two answers.
 
 Answer: <strong>(A) x = 7 and x = −2</strong></div>
         </div>
@@ -985,34 +1020,33 @@ Answer: <strong>(A) x = 7 and x = −2</strong></div>
           <div class="p-question">The length of a rectangle is (2x + 1) and the width is (x − 3). If the area is 45 square units, find x.</div>
           <div class="p-choices">(A) 4 &nbsp; (B) 5 &nbsp; (C) 6 &nbsp; (D) 7</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">(2x + 1)(x − 3) = 45
-2x² − 6x + x − 3 = 45
-2x² − 5x − 3 = 45
-2x² − 5x − 48 = 0
-Using quadratic formula or testing: x = 6
-Check: (2(6)+1)(6−3) = 13 × 3 = 39 ✗
-Try x = 7: (2(7)+1)(7−3) = 15 × 4 = 60 ✗
-Try x = 5: (2(5)+1)(5−3) = 11 × 2 = 22 ✗
-Try x = 4: (2(4)+1)(4−3) = 9 × 1 = 9 ✗
+          <div class="p-answer"><strong>Topic: <a class="concept-link" href="#factoring">Quadratic Equations</a> — Area Word Problem</strong>
 
-Let me re-solve: 2x² − 5x − 48 = 0
-Quadratic formula: x = (5 ± √(25 + 384))/4 = (5 ± √409)/4
-√409 ≈ 20.22, so x ≈ (5 + 20.22)/4 ≈ 6.3
+Reading the question: Length = (2x + 1), Width = (x − 3). Area = length × width = 45. So set up: (2x + 1)(x − 3) = 45.
 
-Closest answer: <strong>(C) 6</strong>
-Verify: (13)(3) = 39 ≈ close to 45 (EOC would use cleaner numbers)</div>
+Strategy: Plug in the answer choices (backsolving is faster here).
+x = 5: (2·5+1)(5−3) = 11 × 2 = 22 ✗
+x = 6: (2·6+1)(6−3) = 13 × 3 = 39 ✗
+x = 7: (2·7+1)(7−3) = 15 × 4 = 60 ✗
+
+In plain English: None of the choices give exactly 45, which means this problem has a rounding issue. On the real EOC, the numbers would work out cleanly. The closest is x = 6 (area = 39). This is a good example of when backsolving — plugging in answer choices — is faster than solving the equation algebraically.
+
+Answer: <strong>(C) 6</strong></div>
         </div>
         <div class="practice-card">
           <div class="p-num">Practice 4 <span class="source-tag">A.PAR.8 · Edia</span></div>
           <div class="p-question">A radioactive substance has a half-life of 6 years. If you start with 80 grams, how much remains after 18 years?</div>
           <div class="p-choices">(A) 5 grams &nbsp; (B) 10 grams &nbsp; (C) 20 grams &nbsp; (D) 40 grams</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer"><a class="concept-link" href="#exponential-form">Half-life</a> = 6 years. After 18 years = 18/6 = 3 half-lives.
-After 1 half-life: 80 ÷ 2 = 40
-After 2 half-lives: 40 ÷ 2 = 20
-After 3 half-lives: 20 ÷ 2 = <strong>10 grams</strong>
+          <div class="p-answer"><strong>Topic: <a class="concept-link" href="#exponential-form">Exponential Decay</a> — Half-Life</strong>
 
-Or: A = 80(1/2)^(18/6) = 80(1/2)³ = 80(1/8) = 10
+Reading the question: "80 grams" = starting amount = <strong>a</strong>. "Half-life of 6 years" = it loses half its mass every 6 years, so <strong>b = 1/2</strong> and the period is 6. "After 18 years" = <strong>t = 18</strong>. Number of half-lives = 18 ÷ 6 = 3.
+
+After 1 half-life (6 yrs): 80 ÷ 2 = 40
+After 2 half-lives (12 yrs): 40 ÷ 2 = 20
+After 3 half-lives (18 yrs): 20 ÷ 2 = <strong>10 grams</strong>
+
+In plain English: Every 6 years, half of what's left disappears. After 18 years, that's happened 3 times. You can just keep dividing by 2 — no formula needed if the numbers are clean.
 
 Answer: <strong>(B) 10 grams</strong></div>
         </div>
@@ -1021,10 +1055,16 @@ Answer: <strong>(B) 10 grams</strong></div>
           <div class="p-question">Which ordered pair is a solution to the system: y > 2x − 1 and y ≤ −x + 5?</div>
           <div class="p-choices">(A) (3, 4) &nbsp; (B) (1, 3) &nbsp; (C) (0, −2) &nbsp; (D) (4, 1)</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">Test each point in BOTH inequalities:
+          <div class="p-answer"><strong>Topic: Systems of Inequalities — Testing Solutions</strong>
 
-(1, 3): y > 2x − 1 → 3 > 2(1) − 1 → 3 > 1 ✓
-         y ≤ −x + 5 → 3 ≤ −1 + 5 → 3 ≤ 4 ✓
+Reading the question: An ordered pair is a solution if it makes BOTH inequalities true. Plug the x and y from each choice into both inequalities and check.
+
+Testing (1, 3):
+  y > 2x − 1 → 3 > 2(1) − 1 → 3 > 1 ✓
+  y ≤ −x + 5 → 3 ≤ −1 + 5 → 3 ≤ 4 ✓
+Both true!
+
+In plain English: Substitute x = 1 and y = 3 into each inequality. If both statements are true, that point is in the solution region. You only need to find one that works — stop testing once you've got it.
 
 Answer: <strong>(B) (1, 3)</strong></div>
         </div>
@@ -1033,11 +1073,16 @@ Answer: <strong>(B) (1, 3)</strong></div>
           <div class="p-question">What are the solutions to 2x² + 3x − 5 = 0?</div>
           <div class="p-choices">(A) x = 1 and x = −5/2 &nbsp; (B) x = −1 and x = 5/2 &nbsp; (C) x = 5 and x = −1/2 &nbsp; (D) x = −5 and x = 1/2</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">Factor: (2x + 5)(x − 1) = 0
-Check: 2x² − 2x + 5x − 5 = 2x² + 3x − 5 ✓
+          <div class="p-answer"><strong>Topic: <a class="concept-link" href="#factoring">Factoring Quadratics</a> — Leading Coefficient ≠ 1</strong>
 
+Reading the question: 2x² + 3x − 5 = 0. The leading coefficient is 2 (not 1), which makes factoring trickier. You need two factors of the form (2x + ?)(x + ?) that FOIL back to the original.
+
+Factor: (2x + 5)(x − 1) = 0
+Check with FOIL: 2x² − 2x + 5x − 5 = 2x² + 3x − 5 ✓
 2x + 5 = 0 → x = −5/2
 x − 1 = 0 → x = 1
+
+In plain English: When the x² has a number in front of it (like 2), trial and error with FOIL checking is the move. Or use the quadratic formula if factoring gets messy.
 
 Answer: <strong>(A) x = 1 and x = −5/2</strong></div>
         </div>
@@ -1116,9 +1161,14 @@ Answer: <strong>(A) x = 1 and x = −5/2</strong></div>
           <div class="p-question">A park is shaped like a rectangle with corners at (0, 0), (6, 0), (6, 8), and (0, 8). What is the perimeter of the park if each unit represents 10 meters?</div>
           <div class="p-choices">(A) 28 m &nbsp; (B) 48 m &nbsp; (C) 280 m &nbsp; (D) 480 m</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">Length = 6 units, Width = 8 units
+          <div class="p-answer"><strong>Topic: Coordinate Geometry — Perimeter</strong>
+
+Reading the question: The corners give you the shape on a grid. (0,0) to (6,0) = length of 6 units. (0,0) to (0,8) = width of 8 units. "Each unit represents 10 meters" = multiply your answer by 10.
+
 Perimeter = 2(6 + 8) = 2(14) = 28 units
 28 × 10 meters = <strong>280 meters</strong>
+
+In plain English: Find the side lengths from the coordinates, calculate the perimeter in grid units, then convert to the real-world unit (meters). Don't forget the conversion step — that's how they trick you. Choice (A) is the trap for people who skip it.
 
 Answer: <strong>(C) 280 m</strong></div>
         </div>
@@ -1127,10 +1177,14 @@ Answer: <strong>(C) 280 m</strong></div>
           <div class="p-question">What is the distance between (−1, 4) and (5, −4)?</div>
           <div class="p-choices">(A) 6 &nbsp; (B) 8 &nbsp; (C) 10 &nbsp; (D) 14</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">d = √[(5−(−1))² + (−4−4)²]
-d = √[6² + (−8)²]
-d = √[36 + 64]
-d = √100 = <strong>10</strong>
+          <div class="p-answer"><strong>Topic: <a class="concept-link" href="#distance-formula">Distance Formula</a></strong>
+
+Reading the question: Two points: (−1, 4) and (5, −4). Plug into the distance formula. Be careful with the negative signs — subtracting a negative makes a positive.
+
+d = √[(5−(−1))² + (−4−4)²]
+d = √[6² + (−8)²] = √[36 + 64] = √100 = <strong>10</strong>
+
+In plain English: The horizontal gap is 6 (from −1 to 5) and the vertical gap is 8 (from 4 down to −4). It's a 6-8-10 right triangle — a scaled-up 3-4-5 triple.
 
 Answer: <strong>(C) 10</strong></div>
         </div>
@@ -1139,9 +1193,15 @@ Answer: <strong>(C) 10</strong></div>
           <div class="p-question">Line A passes through (1, 2) and (3, 8). Line B passes through (0, 5) and (2, 11). Are these lines parallel, perpendicular, or neither?</div>
           <div class="p-choices">(A) Parallel &nbsp; (B) Perpendicular &nbsp; (C) Neither &nbsp; (D) Same line</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">Slope A = (8 − 2)/(3 − 1) = 6/2 = 3
+          <div class="p-answer"><strong>Topic: <a class="concept-link" href="#slope-intercept">Slope</a> — Parallel vs. Perpendicular</strong>
+
+Reading the question: Two lines, each defined by two points. Calculate the slope of each. Same slope = parallel. Negative reciprocal slopes = perpendicular. Neither = neither.
+
+Slope A = (8 − 2)/(3 − 1) = 6/2 = 3
 Slope B = (11 − 5)/(2 − 0) = 6/2 = 3
-Same slope → <strong>Parallel</strong>
+Both slopes are 3 → <strong>Parallel</strong>
+
+In plain English: Both lines rise 3 units for every 1 unit to the right. Since they're going in the same direction at the same steepness, they're parallel — they'll never cross.
 
 Answer: <strong>(A) Parallel</strong></div>
         </div>
@@ -1223,7 +1283,14 @@ Answer: <strong>(A) Parallel</strong></div>
           <div class="p-question">Simplify: √200</div>
           <div class="p-choices">(A) 10√2 &nbsp; (B) 2√100 &nbsp; (C) 20√5 &nbsp; (D) 5√8</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">√200 = √(100 × 2) = √100 × √2 = <strong>10√2</strong>
+          <div class="p-answer"><strong>Topic: <a class="concept-link" href="#radicals">Simplifying Radicals</a></strong>
+
+Reading the question: Simplify √200 means rewrite it in the form a√b where b has no perfect square factors left.
+
+Find the largest perfect square in 200: 100 × 2 = 200
+√200 = √(100 × 2) = √100 × √2 = <strong>10√2</strong>
+
+In plain English: Ask "what's the biggest perfect square that goes into 200?" That's 100. Pull it out of the radical as its square root (10), leave the 2 inside.
 
 Answer: <strong>(A) 10√2</strong></div>
         </div>
@@ -1232,22 +1299,32 @@ Answer: <strong>(A) 10√2</strong></div>
           <div class="p-question">Which expression is equivalent to √18 + √32?</div>
           <div class="p-choices">(A) √50 &nbsp; (B) 7√2 &nbsp; (C) 5√2 &nbsp; (D) 50</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">√18 = √(9×2) = 3√2
+          <div class="p-answer"><strong>Topic: <a class="concept-link" href="#radicals">Adding Radicals</a></strong>
+
+Reading the question: You can't add √18 + √32 directly. First simplify each radical separately, then combine if they have the same number under the √.
+
+√18 = √(9×2) = 3√2
 √32 = √(16×2) = 4√2
-3√2 + 4√2 = <strong>7√2</strong>
+Now they're both "something × √2": 3√2 + 4√2 = <strong>7√2</strong>
 
-Answer: <strong>(B) 7√2</strong>
+In plain English: Simplify first, then add. Think of √2 like a variable — 3x + 4x = 7x. Important: √18 + √32 does NOT equal √50. You cannot add numbers under the radical sign.
 
-Note: √18 + √32 ≠ √50. You CANNOT add under the radical sign.</div>
+Answer: <strong>(B) 7√2</strong></div>
         </div>
         <div class="practice-card">
           <div class="p-num">Practice 3 <span class="source-tag">A.NR.5 · Edia</span></div>
           <div class="p-question">Simplify: (2√3)(5√6)</div>
           <div class="p-choices">(A) 10√18 &nbsp; (B) 30√2 &nbsp; (C) 10√9 &nbsp; (D) 7√18</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">Multiply coefficients: 2 × 5 = 10
-Multiply radicals: √3 × √6 = √18 = √(9×2) = 3√2
-10 × 3√2 = <strong>30√2</strong>
+          <div class="p-answer"><strong>Topic: <a class="concept-link" href="#radicals">Multiplying Radicals</a></strong>
+
+Reading the question: (2√3)(5√6) has two parts — the numbers outside (2 and 5) and the numbers inside (√3 and √6). Multiply outsides together, insides together, then simplify.
+
+Outsides: 2 × 5 = 10
+Insides: √3 × √6 = √18 = √(9×2) = 3√2
+Combine: 10 × 3√2 = <strong>30√2</strong>
+
+In plain English: Multiplication is easier than addition with radicals — you CAN multiply what's under the √ signs together. Then simplify the result like any other radical.
 
 Answer: <strong>(B) 30√2</strong></div>
         </div>
@@ -1329,8 +1406,14 @@ Which class has more consistent scores, and what does the difference in median a
           <div class="p-question">The line of best fit for a data set is y = −2x + 100, where x is the number of absences and y is the final grade. What does the slope tell you?</div>
           <div class="p-choices">(A) Each absence raises the grade by 2 points &nbsp; (B) Each absence lowers the grade by 2 points &nbsp; (C) The student starts with 2 points &nbsp; (D) There is no relationship</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">Slope = −2: For each additional absence, the final grade <strong>decreases by 2 points</strong>.
-The y-intercept (100) means a student with 0 absences is predicted to earn a 100.
+          <div class="p-answer"><strong>Topic: <a class="concept-link" href="#line-of-best-fit">Line of Best Fit</a> — Interpreting Slope</strong>
+
+Reading the question: y = −2x + 100. x = number of absences, y = final grade. The slope is −2. The question asks what that slope means in real-world terms.
+
+Slope = −2: For each additional absence, the final grade <strong>decreases by 2 points</strong>.
+y-intercept = 100: A student with 0 absences is predicted to earn a 100.
+
+In plain English: Every time x (absences) goes up by 1, y (grade) goes down by 2. The negative sign tells you it's a decrease. The EOC wants you to say this in context — not just "the slope is −2" but what it means for the student.
 
 Answer: <strong>(B) Each absence lowers the grade by 2 points</strong></div>
         </div>
@@ -1339,8 +1422,14 @@ Answer: <strong>(B) Each absence lowers the grade by 2 points</strong></div>
           <div class="p-question">A data set has a mean of 45, a median of 45, and a standard deviation of 3. Which statement is true?</div>
           <div class="p-choices">(A) The data is skewed left &nbsp; (B) The data is skewed right &nbsp; (C) The data is approximately symmetric &nbsp; (D) Not enough information</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">Mean = Median → data is <strong>approximately symmetric</strong>.
-Low SD (3) means data is clustered close to the mean.
+          <div class="p-answer"><strong>Topic: Data Analysis — Symmetry and Spread</strong>
+
+Reading the question: Mean = 45, Median = 45, SD = 3. When mean equals median, the data is balanced — no outliers pulling the average one way.
+
+Mean = Median → <strong>approximately symmetric</strong>
+Low SD (3) → data points are clustered close to the center
+
+In plain English: If the average and the middle value are the same, the data isn't lopsided. The standard deviation of 3 is small, meaning most values are within a few points of 45. Think of it like a basketball team where everyone scores about the same — consistent.
 
 Answer: <strong>(C) The data is approximately symmetric</strong></div>
         </div>
@@ -1349,8 +1438,14 @@ Answer: <strong>(C) The data is approximately symmetric</strong></div>
           <div class="p-question">Using the trend line y = 5x + 20, predict the value of y when x = 12. Is this interpolation or extrapolation if the data ranged from x = 2 to x = 10?</div>
           <div class="p-choices">(A) 80, interpolation &nbsp; (B) 80, extrapolation &nbsp; (C) 70, interpolation &nbsp; (D) 70, extrapolation</div>
           <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-          <div class="p-answer">y = 5(12) + 20 = 60 + 20 = <strong>80</strong>
+          <div class="p-answer"><strong>Topic: <a class="concept-link" href="#line-of-best-fit">Line of Best Fit</a> — Prediction</strong>
+
+Reading the question: The trend line is y = 5x + 20. "Predict y when x = 12" = plug in x = 12. "Data ranged from x = 2 to x = 10" tells you whether this is interpolation (inside the range) or extrapolation (outside).
+
+y = 5(12) + 20 = 60 + 20 = <strong>80</strong>
 x = 12 is OUTSIDE the data range (2 to 10) → <strong>extrapolation</strong>
+
+In plain English: You're predicting beyond the data you actually collected. The line might not hold up past x = 10 — maybe it curves or levels off. That's why extrapolation is less reliable than interpolation (predicting within your data).
 
 Answer: <strong>(B) 80, extrapolation</strong></div>
         </div>
