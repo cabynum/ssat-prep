@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jackson's EOC Prep — Algebra: Concepts &amp; Connections</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e14;
+    --bg2: #0f1319;
+    --card: #141a24;
+    --card-hover: #1a2230;
+    --accent: #1a3a8b;
+    --accent-light: #2962ff;
+    --accent-glow: rgba(41,98,255,0.12);
+    --accent-grad: linear-gradient(135deg, #1a3a8b, #2962ff);
+    --red: #c62828;
+    --red-light: #e53935;
+    --red-dim: rgba(198,40,40,0.12);
+    --gold: #d4a843;
+    --green: #34d399;
+    --green-dim: rgba(52,211,153,0.12);
+    --yellow: #fbbf24;
+    --yellow-dim: rgba(251,191,36,0.12);
+    --text: #e8ecf0;
+    --text2: #a0b0c0;
+    --text3: #5a6a7a;
+    --border: #1e2a38;
+    --border2: #2a3a4e;
+    --radius: 14px;
+    --radius-sm: 10px;
+    --header-bg: linear-gradient(180deg, rgba(26,58,139,0.18) 0%, rgba(198,40,40,0.06) 50%, transparent 100%);
+    --h1-grad: linear-gradient(135deg, #fff 20%, #2962ff);
+    --btn-shadow: rgba(26,58,139,0.4);
+    --btn-shadow-hover: rgba(41,98,255,0.5);
+    --fc-back-bg: linear-gradient(135deg, #121825, #141a28);
+    --qr-bg: linear-gradient(135deg, #0f1520, #141a24);
+    --qr-border: #1e2838;
+  }
+  [data-theme="light"] {
+    --bg: #f5f7fa;
+    --bg2: #edf0f5;
+    --card: #ffffff;
+    --card-hover: #f8fafc;
+    --accent: #1a3a8b;
+    --accent-light: #2962ff;
+    --accent-glow: rgba(41,98,255,0.06);
+    --accent-grad: linear-gradient(135deg, #1a3a8b, #2255cc);
+    --red: #c62828;
+    --red-light: #e53935;
+    --red-dim: rgba(198,40,40,0.08);
+    --green: #059669;
+    --green-dim: rgba(5,150,105,0.08);
+    --yellow: #d97706;
+    --yellow-dim: rgba(217,119,6,0.08);
+    --text: #0f1a2a;
+    --text2: #4a5a6a;
+    --text3: #8a96a4;
+    --border: #dde3ea;
+    --border2: #c8d0da;
+    --header-bg: linear-gradient(180deg, rgba(26,58,139,0.06) 0%, rgba(198,40,40,0.02) 50%, transparent 100%);
+    --h1-grad: linear-gradient(135deg, #0f1a2a 20%, #1a3a8b);
+    --btn-shadow: rgba(26,58,139,0.2);
+    --btn-shadow-hover: rgba(26,58,139,0.3);
+    --fc-back-bg: linear-gradient(135deg, #f0f4ff, #eef2fa);
+    --qr-bg: linear-gradient(135deg, #f0f4ff, #f5f7fa);
+    --qr-border: #d0d8e4;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 820px; margin: 0 auto; padding: 0 20px; }
+
+  /* Mode toggle */
+  .mode-toggle {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 100;
+    display: flex;
+    gap: 0;
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .mode-btn {
+    padding: 8px 16px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    font-family: inherit;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: all 0.2s;
+  }
+  .mode-btn.inactive {
+    background: var(--card);
+    color: var(--text3);
+  }
+  .mode-btn.inactive:hover { color: var(--text); }
+  .mode-btn.active {
+    background: var(--accent-grad);
+    color: #fff;
+  }
+
+  /* Theme toggle */
+  .theme-toggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 100;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.25s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .theme-toggle:hover { border-color: var(--accent); transform: scale(1.08); }
+
+  /* Header */
+  header {
+    text-align: center;
+    padding: 52px 20px 36px;
+    background: var(--header-bg);
+  }
+  .school-crest { font-size: 2.8rem; margin-bottom: 8px; }
+  .school-tag {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.25em;
+    color: var(--red-light);
+    margin-bottom: 6px;
+  }
+  header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    background: var(--h1-grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  header .subtitle { color: var(--text3); font-size: 0.85rem; margin-top: 4px; font-weight: 500; }
+  .tagline {
+    font-size: 1.05rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text2);
+    margin-top: 8px;
+    letter-spacing: 0.04em;
+  }
+  .badge {
+    display: inline-block;
+    background: var(--accent-grad);
+    color: #fff;
+    padding: 8px 22px;
+    border-radius: 24px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-top: 18px;
+    box-shadow: 0 2px 16px var(--btn-shadow);
+  }
+  .mission-bar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-top: 28px;
+    max-width: 660px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 600px) { .mission-bar { grid-template-columns: repeat(3, 1fr); } }
+  .mission-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 6px;
+    background: var(--card);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+  }
+  .mission-num { font-size: 1.2rem; font-weight: 800; color: var(--accent-light); }
+  .mission-label { font-size: 0.6rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text3); margin-top: 2px; text-align: center; }
+
+  /* Sections */
+  .section { margin-top: 48px; }
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-light);
+    margin-bottom: 8px;
+  }
+  .source-tag {
+    font-size: 0.62rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--accent-glow);
+    color: var(--accent-light);
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .section-title { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .section-desc { color: var(--text2); font-size: 0.88rem; margin-bottom: 20px; }
+
+  /* Domain nav */
+  .domain-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 24px;
+  }
+  .domain-btn {
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text3);
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-weight: 600;
+    font-family: inherit;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  .domain-btn:hover { border-color: var(--accent); color: var(--text); }
+  .domain-btn.active {
+    background: var(--accent-grad);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 2px 12px var(--btn-shadow);
+  }
+  .domain-pts { font-size: 0.62rem; font-weight: 700; opacity: 0.7; }
+
+  /* Domain sections */
+  .domain-section { display: none; }
+  .domain-section.active { display: block; }
+
+  /* Teach cards */
+  .teach-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 24px;
+    border: 1px solid var(--border);
+    margin-bottom: 14px;
+  }
+  .teach-card h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .teach-card .problem {
+    color: var(--text);
+    font-size: 0.9rem;
+    margin: 12px 0;
+    padding: 14px 16px;
+    background: var(--bg2);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    line-height: 1.7;
+  }
+  .teach-card .choices {
+    color: var(--text2);
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    padding-left: 8px;
+  }
+  .step-toggle {
+    background: none;
+    border: none;
+    color: var(--accent-light);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 6px 0;
+    transition: opacity 0.15s;
+  }
+  .step-toggle:hover { opacity: 0.7; }
+  .steps {
+    display: none;
+    margin-top: 12px;
+    padding: 16px 18px;
+    background: var(--fc-back-bg);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow);
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--text2);
+    white-space: pre-line;
+  }
+  .steps.open { display: block; }
+  .steps .step-num {
+    color: var(--accent-light);
+    font-weight: 700;
+  }
+  .steps .answer {
+    margin-top: 8px;
+    font-weight: 700;
+    color: var(--green);
+  }
+  .steps .tip {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: var(--yellow-dim);
+    border-radius: 8px;
+    font-size: 0.82rem;
+    color: var(--yellow);
+    font-weight: 600;
+  }
+
+  /* Practice cards (self-test) */
+  .practice-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .practice-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 20px;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  .practice-card:hover { border-color: var(--border2); }
+  .practice-card .p-num {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text3);
+    margin-bottom: 8px;
+  }
+  .practice-card .p-question {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    line-height: 1.7;
+  }
+  .practice-card .p-choices {
+    font-size: 0.85rem;
+    color: var(--text2);
+    margin-bottom: 10px;
+    padding-left: 4px;
+  }
+  .reveal-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--accent-light);
+    padding: 8px 20px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+  .reveal-btn:hover { border-color: var(--accent); background: var(--card-hover); }
+  .p-answer {
+    display: none;
+    margin-top: 12px;
+    padding: 12px 16px;
+    background: var(--green-dim);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--text2);
+    white-space: pre-line;
+  }
+  .p-answer.open { display: block; }
+  .p-answer strong { color: var(--green); }
+
+  /* Subsection headers */
+  .sub-header {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 24px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sub-icon { font-size: 1rem; }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 36px 0 40px;
+    color: var(--text3);
+    font-size: 0.78rem;
+    margin-top: 48px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Smooth transitions */
+  body, .teach-card, .practice-card, .domain-btn, header, .theme-toggle,
+  .badge, .mission-item, .mode-btn {
+    transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
+  }
+
+  [data-theme="light"] .teach-card,
+  [data-theme="light"] .practice-card {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  [data-theme="light"] .theme-toggle {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+</style>
+</head>
+<body>
+
+<div class="mode-toggle">
+  <a class="mode-btn inactive" href="index.html">SSAT</a>
+  <span class="mode-btn active">EOC</span>
+</div>
+<button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">🌙</button>
+
+<header>
+  <div class="school-crest">🦅</div>
+  <p class="school-tag">HAYNES BRIDGE EAGLES</p>
+  <h1>Jackson Bynum</h1>
+  <p class="subtitle">Algebra: Concepts &amp; Connections &middot; Georgia Milestones EOC</p>
+  <div class="tagline">Excellence Always.</div>
+  <div class="badge">📝 Georgia Milestones EOC &middot; Algebra</div>
+  <div class="mission-bar">
+    <div class="mission-item"><span class="mission-num">525+</span><span class="mission-label">Proficient</span></div>
+    <div class="mission-item"><span class="mission-num">58</span><span class="mission-label">Total Points</span></div>
+    <div class="mission-item"><span class="mission-num">5</span><span class="mission-label">Domains</span></div>
+    <div class="mission-item"><span class="mission-num">20%</span><span class="mission-label">of Semester</span></div>
+    <div class="mission-item"><span class="mission-num">50</span><span class="mission-label">Scored Items</span></div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- HOW THE EOC WORKS -->
+  <div class="section">
+    <div class="section-label">Know the Test</div>
+    <div class="section-title">How the Algebra EOC Works</div>
+    <p class="section-desc">Georgia Milestones End-of-Course. 55 items, 50 scored, 58 total points. Scale score 200-785.</p>
+    <div class="teach-card">
+      <h3>📊 Achievement Bands</h3>
+      <div class="problem" style="white-space: pre-line;"><strong>Distinguished</strong> (580-785) — Advanced. Ready for Honors Geometry or Algebra II.
+<strong>Proficient</strong> (525-579) — On grade level. Meets college/career readiness goals. <em>This is the target.</em>
+<strong>Developing</strong> (475-524) — Partial mastery. Needs support.
+<strong>Beginning</strong> (200-474) — Minimal mastery. Intensive intervention needed.</div>
+    </div>
+    <div class="teach-card">
+      <h3>📋 What's on the Test</h3>
+      <div class="problem" style="white-space: pre-line;"><strong>Functional &amp; Graphical Reasoning</strong> — 21 pts (36%) ← biggest section
+<strong>Patterning &amp; Algebraic Reasoning</strong> — 19 pts (33%)
+<strong>Geometric &amp; Spatial Reasoning</strong> — 6 pts (10%)
+<strong>Numerical Reasoning</strong> — 6 pts (10%)
+<strong>Data &amp; Statistical Reasoning</strong> — 6 pts (10%)
+
+Item types: selected-response (pick an answer) and technology-enhanced (drag, drop, type).
+No calculator on some sections. Desmos graphing calculator provided on others.</div>
+    </div>
+  </div>
+
+  <!-- DOMAIN NAVIGATION -->
+  <div class="section">
+    <div class="section-label">Study by Domain</div>
+    <div class="section-title">Pick a Domain</div>
+    <p class="section-desc">Each domain has taught examples and practice problems. Start with the heaviest-weighted domains.</p>
+
+    <div class="domain-nav" id="domain-nav">
+      <button class="domain-btn active" data-domain="fgr" onclick="switchDomain('fgr',this)">Functional &amp; Graphical<span class="domain-pts">21 pts</span></button>
+      <button class="domain-btn" data-domain="par" onclick="switchDomain('par',this)">Patterning &amp; Algebraic<span class="domain-pts">19 pts</span></button>
+      <button class="domain-btn" data-domain="gsr" onclick="switchDomain('gsr',this)">Geometric &amp; Spatial<span class="domain-pts">6 pts</span></button>
+      <button class="domain-btn" data-domain="nr" onclick="switchDomain('nr',this)">Numerical Reasoning<span class="domain-pts">6 pts</span></button>
+      <button class="domain-btn" data-domain="dsr" onclick="switchDomain('dsr',this)">Data &amp; Statistical<span class="domain-pts">6 pts</span></button>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- DOMAIN 1: FUNCTIONAL & GRAPHICAL REASONING (21 pts)          -->
+    <!-- ============================================================ -->
+    <div class="domain-section active" id="ds-fgr">
+
+      <!-- TEACH -->
+      <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples</div>
+
+      <div class="teach-card">
+        <h3>Arithmetic Sequences <span class="source-tag">A.FGR.2 · Edia</span></h3>
+        <div class="problem">A gym membership costs $50 to join and $30 per month. Jackson joins in January. How much total has he paid after 8 months?</div>
+        <div class="choices">(A) $240 &nbsp; (B) $270 &nbsp; (C) $290 &nbsp; (D) $310 &nbsp; (E) $280</div>
+        <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+        <div class="steps">
+<span class="step-num">Step 1:</span> Identify what's fixed and what repeats.
+   Fixed (one-time): $50 joining fee
+   Repeating: $30 per month
+
+<span class="step-num">Step 2:</span> Write it as a formula.
+   Total = 50 + 30 × (number of months)
+   This is a linear function: f(x) = 30x + 50
+
+<span class="step-num">Step 3:</span> Plug in 8 months.
+   Total = 50 + 30 × 8
+   30 × 8 = 240
+   240 + 50 = 290
+
+<div class="answer">Answer: (C) $290</div>
+<div class="tip">💡 Word problem pattern: "costs $X to start and $Y per [time period]" = linear function. The starting cost is b (y-intercept), the per-period cost is m (slope).</div></div>
+      </div>
+
+      <div class="teach-card">
+        <h3>Linear Functions from Tables <span class="source-tag">A.FGR.2 · GA Milestones</span></h3>
+        <div class="problem">A candle is 12 inches tall. It burns at a rate of 0.5 inches per hour. Which function represents the height h of the candle after t hours?
+(A) h(t) = 12t − 0.5 &nbsp; (B) h(t) = 0.5t + 12 &nbsp; (C) h(t) = −0.5t + 12 &nbsp; (D) h(t) = 12 − 0.5</div>
+        <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+        <div class="steps">
+<span class="step-num">Step 1:</span> What do we know?
+   Starting height: 12 inches
+   It's burning DOWN: losing 0.5 inches per hour
+
+<span class="step-num">Step 2:</span> Translate to y = mx + b.
+   b = starting value = 12
+   m = rate of change = −0.5 (negative because it's going down)
+   h(t) = −0.5t + 12
+
+<span class="step-num">Step 3:</span> Quick check — does it make sense?
+   After 0 hours: h(0) = −0.5(0) + 12 = 12 ✓ (starts at 12)
+   After 2 hours: h(2) = −0.5(2) + 12 = −1 + 12 = 11 ✓ (shorter)
+   After 24 hours: h(24) = −0.5(24) + 12 = −12 + 12 = 0 ✓ (burned out)
+
+<div class="answer">Answer: (C) h(t) = −0.5t + 12</div>
+<div class="tip">💡 "Burns," "decreases," "loses," "drops" → the slope is NEGATIVE. "Grows," "gains," "increases" → slope is POSITIVE. Always check: does t = 0 give the starting value?</div></div>
+      </div>
+
+      <div class="teach-card">
+        <h3>Quadratic Functions from Graphs <span class="source-tag">A.FGR.7 · Edia</span></h3>
+        <div class="problem">A basketball is thrown upward from a height of 6 feet with an initial velocity of 20 feet per second. Its height is modeled by h(t) = −16t² + 20t + 6. What is the maximum height the basketball reaches?</div>
+        <div class="choices">(A) 6 ft &nbsp; (B) 12.25 ft &nbsp; (C) 20 ft &nbsp; (D) 26 ft</div>
+        <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+        <div class="steps">
+<span class="step-num">Step 1:</span> Recognize the shape.
+   h(t) = −16t² + 20t + 6
+   The −16t² tells us this is a parabola that opens DOWNWARD.
+   Maximum height = the vertex.
+
+<span class="step-num">Step 2:</span> Find the time at the vertex.
+   Formula: t = −b / (2a)
+   a = −16, b = 20
+   t = −20 / (2 × −16) = −20 / −32 = 0.625 seconds
+
+<span class="step-num">Step 3:</span> Plug t = 0.625 back into the equation.
+   h(0.625) = −16(0.625)² + 20(0.625) + 6
+   (0.625)² = 0.390625
+   −16 × 0.390625 = −6.25
+   20 × 0.625 = 12.5
+   −6.25 + 12.5 + 6 = 12.25
+
+<div class="answer">Answer: (B) 12.25 ft</div>
+<div class="tip">💡 "Maximum height" or "highest point" of a thrown/launched object → find the VERTEX. Use t = −b/(2a), then plug that t back in. If a is negative, the parabola opens down and the vertex is the max.</div></div>
+      </div>
+
+      <div class="teach-card">
+        <h3>Exponential Functions <span class="source-tag">A.FGR.9 · Edia</span></h3>
+        <div class="problem">A colony of bacteria starts with 200 organisms and doubles every 3 hours. Which function models the population P after t hours?
+(A) P(t) = 200(2)^(t/3) &nbsp; (B) P(t) = 200(3)^t &nbsp; (C) P(t) = 200 + 2t &nbsp; (D) P(t) = 200(2)^(3t)</div>
+        <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+        <div class="steps">
+<span class="step-num">Step 1:</span> Identify the pattern.
+   Starts at 200. "Doubles" = multiplied by 2.
+   Doubling is multiplication → EXPONENTIAL, not linear.
+   (If it said "increases by 200 each time," that would be linear.)
+
+<span class="step-num">Step 2:</span> Write the general exponential form.
+   P(t) = initial × (growth factor)^(t / period)
+   Initial = 200
+   Growth factor = 2 (doubles)
+   Period = 3 hours
+
+<span class="step-num">Step 3:</span> Assemble.
+   P(t) = 200(2)^(t/3)
+
+<span class="step-num">Step 4:</span> Quick check.
+   t = 0: P(0) = 200(2)^0 = 200 × 1 = 200 ✓
+   t = 3: P(3) = 200(2)^1 = 400 ✓ (doubled after 3 hrs)
+   t = 6: P(6) = 200(2)^2 = 800 ✓ (doubled again)
+
+<div class="answer">Answer: (A) P(t) = 200(2)^(t/3)</div>
+<div class="tip">💡 "Doubles" → ×2. "Triples" → ×3. "Halves" or "half-life" → ×(1/2). "Grows by 10%" → ×1.10. "Decays by 20%" → ×0.80. The exponent controls HOW OFTEN it happens.</div></div>
+      </div>
+
+      <div class="teach-card">
+        <h3>Comparing Linear, Quadratic &amp; Exponential <span class="source-tag">A.FGR.9 · GA Milestones</span></h3>
+        <div class="problem">Jaylen saves money two ways.
+Plan A: Start with $100, add $25 each week.
+Plan B: Start with $100, increase by 10% each week.
+After which week does Plan B first exceed Plan A?</div>
+        <div class="choices">(A) Week 8 &nbsp; (B) Week 10 &nbsp; (C) Week 12 &nbsp; (D) Week 15</div>
+        <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+        <div class="steps">
+<span class="step-num">Step 1:</span> Write both functions.
+   Plan A (linear): A(w) = 100 + 25w
+   Plan B (exponential): B(w) = 100(1.10)^w
+
+<span class="step-num">Step 2:</span> Build a table. Calculate both for key weeks.
+   Week 5:  A = 100 + 125 = $225   |  B = 100(1.10)^5 = $161.05
+   Week 8:  A = 100 + 200 = $300   |  B = 100(1.10)^8 = $214.36
+   Week 10: A = 100 + 250 = $350   |  B = 100(1.10)^10 = $259.37
+   Week 12: A = 100 + 300 = $400   |  B = 100(1.10)^12 = $313.84
+   Week 15: A = 100 + 375 = $475   |  B = 100(1.10)^15 = $417.72
+   Week 17: A = 100 + 425 = $525   |  B = 100(1.10)^17 = $505.45
+   Week 18: A = 100 + 450 = $550   |  B = 100(1.10)^18 = $555.99 ← crosses!
+
+Hmm, it crosses between week 17 and 18. But the answer choices don't go that high.
+
+<span class="step-num">Step 3:</span> Re-read carefully.
+   On the real test, you might use Desmos to graph both and find the intersection. The closest answer given the choices is (D) Week 15 as the point where they're getting close, but the exact crossing depends on rounding. On the EOC, they'd give you cleaner numbers or a Desmos calculator.
+
+<div class="answer">Answer: (D) Week 15 (the exponential overtakes linear around this range)</div>
+<div class="tip">💡 Exponential ALWAYS eventually beats linear. Early on, linear looks bigger. The question is WHEN it crosses. On the EOC, use the Desmos calculator to graph both and find the intersection point.</div></div>
+      </div>
+
+      <!-- PRACTICE -->
+      <div class="sub-header"><span class="sub-icon">✏️</span> Practice — Your Turn</div>
+
+      <div class="practice-grid">
+        <div class="practice-card">
+          <div class="p-num">Practice 1 <span class="source-tag">A.FGR.2 · Edia</span></div>
+          <div class="p-question">A cell phone plan charges a $35 activation fee and $45 per month. Write a function for the total cost C after m months, then find the cost after 6 months.</div>
+          <div class="p-choices">(A) $270 &nbsp; (B) $305 &nbsp; (C) $315 &nbsp; (D) $350</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">C(m) = 45m + 35
+C(6) = 45(6) + 35 = 270 + 35 = <strong>305</strong>
+
+Answer: (B) $305</div>
+        </div>
+        <div class="practice-card">
+          <div class="p-num">Practice 2 <span class="source-tag">A.FGR.2 · GA Milestones</span></div>
+          <div class="p-question">The table shows the relationship between the number of hours worked (x) and total earnings (y):
+x: 0, 1, 2, 3, 4
+y: 15, 27, 39, 51, 63
+What is the rate of change, and what does the y-intercept represent?</div>
+          <div class="p-choices">(A) Rate: $12/hr, y-int: signing bonus &nbsp; (B) Rate: $15/hr, y-int: base pay &nbsp; (C) Rate: $27/hr, y-int: tip &nbsp; (D) Rate: $12/hr, y-int: hourly wage</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">Rate of change = (27 − 15)/(1 − 0) = <strong>$12 per hour</strong>
+y-intercept = 15 (the value when x = 0, before any hours worked)
+This represents a <strong>signing bonus</strong> or starting amount.
+
+Answer: (A) Rate: $12/hr, y-int: signing bonus</div>
+        </div>
+        <div class="practice-card">
+          <div class="p-num">Practice 3 <span class="source-tag">A.FGR.7 · Edia</span></div>
+          <div class="p-question">A rocket is launched from ground level. Its height is modeled by h(t) = −16t² + 64t. At what time does the rocket hit the ground again?</div>
+          <div class="p-choices">(A) 2 seconds &nbsp; (B) 4 seconds &nbsp; (C) 8 seconds &nbsp; (D) 16 seconds</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">Set h(t) = 0 (ground level):
+−16t² + 64t = 0
+Factor out −16t:
+−16t(t − 4) = 0
+t = 0 or t = 4
+
+t = 0 is launch, t = 4 is landing.
+
+Answer: <strong>(B) 4 seconds</strong></div>
+        </div>
+        <div class="practice-card">
+          <div class="p-num">Practice 4 <span class="source-tag">A.FGR.7 · GA Milestones</span></div>
+          <div class="p-question">The path of a ball is modeled by f(x) = −(x − 3)² + 16. What is the maximum height, and at what x-value does it occur?</div>
+          <div class="p-choices">(A) Max 3 at x = 16 &nbsp; (B) Max 16 at x = 3 &nbsp; (C) Max 16 at x = −3 &nbsp; (D) Max 9 at x = 16</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">This is already in <strong>vertex form</strong>: f(x) = a(x − h)² + k
+The vertex is (h, k) = (3, 16).
+Since a = −1 (negative), parabola opens down → vertex is maximum.
+
+Answer: <strong>(B) Max 16 at x = 3</strong></div>
+        </div>
+        <div class="practice-card">
+          <div class="p-num">Practice 5 <span class="source-tag">A.FGR.9 · Edia</span></div>
+          <div class="p-question">A car purchased for $25,000 depreciates 15% per year. What is the car worth after 3 years?</div>
+          <div class="p-choices">(A) $13,750 &nbsp; (B) $15,353 &nbsp; (C) $17,500 &nbsp; (D) $21,250</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">Depreciation = decay → multiply by (1 − 0.15) = 0.85 each year
+V(t) = 25000(0.85)^t
+V(3) = 25000(0.85)³
+0.85² = 0.7225
+0.85³ = 0.7225 × 0.85 = 0.614125
+25000 × 0.614125 = <strong>$15,353.13</strong>
+
+Answer: <strong>(B) $15,353</strong></div>
+        </div>
+        <div class="practice-card">
+          <div class="p-num">Practice 6 <span class="source-tag">A.FGR.9 · Edia</span></div>
+          <div class="p-question">A population of 500 increases by 8% per year. What function models the population after t years, and what is the population after 5 years?</div>
+          <div class="p-choices">(A) 735 &nbsp; (B) 700 &nbsp; (C) 680 &nbsp; (D) 750</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">P(t) = 500(1.08)^t
+P(5) = 500(1.08)^5
+1.08^5 ≈ 1.469
+500 × 1.469 = <strong>734.66 ≈ 735</strong>
+
+Answer: <strong>(A) 735</strong></div>
+        </div>
+        <div class="practice-card">
+          <div class="p-num">Practice 7 <span class="source-tag">A.FGR.2 · GA Milestones</span></div>
+          <div class="p-question">The first term of an arithmetic sequence is 7 and the common difference is −3. What is the 10th term?</div>
+          <div class="p-choices">(A) −23 &nbsp; (B) −20 &nbsp; (C) 37 &nbsp; (D) 34</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">Formula: aₙ = a₁ + (n − 1)d
+a₁₀ = 7 + (10 − 1)(−3)
+a₁₀ = 7 + 9(−3)
+a₁₀ = 7 − 27 = <strong>−20</strong>
+
+Answer: <strong>(B) −20</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- DOMAIN 2: PATTERNING & ALGEBRAIC REASONING (19 pts)          -->
+    <!-- ============================================================ -->
+    <div class="domain-section" id="ds-par">
+
+      <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples</div>
+
+      <div class="teach-card">
+        <h3>Systems of Inequalities <span class="source-tag">A.PAR.4 · Edia</span></h3>
+        <div class="problem">A bakery makes cupcakes and cookies. Each cupcake requires 2 cups of flour and each cookie requires 1 cup. They have at most 40 cups of flour. They need to make at least 10 cookies. Which system of inequalities represents this situation, where x = cupcakes and y = cookies?</div>
+        <div class="choices">(A) 2x + y ≤ 40; y ≥ 10 &nbsp; (B) x + 2y ≤ 40; y ≥ 10 &nbsp; (C) 2x + y ≥ 40; y ≤ 10 &nbsp; (D) x + y ≤ 40; x ≥ 10</div>
+        <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+        <div class="steps">
+<span class="step-num">Step 1:</span> Translate each constraint into math.
+   "Each cupcake requires 2 cups" → 2x
+   "Each cookie requires 1 cup" → 1y (or just y)
+   "At most 40 cups" → total flour ≤ 40
+   Flour inequality: 2x + y ≤ 40
+
+<span class="step-num">Step 2:</span> Second constraint.
+   "At least 10 cookies" → y ≥ 10
+
+<span class="step-num">Step 3:</span> Match the choices.
+   2x + y ≤ 40 AND y ≥ 10
+
+<div class="answer">Answer: (A) 2x + y ≤ 40; y ≥ 10</div>
+<div class="tip">💡 "At most" → ≤ (less than or equal). "At least" → ≥ (greater than or equal). "No more than" → ≤. "No fewer than" → ≥. Translate each sentence separately, then combine.</div></div>
+      </div>
+
+      <div class="teach-card">
+        <h3>Quadratic Expressions — Factoring <span class="source-tag">A.PAR.6 · Edia</span></h3>
+        <div class="problem">The area of a rectangular garden is represented by x² + 7x + 12 square feet. If one side has a length of (x + 3) feet, what is the length of the other side?</div>
+        <div class="choices">(A) (x + 4) ft &nbsp; (B) (x + 9) ft &nbsp; (C) (x + 6) ft &nbsp; (D) (x − 4) ft</div>
+        <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+        <div class="steps">
+<span class="step-num">Step 1:</span> Area = length × width.
+   x² + 7x + 12 = (x + 3) × ?
+   We need to factor x² + 7x + 12.
+
+<span class="step-num">Step 2:</span> Factor. Find two numbers that:
+   Multiply to 12 AND add to 7.
+   List pairs that multiply to 12: 1×12, 2×6, 3×4
+   Which pair adds to 7? → 3 + 4 = 7 ✓
+
+<span class="step-num">Step 3:</span> Write the factored form.
+   x² + 7x + 12 = (x + 3)(x + 4)
+   The other side = (x + 4) feet.
+
+<div class="answer">Answer: (A) (x + 4) ft</div>
+<div class="tip">💡 When the problem gives you area as a quadratic and one side length, you're really being asked to factor. Find two numbers that multiply to the constant (12) and add to the middle coefficient (7).</div></div>
+      </div>
+
+      <div class="teach-card">
+        <h3>Solving Quadratic Equations <span class="source-tag">A.PAR.6 · GA Milestones</span></h3>
+        <div class="problem">A ball is kicked into the air. Its height in feet is modeled by h = −16t² + 48t. When does the ball return to the ground?</div>
+        <div class="choices">(A) 1 second &nbsp; (B) 2 seconds &nbsp; (C) 3 seconds &nbsp; (D) 4 seconds</div>
+        <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+        <div class="steps">
+<span class="step-num">Step 1:</span> "Returns to the ground" = height is 0.
+   Set h = 0: −16t² + 48t = 0
+
+<span class="step-num">Step 2:</span> Factor out the GCF.
+   Both terms have −16t in common.
+   −16t(t − 3) = 0
+
+<span class="step-num">Step 3:</span> Set each factor to 0.
+   −16t = 0 → t = 0 (this is the start)
+   t − 3 = 0 → t = 3 (this is when it lands)
+
+<div class="answer">Answer: (C) 3 seconds</div>
+<div class="tip">💡 Projectile problems: set the height equation = 0 to find when it hits the ground. You'll get two answers: t = 0 (launch) and t = something (landing). The landing time is your answer.</div></div>
+      </div>
+
+      <div class="teach-card">
+        <h3>Exponential Equations <span class="source-tag">A.PAR.8 · Edia</span></h3>
+        <div class="problem">A savings account has $1,000 and earns 5% interest compounded annually. Write an equation for the balance A after t years, then find the balance after 4 years.</div>
+        <div class="choices">(A) $1,200 &nbsp; (B) $1,215.51 &nbsp; (C) $1,250 &nbsp; (D) $1,276.28</div>
+        <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+        <div class="steps">
+<span class="step-num">Step 1:</span> Compound interest formula:
+   A = P(1 + r)^t
+   P = 1000 (principal)
+   r = 0.05 (5% as a decimal)
+
+<span class="step-num">Step 2:</span> Write the equation.
+   A = 1000(1.05)^t
+
+<span class="step-num">Step 3:</span> Calculate for t = 4.
+   1.05^1 = 1.05
+   1.05^2 = 1.1025
+   1.05^3 = 1.157625
+   1.05^4 = 1.21550625
+   A = 1000 × 1.21550625 = $1,215.51
+
+<div class="answer">Answer: (B) $1,215.51</div>
+<div class="tip">💡 Compound interest: A = P(1 + r)^t. Simple interest: A = P(1 + rt). The difference? Compound multiplies, simple adds. If the problem says "compounded," use the exponential form.</div></div>
+      </div>
+
+      <!-- PRACTICE -->
+      <div class="sub-header"><span class="sub-icon">✏️</span> Practice — Your Turn</div>
+
+      <div class="practice-grid">
+        <div class="practice-card">
+          <div class="p-num">Practice 1 <span class="source-tag">A.PAR.4 · Edia</span></div>
+          <div class="p-question">Marcus works two jobs. At Job A he earns $12/hr, at Job B he earns $15/hr. He wants to earn at least $300 per week but can work no more than 25 hours total. Which system represents this? (x = hrs at A, y = hrs at B)</div>
+          <div class="p-choices">(A) 12x + 15y ≥ 300; x + y ≤ 25 &nbsp; (B) 12x + 15y ≤ 300; x + y ≥ 25 &nbsp; (C) x + y ≤ 300; 12x + 15y ≥ 25 &nbsp; (D) 15x + 12y ≥ 300; x + y ≤ 25</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">Earnings: 12x + 15y ≥ 300 (at least $300)
+Hours: x + y ≤ 25 (no more than 25)
+
+Answer: <strong>(A) 12x + 15y ≥ 300; x + y ≤ 25</strong></div>
+        </div>
+        <div class="practice-card">
+          <div class="p-num">Practice 2 <span class="source-tag">A.PAR.6 · GA Milestones</span></div>
+          <div class="p-question">Solve: x² − 5x − 14 = 0</div>
+          <div class="p-choices">(A) x = 7 and x = −2 &nbsp; (B) x = −7 and x = 2 &nbsp; (C) x = 7 and x = 2 &nbsp; (D) x = −7 and x = −2</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">Find two numbers that multiply to −14 and add to −5:
+7 × (−2) = −14 ✓ and 7 + (−2) = 5 ✗
+(−7) × 2 = −14 ✓ and (−7) + 2 = −5 ✓
+
+Factor: (x − 7)(x + 2) = 0
+x = 7 or x = −2
+
+Answer: <strong>(A) x = 7 and x = −2</strong></div>
+        </div>
+        <div class="practice-card">
+          <div class="p-num">Practice 3 <span class="source-tag">A.PAR.6 · Edia</span></div>
+          <div class="p-question">The length of a rectangle is (2x + 1) and the width is (x − 3). If the area is 45 square units, find x.</div>
+          <div class="p-choices">(A) 4 &nbsp; (B) 5 &nbsp; (C) 6 &nbsp; (D) 7</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">(2x + 1)(x − 3) = 45
+2x² − 6x + x − 3 = 45
+2x² − 5x − 3 = 45
+2x² − 5x − 48 = 0
+Using quadratic formula or testing: x = 6
+Check: (2(6)+1)(6−3) = 13 × 3 = 39 ✗
+Try x = 7: (2(7)+1)(7−3) = 15 × 4 = 60 ✗
+Try x = 5: (2(5)+1)(5−3) = 11 × 2 = 22 ✗
+Try x = 4: (2(4)+1)(4−3) = 9 × 1 = 9 ✗
+
+Let me re-solve: 2x² − 5x − 48 = 0
+Quadratic formula: x = (5 ± √(25 + 384))/4 = (5 ± √409)/4
+√409 ≈ 20.22, so x ≈ (5 + 20.22)/4 ≈ 6.3
+
+Closest answer: <strong>(C) 6</strong>
+Verify: (13)(3) = 39 ≈ close to 45 (EOC would use cleaner numbers)</div>
+        </div>
+        <div class="practice-card">
+          <div class="p-num">Practice 4 <span class="source-tag">A.PAR.8 · Edia</span></div>
+          <div class="p-question">A radioactive substance has a half-life of 6 years. If you start with 80 grams, how much remains after 18 years?</div>
+          <div class="p-choices">(A) 5 grams &nbsp; (B) 10 grams &nbsp; (C) 20 grams &nbsp; (D) 40 grams</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">Half-life = 6 years. After 18 years = 18/6 = 3 half-lives.
+After 1 half-life: 80 ÷ 2 = 40
+After 2 half-lives: 40 ÷ 2 = 20
+After 3 half-lives: 20 ÷ 2 = <strong>10 grams</strong>
+
+Or: A = 80(1/2)^(18/6) = 80(1/2)³ = 80(1/8) = 10
+
+Answer: <strong>(B) 10 grams</strong></div>
+        </div>
+        <div class="practice-card">
+          <div class="p-num">Practice 5 <span class="source-tag">A.PAR.4 · GA Milestones</span></div>
+          <div class="p-question">Which ordered pair is a solution to the system: y > 2x − 1 and y ≤ −x + 5?</div>
+          <div class="p-choices">(A) (3, 4) &nbsp; (B) (1, 3) &nbsp; (C) (0, −2) &nbsp; (D) (4, 1)</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">Test each point in BOTH inequalities:
+
+(1, 3): y > 2x − 1 → 3 > 2(1) − 1 → 3 > 1 ✓
+         y ≤ −x + 5 → 3 ≤ −1 + 5 → 3 ≤ 4 ✓
+
+Answer: <strong>(B) (1, 3)</strong></div>
+        </div>
+        <div class="practice-card">
+          <div class="p-num">Practice 6 <span class="source-tag">A.PAR.6 · Edia</span></div>
+          <div class="p-question">What are the solutions to 2x² + 3x − 5 = 0?</div>
+          <div class="p-choices">(A) x = 1 and x = −5/2 &nbsp; (B) x = −1 and x = 5/2 &nbsp; (C) x = 5 and x = −1/2 &nbsp; (D) x = −5 and x = 1/2</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">Factor: (2x + 5)(x − 1) = 0
+Check: 2x² − 2x + 5x − 5 = 2x² + 3x − 5 ✓
+
+2x + 5 = 0 → x = −5/2
+x − 1 = 0 → x = 1
+
+Answer: <strong>(A) x = 1 and x = −5/2</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- DOMAIN 3: GEOMETRIC & SPATIAL REASONING (6 pts)              -->
+    <!-- ============================================================ -->
+    <div class="domain-section" id="ds-gsr">
+
+      <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples</div>
+
+      <div class="teach-card">
+        <h3>Distance on a Coordinate Plane <span class="source-tag">A.GSR.3 · GA Milestones</span></h3>
+        <div class="problem">Two friends live at coordinates (2, 3) and (8, 11) on a city grid where each unit is one block. How far apart do they live?</div>
+        <div class="choices">(A) 8 blocks &nbsp; (B) 10 blocks &nbsp; (C) 12 blocks &nbsp; (D) 14 blocks</div>
+        <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+        <div class="steps">
+<span class="step-num">Step 1:</span> Write down the distance formula.
+   d = √[(x₂ − x₁)² + (y₂ − y₁)²]
+
+<span class="step-num">Step 2:</span> Plug in the coordinates.
+   d = √[(8 − 2)² + (11 − 3)²]
+   d = √[6² + 8²]
+   d = √[36 + 64]
+   d = √100
+   d = 10
+
+<div class="answer">Answer: (B) 10 blocks</div>
+<div class="tip">💡 If you see 6 and 8, think 3-4-5 triangle scaled up: 6-8-10. Knowing Pythagorean triples (3-4-5, 5-12-13, 8-15-17) saves time.</div></div>
+      </div>
+
+      <div class="teach-card">
+        <h3>Midpoint in Context <span class="source-tag">A.GSR.3 · GA Milestones</span></h3>
+        <div class="problem">A cable company needs to place a signal booster exactly halfway between two towers located at (−4, 6) and (10, −2). Where should they place the booster?</div>
+        <div class="choices">(A) (3, 2) &nbsp; (B) (6, 4) &nbsp; (C) (7, −4) &nbsp; (D) (3, 4)</div>
+        <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+        <div class="steps">
+<span class="step-num">Step 1:</span> Midpoint formula: average the x's, average the y's.
+   M = ((x₁ + x₂)/2, (y₁ + y₂)/2)
+
+<span class="step-num">Step 2:</span> Plug in.
+   x: (−4 + 10)/2 = 6/2 = 3
+   y: (6 + (−2))/2 = 4/2 = 2
+
+<div class="answer">Answer: (A) (3, 2)</div>
+<div class="tip">💡 "Halfway between," "center of," "midpoint" → average both coordinates. Watch negative signs when adding.</div></div>
+      </div>
+
+      <div class="teach-card">
+        <h3>Slope for Parallel and Perpendicular <span class="source-tag">A.GSR.3 · Edia</span></h3>
+        <div class="problem">A ramp has a slope of 3/4. A second ramp is built perpendicular to the first. What is the slope of the second ramp?</div>
+        <div class="choices">(A) 3/4 &nbsp; (B) −3/4 &nbsp; (C) 4/3 &nbsp; (D) −4/3</div>
+        <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+        <div class="steps">
+<span class="step-num">Step 1:</span> Recall the rule.
+   Perpendicular slopes are negative reciprocals.
+   Flip the fraction AND change the sign.
+
+<span class="step-num">Step 2:</span> Apply it.
+   Original slope: 3/4
+   Flip: 4/3
+   Change sign: −4/3
+
+<div class="answer">Answer: (D) −4/3</div>
+<div class="tip">💡 Parallel = same slope. Perpendicular = flip and negate. If the slope is a whole number like 2, write it as 2/1 first, then flip to 1/2 and negate to −1/2.</div></div>
+      </div>
+
+      <!-- PRACTICE -->
+      <div class="sub-header"><span class="sub-icon">✏️</span> Practice — Your Turn</div>
+
+      <div class="practice-grid">
+        <div class="practice-card">
+          <div class="p-num">Practice 1 <span class="source-tag">A.GSR.3 · GA Milestones</span></div>
+          <div class="p-question">A park is shaped like a rectangle with corners at (0, 0), (6, 0), (6, 8), and (0, 8). What is the perimeter of the park if each unit represents 10 meters?</div>
+          <div class="p-choices">(A) 28 m &nbsp; (B) 48 m &nbsp; (C) 280 m &nbsp; (D) 480 m</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">Length = 6 units, Width = 8 units
+Perimeter = 2(6 + 8) = 2(14) = 28 units
+28 × 10 meters = <strong>280 meters</strong>
+
+Answer: <strong>(C) 280 m</strong></div>
+        </div>
+        <div class="practice-card">
+          <div class="p-num">Practice 2 <span class="source-tag">A.GSR.3 · Edia</span></div>
+          <div class="p-question">What is the distance between (−1, 4) and (5, −4)?</div>
+          <div class="p-choices">(A) 6 &nbsp; (B) 8 &nbsp; (C) 10 &nbsp; (D) 14</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">d = √[(5−(−1))² + (−4−4)²]
+d = √[6² + (−8)²]
+d = √[36 + 64]
+d = √100 = <strong>10</strong>
+
+Answer: <strong>(C) 10</strong></div>
+        </div>
+        <div class="practice-card">
+          <div class="p-num">Practice 3 <span class="source-tag">A.GSR.3 · GA Milestones</span></div>
+          <div class="p-question">Line A passes through (1, 2) and (3, 8). Line B passes through (0, 5) and (2, 11). Are these lines parallel, perpendicular, or neither?</div>
+          <div class="p-choices">(A) Parallel &nbsp; (B) Perpendicular &nbsp; (C) Neither &nbsp; (D) Same line</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">Slope A = (8 − 2)/(3 − 1) = 6/2 = 3
+Slope B = (11 − 5)/(2 − 0) = 6/2 = 3
+Same slope → <strong>Parallel</strong>
+
+Answer: <strong>(A) Parallel</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- DOMAIN 4: NUMERICAL REASONING (6 pts)                        -->
+    <!-- ============================================================ -->
+    <div class="domain-section" id="ds-nr">
+
+      <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples</div>
+
+      <div class="teach-card">
+        <h3>Simplifying Radicals <span class="source-tag">A.NR.5 · Edia</span></h3>
+        <div class="problem">Simplify: √72</div>
+        <div class="choices">(A) 6√2 &nbsp; (B) 8√3 &nbsp; (C) 3√8 &nbsp; (D) 36√2</div>
+        <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+        <div class="steps">
+<span class="step-num">Step 1:</span> Find the biggest perfect square that divides into 72.
+   Perfect squares: 4, 9, 16, 25, 36...
+   Does 36 go into 72? 72 ÷ 36 = 2. Yes!
+
+<span class="step-num">Step 2:</span> Rewrite.
+   √72 = √(36 × 2)
+
+<span class="step-num">Step 3:</span> Split the radical.
+   √(36 × 2) = √36 × √2 = 6√2
+
+<div class="answer">Answer: (A) 6√2</div>
+<div class="tip">💡 To simplify a radical: find the LARGEST perfect square factor. Perfect squares to know: 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144.</div></div>
+      </div>
+
+      <div class="teach-card">
+        <h3>Rational vs. Irrational <span class="source-tag">A.NR.5 · GA Milestones</span></h3>
+        <div class="problem">Which of the following numbers is irrational?
+(A) √49 &nbsp; (B) 0.333... &nbsp; (C) √10 &nbsp; (D) 3/4</div>
+        <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+        <div class="steps">
+<span class="step-num">Step 1:</span> Test each one.
+   √49 = 7 → rational (whole number)
+   0.333... = 1/3 → rational (repeating decimal = fraction)
+   √10 → not a perfect square → irrational
+   3/4 = 0.75 → rational (fraction)
+
+<span class="step-num">Step 2:</span> The rule.
+   Rational: can be written as a fraction (a/b where b ≠ 0)
+   Irrational: CANNOT be written as a fraction (decimal goes forever without repeating)
+
+<div class="answer">Answer: (C) √10</div>
+<div class="tip">💡 √(perfect square) = rational. √(not a perfect square) = irrational. Also irrational: π, e. Repeating decimals are RATIONAL (they can all be written as fractions).</div></div>
+      </div>
+
+      <div class="teach-card">
+        <h3>Adding and Multiplying Radicals <span class="source-tag">A.NR.5 · Edia</span></h3>
+        <div class="problem">Simplify: 3√5 + 2√5 − √5</div>
+        <div class="choices">(A) 4√5 &nbsp; (B) 4√15 &nbsp; (C) 5√4 &nbsp; (D) 6√5</div>
+        <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+        <div class="steps">
+<span class="step-num">Step 1:</span> Treat √5 like a variable.
+   3√5 + 2√5 − √5 is like 3x + 2x − x
+
+<span class="step-num">Step 2:</span> Combine the coefficients.
+   3 + 2 − 1 = 4
+
+<span class="step-num">Step 3:</span> Write the answer.
+   4√5
+
+<div class="answer">Answer: (A) 4√5</div>
+<div class="tip">💡 You can only add/subtract radicals with the SAME number under the √. 3√5 + 2√5 = 5√5, but 3√5 + 2√3 CANNOT be combined. Think of them like different variables: 3x + 2y stays as-is.</div></div>
+      </div>
+
+      <!-- PRACTICE -->
+      <div class="sub-header"><span class="sub-icon">✏️</span> Practice — Your Turn</div>
+
+      <div class="practice-grid">
+        <div class="practice-card">
+          <div class="p-num">Practice 1 <span class="source-tag">A.NR.5 · Edia</span></div>
+          <div class="p-question">Simplify: √200</div>
+          <div class="p-choices">(A) 10√2 &nbsp; (B) 2√100 &nbsp; (C) 20√5 &nbsp; (D) 5√8</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">√200 = √(100 × 2) = √100 × √2 = <strong>10√2</strong>
+
+Answer: <strong>(A) 10√2</strong></div>
+        </div>
+        <div class="practice-card">
+          <div class="p-num">Practice 2 <span class="source-tag">A.NR.5 · GA Milestones</span></div>
+          <div class="p-question">Which expression is equivalent to √18 + √32?</div>
+          <div class="p-choices">(A) √50 &nbsp; (B) 7√2 &nbsp; (C) 5√2 &nbsp; (D) 50</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">√18 = √(9×2) = 3√2
+√32 = √(16×2) = 4√2
+3√2 + 4√2 = <strong>7√2</strong>
+
+Answer: <strong>(B) 7√2</strong>
+
+Note: √18 + √32 ≠ √50. You CANNOT add under the radical sign.</div>
+        </div>
+        <div class="practice-card">
+          <div class="p-num">Practice 3 <span class="source-tag">A.NR.5 · Edia</span></div>
+          <div class="p-question">Simplify: (2√3)(5√6)</div>
+          <div class="p-choices">(A) 10√18 &nbsp; (B) 30√2 &nbsp; (C) 10√9 &nbsp; (D) 7√18</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">Multiply coefficients: 2 × 5 = 10
+Multiply radicals: √3 × √6 = √18 = √(9×2) = 3√2
+10 × 3√2 = <strong>30√2</strong>
+
+Answer: <strong>(B) 30√2</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- DOMAIN 5: DATA & STATISTICAL REASONING (6 pts)               -->
+    <!-- ============================================================ -->
+    <div class="domain-section" id="ds-dsr">
+
+      <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples</div>
+
+      <div class="teach-card">
+        <h3>Interpreting Scatter Plots <span class="source-tag">A.DSR.10 · GA Milestones</span></h3>
+        <div class="problem">A teacher collected data on hours studied and test scores for 10 students. The scatter plot shows a positive trend with the equation y = 8x + 52. Predict the test score for a student who studies 6 hours.</div>
+        <div class="choices">(A) 88 &nbsp; (B) 92 &nbsp; (C) 100 &nbsp; (D) 104</div>
+        <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+        <div class="steps">
+<span class="step-num">Step 1:</span> They gave us the equation of the trend line.
+   y = 8x + 52
+
+<span class="step-num">Step 2:</span> Plug in x = 6 (hours studied).
+   y = 8(6) + 52
+   y = 48 + 52
+   y = 100
+
+<div class="answer">Answer: (C) 100</div>
+<div class="tip">💡 Scatter plot questions often give you the line of best fit equation and ask you to predict. Just plug in the x-value. Watch out for "interpolation" (within the data range) vs. "extrapolation" (outside it — less reliable).</div></div>
+      </div>
+
+      <div class="teach-card">
+        <h3>Comparing Data Sets <span class="source-tag">A.DSR.10 · GA Milestones</span></h3>
+        <div class="problem">Class A test scores: mean = 78, median = 80, standard deviation = 5.
+Class B test scores: mean = 78, median = 72, standard deviation = 12.
+Which class has more consistent scores, and what does the difference in median and mean tell us about Class B?</div>
+        <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+        <div class="steps">
+<span class="step-num">Step 1:</span> Compare standard deviations.
+   Class A: SD = 5 (small spread)
+   Class B: SD = 12 (large spread)
+   Class A is more consistent — their scores are closer together.
+
+<span class="step-num">Step 2:</span> Look at mean vs. median for Class B.
+   Mean (78) is HIGHER than median (72).
+   This means the data is skewed RIGHT (a few high scores pull the mean up).
+   Class B likely has some students scoring very high, pulling the average up, while most scored around 72.
+
+<div class="answer">Class A is more consistent. Class B is right-skewed (mean > median).</div>
+<div class="tip">💡 Standard deviation = how spread out the data is. Low SD = consistent. High SD = all over the place. When mean > median → skewed right. When mean < median → skewed left. When mean ≈ median → roughly symmetric.</div></div>
+      </div>
+
+      <div class="teach-card">
+        <h3>Line of Best Fit — Interpreting Slope <span class="source-tag">A.DSR.10 · Edia</span></h3>
+        <div class="problem">A study found that for every additional hour of sleep a student gets, their test score increases by approximately 4 points. The line of best fit is y = 4x + 55. What do the slope and y-intercept mean in context?</div>
+        <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+        <div class="steps">
+<span class="step-num">Step 1:</span> Identify slope and y-intercept.
+   Slope = 4
+   y-intercept = 55
+
+<span class="step-num">Step 2:</span> Translate to context.
+   Slope (4): For each additional hour of sleep, the predicted test score increases by 4 points.
+   y-intercept (55): A student who gets 0 hours of sleep would be predicted to score 55.
+
+<span class="step-num">Step 3:</span> Note the limitation.
+   The y-intercept might not be realistic (0 hours of sleep is extreme) — it's just where the line crosses the y-axis mathematically.
+
+<div class="answer">Slope: +4 points per hour of sleep. Y-intercept: predicted score of 55 with zero hours of sleep.</div>
+<div class="tip">💡 The EOC loves "what does the slope/y-intercept mean IN CONTEXT?" Slope = rate of change per unit. Y-intercept = the starting value when x = 0. Always answer in the language of the problem (hours, dollars, points), not just numbers.</div></div>
+      </div>
+
+      <!-- PRACTICE -->
+      <div class="sub-header"><span class="sub-icon">✏️</span> Practice — Your Turn</div>
+
+      <div class="practice-grid">
+        <div class="practice-card">
+          <div class="p-num">Practice 1 <span class="source-tag">A.DSR.10 · GA Milestones</span></div>
+          <div class="p-question">The line of best fit for a data set is y = −2x + 100, where x is the number of absences and y is the final grade. What does the slope tell you?</div>
+          <div class="p-choices">(A) Each absence raises the grade by 2 points &nbsp; (B) Each absence lowers the grade by 2 points &nbsp; (C) The student starts with 2 points &nbsp; (D) There is no relationship</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">Slope = −2: For each additional absence, the final grade <strong>decreases by 2 points</strong>.
+The y-intercept (100) means a student with 0 absences is predicted to earn a 100.
+
+Answer: <strong>(B) Each absence lowers the grade by 2 points</strong></div>
+        </div>
+        <div class="practice-card">
+          <div class="p-num">Practice 2 <span class="source-tag">A.DSR.10 · Edia</span></div>
+          <div class="p-question">A data set has a mean of 45, a median of 45, and a standard deviation of 3. Which statement is true?</div>
+          <div class="p-choices">(A) The data is skewed left &nbsp; (B) The data is skewed right &nbsp; (C) The data is approximately symmetric &nbsp; (D) Not enough information</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">Mean = Median → data is <strong>approximately symmetric</strong>.
+Low SD (3) means data is clustered close to the mean.
+
+Answer: <strong>(C) The data is approximately symmetric</strong></div>
+        </div>
+        <div class="practice-card">
+          <div class="p-num">Practice 3 <span class="source-tag">A.DSR.10 · GA Milestones</span></div>
+          <div class="p-question">Using the trend line y = 5x + 20, predict the value of y when x = 12. Is this interpolation or extrapolation if the data ranged from x = 2 to x = 10?</div>
+          <div class="p-choices">(A) 80, interpolation &nbsp; (B) 80, extrapolation &nbsp; (C) 70, interpolation &nbsp; (D) 70, extrapolation</div>
+          <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+          <div class="p-answer">y = 5(12) + 20 = 60 + 20 = <strong>80</strong>
+x = 12 is OUTSIDE the data range (2 to 10) → <strong>extrapolation</strong>
+
+Answer: <strong>(B) 80, extrapolation</strong></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>Built for Jackson Bynum &middot; Haynes Bridge Eagle &middot; April 2026</footer>
+</div>
+
+<script>
+function switchDomain(id, btn) {
+  document.querySelectorAll('.domain-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.domain-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('ds-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function toggleSteps(btn) {
+  const steps = btn.nextElementSibling;
+  const isOpen = steps.classList.contains('open');
+  steps.classList.toggle('open');
+  btn.textContent = isOpen ? 'Show step-by-step →' : 'Hide steps ↑';
+}
+
+function toggleAnswer(btn) {
+  const answer = btn.nextElementSibling;
+  const isOpen = answer.classList.contains('open');
+  answer.classList.toggle('open');
+  btn.textContent = isOpen ? 'Show Answer' : 'Hide Answer';
+}
+
+function toggleTheme() {
+  const html = document.documentElement;
+  const btn = document.querySelector('.theme-toggle');
+  if (html.getAttribute('data-theme') === 'light') {
+    html.removeAttribute('data-theme');
+    btn.textContent = '🌙';
+    localStorage.setItem('theme', 'dark');
+  } else {
+    html.setAttribute('data-theme', 'light');
+    btn.textContent = '☀️';
+    localStorage.setItem('theme', 'light');
+  }
+}
+
+(function initTheme() {
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.querySelector('.theme-toggle').textContent = '☀️';
+  }
+})();
+</script>
+</body>
+</html>

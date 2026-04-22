@@ -568,6 +568,40 @@
   /* Play icon */
   .play-icon { width: 16px; height: 16px; fill: currentColor; }
 
+  /* Mode toggle */
+  .mode-toggle {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 100;
+    display: flex;
+    gap: 0;
+    border-radius: 22px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .mode-btn {
+    padding: 8px 16px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    font-family: inherit;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: all 0.2s;
+  }
+  .mode-btn.inactive {
+    background: var(--card);
+    color: var(--text3);
+  }
+  .mode-btn.inactive:hover { color: var(--text); }
+  .mode-btn.active {
+    background: var(--accent-grad);
+    color: #fff;
+  }
+
   /* Theme toggle */
   .theme-toggle {
     position: fixed;
@@ -616,6 +650,7 @@
 </head>
 <body>
 
+<div class="mode-toggle"><span class="mode-btn active">SSAT</span><a class="mode-btn inactive" href="eoc.html">EOC</a></div>
 <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">🌙</button>
 
 <header>
