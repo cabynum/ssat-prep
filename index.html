@@ -678,6 +678,11 @@
     font-size: 0.68rem; font-weight: 600; padding: 4px 10px; border-radius: 6px;
     background: linear-gradient(135deg, rgba(139,26,26,0.15), rgba(41,98,255,0.15));
     color: var(--text); border: 1px solid rgba(41,98,255,0.2);
+    text-decoration: none; cursor: pointer; transition: all 0.15s;
+  }
+  .overlap-chip:hover {
+    border-color: var(--accent-light);
+    background: linear-gradient(135deg, rgba(139,26,26,0.25), rgba(41,98,255,0.25));
   }
 </style>
 </head>
@@ -884,12 +889,12 @@
       <div class="overlap-title">Your EOC prep covers these too</div>
       <div class="overlap-text">Six of the math topics you're studying for the SSAT are <strong>also on your Algebra EOC</strong>. The EOC page has deeper practice with step-by-step breakdowns. <a href="eoc.html">Go to EOC Prep →</a></div>
       <div class="overlap-topics">
-        <span class="overlap-chip">Slope &amp; Linear Functions</span>
-        <span class="overlap-chip">Distance &amp; Midpoint</span>
-        <span class="overlap-chip">Coordinate Geometry</span>
-        <span class="overlap-chip">Factoring</span>
-        <span class="overlap-chip">Exponents</span>
-        <span class="overlap-chip">Percentages &amp; Ratios</span>
+        <a class="overlap-chip" href="eoc.html#slope-intercept">Slope &amp; Linear Functions</a>
+        <a class="overlap-chip" href="eoc.html#distance-formula">Distance &amp; Midpoint</a>
+        <a class="overlap-chip" href="eoc.html#distance-formula">Coordinate Geometry</a>
+        <a class="overlap-chip" href="eoc.html#factoring">Factoring</a>
+        <a class="overlap-chip" href="eoc.html#exponential-form">Exponents</a>
+        <a class="overlap-chip" href="eoc.html#slope-intercept">Percentages &amp; Ratios</a>
       </div>
     </div>
   </div>

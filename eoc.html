@@ -532,6 +532,13 @@
     background: linear-gradient(135deg, rgba(139,26,26,0.15), rgba(41,98,255,0.15));
     color: var(--text);
     border: 1px solid rgba(139,26,26,0.2);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .overlap-chip:hover {
+    border-color: var(--accent-light);
+    background: linear-gradient(135deg, rgba(139,26,26,0.25), rgba(41,98,255,0.25));
   }
 </style>
 </head>
@@ -592,12 +599,12 @@ No calculator on some sections. Desmos graphing calculator provided on others.</
         <div class="overlap-title">This also helps your SSAT score</div>
         <div class="overlap-text">Six topics on the EOC are <strong>the same skills tested on the SSAT</strong> — and they're the ones you missed on your practice test. Nail these here and you're prepping for both tests at once.</div>
         <div class="overlap-topics">
-          <span class="overlap-chip">Slope &amp; Linear Functions</span>
-          <span class="overlap-chip">Distance &amp; Midpoint</span>
-          <span class="overlap-chip">Coordinate Geometry</span>
-          <span class="overlap-chip">Factoring</span>
-          <span class="overlap-chip">Exponents</span>
-          <span class="overlap-chip">Percentages &amp; Ratios</span>
+          <a class="overlap-chip" href="#slope-intercept">Slope &amp; Linear Functions</a>
+          <a class="overlap-chip" href="#distance-formula">Distance &amp; Midpoint</a>
+          <a class="overlap-chip" href="#distance-formula">Coordinate Geometry</a>
+          <a class="overlap-chip" href="#factoring">Factoring</a>
+          <a class="overlap-chip" href="#exponential-form">Exponents</a>
+          <a class="overlap-chip" href="#slope-intercept">Percentages &amp; Ratios</a>
         </div>
       </div>
     </div>
