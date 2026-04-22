@@ -596,6 +596,71 @@
     border-color: var(--accent-light);
     background: linear-gradient(135deg, rgba(139,26,26,0.25), rgba(41,98,255,0.25));
   }
+
+  /* Testing schedule */
+  .test-schedule {
+    margin-top: 32px;
+    border: 2px solid var(--accent);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .test-schedule-header {
+    background: var(--accent-grad);
+    color: #fff;
+    padding: 14px 22px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .test-schedule-header .ts-title { display: flex; align-items: center; gap: 8px; }
+  .test-schedule-body { padding: 6px 10px; }
+  .ts-row {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    gap: 12px;
+    transition: background 0.15s;
+  }
+  .ts-row:hover { background: var(--card-hover); }
+  .ts-date {
+    min-width: 90px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text3);
+  }
+  .ts-subject {
+    flex: 1;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .ts-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .ts-done { background: var(--green-dim); color: var(--green); }
+  .ts-today { background: var(--red-dim); color: var(--red-light); }
+  .ts-upcoming { background: var(--accent-glow); color: var(--accent-light); }
+  .ts-algebra {
+    background: var(--yellow-dim);
+    color: var(--yellow);
+    font-size: 0.7rem;
+    padding: 3px 12px;
+    border: 1px solid rgba(251,191,36,0.3);
+  }
+  .ts-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0 12px;
+  }
 </style>
 </head>
 <body>
@@ -624,6 +689,29 @@
 </header>
 
 <div class="container">
+
+  <!-- TESTING SCHEDULE -->
+  <div class="test-schedule">
+    <div class="test-schedule-header">
+      <div class="ts-title">📅 Georgia Milestones Testing Schedule</div>
+      <span style="font-size:0.72rem;font-weight:500;opacity:0.8">Haynes Bridge MS</span>
+    </div>
+    <div class="test-schedule-body" id="ts-body">
+      <div class="ts-row"><span class="ts-date">Tue, Apr 22</span><span class="ts-subject">ELA Section 1</span><span class="ts-tag" id="ts-0">upcoming</span></div>
+      <div class="ts-divider"></div>
+      <div class="ts-row"><span class="ts-date">Wed, Apr 23</span><span class="ts-subject">ELA Section 2</span><span class="ts-tag" id="ts-1">upcoming</span></div>
+      <div class="ts-divider"></div>
+      <div class="ts-row"><span class="ts-date">Fri, Apr 25</span><span class="ts-subject">ELA Section 3</span><span class="ts-tag" id="ts-2">upcoming</span></div>
+      <div class="ts-divider"></div>
+      <div class="ts-row"><span class="ts-date">Mon, Apr 28</span><span class="ts-subject">Math Section 1</span><span class="ts-tag" id="ts-3">upcoming</span></div>
+      <div class="ts-divider"></div>
+      <div class="ts-row"><span class="ts-date">Tue, Apr 29</span><span class="ts-subject">Math Section 2</span><span class="ts-tag" id="ts-4">upcoming</span></div>
+      <div class="ts-divider"></div>
+      <div class="ts-row"><span class="ts-date">Thu, May 1</span><span class="ts-subject">Algebra: Concepts &amp; Connections EOC</span><span class="ts-tag ts-algebra" id="ts-5">this is the big one</span></div>
+      <div class="ts-divider"></div>
+      <div class="ts-row"><span class="ts-date">Fri, May 2</span><span class="ts-subject">Physical Science</span><span class="ts-tag" id="ts-6">upcoming</span></div>
+    </div>
+  </div>
 
   <!-- HOW THE EOC WORKS -->
   <details class="collapsible" open>
@@ -1741,6 +1829,41 @@ function toggleSources() {
   btn.style.opacity = document.body.classList.contains('show-sources') ? '1' : '0.5';
 }
 document.getElementById('source-toggle').style.opacity = '0.5';
+
+(function updateSchedule() {
+  var dates = [
+    new Date(2026, 3, 22),
+    new Date(2026, 3, 23),
+    new Date(2026, 3, 25),
+    new Date(2026, 3, 28),
+    new Date(2026, 3, 29),
+    new Date(2026, 4, 1),
+    new Date(2026, 4, 2)
+  ];
+  var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  for (var i = 0; i < dates.length; i++) {
+    var el = document.getElementById('ts-' + i);
+    if (!el) continue;
+    var d = dates[i];
+    if (d < today) {
+      el.textContent = 'done';
+      el.className = 'ts-tag ts-done';
+    } else if (d.getTime() === today.getTime()) {
+      el.textContent = 'today';
+      el.className = 'ts-tag ts-today';
+    } else {
+      var diff = Math.ceil((d - today) / 86400000);
+      if (i === 5) {
+        el.textContent = diff + ' day' + (diff !== 1 ? 's' : '') + ' away';
+        el.className = 'ts-tag ts-algebra';
+      } else {
+        el.textContent = diff + ' day' + (diff !== 1 ? 's' : '') + ' away';
+        el.className = 'ts-tag ts-upcoming';
+      }
+    }
+  }
+})();
 
 document.addEventListener('click', function(e) {
   const link = e.target.closest('a[href^="#"]');
