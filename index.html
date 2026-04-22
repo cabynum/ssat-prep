@@ -646,6 +646,39 @@
   .mission-item, .future-tag, .tagline {
     transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
   }
+
+  /* Overlap callout */
+  .overlap-callout {
+    margin: 28px 0;
+    padding: 20px 24px;
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, rgba(139,26,26,0.12), rgba(41,98,255,0.12));
+    border: 1px solid rgba(41,98,255,0.25);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .overlap-icon { font-size: 1.6rem; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+  .overlap-content { flex: 1; }
+  .overlap-title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    background: linear-gradient(135deg, #c62828, #2962ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .overlap-text { font-size: 0.82rem; color: var(--text2); line-height: 1.6; }
+  .overlap-text strong { color: var(--text); }
+  .overlap-text a { color: var(--accent-light); text-decoration: none; font-weight: 600; }
+  .overlap-text a:hover { text-decoration: underline; }
+  .overlap-topics { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .overlap-chip {
+    font-size: 0.68rem; font-weight: 600; padding: 4px 10px; border-radius: 6px;
+    background: linear-gradient(135deg, rgba(139,26,26,0.15), rgba(41,98,255,0.15));
+    color: var(--text); border: 1px solid rgba(41,98,255,0.2);
+  }
 </style>
 </head>
 <body>
@@ -845,6 +878,22 @@
   </div>
 
   <!-- PORTAL -->
+  <div class="overlap-callout">
+    <div class="overlap-icon">🔄</div>
+    <div class="overlap-content">
+      <div class="overlap-title">Your EOC prep covers these too</div>
+      <div class="overlap-text">Six of the math topics you're studying for the SSAT are <strong>also on your Algebra EOC</strong>. The EOC page has deeper practice with step-by-step breakdowns. <a href="eoc.html">Go to EOC Prep →</a></div>
+      <div class="overlap-topics">
+        <span class="overlap-chip">Slope &amp; Linear Functions</span>
+        <span class="overlap-chip">Distance &amp; Midpoint</span>
+        <span class="overlap-chip">Coordinate Geometry</span>
+        <span class="overlap-chip">Factoring</span>
+        <span class="overlap-chip">Exponents</span>
+        <span class="overlap-chip">Percentages &amp; Ratios</span>
+      </div>
+    </div>
+  </div>
+
   <div class="portal-cta">
     <a class="portal-btn" href="https://portal.ssat.org" target="_blank">Open SSAT Practice Portal</a>
     <p class="hint">Take quizzes and section tests after reviewing each topic</p>
