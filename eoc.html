@@ -501,6 +501,21 @@
     font-weight: 500;
   }
   .concept-card .concept-external:hover { text-decoration: underline; }
+  .concept-trylinks {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--text3);
+  }
+  .concept-trylinks strong { color: var(--text2); font-weight: 600; }
+  .concept-trylink {
+    color: var(--accent-light);
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .concept-trylink:hover { text-decoration: underline; }
 
   /* Footer */
   footer {
@@ -683,6 +698,7 @@ One more thing: if there's a <strong>negative sign in front</strong> (like the �
 
 <em>On the test, they call this "vertex form." You'll see it when they ask for the maximum height or the minimum value.</em></div>
       <a class="concept-external" href="https://www.youtube.com/watch?v=SGUP6BkA870" target="_blank">📺 Quadratics Top 10 Must Knows →</a>
+      <div class="concept-trylinks"><strong>Try these:</strong> <a class="concept-trylink" onclick="goToQ('fgr','q-fgr-t3')">Basketball max height (worked)</a> · <a class="concept-trylink" onclick="goToQ('fgr','q-fgr-p4')">Ball path — find the peak</a></div>
     </div>
 
     <div class="concept-card" id="standard-form">
@@ -699,6 +715,7 @@ Also useful: the number at the end with no x (that's c) is where the graph <stro
 
 <em>On the test: if the equation has ax² + bx + c and they ask for the maximum, use x = −b/(2a).</em></div>
       <a class="concept-external" href="https://www.youtube.com/watch?v=SGUP6BkA870" target="_blank">📺 Quadratics Top 10 Must Knows →</a>
+      <div class="concept-trylinks"><strong>Try these:</strong> <a class="concept-trylink" onclick="goToQ('fgr','q-fgr-t3')">Basketball max height (worked)</a> · <a class="concept-trylink" onclick="goToQ('fgr','q-fgr-p3')">Rocket — when does it land?</a></div>
     </div>
 
     <div class="concept-card" id="slope-intercept">
@@ -714,6 +731,7 @@ Example: A gym charges $30/month with a $50 sign-up fee → y = 30x + 50. The sl
 
 <em>On the test, they call b the "y-intercept." They'll ask things like "what does the slope represent?" or "what does the y-intercept mean in this situation?" Always answer using the words from the problem — dollars, hours, points — not just numbers.</em></div>
       <a class="concept-external" href="https://www.youtube.com/watch?v=Azh3iWkexNA" target="_blank">📺 Math with Mr. J: Slope — A Beginner's Guide →</a>
+      <div class="concept-trylinks"><strong>Try these:</strong> <a class="concept-trylink" onclick="goToQ('fgr','q-fgr-t1')">Gym membership (worked)</a> · <a class="concept-trylink" onclick="goToQ('fgr','q-fgr-t2')">Burning candle (worked)</a> · <a class="concept-trylink" onclick="goToQ('fgr','q-fgr-p1')">Cell phone plan</a> · <a class="concept-trylink" onclick="goToQ('fgr','q-fgr-p2')">Earnings table</a></div>
     </div>
 
     <div class="concept-card" id="exponential-form">
@@ -733,6 +751,7 @@ The key difference from a straight line: with a line, you <strong>add</strong> t
 
 <em>On the test: if the problem says "doubles," "triples," "half-life," "depreciates," or "percent increase/decrease," it's exponential.</em></div>
       <a class="concept-external" href="https://www.youtube.com/watch?v=nuDz3O3yZOA" target="_blank">📺 Math with Mr. J: Exponents →</a>
+      <div class="concept-trylinks"><strong>Try these:</strong> <a class="concept-trylink" onclick="goToQ('fgr','q-fgr-t4')">Bacteria doubling (worked)</a> · <a class="concept-trylink" onclick="goToQ('fgr','q-fgr-p5')">Car depreciation</a> · <a class="concept-trylink" onclick="goToQ('fgr','q-fgr-p6')">Population growth</a> · <a class="concept-trylink" onclick="goToQ('par','q-par-t4')">Compound interest (worked)</a> · <a class="concept-trylink" onclick="goToQ('par','q-par-p4')">Half-life</a></div>
     </div>
 
     <div class="concept-card" id="factoring">
@@ -755,6 +774,7 @@ Always check your answer by multiplying it back out (FOIL) to make sure you get 
 
 <em>On the test: factoring shows up in word problems about area, projectile motion ("when does it hit the ground?"), and anytime they ask you to "solve" a quadratic.</em></div>
       <a class="concept-external" href="https://www.youtube.com/@MathwithMrJ/search?query=factoring" target="_blank">📺 Math with Mr. J: Factoring videos →</a>
+      <div class="concept-trylinks"><strong>Try these:</strong> <a class="concept-trylink" onclick="goToQ('par','q-par-t2')">Garden area (worked)</a> · <a class="concept-trylink" onclick="goToQ('par','q-par-t3')">Ball kicked — when does it land? (worked)</a> · <a class="concept-trylink" onclick="goToQ('par','q-par-p2')">Solve x² − 5x − 14 = 0</a> · <a class="concept-trylink" onclick="goToQ('par','q-par-p6')">Solve 2x² + 3x − 5 = 0</a></div>
     </div>
 
     <div class="concept-card" id="distance-formula">
@@ -778,6 +798,7 @@ Shortcut: memorize these common combos so you don't have to calculate every time
 
 <em>On the test: "how far apart," "what is the length of segment AB," or "find the distance between" → use this formula.</em></div>
       <a class="concept-external" href="https://www.youtube.com/@MathwithMrJ/search?query=distance+formula" target="_blank">📺 Math with Mr. J: Distance Formula →</a>
+      <div class="concept-trylinks"><strong>Try these:</strong> <a class="concept-trylink" onclick="goToQ('gsr','q-gsr-t1')">Two friends on a grid (worked)</a> · <a class="concept-trylink" onclick="goToQ('gsr','q-gsr-t2')">Signal booster midpoint (worked)</a> · <a class="concept-trylink" onclick="goToQ('gsr','q-gsr-p2')">Distance between two points</a></div>
     </div>
 
     <div class="concept-card" id="radicals">
@@ -799,6 +820,7 @@ Split it: √72 = √(36 × 2) = √36 × √2 = 6√2. Done.
 
 <em>On the test: they'll ask you to "simplify" or give you two radicals to add. Always simplify each one first, then see if they match.</em></div>
       <a class="concept-external" href="https://www.youtube.com/watch?v=GjiA0nGYlLM" target="_blank">📺 Math with Mr. J: Simplifying Square Roots →</a>
+      <div class="concept-trylinks"><strong>Try these:</strong> <a class="concept-trylink" onclick="goToQ('nr','q-nr-t1')">Simplify √72 (worked)</a> · <a class="concept-trylink" onclick="goToQ('nr','q-nr-p1')">Simplify √200</a> · <a class="concept-trylink" onclick="goToQ('nr','q-nr-p2')">Add √18 + √32</a> · <a class="concept-trylink" onclick="goToQ('nr','q-nr-p3')">Multiply radicals</a></div>
     </div>
 
     <div class="concept-card" id="line-of-best-fit">
@@ -816,6 +838,7 @@ Two vocab words they'll test you on:
 
 <em>On the test: they'll give you the equation and ask "what does the slope mean?" or "predict y when x = ___." Always answer in the real-world terms from the problem.</em></div>
       <a class="concept-external" href="https://www.youtube.com/watch?v=e3uY2LraXts" target="_blank">📺 Math with Mr. J: Mean, Median, Mode, and Range →</a>
+      <div class="concept-trylinks"><strong>Try these:</strong> <a class="concept-trylink" onclick="goToQ('dsr','q-dsr-t1')">Predict a test score (worked)</a> · <a class="concept-trylink" onclick="goToQ('dsr','q-dsr-t3')">Sleep vs. scores (worked)</a> · <a class="concept-trylink" onclick="goToQ('dsr','q-dsr-p1')">Absences vs. grade</a> · <a class="concept-trylink" onclick="goToQ('dsr','q-dsr-p3')">Interpolation or extrapolation?</a></div>
     </div>
     </div>
   </details>
@@ -842,7 +865,7 @@ Two vocab words they'll test you on:
       <!-- TEACH -->
       <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples</div>
 
-      <div class="teach-card">
+      <div class="teach-card" id="q-fgr-t1">
         <h3>Arithmetic Sequences <span class="source-tag">A.FGR.2 · Edia</span></h3>
         <div class="problem">A gym membership costs $50 to join and $30 per month. Jackson joins in January. How much total has he paid after 8 months?</div>
         <div class="choices">(A) $240 &nbsp; (B) $270 &nbsp; (C) $290 &nbsp; (D) $310 &nbsp; (E) $280</div>
@@ -865,7 +888,7 @@ Two vocab words they'll test you on:
 <div class="tip">💡 Word problem pattern: "costs $X to start and $Y per [time period]" = linear function. The starting cost is b (y-intercept), the per-period cost is m (slope). See <a class="concept-link" href="#slope-intercept">Slope-Intercept Form</a>.</div></div>
       </div>
 
-      <div class="teach-card">
+      <div class="teach-card" id="q-fgr-t2">
         <h3>Linear Functions from Tables <span class="source-tag">A.FGR.2 · GA Milestones</span></h3>
         <div class="problem">A candle is 12 inches tall. It burns at a rate of 0.5 inches per hour. Which function represents the height h of the candle after t hours?
 (A) h(t) = 12t − 0.5 &nbsp; (B) h(t) = 0.5t + 12 &nbsp; (C) h(t) = −0.5t + 12 &nbsp; (D) h(t) = 12 − 0.5</div>
@@ -889,7 +912,7 @@ Two vocab words they'll test you on:
 <div class="tip">💡 "Burns," "decreases," "loses," "drops" → the slope is NEGATIVE. "Grows," "gains," "increases" → slope is POSITIVE. Always check: does t = 0 give the starting value? See <a class="concept-link" href="#slope-intercept">Slope-Intercept Form</a>.</div></div>
       </div>
 
-      <div class="teach-card">
+      <div class="teach-card" id="q-fgr-t3">
         <h3>Quadratic Functions from Graphs <span class="source-tag">A.FGR.7 · Edia</span></h3>
         <div class="problem">A basketball is thrown upward from a height of 6 feet with an initial velocity of 20 feet per second. Its height is modeled by h(t) = −16t² + 20t + 6. What is the maximum height the basketball reaches?</div>
         <div class="choices">(A) 6 ft &nbsp; (B) 12.25 ft &nbsp; (C) 20 ft &nbsp; (D) 26 ft</div>
@@ -916,7 +939,7 @@ Two vocab words they'll test you on:
 <div class="tip">💡 "Maximum height" or "highest point" of a thrown/launched object → find the VERTEX. Use t = −b/(2a), then plug that t back in. If a is negative, the parabola opens down and the vertex is the max. See <a class="concept-link" href="#vertex-form">Vertex Form</a> and <a class="concept-link" href="#standard-form">Standard Form</a>.</div></div>
       </div>
 
-      <div class="teach-card">
+      <div class="teach-card" id="q-fgr-t4">
         <h3>Exponential Functions <span class="source-tag">A.FGR.9 · Edia</span></h3>
         <div class="problem">A colony of bacteria starts with 200 organisms and doubles every 3 hours. Which function models the population P after t hours?
 (A) P(t) = 200(2)^(t/3) &nbsp; (B) P(t) = 200(3)^t &nbsp; (C) P(t) = 200 + 2t &nbsp; (D) P(t) = 200(2)^(3t)</div>
@@ -945,7 +968,7 @@ Two vocab words they'll test you on:
 <div class="tip">💡 "Doubles" → ×2. "Triples" → ×3. "Halves" or "half-life" → ×(1/2). "Grows by 10%" → ×1.10. "Decays by 20%" → ×0.80. The exponent controls HOW OFTEN it happens. See <a class="concept-link" href="#exponential-form">Exponential Growth &amp; Decay</a>.</div></div>
       </div>
 
-      <div class="teach-card">
+      <div class="teach-card" id="q-fgr-t5">
         <h3>Comparing Linear, Quadratic &amp; Exponential <span class="source-tag">A.FGR.9 · GA Milestones</span></h3>
         <div class="problem">Jaylen saves money two ways.
 Plan A: Start with $100, add $25 each week.
@@ -980,7 +1003,7 @@ Hmm, it crosses between week 17 and 18. But the answer choices don't go that hig
       <div class="sub-header"><span class="sub-icon">✏️</span> Practice — Your Turn</div>
 
       <div class="practice-grid">
-        <div class="practice-card">
+        <div class="practice-card" id="q-fgr-p1">
           <div class="p-num">Practice 1 <span class="source-tag">A.FGR.2 · Edia</span></div>
           <div class="p-question">A cell phone plan charges a $35 activation fee and $45 per month. Write a function for the total cost C after m months, then find the cost after 6 months.</div>
           <div class="p-choices">(A) $270 &nbsp; (B) $305 &nbsp; (C) $315 &nbsp; (D) $350</div>
@@ -996,7 +1019,7 @@ In plain English: He pays $35 once to activate, then $45 every month. After 6 mo
 
 Answer: <strong>(B) $305</strong></div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" id="q-fgr-p2">
           <div class="p-num">Practice 2 <span class="source-tag">A.FGR.2 · GA Milestones</span></div>
           <div class="p-question">The table shows the relationship between the number of hours worked (x) and total earnings (y):
 x: 0, 1, 2, 3, 4
@@ -1015,7 +1038,7 @@ In plain English: Every hour, the earnings go up by $12 — that's the hourly wa
 
 Answer: <strong>(A) Rate: $12/hr, y-int: signing bonus</strong></div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" id="q-fgr-p3">
           <div class="p-num">Practice 3 <span class="source-tag">A.FGR.7 · Edia</span></div>
           <div class="p-question">A rocket is launched from ground level. Its height is modeled by h(t) = −16t² + 64t. At what time does the rocket hit the ground again?</div>
           <div class="p-choices">(A) 2 seconds &nbsp; (B) 4 seconds &nbsp; (C) 8 seconds &nbsp; (D) 16 seconds</div>
@@ -1032,7 +1055,7 @@ In plain English: The rocket is on the ground at two moments — t = 0 (when it 
 
 Answer: <strong>(B) 4 seconds</strong></div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" id="q-fgr-p4">
           <div class="p-num">Practice 4 <span class="source-tag">A.FGR.7 · GA Milestones</span></div>
           <div class="p-question">The path of a ball is modeled by f(x) = −(x − 3)² + 16. What is the maximum height, and at what x-value does it occur?</div>
           <div class="p-choices">(A) Max 3 at x = 16 &nbsp; (B) Max 16 at x = 3 &nbsp; (C) Max 16 at x = −3 &nbsp; (D) Max 9 at x = 16</div>
@@ -1045,7 +1068,7 @@ In plain English: The ball reaches its peak at x = 3, and that peak height is 16
 
 Answer: <strong>(B) Max 16 at x = 3</strong></div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" id="q-fgr-p5">
           <div class="p-num">Practice 5 <span class="source-tag">A.FGR.9 · Edia</span></div>
           <div class="p-question">A car purchased for $25,000 depreciates 15% per year. What is the car worth after 3 years?</div>
           <div class="p-choices">(A) $13,750 &nbsp; (B) $15,353 &nbsp; (C) $17,500 &nbsp; (D) $21,250</div>
@@ -1061,7 +1084,7 @@ In plain English: Each year the car keeps 85% of its value from the previous yea
 
 Answer: <strong>(B) $15,353</strong></div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" id="q-fgr-p6">
           <div class="p-num">Practice 6 <span class="source-tag">A.FGR.9 · Edia</span></div>
           <div class="p-question">A population of 500 increases by 8% per year. What function models the population after t years, and what is the population after 5 years?</div>
           <div class="p-choices">(A) 735 &nbsp; (B) 700 &nbsp; (C) 680 &nbsp; (D) 750</div>
@@ -1077,7 +1100,7 @@ In plain English: The population grows by 8% each year, meaning each year you mu
 
 Answer: <strong>(A) 735</strong></div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" id="q-fgr-p7">
           <div class="p-num">Practice 7 <span class="source-tag">A.FGR.2 · GA Milestones</span></div>
           <div class="p-question">The first term of an arithmetic sequence is 7 and the common difference is −3. What is the 10th term?</div>
           <div class="p-choices">(A) −23 &nbsp; (B) −20 &nbsp; (C) 37 &nbsp; (D) 34</div>
@@ -1103,7 +1126,7 @@ Answer: <strong>(B) −20</strong></div>
 
       <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples</div>
 
-      <div class="teach-card">
+      <div class="teach-card" id="q-par-t1">
         <h3>Systems of Inequalities <span class="source-tag">A.PAR.4 · Edia</span></h3>
         <div class="problem">A bakery makes cupcakes and cookies. Each cupcake requires 2 cups of flour and each cookie requires 1 cup. They have at most 40 cups of flour. They need to make at least 10 cookies. Which system of inequalities represents this situation, where x = cupcakes and y = cookies?</div>
         <div class="choices">(A) 2x + y ≤ 40; y ≥ 10 &nbsp; (B) x + 2y ≤ 40; y ≥ 10 &nbsp; (C) 2x + y ≥ 40; y ≤ 10 &nbsp; (D) x + y ≤ 40; x ≥ 10</div>
@@ -1125,7 +1148,7 @@ Answer: <strong>(B) −20</strong></div>
 <div class="tip">💡 "At most" → ≤ (less than or equal). "At least" → ≥ (greater than or equal). "No more than" → ≤. "No fewer than" → ≥. Translate each sentence separately, then combine.</div></div>
       </div>
 
-      <div class="teach-card">
+      <div class="teach-card" id="q-par-t2">
         <h3>Quadratic Expressions — Factoring <span class="source-tag">A.PAR.6 · Edia</span></h3>
         <div class="problem">The area of a rectangular garden is represented by x² + 7x + 12 square feet. If one side has a length of (x + 3) feet, what is the length of the other side?</div>
         <div class="choices">(A) (x + 4) ft &nbsp; (B) (x + 9) ft &nbsp; (C) (x + 6) ft &nbsp; (D) (x − 4) ft</div>
@@ -1148,7 +1171,7 @@ Answer: <strong>(B) −20</strong></div>
 <div class="tip">💡 When the problem gives you area as a quadratic and one side length, you're really being asked to factor. Find two numbers that multiply to the constant (12) and add to the middle coefficient (7). See <a class="concept-link" href="#factoring">Factoring Quadratics</a>.</div></div>
       </div>
 
-      <div class="teach-card">
+      <div class="teach-card" id="q-par-t3">
         <h3>Solving Quadratic Equations <span class="source-tag">A.PAR.6 · GA Milestones</span></h3>
         <div class="problem">A ball is kicked into the air. Its height in feet is modeled by h = −16t² + 48t. When does the ball return to the ground?</div>
         <div class="choices">(A) 1 second &nbsp; (B) 2 seconds &nbsp; (C) 3 seconds &nbsp; (D) 4 seconds</div>
@@ -1169,7 +1192,7 @@ Answer: <strong>(B) −20</strong></div>
 <div class="tip">💡 Projectile problems: set the height equation = 0 to find when it hits the ground. You'll get two answers: t = 0 (launch) and t = something (landing). The landing time is your answer. See <a class="concept-link" href="#factoring">Factoring Quadratics</a>.</div></div>
       </div>
 
-      <div class="teach-card">
+      <div class="teach-card" id="q-par-t4">
         <h3>Exponential Equations <span class="source-tag">A.PAR.8 · Edia</span></h3>
         <div class="problem">A savings account has $1,000 and earns 5% interest compounded annually. Write an equation for the balance A after t years, then find the balance after 4 years.</div>
         <div class="choices">(A) $1,200 &nbsp; (B) $1,215.51 &nbsp; (C) $1,250 &nbsp; (D) $1,276.28</div>
@@ -1198,7 +1221,7 @@ Answer: <strong>(B) −20</strong></div>
       <div class="sub-header"><span class="sub-icon">✏️</span> Practice — Your Turn</div>
 
       <div class="practice-grid">
-        <div class="practice-card">
+        <div class="practice-card" id="q-par-p1">
           <div class="p-num">Practice 1 <span class="source-tag">A.PAR.4 · Edia</span></div>
           <div class="p-question">Marcus works two jobs. At Job A he earns $12/hr, at Job B he earns $15/hr. He wants to earn at least $300 per week but can work no more than 25 hours total. Which system represents this? (x = hrs at A, y = hrs at B)</div>
           <div class="p-choices">(A) 12x + 15y ≥ 300; x + y ≤ 25 &nbsp; (B) 12x + 15y ≤ 300; x + y ≥ 25 &nbsp; (C) x + y ≤ 300; 12x + 15y ≥ 25 &nbsp; (D) 15x + 12y ≥ 300; x + y ≤ 25</div>
@@ -1214,7 +1237,7 @@ In plain English: He needs his combined paychecks to be $300 or more, but he can
 
 Answer: <strong>(A) 12x + 15y ≥ 300; x + y ≤ 25</strong></div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" id="q-par-p2">
           <div class="p-num">Practice 2 <span class="source-tag">A.PAR.6 · GA Milestones</span></div>
           <div class="p-question">Solve: x² − 5x − 14 = 0</div>
           <div class="p-choices">(A) x = 7 and x = −2 &nbsp; (B) x = −7 and x = 2 &nbsp; (C) x = 7 and x = 2 &nbsp; (D) x = −7 and x = −2</div>
@@ -1232,7 +1255,7 @@ In plain English: We need two numbers whose product is −14 and whose sum is �
 
 Answer: <strong>(A) x = 7 and x = −2</strong></div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" id="q-par-p3">
           <div class="p-num">Practice 3 <span class="source-tag">A.PAR.6 · Edia</span></div>
           <div class="p-question">The length of a rectangle is (2x + 1) and the width is (x − 3). If the area is 45 square units, find x.</div>
           <div class="p-choices">(A) 4 &nbsp; (B) 5 &nbsp; (C) 6 &nbsp; (D) 7</div>
@@ -1250,7 +1273,7 @@ In plain English: None of the choices give exactly 45, which means this problem 
 
 Answer: <strong>(C) 6</strong></div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" id="q-par-p4">
           <div class="p-num">Practice 4 <span class="source-tag">A.PAR.8 · Edia</span></div>
           <div class="p-question">A radioactive substance has a half-life of 6 years. If you start with 80 grams, how much remains after 18 years?</div>
           <div class="p-choices">(A) 5 grams &nbsp; (B) 10 grams &nbsp; (C) 20 grams &nbsp; (D) 40 grams</div>
@@ -1267,7 +1290,7 @@ In plain English: Every 6 years, half of what's left disappears. After 18 years,
 
 Answer: <strong>(B) 10 grams</strong></div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" id="q-par-p5">
           <div class="p-num">Practice 5 <span class="source-tag">A.PAR.4 · GA Milestones</span></div>
           <div class="p-question">Which ordered pair is a solution to the system: y > 2x − 1 and y ≤ −x + 5?</div>
           <div class="p-choices">(A) (3, 4) &nbsp; (B) (1, 3) &nbsp; (C) (0, −2) &nbsp; (D) (4, 1)</div>
@@ -1285,7 +1308,7 @@ In plain English: Substitute x = 1 and y = 3 into each inequality. If both state
 
 Answer: <strong>(B) (1, 3)</strong></div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" id="q-par-p6">
           <div class="p-num">Practice 6 <span class="source-tag">A.PAR.6 · Edia</span></div>
           <div class="p-question">What are the solutions to 2x² + 3x − 5 = 0?</div>
           <div class="p-choices">(A) x = 1 and x = −5/2 &nbsp; (B) x = −1 and x = 5/2 &nbsp; (C) x = 5 and x = −1/2 &nbsp; (D) x = −5 and x = 1/2</div>
@@ -1313,7 +1336,7 @@ Answer: <strong>(A) x = 1 and x = −5/2</strong></div>
 
       <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples</div>
 
-      <div class="teach-card">
+      <div class="teach-card" id="q-gsr-t1">
         <h3>Distance on a Coordinate Plane <span class="source-tag">A.GSR.3 · GA Milestones</span></h3>
         <div class="problem">Two friends live at coordinates (2, 3) and (8, 11) on a city grid where each unit is one block. How far apart do they live?</div>
         <div class="choices">(A) 8 blocks &nbsp; (B) 10 blocks &nbsp; (C) 12 blocks &nbsp; (D) 14 blocks</div>
@@ -1333,7 +1356,7 @@ Answer: <strong>(A) x = 1 and x = −5/2</strong></div>
 <div class="tip">💡 If you see 6 and 8, think 3-4-5 triangle scaled up: 6-8-10. Knowing Pythagorean triples (3-4-5, 5-12-13, 8-15-17) saves time. See <a class="concept-link" href="#distance-formula">Distance Formula</a>.</div></div>
       </div>
 
-      <div class="teach-card">
+      <div class="teach-card" id="q-gsr-t2">
         <h3>Midpoint in Context <span class="source-tag">A.GSR.3 · GA Milestones</span></h3>
         <div class="problem">A cable company needs to place a signal booster exactly halfway between two towers located at (−4, 6) and (10, −2). Where should they place the booster?</div>
         <div class="choices">(A) (3, 2) &nbsp; (B) (6, 4) &nbsp; (C) (7, −4) &nbsp; (D) (3, 4)</div>
@@ -1350,7 +1373,7 @@ Answer: <strong>(A) x = 1 and x = −5/2</strong></div>
 <div class="tip">💡 "Halfway between," "center of," "midpoint" → average both coordinates. Watch negative signs when adding.</div></div>
       </div>
 
-      <div class="teach-card">
+      <div class="teach-card" id="q-gsr-t3">
         <h3>Slope for Parallel and Perpendicular <span class="source-tag">A.GSR.3 · Edia</span></h3>
         <div class="problem">A ramp has a slope of 3/4. A second ramp is built perpendicular to the first. What is the slope of the second ramp?</div>
         <div class="choices">(A) 3/4 &nbsp; (B) −3/4 &nbsp; (C) 4/3 &nbsp; (D) −4/3</div>
@@ -1373,7 +1396,7 @@ Answer: <strong>(A) x = 1 and x = −5/2</strong></div>
       <div class="sub-header"><span class="sub-icon">✏️</span> Practice — Your Turn</div>
 
       <div class="practice-grid">
-        <div class="practice-card">
+        <div class="practice-card" id="q-gsr-p1">
           <div class="p-num">Practice 1 <span class="source-tag">A.GSR.3 · GA Milestones</span></div>
           <div class="p-question">A park is shaped like a rectangle with corners at (0, 0), (6, 0), (6, 8), and (0, 8). What is the perimeter of the park if each unit represents 10 meters?</div>
           <div class="p-choices">(A) 28 m &nbsp; (B) 48 m &nbsp; (C) 280 m &nbsp; (D) 480 m</div>
@@ -1389,7 +1412,7 @@ In plain English: Find the side lengths from the coordinates, calculate the peri
 
 Answer: <strong>(C) 280 m</strong></div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" id="q-gsr-p2">
           <div class="p-num">Practice 2 <span class="source-tag">A.GSR.3 · Edia</span></div>
           <div class="p-question">What is the distance between (−1, 4) and (5, −4)?</div>
           <div class="p-choices">(A) 6 &nbsp; (B) 8 &nbsp; (C) 10 &nbsp; (D) 14</div>
@@ -1405,7 +1428,7 @@ In plain English: The horizontal gap is 6 (from −1 to 5) and the vertical gap 
 
 Answer: <strong>(C) 10</strong></div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" id="q-gsr-p3">
           <div class="p-num">Practice 3 <span class="source-tag">A.GSR.3 · GA Milestones</span></div>
           <div class="p-question">Line A passes through (1, 2) and (3, 8). Line B passes through (0, 5) and (2, 11). Are these lines parallel, perpendicular, or neither?</div>
           <div class="p-choices">(A) Parallel &nbsp; (B) Perpendicular &nbsp; (C) Neither &nbsp; (D) Same line</div>
@@ -1432,7 +1455,7 @@ Answer: <strong>(A) Parallel</strong></div>
 
       <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples</div>
 
-      <div class="teach-card">
+      <div class="teach-card" id="q-nr-t1">
         <h3>Simplifying Radicals <span class="source-tag">A.NR.5 · Edia</span></h3>
         <div class="problem">Simplify: √72</div>
         <div class="choices">(A) 6√2 &nbsp; (B) 8√3 &nbsp; (C) 3√8 &nbsp; (D) 36√2</div>
@@ -1452,7 +1475,7 @@ Answer: <strong>(A) Parallel</strong></div>
 <div class="tip">💡 To simplify a radical: find the LARGEST perfect square factor. Perfect squares to know: 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144. See <a class="concept-link" href="#radicals">Simplifying Radicals</a>.</div></div>
       </div>
 
-      <div class="teach-card">
+      <div class="teach-card" id="q-nr-t2">
         <h3>Rational vs. Irrational <span class="source-tag">A.NR.5 · GA Milestones</span></h3>
         <div class="problem">Which of the following numbers is irrational?
 (A) √49 &nbsp; (B) 0.333... &nbsp; (C) √10 &nbsp; (D) 3/4</div>
@@ -1472,7 +1495,7 @@ Answer: <strong>(A) Parallel</strong></div>
 <div class="tip">💡 √(perfect square) = rational. √(not a perfect square) = irrational. Also irrational: π, e. Repeating decimals are RATIONAL (they can all be written as fractions).</div></div>
       </div>
 
-      <div class="teach-card">
+      <div class="teach-card" id="q-nr-t3">
         <h3>Adding and Multiplying Radicals <span class="source-tag">A.NR.5 · Edia</span></h3>
         <div class="problem">Simplify: 3√5 + 2√5 − √5</div>
         <div class="choices">(A) 4√5 &nbsp; (B) 4√15 &nbsp; (C) 5√4 &nbsp; (D) 6√5</div>
@@ -1495,7 +1518,7 @@ Answer: <strong>(A) Parallel</strong></div>
       <div class="sub-header"><span class="sub-icon">✏️</span> Practice — Your Turn</div>
 
       <div class="practice-grid">
-        <div class="practice-card">
+        <div class="practice-card" id="q-nr-p1">
           <div class="p-num">Practice 1 <span class="source-tag">A.NR.5 · Edia</span></div>
           <div class="p-question">Simplify: √200</div>
           <div class="p-choices">(A) 10√2 &nbsp; (B) 2√100 &nbsp; (C) 20√5 &nbsp; (D) 5√8</div>
@@ -1511,7 +1534,7 @@ In plain English: Ask "what's the biggest perfect square that goes into 200?" Th
 
 Answer: <strong>(A) 10√2</strong></div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" id="q-nr-p2">
           <div class="p-num">Practice 2 <span class="source-tag">A.NR.5 · GA Milestones</span></div>
           <div class="p-question">Which expression is equivalent to √18 + √32?</div>
           <div class="p-choices">(A) √50 &nbsp; (B) 7√2 &nbsp; (C) 5√2 &nbsp; (D) 50</div>
@@ -1528,7 +1551,7 @@ In plain English: Simplify first, then add. Think of √2 like a variable — 3x
 
 Answer: <strong>(B) 7√2</strong></div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" id="q-nr-p3">
           <div class="p-num">Practice 3 <span class="source-tag">A.NR.5 · Edia</span></div>
           <div class="p-question">Simplify: (2√3)(5√6)</div>
           <div class="p-choices">(A) 10√18 &nbsp; (B) 30√2 &nbsp; (C) 10√9 &nbsp; (D) 7√18</div>
@@ -1555,7 +1578,7 @@ Answer: <strong>(B) 30√2</strong></div>
 
       <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples</div>
 
-      <div class="teach-card">
+      <div class="teach-card" id="q-dsr-t1">
         <h3>Interpreting Scatter Plots <span class="source-tag">A.DSR.10 · GA Milestones</span></h3>
         <div class="problem">A teacher collected data on hours studied and test scores for 10 students. The scatter plot shows a positive trend with the equation y = 8x + 52. Predict the test score for a student who studies 6 hours.</div>
         <div class="choices">(A) 88 &nbsp; (B) 92 &nbsp; (C) 100 &nbsp; (D) 104</div>
@@ -1573,7 +1596,7 @@ Answer: <strong>(B) 30√2</strong></div>
 <div class="tip">💡 Scatter plot questions often give you the <a class="concept-link" href="#line-of-best-fit">line of best fit</a> equation and ask you to predict. Just plug in the x-value. Watch out for "interpolation" (within the data range) vs. "extrapolation" (outside it — less reliable).</div></div>
       </div>
 
-      <div class="teach-card">
+      <div class="teach-card" id="q-dsr-t2">
         <h3>Comparing Data Sets <span class="source-tag">A.DSR.10 · GA Milestones</span></h3>
         <div class="problem">Class A test scores: mean = 78, median = 80, standard deviation = 5.
 Class B test scores: mean = 78, median = 72, standard deviation = 12.
@@ -1594,7 +1617,7 @@ Which class has more consistent scores, and what does the difference in median a
 <div class="tip">💡 Standard deviation = how spread out the data is. Low SD = consistent. High SD = all over the place. When mean > median → skewed right. When mean < median → skewed left. When mean ≈ median → roughly symmetric.</div></div>
       </div>
 
-      <div class="teach-card">
+      <div class="teach-card" id="q-dsr-t3">
         <h3>Line of Best Fit — Interpreting Slope <span class="source-tag">A.DSR.10 · Edia</span></h3>
         <div class="problem">A study found that for every additional hour of sleep a student gets, their test score increases by approximately 4 points. The line of best fit is y = 4x + 55. What do the slope and y-intercept mean in context?</div>
         <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
@@ -1618,7 +1641,7 @@ Which class has more consistent scores, and what does the difference in median a
       <div class="sub-header"><span class="sub-icon">✏️</span> Practice — Your Turn</div>
 
       <div class="practice-grid">
-        <div class="practice-card">
+        <div class="practice-card" id="q-dsr-p1">
           <div class="p-num">Practice 1 <span class="source-tag">A.DSR.10 · GA Milestones</span></div>
           <div class="p-question">The line of best fit for a data set is y = −2x + 100, where x is the number of absences and y is the final grade. What does the slope tell you?</div>
           <div class="p-choices">(A) Each absence raises the grade by 2 points &nbsp; (B) Each absence lowers the grade by 2 points &nbsp; (C) The student starts with 2 points &nbsp; (D) There is no relationship</div>
@@ -1634,7 +1657,7 @@ In plain English: Every time x (absences) goes up by 1, y (grade) goes down by 2
 
 Answer: <strong>(B) Each absence lowers the grade by 2 points</strong></div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" id="q-dsr-p2">
           <div class="p-num">Practice 2 <span class="source-tag">A.DSR.10 · Edia</span></div>
           <div class="p-question">A data set has a mean of 45, a median of 45, and a standard deviation of 3. Which statement is true?</div>
           <div class="p-choices">(A) The data is skewed left &nbsp; (B) The data is skewed right &nbsp; (C) The data is approximately symmetric &nbsp; (D) Not enough information</div>
@@ -1650,7 +1673,7 @@ In plain English: If the average and the middle value are the same, the data isn
 
 Answer: <strong>(C) The data is approximately symmetric</strong></div>
         </div>
-        <div class="practice-card">
+        <div class="practice-card" id="q-dsr-p3">
           <div class="p-num">Practice 3 <span class="source-tag">A.DSR.10 · GA Milestones</span></div>
           <div class="p-question">Using the trend line y = 5x + 20, predict the value of y when x = 12. Is this interpolation or extrapolation if the data ranged from x = 2 to x = 10?</div>
           <div class="p-choices">(A) 80, interpolation &nbsp; (B) 80, extrapolation &nbsp; (C) 70, interpolation &nbsp; (D) 70, extrapolation</div>
@@ -1679,7 +1702,16 @@ function switchDomain(id, btn) {
   document.querySelectorAll('.domain-section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.domain-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('ds-' + id).classList.add('active');
-  btn.classList.add('active');
+  if (btn) btn.classList.add('active');
+  else document.querySelector('[data-domain="'+id+'"]').classList.add('active');
+}
+
+function goToQ(domain, qId) {
+  switchDomain(domain);
+  setTimeout(function() {
+    var el = document.getElementById(qId);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 100);
 }
 
 function toggleSteps(btn) {
