@@ -217,7 +217,9 @@
     color: var(--accent-light);
     margin-left: 8px;
     vertical-align: middle;
+    display: none;
   }
+  body.show-sources .source-tag { display: inline; }
   .section-title { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
   .section-desc { color: var(--text2); font-size: 0.88rem; margin-bottom: 20px; }
 
@@ -490,6 +492,7 @@
   <a class="mode-btn inactive" href="index.html">SSAT</a>
   <span class="mode-btn active">EOC</span>
 </div>
+<button class="theme-toggle" style="right:66px" onclick="toggleSources()" aria-label="Toggle source labels" id="source-toggle" title="Show source labels">🏷️</button>
 <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">🌙</button>
 
 <header>
@@ -1380,6 +1383,13 @@ function toggleAnswer(btn) {
   answer.classList.toggle('open');
   btn.textContent = isOpen ? 'Show Answer' : 'Hide Answer';
 }
+
+function toggleSources() {
+  document.body.classList.toggle('show-sources');
+  const btn = document.getElementById('source-toggle');
+  btn.style.opacity = document.body.classList.contains('show-sources') ? '1' : '0.5';
+}
+document.getElementById('source-toggle').style.opacity = '0.5';
 
 function toggleTheme() {
   const html = document.documentElement;
