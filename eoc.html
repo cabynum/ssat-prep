@@ -208,6 +208,46 @@
     color: var(--accent-light);
     margin-bottom: 8px;
   }
+
+  /* Collapsible sections */
+  .collapsible {
+    margin-top: 48px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .collapsible summary {
+    padding: 18px 22px;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--card);
+    transition: background 0.2s;
+    user-select: none;
+  }
+  .collapsible summary:hover { background: var(--card-hover); }
+  .collapsible summary::-webkit-details-marker { display: none; }
+  .collapsible summary::marker { display: none; content: ''; }
+  .collapsible-head {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .collapsible-head .section-label { margin-bottom: 0; }
+  .collapsible-head .section-title { margin-bottom: 0; font-size: 1.1rem; }
+  .collapsible-arrow {
+    font-size: 0.8rem;
+    color: var(--text3);
+    transition: transform 0.25s;
+    flex-shrink: 0;
+  }
+  .collapsible[open] .collapsible-arrow { transform: rotate(180deg); }
+  .collapsible-body {
+    padding: 0 22px 22px;
+    background: var(--bg);
+  }
   .source-tag {
     font-size: 0.62rem;
     font-weight: 600;
@@ -570,10 +610,16 @@
 <div class="container">
 
   <!-- HOW THE EOC WORKS -->
-  <div class="section">
-    <div class="section-label">Know the Test</div>
-    <div class="section-title">How the Algebra EOC Works</div>
-    <p class="section-desc">Georgia Milestones End-of-Course. 55 items, 50 scored, 58 total points. Scale score 200-785.</p>
+  <details class="collapsible" open>
+    <summary>
+      <div class="collapsible-head">
+        <div class="section-label">Know the Test</div>
+        <div class="section-title">How the Algebra EOC Works</div>
+      </div>
+      <span class="collapsible-arrow">▼</span>
+    </summary>
+    <div class="collapsible-body">
+    <p class="section-desc" style="margin-top:14px">Georgia Milestones End-of-Course. 55 items, 50 scored, 58 total points. Scale score 200-785.</p>
     <div class="teach-card">
       <h3>📊 Achievement Bands</h3>
       <div class="problem" style="white-space: pre-line;"><strong>Distinguished</strong> (580-785) — Advanced. Ready for Honors Geometry or Algebra II.
@@ -608,13 +654,20 @@ No calculator on some sections. Desmos graphing calculator provided on others.</
         </div>
       </div>
     </div>
-  </div>
+    </div>
+  </details>
 
   <!-- KEY CONCEPTS REFERENCE -->
-  <div class="section" id="concepts">
-    <div class="section-label">Reference</div>
-    <div class="section-title">Key Concepts</div>
-    <p class="section-desc">Quick reference for the building blocks. Answers link here when a concept comes up.</p>
+  <details class="collapsible" id="concepts">
+    <summary>
+      <div class="collapsible-head">
+        <div class="section-label">Reference</div>
+        <div class="section-title">Key Concepts</div>
+      </div>
+      <span class="collapsible-arrow">▼</span>
+    </summary>
+    <div class="collapsible-body">
+    <p class="section-desc" style="margin-top:14px">Quick reference for the building blocks. Answers link here when a concept comes up.</p>
 
     <div class="concept-card" id="vertex-form">
       <h4>Vertex Form of a Quadratic</h4>
@@ -673,7 +726,8 @@ To read the vertex, look at what's subtracted from x (that's h) and what's added
       <div class="concept-explain"><strong>Slope</strong> = rate of change in context (e.g., "for each additional hour, the score increases by 4 points"). <strong>y-intercept</strong> = the predicted value when x = 0. <strong>Interpolation</strong> = predicting within the data range. <strong>Extrapolation</strong> = predicting outside it (less reliable).</div>
       <a class="concept-external" href="https://www.youtube.com/watch?v=e3uY2LraXts" target="_blank">📺 Math with Mr. J: Mean, Median, Mode, and Range →</a>
     </div>
-  </div>
+    </div>
+  </details>
 
   <!-- DOMAIN NAVIGATION -->
   <div class="section">
@@ -1557,6 +1611,16 @@ function toggleSources() {
   btn.style.opacity = document.body.classList.contains('show-sources') ? '1' : '0.5';
 }
 document.getElementById('source-toggle').style.opacity = '0.5';
+
+document.addEventListener('click', function(e) {
+  const link = e.target.closest('a[href^="#"]');
+  if (!link) return;
+  const id = link.getAttribute('href').slice(1);
+  const target = document.getElementById(id);
+  if (!target) return;
+  const details = target.closest('details');
+  if (details && !details.open) details.open = true;
+});
 
 function toggleTheme() {
   const html = document.documentElement;
