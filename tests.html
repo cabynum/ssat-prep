@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSAT Practice Tests — Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="test-common.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<div class="mode-toggle">
+  <a class="mode-btn inactive" href="index.html">SSAT</a>
+  <a class="mode-btn inactive" href="eoc.html">EOC</a>
+  <span class="mode-btn active">Tests</span>
+</div>
+<button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">🌙</button>
+
+<header>
+  <div class="gac-crest">⚔️</div>
+  <p class="future-tag">FUTURE SPARTAN</p>
+  <h1>Practice Tests</h1>
+  <p class="subtitle">SSAT Upper Level &middot; 5 Tests &middot; 150 Questions &middot; 32 Topics</p>
+</header>
+
+<div class="container">
+
+  <!-- STATS -->
+  <div class="dash-stats">
+    <div class="dash-stat ds-accent"><div class="dash-stat-val" id="stat-completed">0/5</div><div class="dash-stat-label">Tests Done</div></div>
+    <div class="dash-stat"><div class="dash-stat-val" id="stat-attempts">0</div><div class="dash-stat-label">Attempts</div></div>
+    <div class="dash-stat ds-gold"><div class="dash-stat-val" id="stat-best">—</div><div class="dash-stat-label">Best Score</div></div>
+    <div class="dash-stat ds-green"><div class="dash-stat-val" id="stat-coverage">0/32</div><div class="dash-stat-label">Topics Seen</div></div>
+  </div>
+
+  <!-- RECOMMENDATION -->
+  <div id="recommendation"></div>
+
+  <!-- TEST CARDS -->
+  <div class="section">
+    <div class="section-label">Tests</div>
+    <div class="section-title">Pick a Test</div>
+    <p class="section-desc">Each test has 30 questions across all 5 SSAT math categories. Your progress is saved automatically.</p>
+    <div class="test-cards" id="test-cards"></div>
+  </div>
+
+  <!-- PROGRESS CHARTS -->
+  <div class="section">
+    <div class="section-label">Progress</div>
+    <div class="section-title">Score Over Time</div>
+    <div class="chart-wrap" style="margin-bottom:20px"><div id="chart-overall"></div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Progress</div>
+    <div class="section-title">By Category</div>
+    <div class="chart-wrap"><div id="chart-topics"></div></div>
+  </div>
+
+  <!-- COVERAGE MAP -->
+  <div class="section">
+    <div class="section-label">Coverage</div>
+    <div class="section-title">All 32 SSAT Math Topics</div>
+    <p class="section-desc">Tracks every topic from the official SSAT portal. Gray = not yet practiced. Green = strong. Yellow = solid. Red = needs work.</p>
+    <div id="coverage-map"></div>
+  </div>
+
+  <footer>Built for Jackson Bynum &middot; Future GAC Spartan &middot; April 2026</footer>
+</div>
+
+<script src="test-data.js"></script>
+<script src="test-data-pt2.js"></script>
+<script src="test-common.js"></script>
+<script>initDashboard();</script>
+</body>
+</html>
