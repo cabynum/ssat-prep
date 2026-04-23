@@ -513,6 +513,16 @@ function loadProgress() {
 }
 function clearProgress() { localStorage.removeItem(STORAGE_KEY + '_progress_' + testId); }
 
+function clearTestResult(tid) {
+  var all = loadAllResults();
+  if (all.tests && all.tests[tid]) {
+    delete all.tests[tid];
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+  }
+  localStorage.removeItem(STORAGE_KEY + '_progress_' + tid);
+  initDashboard();
+}
+
 function getPreviousBest(allResults, tid) {
   if (!allResults.tests || !allResults.tests[tid]) return null;
   var a = allResults.tests[tid];
@@ -566,6 +576,7 @@ function getCoverageData(allResults) {
 function migrateOldResults() {
   var all = loadAllResults();
   if (!all.tests) return all;
+  if (all.migrationDone) return all;
   var mapping = {
     test1: ['timed6','timed7','timed8'],
     test2: ['timed9','timed10','timed11'],
@@ -633,9 +644,8 @@ function migrateOldResults() {
       }
     });
   });
-  if (changed) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
-  }
+  all.migrationDone = true;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
   return all;
 }
 
@@ -712,7 +722,8 @@ function renderTestCards(all) {
       card.innerHTML = '<div class="tc-left"><span class="tc-num" style="color:var(--gold)">⚡</span><div class="tc-info"><h4>' + meta.label + '</h4><p>' + meta.questions + ' questions &middot; ' + formatTime(meta.timeLimit) + ' limit</p></div></div>' +
         '<div class="tc-right"><span class="tc-score ' + color + '">' + p + '%</span>' +
         '<a href="test.html?id=' + tid + '&review=1" class="tc-action-btn tc-review-btn">Review</a>' +
-        '<a href="test.html?id=' + tid + '" class="tc-action-btn tc-retake-btn">Retake</a></div>';
+        '<a href="test.html?id=' + tid + '" class="tc-action-btn tc-retake-btn">Retake</a>' +
+        '<button class="tc-action-btn tc-clear-btn" onclick="event.stopPropagation();if(confirm(\'Clear results for ' + meta.label + '?\')){clearTestResult(\'' + tid + '\')}">✕</button></div>';
       timedWrap.appendChild(card);
     } else {
       var card = document.createElement('a');
