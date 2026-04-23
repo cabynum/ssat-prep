@@ -1275,6 +1275,29 @@ In plain English: When the last number is negative, your two factors have differ
 
 <span class="wp-final">Answer: (A) (x + 8)(x &minus; 3)</span></div>
       </div>
+
+      <div class="wp-card">
+        <div class="wp-num">Problem 14 &middot; Factoring / Exponents</div>
+        <div class="wp-question">Simplify: (5x<sup>5</sup>)(3x<sup>3</sup>)<sup>2</sup></div>
+        <div class="wp-choices">(A) 15x<sup>8</sup> &nbsp; (B) 45x<sup>11</sup> &nbsp; (C) 15x<sup>15</sup> &nbsp; (D) 45x<sup>30</sup> &nbsp; (E) 225x<sup>11</sup></div>
+        <button class="wp-reveal" onclick="toggleWP(this)">Show Answer</button>
+        <div class="wp-answer"><span class="wp-topic">Topic: Exponent Rules &mdash; Order of Operations</span>
+<strong>Reading the question:</strong> The squared only applies to (3x<sup>3</sup>), not to the whole thing. Exponents before multiplication &mdash; handle the power first, then multiply.
+
+<strong>Step 1: Apply the exponent to (3x<sup>3</sup>)<sup>2</sup>.</strong>
+The exponent hits every piece inside the parentheses:
+3<sup>2</sup> = 9 &nbsp;&nbsp; and &nbsp;&nbsp; (x<sup>3</sup>)<sup>2</sup> = x<sup>6</sup> (multiply exponents: 3 &times; 2 = 6)
+So (3x<sup>3</sup>)<sup>2</sup> = 9x<sup>6</sup>
+
+<strong>Step 2: Multiply (5x<sup>5</sup>)(9x<sup>6</sup>).</strong>
+Coefficients: 5 &times; 9 = 45
+Variables: x<sup>5</sup> &times; x<sup>6</sup> = x<sup>11</sup> (add exponents: 5 + 6 = 11)
+Result: 45x<sup>11</sup>
+
+In plain English: The squared only touches what it's next to &mdash; (3x<sup>3</sup>). Square that piece first, then multiply the two terms together. Common trap: choice (A) is what you get if you skip the squaring step and just multiply 5 &times; 3 and add 5 + 3.
+
+<span class="wp-final">Answer: (B) 45x<sup>11</sup></span></div>
+      </div>
     </div>
   </div>
 
@@ -1829,7 +1852,11 @@ const decks = {
     { q: "Difference of squares pattern?", a: "a\u00b2 \u2013 b\u00b2 = (a + b)(a \u2013 b)\n\nx\u00b2 \u2013 25 = (x+5)(x\u20135)\n\nIn other words: if you see something\u00b2 MINUS a perfect square, it splits into one with a plus and one with a minus. Only works with subtraction, never addition." },
     { q: "Factor: x\u00b2 + 7x + 12", a: "Find two numbers that:\n\u2022 multiply to 12 (the last number)\n\u2022 add to 7 (the middle number)\n\n3 \u00d7 4 = 12 \u2713  and  3 + 4 = 7 \u2713\n\n= (x + 3)(x + 4)\n\nIn other words: play a guessing game with factor pairs of the last number until one pair also adds to the middle number." },
     { q: "How do you check your factoring?", a: "FOIL it back out!\n\n(x+3)(x+4):\nFirst: x\u00d7x = x\u00b2\nOuter: x\u00d74 = 4x\nInner: 3\u00d7x = 3x\nLast: 3\u00d74 = 12\n\nx\u00b2 + 4x + 3x + 12 = x\u00b2 + 7x + 12 \u2713\n\nIf it matches the original, you factored correctly." },
-    { q: "Exponent rule:\nmultiply then power", a: "Two rules you need:\n\n1\ufe0f\u20e3 Multiplying same base \u2192 ADD exponents\nx\u00b3 \u00d7 x\u2074 = x\u2077\n\n2\ufe0f\u20e3 Power of a power \u2192 MULTIPLY exponents\n(x\u2074)\u00b2 = x\u2078\n\nExample: [(4x\u2074)(2x\u00b3)]\u00b2\nInside first: 4\u00d72 = 8, x\u2074\u00d7x\u00b3 = x\u2077 \u2192 8x\u2077\nThen square it: 8\u00b2 = 64, (x\u2077)\u00b2 = x\u00b9\u2074 \u2192 64x\u00b9\u2074" },
+    { q: "ADD exponents when...", a: "...you MULTIPLY terms with the same base.\n\nx\u00b3 \u00d7 x\u2074 = x\u2077  (3 + 4 = 7)\n2x\u2075 \u00d7 3x\u00b2 = 6x\u2077  (5 + 2 = 7)\n\nWhy? x\u00b3 means x\u00d7x\u00d7x. x\u2074 means x\u00d7x\u00d7x\u00d7x. Together that\u2019s 7 x\u2019s multiplied.\n\nOnly works when the bases match! x\u00b3 \u00d7 y\u2074 stays as x\u00b3y\u2074." },
+    { q: "MULTIPLY exponents when...", a: "...you raise a power TO a power.\n\n(x\u00b3)\u00b2 = x\u2076  (3 \u00d7 2 = 6)\n(x\u2074)\u00b3 = x\u00b9\u00b2  (4 \u00d7 3 = 12)\n\nWhy? (x\u00b3)\u00b2 means x\u00b3 \u00d7 x\u00b3. Add the 3+3 and you get x\u2076. Shortcut: just multiply.\n\nDon\u2019t confuse with adding! x\u00b3 \u00d7 x\u00b2 = x\u2075 (add). (x\u00b3)\u00b2 = x\u2076 (multiply)." },
+    { q: "SUBTRACT exponents when...", a: "...you DIVIDE terms with the same base.\n\nx\u2077 \u00f7 x\u00b3 = x\u2074  (7 \u2013 3 = 4)\nx\u2075 / x\u00b2 = x\u00b3  (5 \u2013 2 = 3)\n\nWhy? x\u2077 is 7 x\u2019s multiplied. Dividing by x\u00b3 cancels 3 of them. 4 left.\n\nSpecial case: x\u2074 \u00f7 x\u2074 = x\u2070 = 1 (anything to the zero power is 1)." },
+    { q: "DISTRIBUTE the exponent when...", a: "...a product or fraction is raised to a power.\n\n(3x\u00b2)\u00b3 = 3\u00b3 \u00d7 (x\u00b2)\u00b3 = 27x\u2076\n(2x\u00b3)\u00b2 = 2\u00b2 \u00d7 (x\u00b3)\u00b2 = 4x\u2076\n\nThe exponent hits EVERY piece inside the parentheses \u2014 the number AND the variable.\n\nCommon mistake: forgetting to apply the exponent to the coefficient. (3x)\u00b2 = 9x\u00b2, NOT 3x\u00b2." },
+    { q: "Simplify:\n(5x\u2075)(3x\u00b3)\u00b2", a: "Step 1: Handle the exponent first.\n(3x\u00b3)\u00b2 = 9x\u2076  (square the 3, multiply exponent 3\u00d72)\n\nStep 2: Now multiply.\n(5x\u2075)(9x\u2076) = 45x\u00b9\u00b9  (5\u00d79 = 45, add exponents 5+6)\n\nAnswer: 45x\u00b9\u00b9\n\nOrder of operations: exponents before multiplication!" },
     { q: "Factor completely:\n3x\u00b2 \u2013 12", a: "Two steps \u2014 GCF first, then keep going.\n\nStep 1: Pull out the GCF.\n3x\u00b2 and 12 both divide by 3.\n3(x\u00b2 \u2013 4)\n\nStep 2: x\u00b2 \u2013 4 is a difference of squares.\n= 3(x + 2)(x \u2013 2)\n\n\"Factor completely\" = don't stop after one step." }
   ]},
   synonyms: { label: "Synonyms", cards: [
