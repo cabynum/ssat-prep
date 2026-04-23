@@ -565,8 +565,7 @@ function renderDashStats(all, history, coverage) {
   var topicsCovered = 0, topicsTotal = ALL_TOPICS.length;
   ALL_TOPICS.forEach(function(t) { if (coverage[t] && coverage[t].attempted > 0) topicsCovered++; });
 
-  var timedCount = typeof TIMED_TEST_META !== 'undefined' ? TIMED_TEST_META.length : 0;
-  var totalTests = 5 + timedCount;
+  var totalTests = typeof TIMED_TEST_META !== 'undefined' ? TIMED_TEST_META.length : 5;
   document.getElementById('stat-completed').textContent = uniqueTests + '/' + totalTests;
   document.getElementById('stat-attempts').textContent = totalAttempts;
   document.getElementById('stat-best').textContent = best;

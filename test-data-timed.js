@@ -3,13 +3,31 @@
 // Appends to ALL_TEST_DATA (declared in test-data.js)
 // ============================================================
 
-var TIMED_TEST_META = [
-  { id: 'timed1', label: 'Timed Quiz 1', questions: 10, timeLimit: 720, nudgeAt: 90, timed: true },
-  { id: 'timed2', label: 'Timed Quiz 2', questions: 10, timeLimit: 720, nudgeAt: 90, timed: true },
-  { id: 'timed3', label: 'Timed Quiz 3', questions: 10, timeLimit: 720, nudgeAt: 90, timed: true },
-  { id: 'timed4', label: 'Timed Quiz 4', questions: 10, timeLimit: 720, nudgeAt: 90, timed: true },
-  { id: 'timed5', label: 'Timed Quiz 5', questions: 10, timeLimit: 720, nudgeAt: 90, timed: true }
-];
+var TIMED_TEST_META = [];
+(function() {
+  for (var i = 1; i <= 20; i++) {
+    TIMED_TEST_META.push({ id: 'timed' + i, label: 'Timed Quiz ' + i, questions: 10, timeLimit: 720, nudgeAt: 90, timed: true });
+  }
+})();
+
+// Quizzes 6-20: sliced from the existing 30-question tests (test1-test5)
+// Each 30-question test becomes 3 timed quizzes of 10
+(function() {
+  var mapping = [
+    { src: 'test1', targets: ['timed6', 'timed7', 'timed8'] },
+    { src: 'test2', targets: ['timed9', 'timed10', 'timed11'] },
+    { src: 'test3', targets: ['timed12', 'timed13', 'timed14'] },
+    { src: 'test4', targets: ['timed15', 'timed16', 'timed17'] },
+    { src: 'test5', targets: ['timed18', 'timed19', 'timed20'] }
+  ];
+  mapping.forEach(function(m) {
+    var src = ALL_TEST_DATA[m.src];
+    if (!src) return;
+    ALL_TEST_DATA[m.targets[0]] = src.slice(0, 10);
+    ALL_TEST_DATA[m.targets[1]] = src.slice(10, 20);
+    ALL_TEST_DATA[m.targets[2]] = src.slice(20, 30);
+  });
+})();
 
 // === TIMED QUIZ 1 ===
 ALL_TEST_DATA.timed1 = [
