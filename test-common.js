@@ -38,18 +38,148 @@ let flags = {};
 let currentQ = 0;
 let mode = 'test';
 
+/* ---------- Timer State ---------- */
+let timerEnabled = false;
+let timeLimitSec = 0;
+let nudgeThresholdSec = 90;
+let timerRemaining = 0;
+let timerInterval = null;
+let questionEnteredAt = 0;
+let questionNudged = false;
+let perQuestionTime = {};
+
 /* ---------- Init ---------- */
-function initTest(id, qs) {
+function initTest(id, qs, meta) {
   testId = id;
   questions = qs;
+
+  if (meta && meta.timed) {
+    timerEnabled = true;
+    timeLimitSec = meta.timeLimit || 720;
+    nudgeThresholdSec = meta.nudgeAt || 90;
+  }
+
   const saved = loadProgress();
   if (saved && saved.answers && !saved.completedAt) {
     answers = saved.answers;
     flags = saved.flags || {};
     currentQ = saved.currentQ || 0;
+    perQuestionTime = saved.perQuestionTime || {};
+    if (timerEnabled && saved.timerRemaining != null) {
+      timerRemaining = saved.timerRemaining;
+    } else if (timerEnabled) {
+      timerRemaining = timeLimitSec;
+    }
+  } else if (timerEnabled) {
+    timerRemaining = timeLimitSec;
   }
+
+  if (timerEnabled) {
+    renderTimerBar();
+    startTimer();
+  }
+  questionEnteredAt = Date.now();
   renderTest();
 }
+
+/* ---------- Timer ---------- */
+function renderTimerBar() {
+  var bar = document.getElementById('progress-bar-area');
+  if (!bar) bar = document.querySelector('.progress-bar');
+  if (!bar) return;
+
+  var existing = document.getElementById('timer-display');
+  if (existing) return;
+
+  var wrap = document.createElement('div');
+  wrap.id = 'timer-display';
+  wrap.className = 'timer-display';
+  wrap.innerHTML = '<span class="timer-icon">⏱</span><span class="timer-clock" id="timer-clock">' + formatTime(timerRemaining) + '</span>';
+  bar.parentNode.insertBefore(wrap, bar);
+}
+
+function startTimer() {
+  if (timerInterval) clearInterval(timerInterval);
+  timerInterval = setInterval(function() {
+    timerRemaining--;
+    updateTimerDisplay();
+    if (timerRemaining % 10 === 0) saveProgress();
+
+    if (timerRemaining <= 0) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      autoSubmit();
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  var clock = document.getElementById('timer-clock');
+  if (!clock) return;
+  clock.textContent = formatTime(timerRemaining);
+
+  var display = document.getElementById('timer-display');
+  if (!display) return;
+  display.classList.remove('timer-warning', 'timer-danger');
+  if (timerRemaining <= 60) display.classList.add('timer-danger');
+  else if (timerRemaining <= 120) display.classList.add('timer-warning');
+}
+
+function formatTime(sec) {
+  if (sec < 0) sec = 0;
+  var m = Math.floor(sec / 60);
+  var s = sec % 60;
+  return m + ':' + (s < 10 ? '0' : '') + s;
+}
+
+function checkQuestionNudge() {
+  if (!timerEnabled) return;
+  var elapsed = (Date.now() - questionEnteredAt) / 1000;
+  var card = document.querySelector('.q-card');
+  if (!card) return;
+
+  if (elapsed >= nudgeThresholdSec && !questionNudged) {
+    card.classList.add('q-nudge');
+    questionNudged = true;
+  }
+}
+
+function resetQuestionNudge() {
+  questionNudged = false;
+  var card = document.querySelector('.q-card');
+  if (card) card.classList.remove('q-nudge');
+}
+
+function trackQuestionTime() {
+  if (!timerEnabled || !questionEnteredAt) return;
+  var elapsed = Math.round((Date.now() - questionEnteredAt) / 1000);
+  if (!perQuestionTime[currentQ]) perQuestionTime[currentQ] = 0;
+  perQuestionTime[currentQ] += elapsed;
+}
+
+function autoSubmit() {
+  trackQuestionTime();
+  var panel = document.getElementById('test-taking');
+  var reviewP = document.getElementById('review-panel');
+  if (panel) panel.style.display = 'none';
+  if (reviewP) reviewP.style.display = 'none';
+
+  var unanswered = questions.length - Object.keys(answers).length;
+
+  var notice = document.createElement('div');
+  notice.className = 'timer-expired-notice';
+  notice.innerHTML = '<div class="timer-expired-icon">⏰</div>' +
+    '<h3>Time\'s Up!</h3>' +
+    '<p>' + Object.keys(answers).length + ' answered' +
+    (unanswered > 0 ? ' &middot; ' + unanswered + ' unanswered (no penalty)' : '') + '</p>' +
+    '<button class="q-nav-btn primary" onclick="this.parentNode.remove();submitTest()">See Results</button>';
+
+  var container = document.querySelector('.container');
+  container.insertBefore(notice, container.firstChild.nextSibling);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+setInterval(checkQuestionNudge, 1000);
 
 /* ---------- Test Rendering ---------- */
 function renderTest() {
@@ -98,17 +228,32 @@ function renderDots() {
     if (flags[i]) cls += ' flagged-dot';
     d.className = cls;
     d.textContent = i + 1;
-    d.onclick = function() { currentQ = i; renderTest(); };
+    d.onclick = function() { trackQuestionTime(); currentQ = i; questionEnteredAt = Date.now(); resetQuestionNudge(); renderTest(); };
     wrap.appendChild(d);
   });
 }
 
 function selectAnswer(letter) { answers[currentQ] = letter; renderTest(); }
 function toggleFlag() { flags[currentQ] = !flags[currentQ]; renderTest(); }
-function prevQuestion() { if (currentQ > 0) { currentQ--; renderTest(); } }
+function prevQuestion() {
+  if (currentQ > 0) {
+    trackQuestionTime();
+    currentQ--;
+    questionEnteredAt = Date.now();
+    resetQuestionNudge();
+    renderTest();
+  }
+}
 function nextQuestion() {
-  if (currentQ < questions.length - 1) { currentQ++; renderTest(); }
-  else { showReview(); }
+  trackQuestionTime();
+  if (currentQ < questions.length - 1) {
+    currentQ++;
+    questionEnteredAt = Date.now();
+    resetQuestionNudge();
+    renderTest();
+  } else {
+    showReview();
+  }
 }
 
 /* ---------- Review Before Submit ---------- */
@@ -118,6 +263,9 @@ function showReview() {
   var skippedCount = questions.length - answeredCount;
 
   var h = '<div class="review-panel"><h3>Review Before Submitting</h3>';
+  if (timerEnabled) {
+    h += '<div class="timer-display" style="margin-bottom:16px;display:inline-flex"><span class="timer-icon">⏱</span><span class="timer-clock">' + formatTime(timerRemaining) + ' remaining</span></div>';
+  }
   h += '<p style="color:var(--text2);font-size:0.88rem;margin-bottom:16px">';
   h += '<strong>' + answeredCount + '</strong> answered';
   if (skippedCount > 0) h += ' &middot; <strong>' + skippedCount + '</strong> skipped';
@@ -128,7 +276,7 @@ function showReview() {
     if (flags[i]) { cls += ' r-flagged'; label = '⚑ Q' + (i+1); }
     else if (answers[i] !== undefined) { cls += ' r-answered'; label = '✓ Q' + (i+1); }
     else { cls += ' r-skipped'; label = '— Q' + (i+1); }
-    h += '<div class="' + cls + '" style="cursor:pointer" onclick="currentQ=' + i + ';hideReview();renderTest()">' + label + '</div>';
+    h += '<div class="' + cls + '" style="cursor:pointer" onclick="currentQ=' + i + ';questionEnteredAt=Date.now();resetQuestionNudge();hideReview();renderTest()">' + label + '</div>';
   });
   h += '</div><div style="display:flex;gap:12px;margin-top:16px">';
   h += '<button class="q-nav-btn" onclick="hideReview()">← Back to Questions</button>';
@@ -146,6 +294,9 @@ function hideReview() {
 
 /* ---------- Scoring ---------- */
 function submitTest() {
+  if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
+  trackQuestionTime();
+
   var rawCorrect = 0, rawWrong = 0, rawSkipped = 0;
   var byTopic = {}, byCat = {};
 
@@ -165,6 +316,7 @@ function submitTest() {
   });
 
   var adjustedScore = Math.max(0, rawCorrect - (rawWrong * 0.25));
+  var timeUsed = timerEnabled ? timeLimitSec - Math.max(timerRemaining, 0) : null;
   var result = {
     testId: testId,
     completedAt: new Date().toISOString(),
@@ -175,7 +327,10 @@ function submitTest() {
     pct: Math.round((rawCorrect / questions.length) * 100),
     answers: Object.assign({}, answers),
     byTopic: byTopic,
-    byCategory: byCat
+    byCategory: byCat,
+    timed: timerEnabled,
+    timeUsed: timeUsed,
+    perQuestionTime: timerEnabled ? Object.assign({}, perQuestionTime) : null
   };
 
   saveResult(result);
@@ -204,6 +359,9 @@ function showResults(result) {
   h += '<div class="score-stat s-green"><div class="score-stat-val">' + result.rawScore + '</div><div class="score-stat-label">Raw Score</div></div>';
   h += '<div class="score-stat s-gold"><div class="score-stat-val">' + result.adjustedScore.toFixed(1) + '</div><div class="score-stat-label">Adjusted (−¼ penalty)</div></div>';
   h += '<div class="score-stat s-red"><div class="score-stat-val">' + result.skipped + '</div><div class="score-stat-label">Skipped</div></div>';
+  if (result.timed && result.timeUsed != null) {
+    h += '<div class="score-stat"><div class="score-stat-val">' + formatTime(result.timeUsed) + '</div><div class="score-stat-label">Time Used</div></div>';
+  }
   h += '</div>';
   h += '<div class="motivational">' + getMotivation(result, allResults) + '</div>';
   if (isPB) h += '<div class="pb-badge">★ NEW PERSONAL BEST ★</div>';
@@ -325,7 +483,12 @@ function saveResult(result) {
 }
 
 function saveProgress() {
-  localStorage.setItem(STORAGE_KEY + '_progress_' + testId, JSON.stringify({ answers: answers, flags: flags, currentQ: currentQ }));
+  var data = { answers: answers, flags: flags, currentQ: currentQ };
+  if (timerEnabled) {
+    data.timerRemaining = timerRemaining;
+    data.perQuestionTime = perQuestionTime;
+  }
+  localStorage.setItem(STORAGE_KEY + '_progress_' + testId, JSON.stringify(data));
 }
 function loadProgress() {
   try { return JSON.parse(localStorage.getItem(STORAGE_KEY + '_progress_' + testId)); } catch(e) { return null; }
@@ -402,7 +565,9 @@ function renderDashStats(all, history, coverage) {
   var topicsCovered = 0, topicsTotal = ALL_TOPICS.length;
   ALL_TOPICS.forEach(function(t) { if (coverage[t] && coverage[t].attempted > 0) topicsCovered++; });
 
-  document.getElementById('stat-completed').textContent = uniqueTests + '/5';
+  var timedCount = typeof TIMED_TEST_META !== 'undefined' ? TIMED_TEST_META.length : 0;
+  var totalTests = 5 + timedCount;
+  document.getElementById('stat-completed').textContent = uniqueTests + '/' + totalTests;
   document.getElementById('stat-attempts').textContent = totalAttempts;
   document.getElementById('stat-best').textContent = best;
   document.getElementById('stat-coverage').textContent = topicsCovered + '/' + topicsTotal;
@@ -429,6 +594,29 @@ function renderTestCards(all) {
     card.innerHTML = '<div class="tc-left"><span class="tc-num">' + i + '</span><div class="tc-info"><h4>Practice Test ' + i + '</h4><p>30 questions &middot; All 5 categories</p></div></div><div class="tc-right">' + rightHTML + '</div>';
     wrap.appendChild(card);
   }
+
+  var timedWrap = document.getElementById('timed-cards');
+  if (!timedWrap || typeof TIMED_TEST_META === 'undefined') return;
+  timedWrap.innerHTML = '';
+  TIMED_TEST_META.forEach(function(meta) {
+    var tid = meta.id;
+    var attempts = all.tests && all.tests[tid] ? all.tests[tid] : [];
+    var latest = attempts.length ? attempts[attempts.length - 1] : null;
+    var card = document.createElement('a');
+    card.href = 'test.html?id=' + tid;
+    card.className = 'test-card';
+    var rightHTML = '';
+    if (latest) {
+      var p = latest.pct;
+      var color = p >= 80 ? 'tc-green' : p >= 50 ? 'tc-yellow' : 'tc-red';
+      var timeStr = latest.timeUsed != null ? ' &middot; ' + formatTime(latest.timeUsed) : '';
+      rightHTML = '<span class="tc-score ' + color + '">' + p + '%</span><span class="tc-tag tc-done">' + formatTime(latest.timeUsed || 0) + '</span>';
+    } else {
+      rightHTML = '<span class="tc-tag tc-new">Start</span>';
+    }
+    card.innerHTML = '<div class="tc-left"><span class="tc-num" style="color:var(--gold)">⚡</span><div class="tc-info"><h4>' + meta.label + '</h4><p>' + meta.questions + ' questions &middot; ' + formatTime(meta.timeLimit) + ' limit</p></div></div><div class="tc-right">' + rightHTML + '</div>';
+    timedWrap.appendChild(card);
+  });
 }
 
 function renderCoverageMap(coverage) {
@@ -527,12 +715,24 @@ function renderRecommendation(all, coverage) {
   var el = document.getElementById('recommendation');
   if (!el) return;
   if (!all.tests || Object.keys(all.tests).length === 0) {
-    el.innerHTML = '<div class="test-card" style="border-color:var(--gold);cursor:default"><div class="tc-left"><span class="tc-num" style="color:var(--gold)">→</span><div class="tc-info"><h4 style="color:var(--gold)">Start with Practice Test 1</h4><p>30 questions covering all 5 SSAT math categories. Let\'s see where you stand.</p></div></div><div class="tc-right"><a href="test.html?id=1" class="q-nav-btn primary" style="text-decoration:none">Begin</a></div></div>';
+    el.innerHTML = '<div class="test-card" style="border-color:var(--gold);cursor:default"><div class="tc-left"><span class="tc-num" style="color:var(--gold)">⚡</span><div class="tc-info"><h4 style="color:var(--gold)">Start with Timed Quiz 1</h4><p>10 questions, 12 minutes. Quick and focused.</p></div></div><div class="tc-right"><a href="test.html?id=timed1" class="q-nav-btn primary" style="text-decoration:none">Begin</a></div></div>';
     return;
   }
+
+  if (typeof TIMED_TEST_META !== 'undefined') {
+    for (var t = 0; t < TIMED_TEST_META.length; t++) {
+      var tmid = TIMED_TEST_META[t].id;
+      if (!all.tests[tmid]) {
+        var tnum = tmid.replace('timed', '');
+        el.innerHTML = '<div class="test-card" style="border-color:var(--gold);cursor:default"><div class="tc-left"><span class="tc-num" style="color:var(--gold)">⚡</span><div class="tc-info"><h4 style="color:var(--gold)">Recommended: Timed Quiz ' + tnum + '</h4><p>10 questions, 12-minute countdown. Keep pushing.</p></div></div><div class="tc-right"><a href="test.html?id=' + tmid + '" class="q-nav-btn primary" style="text-decoration:none">Begin</a></div></div>';
+        return;
+      }
+    }
+  }
+
   for (var i = 1; i <= 5; i++) {
     if (!all.tests['test' + i]) {
-      el.innerHTML = '<div class="test-card" style="border-color:var(--gold);cursor:default"><div class="tc-left"><span class="tc-num" style="color:var(--gold)">→</span><div class="tc-info"><h4 style="color:var(--gold)">Recommended: Practice Test ' + i + '</h4><p>Keep the streak going.</p></div></div><div class="tc-right"><a href="test.html?id=' + i + '" class="q-nav-btn primary" style="text-decoration:none">Begin</a></div></div>';
+      el.innerHTML = '<div class="test-card" style="border-color:var(--gold);cursor:default"><div class="tc-left"><span class="tc-num" style="color:var(--gold)">→</span><div class="tc-info"><h4 style="color:var(--gold)">Recommended: Practice Test ' + i + '</h4><p>30 questions — full-length practice.</p></div></div><div class="tc-right"><a href="test.html?id=' + i + '" class="q-nav-btn primary" style="text-decoration:none">Begin</a></div></div>';
       return;
     }
   }
@@ -541,8 +741,9 @@ function renderRecommendation(all, coverage) {
     var last = entry[1][entry[1].length - 1];
     if (last.pct < lowestPct) { lowestPct = last.pct; lowest = entry[0]; }
   });
-  var num = lowest ? lowest.replace('test', '') : '1';
-  el.innerHTML = '<div class="test-card" style="border-color:var(--gold);cursor:default"><div class="tc-left"><span class="tc-num" style="color:var(--gold)">↻</span><div class="tc-info"><h4 style="color:var(--gold)">Retake: Practice Test ' + num + '</h4><p>Your lowest score was ' + lowestPct + '%. Run it back.</p></div></div><div class="tc-right"><a href="test.html?id=' + num + '" class="q-nav-btn primary" style="text-decoration:none">Retake</a></div></div>';
+  var href = lowest && lowest.indexOf('timed') === 0 ? lowest : lowest ? lowest.replace('test', '') : '1';
+  var label = lowest && lowest.indexOf('timed') === 0 ? 'Timed Quiz ' + lowest.replace('timed', '') : 'Practice Test ' + href;
+  el.innerHTML = '<div class="test-card" style="border-color:var(--gold);cursor:default"><div class="tc-left"><span class="tc-num" style="color:var(--gold)">↻</span><div class="tc-info"><h4 style="color:var(--gold)">Retake: ' + label + '</h4><p>Your lowest score was ' + lowestPct + '%. Run it back.</p></div></div><div class="tc-right"><a href="test.html?id=' + href + '" class="q-nav-btn primary" style="text-decoration:none">Retake</a></div></div>';
 }
 
 /* ---------- Theme ---------- */

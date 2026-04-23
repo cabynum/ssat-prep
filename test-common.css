@@ -65,6 +65,37 @@ header .subtitle { color: var(--text3); font-size: 0.85rem; margin-top: 4px; fon
 .theme-toggle { position: fixed; top: 16px; right: 16px; z-index: 100; background: var(--card); border: 1px solid var(--border); border-radius: 50%; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.1rem; transition: all 0.25s; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .theme-toggle:hover { border-color: var(--accent); transform: scale(1.08); }
 
+/* ===================== TIMER ===================== */
+.timer-display {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 12px 20px; margin: 20px 0 0;
+  background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+  font-variant-numeric: tabular-nums;
+}
+.timer-icon { font-size: 1.2rem; }
+.timer-clock {
+  font-size: 1.6rem; font-weight: 800; letter-spacing: 0.04em; color: var(--text);
+}
+.timer-display.timer-warning { border-color: var(--yellow); background: var(--yellow-dim); }
+.timer-display.timer-warning .timer-clock { color: var(--yellow); }
+.timer-display.timer-danger { border-color: var(--red); background: var(--red-dim); animation: timerPulse 1s ease-in-out infinite; }
+.timer-display.timer-danger .timer-clock { color: var(--red); }
+@keyframes timerPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+
+.q-card.q-nudge {
+  border-color: var(--yellow) !important;
+  box-shadow: 0 0 16px var(--yellow-dim), inset 0 0 0 1px rgba(212,168,67,0.15);
+  transition: border-color 0.5s, box-shadow 0.5s;
+}
+
+.timer-expired-notice {
+  text-align: center; padding: 48px 24px; margin: 28px 0;
+  background: var(--card); border: 2px solid var(--yellow); border-radius: var(--radius);
+}
+.timer-expired-icon { font-size: 3rem; margin-bottom: 12px; }
+.timer-expired-notice h3 { font-size: 1.4rem; font-weight: 800; color: var(--yellow); margin-bottom: 8px; }
+.timer-expired-notice p { color: var(--text2); font-size: 0.92rem; margin-bottom: 20px; }
+
 /* ===================== TEST TAKING UI ===================== */
 .test-container { min-height: 70vh; display: flex; flex-direction: column; }
 

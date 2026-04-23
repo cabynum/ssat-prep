@@ -62,17 +62,37 @@
 
 <script src="test-data.js"></script>
 <script src="test-data-pt2.js"></script>
+<script src="test-data-timed.js"></script>
 <script src="test-common.js"></script>
 <script>
 (function() {
   var params = new URLSearchParams(window.location.search);
-  var id = parseInt(params.get('id')) || 1;
-  var tid = 'test' + id;
-  document.getElementById('test-title').textContent = 'Practice Test ' + id;
-  document.title = 'SSAT Practice Test ' + id;
+  var rawId = params.get('id') || '1';
+  var tid, title;
+
+  if (rawId.indexOf('timed') === 0) {
+    tid = rawId;
+    var num = rawId.replace('timed', '');
+    title = 'Timed Quiz ' + num;
+  } else {
+    tid = 'test' + parseInt(rawId);
+    title = 'Practice Test ' + parseInt(rawId);
+  }
+
+  document.getElementById('test-title').textContent = title;
+  document.title = 'SSAT ' + title;
+
+  var meta = null;
+  if (typeof TIMED_TEST_META !== 'undefined') {
+    TIMED_TEST_META.forEach(function(m) { if (m.id === tid) meta = m; });
+  }
+
+  if (meta) {
+    document.querySelector('.subtitle').textContent = 'SSAT Upper Level · Quantitative · ' + formatTime(meta.timeLimit) + ' limit';
+  }
 
   if (ALL_TEST_DATA[tid]) {
-    initTest(tid, ALL_TEST_DATA[tid]);
+    initTest(tid, ALL_TEST_DATA[tid], meta);
   } else {
     document.getElementById('test-taking').innerHTML = '<div style="text-align:center;padding:60px 20px;color:var(--text3)"><h2>Test not found</h2><p>Go back to the <a href="tests.html" style="color:var(--accent-light)">dashboard</a>.</p></div>';
   }
