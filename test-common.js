@@ -451,6 +451,7 @@ function stripHTML(s) { var d = document.createElement('div'); d.innerHTML = s; 
 function reviewPastResult(tid, qs) {
   testId = tid;
   questions = qs;
+  if (typeof migrateOldResults === 'function') migrateOldResults();
   var allResults = loadAllResults();
   if (!allResults.tests || !allResults.tests[tid] || allResults.tests[tid].length === 0) {
     document.getElementById('test-taking').innerHTML = '<div style="text-align:center;padding:60px 20px;color:var(--text3)"><h2>No results found</h2><p>You haven\'t completed this quiz yet. <a href="test.html?id=' + tid + '" style="color:var(--accent-light)">Take it now</a>.</p></div>';
@@ -561,9 +562,86 @@ function getCoverageData(allResults) {
   return coverage;
 }
 
+/* ---------- Migrate old test results to timed quiz IDs ---------- */
+function migrateOldResults() {
+  var all = loadAllResults();
+  if (!all.tests) return all;
+  var mapping = {
+    test1: ['timed6','timed7','timed8'],
+    test2: ['timed9','timed10','timed11'],
+    test3: ['timed12','timed13','timed14'],
+    test4: ['timed15','timed16','timed17'],
+    test5: ['timed18','timed19','timed20']
+  };
+  var changed = false;
+  Object.keys(mapping).forEach(function(oldId) {
+    var oldAttempts = all.tests[oldId];
+    if (!oldAttempts || oldAttempts.length === 0) return;
+    var timedIds = mapping[oldId];
+    var srcData = ALL_TEST_DATA[oldId];
+    if (!srcData) return;
+
+    oldAttempts.forEach(function(attempt) {
+      for (var s = 0; s < 3; s++) {
+        var newTid = timedIds[s];
+        if (all.tests[newTid] && all.tests[newTid].length > 0) continue;
+
+        var offset = s * 10;
+        var sliceAnswers = {};
+        var sliceByTopic = {};
+        var sliceByCat = {};
+        var correct = 0, wrong = 0, skipped = 0;
+
+        for (var qi = 0; qi < 10; qi++) {
+          var origIdx = offset + qi;
+          var q = srcData[origIdx];
+          if (!q) continue;
+          var userAns = attempt.answers[origIdx];
+          var t = q.topic, c = q.category;
+          if (!sliceByTopic[t]) sliceByTopic[t] = { correct:0, total:0, wrong:0, skipped:0 };
+          if (!sliceByCat[c]) sliceByCat[c] = { correct:0, total:0, wrong:0, skipped:0 };
+          sliceByTopic[t].total++; sliceByCat[c].total++;
+
+          if (userAns === undefined) {
+            skipped++; sliceByTopic[t].skipped++; sliceByCat[c].skipped++;
+          } else if (userAns === q.answer) {
+            correct++; sliceByTopic[t].correct++; sliceByCat[c].correct++;
+            sliceAnswers[qi] = userAns;
+          } else {
+            wrong++; sliceByTopic[t].wrong++; sliceByCat[c].wrong++;
+            sliceAnswers[qi] = userAns;
+          }
+        }
+
+        var adjustedScore = Math.max(0, correct - (wrong * 0.25));
+        all.tests[newTid] = [{
+          testId: newTid,
+          completedAt: attempt.completedAt,
+          rawScore: correct,
+          adjustedScore: parseFloat(adjustedScore.toFixed(2)),
+          totalQuestions: 10,
+          correct: correct, wrong: wrong, skipped: skipped,
+          pct: Math.round((correct / 10) * 100),
+          answers: sliceAnswers,
+          byTopic: sliceByTopic,
+          byCategory: sliceByCat,
+          timed: false,
+          timeUsed: null,
+          migratedFrom: oldId
+        }];
+        changed = true;
+      }
+    });
+  });
+  if (changed) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+  }
+  return all;
+}
+
 /* ---------- Dashboard ---------- */
 function initDashboard() {
-  var all = loadAllResults();
+  var all = migrateOldResults();
   var history = getTestHistory(all);
   var coverage = getCoverageData(all);
 
@@ -575,7 +653,12 @@ function initDashboard() {
 }
 
 function renderDashStats(all, history, coverage) {
-  var uniqueTests = all.tests ? Object.keys(all.tests).length : 0;
+  var timedDone = 0;
+  if (all.tests && typeof TIMED_TEST_META !== 'undefined') {
+    TIMED_TEST_META.forEach(function(m) {
+      if (all.tests[m.id] && all.tests[m.id].length > 0) timedDone++;
+    });
+  }
   var totalAttempts = history.length;
   var best = all.personalBest ? all.personalBest.pct + '%' : '—';
 
@@ -583,7 +666,7 @@ function renderDashStats(all, history, coverage) {
   ALL_TOPICS.forEach(function(t) { if (coverage[t] && coverage[t].attempted > 0) topicsCovered++; });
 
   var totalTests = typeof TIMED_TEST_META !== 'undefined' ? TIMED_TEST_META.length : 5;
-  document.getElementById('stat-completed').textContent = uniqueTests + '/' + totalTests;
+  document.getElementById('stat-completed').textContent = timedDone + '/' + totalTests;
   document.getElementById('stat-attempts').textContent = totalAttempts;
   document.getElementById('stat-best').textContent = best;
   document.getElementById('stat-coverage').textContent = topicsCovered + '/' + topicsTotal;
