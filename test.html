@@ -91,10 +91,15 @@
     document.querySelector('.subtitle').textContent = 'SSAT Upper Level · Quantitative · ' + formatTime(meta.timeLimit) + ' limit';
   }
 
-  if (ALL_TEST_DATA[tid]) {
-    initTest(tid, ALL_TEST_DATA[tid], meta);
-  } else {
+  var isReview = params.get('review') === '1';
+
+  if (!ALL_TEST_DATA[tid]) {
     document.getElementById('test-taking').innerHTML = '<div style="text-align:center;padding:60px 20px;color:var(--text3)"><h2>Test not found</h2><p>Go back to the <a href="tests.html" style="color:var(--accent-light)">dashboard</a>.</p></div>';
+  } else if (isReview) {
+    document.querySelector('.subtitle').textContent = 'Reviewing past results';
+    reviewPastResult(tid, ALL_TEST_DATA[tid]);
+  } else {
+    initTest(tid, ALL_TEST_DATA[tid], meta);
   }
 })();
 </script>

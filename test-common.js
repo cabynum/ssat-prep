@@ -435,7 +435,10 @@ function showResults(result) {
     h += '</div></div>';
   });
   h += '</div>';
-  h += '<div style="text-align:center;margin-top:32px"><a href="tests.html" class="q-nav-btn primary" style="text-decoration:none;display:inline-block">← Back to Dashboard</a></div>';
+  h += '<div style="text-align:center;margin-top:32px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap">';
+  h += '<a href="tests.html" class="q-nav-btn" style="text-decoration:none;display:inline-block">← Dashboard</a>';
+  h += '<a href="test.html?id=' + (result.testId || testId) + '" class="q-nav-btn primary" style="text-decoration:none;display:inline-block">↻ Retake Quiz</a>';
+  h += '</div>';
 
   rc.innerHTML = h;
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -443,6 +446,20 @@ function showResults(result) {
 
 function toggleQR(i) { document.getElementById('qr-' + i).classList.toggle('open'); }
 function stripHTML(s) { var d = document.createElement('div'); d.innerHTML = s; return d.textContent || ''; }
+
+/* ---------- Review Past Results ---------- */
+function reviewPastResult(tid, qs) {
+  testId = tid;
+  questions = qs;
+  var allResults = loadAllResults();
+  if (!allResults.tests || !allResults.tests[tid] || allResults.tests[tid].length === 0) {
+    document.getElementById('test-taking').innerHTML = '<div style="text-align:center;padding:60px 20px;color:var(--text3)"><h2>No results found</h2><p>You haven\'t completed this quiz yet. <a href="test.html?id=' + tid + '" style="color:var(--accent-light)">Take it now</a>.</p></div>';
+    return;
+  }
+  var result = allResults.tests[tid][allResults.tests[tid].length - 1];
+  document.getElementById('test-taking').style.display = 'none';
+  showResults(result);
+}
 
 /* ---------- Motivation ---------- */
 function getMotivation(result, allResults) {
@@ -601,20 +618,26 @@ function renderTestCards(all) {
     var tid = meta.id;
     var attempts = all.tests && all.tests[tid] ? all.tests[tid] : [];
     var latest = attempts.length ? attempts[attempts.length - 1] : null;
-    var card = document.createElement('a');
-    card.href = 'test.html?id=' + tid;
-    card.className = 'test-card';
-    var rightHTML = '';
+
     if (latest) {
       var p = latest.pct;
       var color = p >= 80 ? 'tc-green' : p >= 50 ? 'tc-yellow' : 'tc-red';
-      var timeStr = latest.timeUsed != null ? ' &middot; ' + formatTime(latest.timeUsed) : '';
-      rightHTML = '<span class="tc-score ' + color + '">' + p + '%</span><span class="tc-tag tc-done">' + formatTime(latest.timeUsed || 0) + '</span>';
+      var timeTag = latest.timeUsed != null ? formatTime(latest.timeUsed) : 'Done';
+      var card = document.createElement('div');
+      card.className = 'test-card';
+      card.style.cursor = 'default';
+      card.innerHTML = '<div class="tc-left"><span class="tc-num" style="color:var(--gold)">⚡</span><div class="tc-info"><h4>' + meta.label + '</h4><p>' + meta.questions + ' questions &middot; ' + formatTime(meta.timeLimit) + ' limit</p></div></div>' +
+        '<div class="tc-right"><span class="tc-score ' + color + '">' + p + '%</span>' +
+        '<a href="test.html?id=' + tid + '&review=1" class="tc-action-btn tc-review-btn">Review</a>' +
+        '<a href="test.html?id=' + tid + '" class="tc-action-btn tc-retake-btn">Retake</a></div>';
+      timedWrap.appendChild(card);
     } else {
-      rightHTML = '<span class="tc-tag tc-new">Start</span>';
+      var card = document.createElement('a');
+      card.href = 'test.html?id=' + tid;
+      card.className = 'test-card';
+      card.innerHTML = '<div class="tc-left"><span class="tc-num" style="color:var(--gold)">⚡</span><div class="tc-info"><h4>' + meta.label + '</h4><p>' + meta.questions + ' questions &middot; ' + formatTime(meta.timeLimit) + ' limit</p></div></div><div class="tc-right"><span class="tc-tag tc-new">Start</span></div>';
+      timedWrap.appendChild(card);
     }
-    card.innerHTML = '<div class="tc-left"><span class="tc-num" style="color:var(--gold)">⚡</span><div class="tc-info"><h4>' + meta.label + '</h4><p>' + meta.questions + ' questions &middot; ' + formatTime(meta.timeLimit) + ' limit</p></div></div><div class="tc-right">' + rightHTML + '</div>';
-    timedWrap.appendChild(card);
   });
 }
 

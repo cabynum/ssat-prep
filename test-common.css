@@ -258,6 +258,16 @@ header .subtitle { color: var(--text3); font-size: 0.85rem; margin-top: 4px; fon
 .tc-tag.tc-done { background: var(--green-dim); color: var(--green); }
 .tc-tag.tc-rec { background: var(--yellow-dim); color: var(--yellow); border: 1px solid rgba(212,168,67,0.3); }
 
+.tc-action-btn {
+  font-size: 0.72rem; font-weight: 700; padding: 6px 14px; border-radius: 8px;
+  text-decoration: none; text-transform: uppercase; letter-spacing: 0.04em;
+  transition: all 0.15s; display: inline-block;
+}
+.tc-review-btn { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(212,168,67,0.3); }
+.tc-review-btn:hover { background: rgba(212,168,67,0.25); }
+.tc-retake-btn { background: var(--accent-glow); color: var(--accent-light); border: 1px solid rgba(198,40,40,0.2); }
+.tc-retake-btn:hover { background: rgba(198,40,40,0.2); }
+
 /* Mastery grid */
 .mastery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 20px 0; }
 @media (max-width: 560px) { .mastery-grid { grid-template-columns: repeat(2, 1fr); } }
