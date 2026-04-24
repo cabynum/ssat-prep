@@ -6,7 +6,8 @@
 <title>SSAT Practice Tests — Dashboard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="test-common.css?v=3">
+<link rel="stylesheet" href="test-common.css?v=4">
+<link rel="stylesheet" href="exam-styles.css?v=4">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
 <body>
@@ -22,7 +23,7 @@
   <div class="gac-crest">⚔️</div>
   <p class="future-tag">FUTURE SPARTAN</p>
   <h1>Practice Tests</h1>
-  <p class="subtitle">SSAT Upper Level &middot; 20 Timed Quizzes &middot; 200 Questions &middot; 32 Topics</p>
+  <p class="subtitle">SSAT Upper Level &middot; Timed Quizzes + Extended Exams &middot; 290 Questions</p>
 </header>
 
 <div class="container">
@@ -37,6 +38,35 @@
 
   <!-- RECOMMENDATION -->
   <div id="recommendation"></div>
+
+  <!-- EXTENDED EXAMS -->
+  <div class="section">
+    <div class="section-label">📋 Extended Exams</div>
+    <div class="section-title">Full SSAT Simulation</div>
+    <p class="section-desc">Multi-section exams with Verbal, Reading, and Math — proportional to the real SSAT. Includes per-section timers, written performance analysis, and personalized strategy advice.</p>
+    <div class="test-cards" id="exam-cards">
+      <a href="exam.html?id=exam30" class="test-card" style="border-color:var(--gold)">
+        <div class="tc-left">
+          <span class="tc-num" style="color:var(--gold)">📋</span>
+          <div class="tc-info">
+            <h4>Half-Length SSAT</h4>
+            <p>30 questions &middot; 30 min &middot; Verbal + Reading + Math</p>
+          </div>
+        </div>
+        <div class="tc-right" id="exam30-status"><span class="tc-tag tc-new">Start</span></div>
+      </a>
+      <a href="exam.html?id=exam60" class="test-card" style="border-color:var(--gold)">
+        <div class="tc-left">
+          <span class="tc-num" style="color:var(--gold)">📋</span>
+          <div class="tc-info">
+            <h4>Full-Length SSAT</h4>
+            <p>60 questions &middot; 60 min &middot; Verbal + Reading + Math</p>
+          </div>
+        </div>
+        <div class="tc-right" id="exam60-status"><span class="tc-tag tc-new">Start</span></div>
+      </a>
+    </div>
+  </div>
 
   <!-- TIMED QUIZZES (all tests) -->
   <div class="section">
@@ -73,10 +103,25 @@
   <footer>Built for Jackson Bynum &middot; Future GAC Spartan &middot; April 2026</footer>
 </div>
 
-<script src="test-data.js?v=3"></script>
-<script src="test-data-pt2.js?v=3"></script>
-<script src="test-data-timed.js?v=3"></script>
-<script src="test-common.js?v=3"></script>
-<script>initDashboard();</script>
+<script src="test-data.js?v=4"></script>
+<script src="test-data-pt2.js?v=4"></script>
+<script src="test-data-timed.js?v=4"></script>
+<script src="test-common.js?v=4"></script>
+<script>
+initDashboard();
+(function() {
+  try {
+    var examResults = JSON.parse(localStorage.getItem('ssatExamResults')) || {};
+    ['exam30', 'exam60'].forEach(function(eid) {
+      var el = document.getElementById(eid + '-status');
+      if (!el || !examResults.exams || !examResults.exams[eid] || examResults.exams[eid].length === 0) return;
+      var latest = examResults.exams[eid][examResults.exams[eid].length - 1];
+      var p = latest.pct;
+      var color = p >= 80 ? 'tc-green' : p >= 50 ? 'tc-yellow' : 'tc-red';
+      el.innerHTML = '<span class="tc-score ' + color + '">' + p + '%</span><span class="tc-tag tc-done">Done</span>';
+    });
+  } catch(e) {}
+})();
+</script>
 </body>
 </html>

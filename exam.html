@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSAT Extended Exam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="test-common.css?v=4">
+<link rel="stylesheet" href="exam-styles.css?v=4">
+</head>
+<body>
+
+<div class="mode-toggle">
+  <a class="mode-btn inactive" href="index.html">SSAT</a>
+  <a class="mode-btn inactive" href="eoc.html">EOC</a>
+  <a class="mode-btn active" href="tests.html">Tests</a>
+</div>
+<button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">🌙</button>
+
+<header>
+  <div class="gac-crest">⚔️</div>
+  <p class="future-tag">FUTURE SPARTAN</p>
+  <h1 id="exam-title">Extended Exam</h1>
+  <p class="subtitle">SSAT Upper Level · Verbal + Reading + Quantitative</p>
+</header>
+
+<div class="section-nav" id="section-nav"></div>
+
+<div class="container">
+  <div id="exam-content"></div>
+  <footer>Built for Jackson Bynum · Future GAC Spartan · April 2026</footer>
+</div>
+
+<script src="exam-data.js?v=4"></script>
+<script src="exam-engine.js?v=4"></script>
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var id = params.get('id') || 'exam30';
+  initExam(id);
+})();
+</script>
+</body>
+</html>
