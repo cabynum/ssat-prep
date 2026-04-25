@@ -49,7 +49,7 @@
         <div class="tc-left">
           <span class="tc-num" style="color:var(--gold)">📋</span>
           <div class="tc-info">
-            <h4>Half-Length SSAT</h4>
+            <h4>Half-Length SSAT #1</h4>
             <p>30 questions &middot; 30 min &middot; Verbal + Reading + Math</p>
           </div>
         </div>
@@ -59,11 +59,31 @@
         <div class="tc-left">
           <span class="tc-num" style="color:var(--gold)">📋</span>
           <div class="tc-info">
-            <h4>Full-Length SSAT</h4>
+            <h4>Full-Length SSAT #1</h4>
             <p>60 questions &middot; 60 min &middot; Verbal + Reading + Math</p>
           </div>
         </div>
         <div class="tc-right" id="exam60-status"><span class="tc-tag tc-new">Start</span></div>
+      </a>
+      <a href="exam.html?id=exam30b" class="test-card" style="border-color:var(--gold)">
+        <div class="tc-left">
+          <span class="tc-num" style="color:var(--gold)">📋</span>
+          <div class="tc-info">
+            <h4>Half-Length SSAT #2</h4>
+            <p>30 questions &middot; 30 min &middot; Verbal + Reading + Math</p>
+          </div>
+        </div>
+        <div class="tc-right" id="exam30b-status"><span class="tc-tag tc-new">Start</span></div>
+      </a>
+      <a href="exam.html?id=exam60b" class="test-card" style="border-color:var(--gold)">
+        <div class="tc-left">
+          <span class="tc-num" style="color:var(--gold)">📋</span>
+          <div class="tc-info">
+            <h4>Full-Length SSAT #2</h4>
+            <p>60 questions &middot; 60 min &middot; Verbal + Reading + Math</p>
+          </div>
+        </div>
+        <div class="tc-right" id="exam60b-status"><span class="tc-tag tc-new">Start</span></div>
       </a>
     </div>
   </div>
@@ -112,7 +132,7 @@ initDashboard();
 (function() {
   try {
     var examResults = JSON.parse(localStorage.getItem('ssatExamResults')) || {};
-    ['exam30', 'exam60'].forEach(function(eid) {
+    ['exam30', 'exam60', 'exam30b', 'exam60b'].forEach(function(eid) {
       var el = document.getElementById(eid + '-status');
       if (!el || !examResults.exams || !examResults.exams[eid] || examResults.exams[eid].length === 0) return;
       var latest = examResults.exams[eid][examResults.exams[eid].length - 1];
