@@ -91,16 +91,19 @@ function renderCards() {
       tagClass = 'tc-new';
     }
 
-    var card = document.createElement('a');
-    card.href = 'eog-test.html?id=' + m.id;
-    card.className = 'test-card';
-    card.innerHTML = '<div class="tc-left"><span class="tc-num">' + num + '</span><div class="tc-info"><h4>' + label + '</h4><p>10 questions</p></div></div><div class="tc-right"><span class="tc-tag ' + tagClass + '">' + tag + '</span></div>';
-
+    var card;
     if (status) {
-      var actions = document.createElement('div');
-      actions.className = 'tc-actions';
-      actions.innerHTML = '<a href="eog-test.html?id=' + m.id + '&review=1" class="tc-action">Review</a><a href="eog-test.html?id=' + m.id + '" class="tc-action">Retake</a>';
-      card.appendChild(actions);
+      card = document.createElement('div');
+      card.className = 'test-card';
+      card.innerHTML = '<div class="tc-left"><span class="tc-num">' + num + '</span><div class="tc-info"><h4>' + label + '</h4><p>10 questions</p></div></div><div class="tc-right"><span class="tc-tag ' + tagClass + '">' + tag + '</span></div>' +
+        '<div style="display:flex;gap:10px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border);width:100%">' +
+        '<a href="eog-test.html?id=' + m.id + '&review=1" class="tc-action-btn tc-review-btn">Review</a>' +
+        '<a href="eog-test.html?id=' + m.id + '" class="tc-action-btn tc-retake-btn">Retake</a></div>';
+    } else {
+      card = document.createElement('a');
+      card.href = 'eog-test.html?id=' + m.id;
+      card.className = 'test-card';
+      card.innerHTML = '<div class="tc-left"><span class="tc-num">' + num + '</span><div class="tc-info"><h4>' + label + '</h4><p>10 questions</p></div></div><div class="tc-right"><span class="tc-tag ' + tagClass + '">' + tag + '</span></div>';
     }
 
     if (isMath) mathEl.appendChild(card);
