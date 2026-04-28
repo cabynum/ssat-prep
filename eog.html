@@ -442,31 +442,46 @@
   }
   .sub-icon { font-size: 1rem; }
 
-  .concept-card {
-    background: var(--card);
-    border-radius: var(--radius);
-    padding: 20px 22px;
-    border: 1px solid var(--border);
-    margin-bottom: 10px;
-    scroll-margin-top: 80px;
+  .fc-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+  .fc-tab {
+    padding: 8px 18px; border-radius: 10px; border: 1px solid var(--border);
+    background: var(--card); color: var(--text3); cursor: pointer; font-size: 0.75rem;
+    font-weight: 600; font-family: inherit; transition: all 0.2s;
   }
-  .concept-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--accent-light); margin-bottom: 8px; }
-  .concept-card .concept-formula {
-    font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-    font-size: 0.95rem;
-    color: var(--yellow);
-    margin-bottom: 8px;
-    line-height: 1.5;
+  .fc-tab:hover { border-color: var(--accent); color: var(--text); }
+  .fc-tab.active { background: var(--accent-grad); color: #fff; border-color: transparent; box-shadow: 0 2px 12px var(--btn-shadow); }
+  .fc-scene { perspective: 800px; margin-bottom: 16px; }
+  .fc-card {
+    position: relative; width: 100%; min-height: 240px; cursor: pointer;
+    transform-style: preserve-3d; transition: transform 0.5s;
   }
-  .concept-card .concept-explain {
-    font-size: 0.85rem;
-    color: var(--text2);
-    line-height: 1.65;
-    white-space: pre-line;
+  .fc-card.is-flipped { transform: rotateY(180deg); }
+  .fc-face {
+    position: absolute; inset: 0; backface-visibility: hidden;
+    border-radius: var(--radius); padding: 28px 24px;
+    display: flex; align-items: center; justify-content: center; text-align: center;
   }
-  .concept-card .concept-explain strong { color: var(--text); }
-  .concept-card .concept-external {
-    display: inline-block;
+  .fc-front { background: var(--card); border: 1px solid var(--border); }
+  .fc-front .q { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em; }
+  .fc-front .tap-hint { position: absolute; bottom: 16px; font-size: 0.72rem; color: var(--text3); }
+  .fc-back {
+    background: var(--fc-back-bg); border: 1px solid var(--accent);
+    transform: rotateY(180deg); box-shadow: 0 0 24px var(--accent-glow);
+  }
+  .fc-back .a { font-size: 0.92rem; line-height: 1.75; white-space: pre-line; color: var(--text2); text-align: left; width: 100%; }
+  .fc-back .a strong { color: var(--text); }
+  .fc-controls { display: flex; align-items: center; justify-content: center; gap: 16px; }
+  .fc-btn {
+    padding: 10px 22px; border-radius: var(--radius-sm); border: 1px solid var(--border);
+    background: var(--card); color: var(--text2); cursor: pointer; font-size: 0.82rem;
+    font-weight: 600; font-family: inherit; transition: all 0.15s;
+  }
+  .fc-btn:hover { border-color: var(--accent); color: var(--text); }
+  .fc-counter { font-size: 0.82rem; color: var(--text3); font-weight: 600; min-width: 60px; text-align: center; }
+  [data-theme="light"] .fc-front { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  [data-theme="light"] .fc-back { box-shadow: 0 2px 12px rgba(21,101,192,0.1); }
+
+  .concept-card-unused {
     margin-top: 8px;
     font-size: 0.78rem;
     color: var(--accent-light);
@@ -654,174 +669,31 @@
     </div>
   </details>
 
-  <!-- KEY CONCEPTS -->
-  <details class="collapsible" id="concepts">
-    <summary>
-      <div class="collapsible-head">
-        <div class="section-label">Reference</div>
-        <div class="section-title">Key Concepts</div>
+  <!-- FLASHCARDS -->
+  <div class="section">
+    <div class="section-label">Study</div>
+    <div class="section-title">Flashcards</div>
+    <p class="section-desc">Tap a card to flip it. Work through each deck.</p>
+
+    <div class="fc-tabs" id="fc-tabs"></div>
+
+    <div class="fc-scene">
+      <div class="fc-card" id="fc-card" onclick="flipCard()">
+        <div class="fc-face fc-front">
+          <div class="q" id="fc-q"></div>
+          <div class="tap-hint">tap to flip</div>
+        </div>
+        <div class="fc-face fc-back">
+          <div class="a" id="fc-a"></div>
+        </div>
       </div>
-      <span class="collapsible-arrow">▼</span>
-    </summary>
-    <div class="collapsible-body">
-    <p class="section-desc" style="margin-top:14px">Official key terms from the Georgia Milestones Grade 4 Study/Resource Guide. Tap any concept link in a practice answer to jump here.</p>
-
-    <div class="concept-card" id="place-value">
-      <h4>Place Value &amp; Forms of a Number</h4>
-      <div class="concept-formula">183 = 100 + 80 + 3 (expanded form)</div>
-      <div class="concept-explain"><strong>Place value:</strong> The numerical value of a digit based on its location. A digit in the tens place is 10 times the value of the same digit in the ones place.
-
-<strong>Forms of a number</strong> (using 183 as an example):
-  <strong>Standard form:</strong> 183
-  <strong>Word form:</strong> one hundred eighty-three
-  <strong>Expanded form:</strong> 100 + 80 + 3
-
-<strong>Rounding:</strong> A number can be rounded to the nearest place value. Look at the digit to the right of the place you're rounding to. If it's 5 or more, round up. If it's 4 or less, keep it.
-
-<strong>Compare:</strong> Use >, <, or = to compare two numbers written in different forms.</div>
     </div>
-
-    <div class="concept-card" id="factors-multiples">
-      <h4>Factors, Multiples, Prime &amp; Composite</h4>
-      <div class="concept-formula">Factors of 12: 1, 2, 3, 4, 6, 12 | Multiples of 3: 3, 6, 9, 12, 15...</div>
-      <div class="concept-explain"><strong>Factors:</strong> Numbers that multiply together to equal the given number. 4 and 2 are factors of 8 because 4 × 2 = 8.
-
-<strong>Multiple:</strong> The product of the given number and another number. 12 is a multiple of 3 because 3 × 4 = 12. The smallest multiple of a number is the number itself.
-
-<strong>Prime:</strong> A number that has factors of only 1 and itself. Two is the smallest prime number.
-<strong>Composite:</strong> A number that has more than two factors.
-<strong>Note:</strong> 1 is neither prime nor composite.
-
-<strong>Multiplicative comparison:</strong> Comparing values using phrases like "3 times as long." Use multiplication or division to solve.</div>
+    <div class="fc-controls">
+      <button class="fc-btn" onclick="prevCard()">&larr; Prev</button>
+      <span class="fc-counter" id="fc-counter"></span>
+      <button class="fc-btn" onclick="nextCard()">Next &rarr;</button>
     </div>
-
-    <div class="concept-card" id="fractions-basics">
-      <h4>Fractions — Numerator, Denominator, Types</h4>
-      <div class="concept-formula">numerator / denominator</div>
-      <div class="concept-explain"><strong>Fraction:</strong> A number used to represent equal parts of a whole.
-<strong>Numerator:</strong> The top number — how many parts you have.
-<strong>Denominator:</strong> The bottom number — how many equal parts the whole is divided into.
-
-<strong>Proper fraction:</strong> Numerator is less than denominator (value less than 1).
-<strong>Improper fraction:</strong> Numerator is greater than denominator (value greater than 1). Example: 9/2.
-<strong>Mixed number:</strong> A whole number and a fraction. 9/2 = 4 1/2.
-<strong>Unit fraction:</strong> A proper fraction with a numerator of 1. Example: 1/4.</div>
-    </div>
-
-    <div class="concept-card" id="equivalent-fractions">
-      <h4>Equivalent Fractions &amp; Comparing</h4>
-      <div class="concept-formula">1/2 = 2/4 = 3/6 = 4/8 = 5/10</div>
-      <div class="concept-explain"><strong>Equivalent fractions:</strong> Fractions that have the same value. Created by multiplying the numerator and denominator by the same number (which is like multiplying by 1).
-  Example: (1 × 4) / (2 × 4) = 4/8, so 4/8 is equivalent to 1/2.
-
-<strong>Comparing fractions:</strong> Use both the numerator and denominator. Create a common denominator or common numerator to compare.
-  <strong>></strong> means "greater than"
-  <strong><</strong> means "less than"
-  <strong>=</strong> means "equal to"
-
-<strong>Benchmark fraction:</strong> Common fractions like 1/2 used to compare other fractions.
-
-When comparing fractions, the wholes must be the same size.</div>
-    </div>
-
-    <div class="concept-card" id="fraction-operations">
-      <h4>Adding, Subtracting &amp; Multiplying Fractions</h4>
-      <div class="concept-formula">3/5 = 1/5 + 2/5 | 1/4 × 3 = 1/4 + 1/4 + 1/4 = 3/4</div>
-      <div class="concept-explain"><strong>Common denominator:</strong> Fractions can only be added or subtracted when they have the same denominator.
-
-<strong>Decompose a fraction:</strong> Break a fraction into a sum of smaller fractions. 3/5 = 1/5 + 2/5.
-
-<strong>Multiplying by a whole number:</strong> A fraction times a whole number is the same as repeatedly adding the fraction. 1/4 × 3 = 1/4 + 1/4 + 1/4 = 3/4.
-
-Word problems can be represented using an equation or a fraction model.</div>
-    </div>
-
-    <div class="concept-card" id="decimals">
-      <h4>Decimals &amp; Decimal Place Value</h4>
-      <div class="concept-formula">0.6 = 6/10 | 0.35 = 35/100 = 3/10 + 5/100</div>
-      <div class="concept-explain"><strong>Decimal:</strong> Another way to write a fraction. Both show a value between whole numbers.
-
-<strong>Tenths place:</strong> First place to the right of the decimal point. 0.1 = 1/10.
-<strong>Hundredths place:</strong> Second place to the right. 0.01 = 1/100.
-
-<strong>Comparing decimals:</strong> Look at the place value of each digit. The location determines its value. Fraction models and drawings can be used to compare.</div>
-    </div>
-
-    <div class="concept-card" id="area-perimeter">
-      <h4>Area &amp; Perimeter</h4>
-      <div class="concept-formula">Area = length × width | Perimeter = 2(length + width)</div>
-      <div class="concept-explain"><strong>Area:</strong> The amount of space inside a two-dimensional shape. Measured in square units.
-<strong>Perimeter:</strong> The distance around a two-dimensional shape. Measured in regular units.
-
-<strong>Conversions to know:</strong>
-  1 foot = 12 inches | 1 yard = 3 feet
-  1 pound = 16 ounces | 1 gallon = 4 quarts
-  4 cups = 1 quart | 2 cups = 1 pint
-  1 cup = 8 ounces
-
-To convert: bigger unit to smaller unit = multiply. Smaller to bigger = divide.</div>
-    </div>
-
-    <div class="concept-card" id="angles">
-      <h4>Angles, Lines &amp; Symmetry</h4>
-      <div class="concept-formula">Acute < 90° | Right = 90° | Obtuse > 90° | Straight = 180°</div>
-      <div class="concept-explain"><strong>Point:</strong> A location represented by a dot.
-<strong>Line:</strong> Continues in each direction with no endpoints.
-<strong>Line segment:</strong> Part of a line with two endpoints.
-<strong>Ray:</strong> Part of a line with one endpoint, continues in one direction.
-
-<strong>Parallel lines:</strong> Two lines always an equal distance apart — they never cross.
-<strong>Perpendicular lines:</strong> Two lines that intersect at a 90° angle.
-
-<strong>Line of symmetry:</strong> A line across a figure such that the figure can be folded along the line into matching parts.
-
-An angle can be divided into smaller non-overlapping angles. Their measures add up to the whole angle.</div>
-    </div>
-
-    <div class="concept-card" id="literary-text">
-      <h4>Literary Text — Key ELA Terms</h4>
-      <div class="concept-explain"><strong>Literary text:</strong> Stories, dramas, or poems.
-<strong>Inference:</strong> A reasonable conclusion based on evidence in the passage (not stated directly).
-<strong>Theme:</strong> The lesson or message of a passage.
-<strong>Summarize:</strong> Give the main events in order.
-<strong>Character:</strong> A person or thing in a work of literature.
-<strong>Setting:</strong> Where and when a passage takes place.
-<strong>Plot:</strong> The events in the beginning, middle, and end.
-<strong>Point of view:</strong> The perspective from which a story is told (first person, third person).
-<strong>Compare vs. Contrast:</strong> Comparing analyzes similarities; contrasting analyzes differences.
-<strong>Genre:</strong> A category of passages, such as fiction and nonfiction.
-<strong>Prose:</strong> Ordinary language writing (opposite of poetry).
-<strong>Drama:</strong> A play written for people to act out, with dialogue and stage directions.</div>
-    </div>
-
-    <div class="concept-card" id="informational-text">
-      <h4>Informational Text — Key ELA Terms</h4>
-      <div class="concept-explain"><strong>Informational text:</strong> Passages that explain or inform.
-<strong>Main idea:</strong> The most important idea the author is trying to say.
-<strong>Key details:</strong> Facts and ideas that support the main idea.
-<strong>Summary:</strong> Contains the most important points but not all the details.
-<strong>Organization:</strong> How writing is structured — chronological order, cause and effect, compare and contrast, problem and solution.
-<strong>Firsthand account:</strong> Written by someone who was actually there.
-<strong>Secondhand account:</strong> Written by someone who got the story from another source.
-<strong>Evidence:</strong> Something that proves the truth of something else.
-<strong>Author's purpose:</strong> The specific reason for writing — often not directly stated.</div>
-    </div>
-
-    <div class="concept-card" id="language-terms">
-      <h4>Language &amp; Vocabulary — Key ELA Terms</h4>
-      <div class="concept-explain"><strong>Context clues:</strong> Words and phrases around an unknown word that help explain its meaning.
-<strong>Root word:</strong> The base word. Knowing it helps determine the meaning of other forms.
-<strong>Affix:</strong> Letters added to a root word that change its meaning (e.g., dis- + interest = disinterest).
-<strong>Simile:</strong> A comparison using "like" or "as" — "She is as pretty as a picture."
-<strong>Metaphor:</strong> A direct comparison stating one thing IS another — "It was a zoo."
-<strong>Idiom:</strong> A saying where the meaning is different from the literal words — "a piece of cake" = easy.
-<strong>Adage/Proverb:</strong> Short sayings accepted as truth — "A penny saved is a penny earned."
-<strong>Synonyms:</strong> Words with the same meaning (small/little).
-<strong>Antonyms:</strong> Words with opposite meanings (small/large).</div>
-    </div>
-
-    </div>
-  </details>
+  </div>
 
   <!-- SUBJECT TOGGLE -->
   <div class="section">
@@ -1850,6 +1722,104 @@ Key: Introduce topic clearly, use details from BOTH passages, organize similarit
 </div>
 
 <script>
+var decks = {
+  fractions: { label: "Fractions", cards: [
+    { q: "What is a fraction?", a: "A fraction is a piece of something whole.\n\nTop number (numerator) = how many pieces you have\nBottom number (denominator) = how many equal pieces the whole was cut into\n\nExample: 3/8 of a pizza = you ate 3 slices out of 8." },
+    { q: "How do you add fractions?", a: "If the bottoms (denominators) are the SAME:\nJust add the tops. Keep the bottom.\n\n2/6 + 3/6 = 5/6\n\nThink of it like pizza slices — same size pieces, just count how many you have total." },
+    { q: "How do you subtract fractions?", a: "Same rule as adding — bottoms must match.\nSubtract the tops. Keep the bottom.\n\n7/8 − 3/8 = 4/8 (which = 1/2)\n\nYou had 7 slices, ate 3, now you have 4 left." },
+    { q: "How do you multiply a fraction\nby a whole number?", a: "Multiply the whole number by the top.\nKeep the bottom the same.\n\n4 × 2/5 = 8/5 = 1 3/5\n\nThink of it as adding the fraction that many times:\n2/5 + 2/5 + 2/5 + 2/5 = 8/5" },
+    { q: "What are equivalent fractions?", a: "Fractions that look different but are the same amount.\n\n1/2 = 2/4 = 3/6 = 4/8\n\nTo make one: multiply the top AND bottom by the same number.\n1/3 × 2/2 = 2/6 ← same fraction, smaller pieces.\n\nTo check: cross-multiply. If both products match, they're equivalent." },
+    { q: "How do you compare fractions?", a: "Make the bottoms the same first!\n\nWhich is bigger: 3/4 or 2/3?\n3/4 = 9/12\n2/3 = 8/12\n9 > 8, so 3/4 is bigger.\n\nShortcut for unit fractions: bigger bottom = smaller piece.\n1/8 < 1/4 (eighths are smaller than quarters)." },
+    { q: "What is a mixed number?", a: "A whole number + a fraction together.\n\n1 3/4 means one whole and three-quarters more.\n\nTo convert from improper fraction:\n11/4 → 11 ÷ 4 = 2 remainder 3 → 2 3/4\n\nTo convert TO improper fraction:\n2 3/4 → (2 × 4) + 3 = 11 → 11/4" },
+    { q: "What is 0.75 as a fraction?", a: "0.75 = 75/100\n\nSimplify: divide top and bottom by 25\n75 ÷ 25 = 3\n100 ÷ 25 = 4\n\n0.75 = 3/4\n\nThink money: 75 cents = three quarters!" }
+  ]},
+  place: { label: "Place Value", cards: [
+    { q: "What is place value?", a: "Each digit's value depends on its POSITION.\n\nIn 45,678:\n4 = 40,000 (ten-thousands)\n5 = 5,000 (thousands)\n6 = 600 (hundreds)\n7 = 70 (tens)\n8 = 8 (ones)\n\nEach place is 10× bigger than the one to its right." },
+    { q: "How do you round a number?", a: "1. Find the digit you're rounding to\n2. Look at the digit to its RIGHT\n3. If it's 5 or more → round UP\n4. If it's 4 or less → keep it\n5. Everything after becomes zeros\n\n6,749 rounded to nearest thousand:\nThousands digit = 6, look right = 7\n7 ≥ 5 → round up → 7,000" },
+    { q: "What is expanded form?", a: "Writing a number as the sum of each digit's value.\n\n4,305 = 4,000 + 300 + 0 + 5\n\nStandard form: 4,305\nWord form: four thousand three hundred five\nExpanded form: 4,000 + 300 + 5" },
+    { q: "How do you compare\ntwo big numbers?", a: "Go left to right, digit by digit.\n\n45,891 vs 45,918\nTen-thousands: 4 = 4 ✓\nThousands: 5 = 5 ✓\nHundreds: 8 vs 9 → 8 < 9\n\nSo 45,891 < 45,918\n\nUse > (greater than), < (less than), or = (equal)." }
+  ]},
+  multiply: { label: "× and ÷", cards: [
+    { q: "How do you multiply\ntwo-digit numbers?", a: "Break one number apart.\n\n36 × 27 = 36 × 20 + 36 × 7\n36 × 20 = 720\n36 × 7 = 252\n720 + 252 = 972\n\nThis is called 'partial products' — multiply the pieces, then add." },
+    { q: "What do you do with\na remainder?", a: "Think about what the question asks!\n\n135 students, 28 per bus. How many buses NEEDED?\n135 ÷ 28 = 4 remainder 23\n4 buses hold 112 kids, but 23 are left.\nThey need a bus too! → 5 buses.\n\nDon't just write '4 R23' — answer the actual question." },
+    { q: "What is a factor?", a: "A number that divides evenly into another number.\n\nFactors of 24: 1, 2, 3, 4, 6, 8, 12, 24\n(because 1×24, 2×12, 3×8, 4×6 all = 24)\n\nA factor is always ≤ the number itself." },
+    { q: "What is a multiple?", a: "What you get when you skip-count.\n\nMultiples of 7: 7, 14, 21, 28, 35, 42...\n(7×1, 7×2, 7×3, 7×4, 7×5, 7×6...)\n\nA multiple is always ≥ the number itself." },
+    { q: "Prime or composite?", a: "Prime = only 1 and itself are factors\n  2, 3, 5, 7, 11, 13, 17, 19, 23...\n\nComposite = has MORE than 2 factors\n  4, 6, 8, 9, 10, 12, 14, 15...\n\n1 is NEITHER prime nor composite.\n2 is the smallest prime (and the only even prime)." }
+  ]},
+  measure: { label: "Measurement", cards: [
+    { q: "Area vs. Perimeter?", a: "Perimeter = distance AROUND the outside\n  Add all the sides.\n  'How much fencing?' = perimeter\n\nArea = space INSIDE the shape\n  Multiply length × width.\n  'How much carpet?' = area\n\nPerimeter is in feet. Area is in SQUARE feet." },
+    { q: "Perimeter formula\nfor a rectangle?", a: "P = 2 × (length + width)\n\nA room is 12 ft × 8 ft:\nP = 2 × (12 + 8) = 2 × 20 = 40 feet\n\nThat's how much baseboard you'd need." },
+    { q: "Area formula\nfor a rectangle?", a: "A = length × width\n\nA room is 12 ft × 8 ft:\nA = 12 × 8 = 96 square feet\n\nThat's how much carpet you'd need." },
+    { q: "Unit conversions\nyou need to know", a: "LENGTH:\n1 foot = 12 inches\n1 yard = 3 feet\n\nWEIGHT:\n1 pound = 16 ounces\n\nLIQUID:\n1 gallon = 4 quarts\n1 quart = 2 pints\n1 pint = 2 cups\n1 cup = 8 ounces\n\nBig → small = MULTIPLY\nSmall → big = DIVIDE" },
+    { q: "What are the angle types?", a: "Right = exactly 90° (corner of a book)\nAcute = less than 90° (pizza slice)\nObtuse = more than 90° (reclining chair)\nStraight = exactly 180° (flat line)\n\nIf two angles make a right angle:\nthey add up to 90°.\nIf they make a straight line:\nthey add up to 180°." }
+  ]},
+  geometry: { label: "Geometry", cards: [
+    { q: "Parallel vs. perpendicular?", a: "Parallel = same direction, NEVER cross\n  Like railroad tracks or the = sign\n\nPerpendicular = cross at 90° (right angle)\n  Like the letter T or a + sign\n  Like the corner of a book" },
+    { q: "Lines of symmetry", a: "A line that splits a shape into two matching halves.\n\nSquare: 4 lines\nRectangle: 2 lines\nEquilateral triangle: 3 lines\nCircle: unlimited lines\nScalene triangle: 0 lines\n\nImagine folding — do both sides match?" },
+    { q: "Types of triangles", a: "By sides:\n  Equilateral = all 3 sides equal\n  Isosceles = 2 sides equal\n  Scalene = no sides equal\n\nBy angles:\n  Right = has one 90° angle\n  Acute = all angles < 90°\n  Obtuse = one angle > 90°" },
+    { q: "Types of quadrilaterals", a: "Quadrilateral = any 4-sided shape\n\nTrapezoid = at least 1 pair of parallel sides\nParallelogram = 2 pairs of parallel sides\nRectangle = parallelogram with 4 right angles\nRhombus = parallelogram with 4 equal sides\nSquare = rectangle + rhombus (4 equal sides AND 4 right angles)" }
+  ]},
+  ela: { label: "ELA", cards: [
+    { q: "Main idea vs. details?", a: "Main idea = what the WHOLE passage is about\n  (the big umbrella)\n\nDetails = specific facts that support the main idea\n  (the things under the umbrella)\n\nIf an answer only covers ONE part of the passage, it's a detail, not the main idea." },
+    { q: "What is an inference?", a: "A conclusion you figure out from CLUES — it's not stated directly.\n\nBe a detective! The passage gives clues, you figure out what they mean.\n\nDark sky + umbrella + rain boots = it's about to rain.\n\nAn inference must be supported by evidence in the text — not just your opinion." },
+    { q: "Author's purpose: PIE", a: "P = Persuade (convince you to do/believe something)\n  'Vote for Ms. Garcia!'\n\nI = Inform (teach you facts)\n  'Butterflies go through metamorphosis...'\n\nE = Entertain (make you laugh or feel something)\n  'The silly dog stole all the socks...'" },
+    { q: "Simile vs. Metaphor\nvs. Personification", a: "Simile = comparing using 'like' or 'as'\n  'Fast AS a cheetah'\n\nMetaphor = comparing WITHOUT like/as\n  'The classroom was a zoo'\n\nPersonification = giving human traits to non-human things\n  'The sun smiled down'\n  'The wind whispered'" },
+    { q: "Context clues — how to\nfigure out a word", a: "Look at the sentences AROUND the unknown word.\n\n'The arid desert gets very little rain.'\n→ arid = dry (the sentence tells you!)\n\nTypes of clues:\n• Definition: sentence tells you what it means\n• Example: gives examples\n• Opposite: tells you what it's NOT\n• Word parts: un- = not, re- = again" },
+    { q: "Prefixes you need to know", a: "un- = not (unhappy = not happy)\nre- = again (rewrite = write again)\npre- = before (preview = view before)\ndis- = not/opposite (disagree = not agree)\nmis- = wrong (mistake = wrong take)" },
+    { q: "Complete sentence\nvs. fragment?", a: "A complete sentence needs:\n1. A subject (WHO or WHAT)\n2. A verb (what they DID)\n3. A complete thought\n\n'The cat jumped.' ✓\n'Running down the street.' ✗ (who is running?)\n'Because it rained.' ✗ (leaves you hanging)" },
+    { q: "their / there / they're", a: "their = belongs to them\n  'Their house is big.'\n\nthere = a place\n  'Put it over there.'\n\nthey're = they are\n  'They're going to the park.'\n\nTrick: try replacing with 'they are.' If it works → they're. If not → their or there." }
+  ]}
+};
+
+var currentDeck = 'fractions';
+var currentIndex = 0;
+
+function buildTabs() {
+  var container = document.getElementById('fc-tabs');
+  container.innerHTML = '';
+  Object.keys(decks).forEach(function(key) {
+    var btn = document.createElement('button');
+    btn.className = 'fc-tab' + (key === currentDeck ? ' active' : '');
+    btn.textContent = decks[key].label;
+    btn.onclick = function() {
+      currentDeck = key;
+      currentIndex = 0;
+      container.querySelectorAll('.fc-tab').forEach(function(t) { t.classList.remove('active'); });
+      btn.classList.add('active');
+      renderCard();
+    };
+    container.appendChild(btn);
+  });
+}
+
+function renderCard() {
+  var cards = decks[currentDeck].cards;
+  var card = cards[currentIndex];
+  document.getElementById('fc-q').textContent = card.q;
+  var ansEl = document.getElementById('fc-a');
+  ansEl.textContent = card.a;
+  ansEl.style.whiteSpace = 'pre-line';
+  document.getElementById('fc-card').classList.remove('is-flipped');
+  document.getElementById('fc-counter').textContent = (currentIndex + 1) + ' / ' + cards.length;
+}
+
+function flipCard() { document.getElementById('fc-card').classList.toggle('is-flipped'); }
+
+function nextCard() {
+  var cards = decks[currentDeck].cards;
+  currentIndex = (currentIndex + 1) % cards.length;
+  renderCard();
+}
+
+function prevCard() {
+  var cards = decks[currentDeck].cards;
+  currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+  renderCard();
+}
+
+buildTabs();
+renderCard();
+
 function switchSubject(id, btn) {
   document.querySelectorAll('.subject-section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.subject-btn').forEach(b => { b.classList.remove('active'); b.classList.add('inactive'); });
