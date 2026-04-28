@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nelson's EOG Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="test-common.css?v=5">
+</head>
+<body>
+
+<div class="mode-toggle">
+  <a class="mode-btn inactive" href="index.html">SSAT</a>
+  <a class="mode-btn inactive" href="eoc.html">EOC</a>
+  <a class="mode-btn inactive" href="eog.html">EOG</a>
+  <a class="mode-btn active" href="eog-tests.html">Tests</a>
+</div>
+<button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">🌙</button>
+
+<header>
+  <div class="gac-crest">✈️</div>
+  <p class="future-tag">NORTHWOOD EXPLORERS</p>
+  <h1 id="test-title">EOG Quiz</h1>
+  <p class="subtitle">4th Grade &middot; Georgia Milestones EOG</p>
+</header>
+
+<div class="container">
+
+  <div id="test-taking">
+    <div class="progress-bar">
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="progress-label" id="progress-label">1 / 10</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-header">
+        <span class="q-number" id="q-number">Question 1</span>
+        <span class="q-topic" id="q-topic"></span>
+      </div>
+      <div class="q-text" id="q-text"></div>
+      <div class="choices-list" id="choices-list"></div>
+    </div>
+
+    <div class="q-controls">
+      <button class="q-nav-btn" id="prev-btn" onclick="prevQuestion()">← Prev</button>
+      <button class="flag-btn" id="flag-btn" onclick="toggleFlag()">⚑ Flag</button>
+      <button class="q-nav-btn" id="next-btn" onclick="nextQuestion()">Next →</button>
+    </div>
+
+    <div class="q-dots" id="q-dots"></div>
+  </div>
+
+  <div id="review-panel" style="display:none"></div>
+  <div id="results-container" style="display:none"></div>
+
+  <footer>Built for Nelson Bynum &middot; Northwood Explorer &middot; April 2026</footer>
+</div>
+
+<script src="eog-test-data.js?v=5"></script>
+<script src="test-common.js?v=5"></script>
+<script>
+STORAGE_KEY = 'eogTestResults';
+LETTERS = ['A','B','C','D'];
+
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var tid = params.get('id') || 'eogmath1';
+
+  var meta = null;
+  EOG_TEST_META.forEach(function(m) { if (m.id === tid) meta = m; });
+
+  var label = meta ? meta.label : tid;
+  document.getElementById('test-title').textContent = label;
+  document.title = 'EOG ' + label;
+
+  if (meta && meta.subject === 'ela') {
+    document.querySelector('.subtitle').textContent = '4th Grade · Georgia Milestones EOG · ELA';
+  } else {
+    document.querySelector('.subtitle').textContent = '4th Grade · Georgia Milestones EOG · Math';
+  }
+
+  var isReview = params.get('review') === '1';
+
+  if (!EOG_TEST_DATA[tid]) {
+    document.getElementById('test-taking').innerHTML = '<div style="text-align:center;padding:60px 20px;color:var(--text3)"><h2>Quiz not found</h2><p>Go back to the <a href="eog-tests.html" style="color:var(--accent-light)">dashboard</a>.</p></div>';
+  } else if (isReview) {
+    document.querySelector('.subtitle').textContent = 'Reviewing past results';
+    initTest(tid, EOG_TEST_DATA[tid], meta);
+    showReviewFromSaved();
+  } else {
+    initTest(tid, EOG_TEST_DATA[tid], meta);
+  }
+})();
+</script>
+</body>
+</html>

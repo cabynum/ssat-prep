@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nelson's EOG Practice Quizzes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="test-common.css?v=5">
+</head>
+<body>
+
+<div class="mode-toggle">
+  <a class="mode-btn inactive" href="index.html">SSAT</a>
+  <a class="mode-btn inactive" href="eoc.html">EOC</a>
+  <a class="mode-btn inactive" href="eog.html">EOG</a>
+  <span class="mode-btn active">Tests</span>
+</div>
+<button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light/dark mode">🌙</button>
+
+<header>
+  <div class="gac-crest">✈️</div>
+  <p class="future-tag">NORTHWOOD EXPLORERS</p>
+  <h1>Practice Quizzes</h1>
+  <p class="subtitle">4th Grade &middot; Georgia Milestones EOG &middot; 200 Questions</p>
+</header>
+
+<div class="container">
+
+  <div class="dash-stats">
+    <div class="dash-stat ds-accent"><div class="dash-stat-val" id="stat-completed">0/20</div><div class="dash-stat-label">Quizzes Done</div></div>
+    <div class="dash-stat"><div class="dash-stat-val" id="stat-attempts">0</div><div class="dash-stat-label">Attempts</div></div>
+    <div class="dash-stat ds-gold"><div class="dash-stat-val" id="stat-best">—</div><div class="dash-stat-label">Best Score</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">📐 Math Quizzes</div>
+    <div class="section-title">Numbers, Fractions, Geometry & More</div>
+    <p class="section-desc">10 quizzes covering all 5 Georgia Milestones math domains. 10 questions each.</p>
+    <div class="test-cards" id="math-cards"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">📖 ELA Quizzes</div>
+    <div class="section-title">Reading, Writing & Language</div>
+    <p class="section-desc">10 quizzes covering reading comprehension, vocabulary, grammar, and writing. 10 questions each.</p>
+    <div class="test-cards" id="ela-cards"></div>
+  </div>
+
+  <footer>Built for Nelson Bynum &middot; Northwood Explorer &middot; April 2026</footer>
+</div>
+
+<script src="eog-test-data.js?v=5"></script>
+<script>
+var SK = 'eogTestResults';
+
+function loadAll() {
+  try { return JSON.parse(localStorage.getItem(SK)) || {}; } catch(e) { return {}; }
+}
+
+function getStatus(tid) {
+  var all = loadAll();
+  if (!all.tests || !all.tests[tid]) return null;
+  var runs = all.tests[tid];
+  var last = runs[runs.length - 1];
+  return last;
+}
+
+function renderCards() {
+  var mathEl = document.getElementById('math-cards');
+  var elaEl = document.getElementById('ela-cards');
+  var all = loadAll();
+  var completed = 0, attempts = 0, bestPct = -1;
+
+  EOG_TEST_META.forEach(function(m) {
+    var status = getStatus(m.id);
+    var isMath = m.subject === 'math';
+    var num = m.id.replace(isMath ? 'eogmath' : 'eogela', '');
+    var label = (isMath ? 'Math' : 'ELA') + ' Quiz ' + num;
+
+    var tag = '', tagClass = '';
+    if (status) {
+      completed++;
+      var runs = all.tests[m.id];
+      attempts += runs.length;
+      var best = 0;
+      runs.forEach(function(r) { if (r.pct > best) best = r.pct; });
+      if (best > bestPct) bestPct = best;
+      tag = best + '%';
+      tagClass = best >= 80 ? 'tc-done' : best >= 60 ? 'tc-mid' : 'tc-low';
+    } else {
+      tag = 'Start';
+      tagClass = 'tc-new';
+    }
+
+    var card = document.createElement('a');
+    card.href = 'eog-test.html?id=' + m.id;
+    card.className = 'test-card';
+    card.innerHTML = '<div class="tc-left"><span class="tc-num">' + num + '</span><div class="tc-info"><h4>' + label + '</h4><p>10 questions</p></div></div><div class="tc-right"><span class="tc-tag ' + tagClass + '">' + tag + '</span></div>';
+
+    if (status) {
+      var actions = document.createElement('div');
+      actions.className = 'tc-actions';
+      actions.innerHTML = '<a href="eog-test.html?id=' + m.id + '&review=1" class="tc-action">Review</a><a href="eog-test.html?id=' + m.id + '" class="tc-action">Retake</a>';
+      card.appendChild(actions);
+    }
+
+    if (isMath) mathEl.appendChild(card);
+    else elaEl.appendChild(card);
+  });
+
+  document.getElementById('stat-completed').textContent = completed + '/20';
+  document.getElementById('stat-attempts').textContent = attempts;
+  document.getElementById('stat-best').textContent = bestPct >= 0 ? bestPct + '%' : '—';
+}
+
+renderCards();
+
+function toggleTheme() {
+  var html = document.documentElement;
+  var btn = document.getElementById('theme-toggle');
+  if (html.getAttribute('data-theme') === 'light') {
+    html.removeAttribute('data-theme'); btn.textContent = '🌙'; localStorage.setItem('theme', 'dark');
+  } else {
+    html.setAttribute('data-theme', 'light'); btn.textContent = '☀️'; localStorage.setItem('theme', 'light');
+  }
+}
+(function() {
+  if (localStorage.getItem('theme') === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+    var b = document.getElementById('theme-toggle');
+    if (b) b.textContent = '☀️';
+  }
+})();
+</script>
+</body>
+</html>
