@@ -1,7 +1,7 @@
 /* ====== SSAT Practice Test Engine ====== */
 
-const STORAGE_KEY = 'ssatTestResults';
-const LETTERS = ['A','B','C','D','E'];
+var STORAGE_KEY = 'ssatTestResults';
+var LETTERS = ['A','B','C','D','E'];
 
 const CATEGORIES = {
   'Algebra': [
