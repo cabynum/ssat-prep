@@ -247,7 +247,6 @@
   .section-title { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
   .section-desc { color: var(--text2); font-size: 0.88rem; margin-bottom: 20px; }
 
-  /* Subject toggle (Math / ELA) */
   .subject-toggle {
     display: flex;
     gap: 0;
@@ -280,7 +279,6 @@
   .subject-section { display: none; }
   .subject-section.active { display: block; }
 
-  /* Domain nav */
   .domain-nav {
     display: flex;
     flex-wrap: wrap;
@@ -315,7 +313,6 @@
   .domain-section { display: none; }
   .domain-section.active { display: block; }
 
-  /* Teach cards */
   .teach-card {
     background: var(--card);
     border-radius: var(--radius);
@@ -386,7 +383,6 @@
     font-weight: 600;
   }
 
-  /* Practice cards */
   .practice-grid { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
   .practice-card {
     background: var(--card);
@@ -446,7 +442,6 @@
   }
   .sub-icon { font-size: 1rem; }
 
-  /* Concept cards */
   .concept-card {
     background: var(--card);
     border-radius: var(--radius);
@@ -484,7 +479,6 @@
   .concept-trylink { color: var(--accent-light); text-decoration: none; font-weight: 500; cursor: pointer; }
   .concept-trylink:hover { text-decoration: underline; }
 
-  /* Testing schedule */
   .test-schedule {
     margin-top: 32px;
     border: 2px solid var(--accent);
@@ -528,7 +522,6 @@
   .ts-upcoming { background: var(--accent-glow); color: var(--accent-light); }
   .ts-divider { height: 1px; background: var(--border); margin: 0 12px; }
 
-  /* Reading passage */
   .passage-box {
     background: var(--bg2);
     border: 1px solid var(--border);
@@ -562,6 +555,7 @@
   [data-theme="light"] .teach-card,
   [data-theme="light"] .practice-card { box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
   [data-theme="light"] .theme-toggle { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .source-note { margin-top: 32px; padding: 16px 20px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 0.75rem; color: var(--text3); line-height: 1.6; text-align: center; }
 </style>
 </head>
 <body>
@@ -583,8 +577,8 @@
   <div class="badge">📝 Georgia Milestones EOG &middot; Math &amp; ELA</div>
   <div class="mission-bar">
     <div class="mission-item"><span class="mission-num">525+</span><span class="mission-label">Proficient</span></div>
-    <div class="mission-item"><span class="mission-num">~55</span><span class="mission-label">Math Items</span></div>
-    <div class="mission-item"><span class="mission-num">~43</span><span class="mission-label">ELA Items</span></div>
+    <div class="mission-item"><span class="mission-num">73</span><span class="mission-label">Math Items</span></div>
+    <div class="mission-item"><span class="mission-num">61</span><span class="mission-label">ELA Items</span></div>
     <div class="mission-item"><span class="mission-num">3</span><span class="mission-label">Test Days</span></div>
   </div>
 </header>
@@ -600,7 +594,7 @@
     <div class="test-schedule-body" id="ts-body">
       <div class="ts-row"><span class="ts-date">Wed, Apr 29</span><span class="ts-subject">ELA Section 1</span><span class="ts-tag" id="ts-0">upcoming</span></div>
       <div class="ts-divider"></div>
-      <div class="ts-row"><span class="ts-date">Thu, Apr 30</span><span class="ts-subject">ELA Section 2</span><span class="ts-tag" id="ts-1">upcoming</span></div>
+      <div class="ts-row"><span class="ts-date">Thu, Apr 30</span><span class="ts-subject">ELA Sections 2 &amp; 3</span><span class="ts-tag" id="ts-1">upcoming</span></div>
       <div class="ts-divider"></div>
       <div class="ts-row"><span class="ts-date">Fri, May 1</span><span class="ts-subject">Mathematics</span><span class="ts-tag" id="ts-2">upcoming</span></div>
     </div>
@@ -626,28 +620,38 @@
     </div>
     <div class="teach-card">
       <h3>📋 What's on the Test</h3>
-      <div class="problem" style="white-space: pre-line;"><strong>MATH (~55 questions, 2 sections, 65 min each)</strong>
-• Fractions — 30% ← biggest section!
+      <div class="problem" style="white-space: pre-line;"><strong>MATH (73 items total, 2 sections, up to 85 min each)</strong>
+• Number &amp; Operations—Fractions — 30% ← biggest section!
 • Operations &amp; Algebraic Thinking — 20%
-• Numbers &amp; Operations in Base 10 — 20%
+• Number &amp; Operations in Base 10 — 20%
 • Measurement &amp; Data — 20%
 • Geometry — 10%
 
-<strong>ELA (~43 questions + writing, 3 sections)</strong>
+<strong>ELA (61 items total, 3 sections)</strong>
+• Section 1: up to 90 minutes (Day 1)
+• Sections 2 &amp; 3: up to 85 minutes each
 • Reading &amp; Vocabulary — 53%
 • Writing &amp; Language — 47%
 
-Question types: multiple choice, pick-more-than-one, short answer, and a writing essay (ELA only).</div>
+<strong>Item types:</strong>
+• Selected-response (multiple choice)
+• Technology-enhanced: multi-select, EBSR (evidence-based selected-response), drag-and-drop, coordinate-graph, line-plot, bar-graph, number-line
+• Constructed-response (write your answer)
+• Extended constructed-response (longer, multi-part)
+• Extended writing-response (ELA only — full essay)</div>
     </div>
     <div class="teach-card">
       <h3>💡 Test Day Tips</h3>
-      <div class="problem" style="white-space: pre-line;">• Read every question carefully — don't rush.
-• Cross out answers you know are wrong, then pick the best one left.
+      <div class="problem" style="white-space: pre-line;">• Read each question and all of the answer choices carefully.
+• Be neat — use scratch paper.
+• Check your work!
+• Eliminate the answers you know are wrong first.
 • For math: show your work on scratch paper, even if you can do it in your head.
 • For reading: go BACK to the passage to find the answer — don't guess from memory.
-• For writing: plan before you write. Make a quick outline.
+• For writing: plan before you write. Use the Writer's Checklist.
 • If you're stuck, skip it and come back. Don't spend too long on one question.
-• Check your work if you finish early.</div>
+• Get plenty of rest and eat right. Take care of your body and your mind will do the rest.
+• Remember — a test is just one look at what you know.</div>
     </div>
     </div>
   </details>
@@ -662,135 +666,162 @@ Question types: multiple choice, pick-more-than-one, short answer, and a writing
       <span class="collapsible-arrow">▼</span>
     </summary>
     <div class="collapsible-body">
-    <p class="section-desc" style="margin-top:14px">Quick reference for the big ideas. Tap any concept link in a practice answer to jump here.</p>
+    <p class="section-desc" style="margin-top:14px">Official key terms from the Georgia Milestones Grade 4 Study/Resource Guide. Tap any concept link in a practice answer to jump here.</p>
+
+    <div class="concept-card" id="place-value">
+      <h4>Place Value &amp; Forms of a Number</h4>
+      <div class="concept-formula">183 = 100 + 80 + 3 (expanded form)</div>
+      <div class="concept-explain"><strong>Place value:</strong> The numerical value of a digit based on its location. A digit in the tens place is 10 times the value of the same digit in the ones place.
+
+<strong>Forms of a number</strong> (using 183 as an example):
+  <strong>Standard form:</strong> 183
+  <strong>Word form:</strong> one hundred eighty-three
+  <strong>Expanded form:</strong> 100 + 80 + 3
+
+<strong>Rounding:</strong> A number can be rounded to the nearest place value. Look at the digit to the right of the place you're rounding to. If it's 5 or more, round up. If it's 4 or less, keep it.
+
+<strong>Compare:</strong> Use >, <, or = to compare two numbers written in different forms.</div>
+    </div>
+
+    <div class="concept-card" id="factors-multiples">
+      <h4>Factors, Multiples, Prime &amp; Composite</h4>
+      <div class="concept-formula">Factors of 12: 1, 2, 3, 4, 6, 12 | Multiples of 3: 3, 6, 9, 12, 15...</div>
+      <div class="concept-explain"><strong>Factors:</strong> Numbers that multiply together to equal the given number. 4 and 2 are factors of 8 because 4 × 2 = 8.
+
+<strong>Multiple:</strong> The product of the given number and another number. 12 is a multiple of 3 because 3 × 4 = 12. The smallest multiple of a number is the number itself.
+
+<strong>Prime:</strong> A number that has factors of only 1 and itself. Two is the smallest prime number.
+<strong>Composite:</strong> A number that has more than two factors.
+<strong>Note:</strong> 1 is neither prime nor composite.
+
+<strong>Multiplicative comparison:</strong> Comparing values using phrases like "3 times as long." Use multiplication or division to solve.</div>
+    </div>
 
     <div class="concept-card" id="fractions-basics">
-      <h4>Fractions — What They Mean</h4>
+      <h4>Fractions — Numerator, Denominator, Types</h4>
       <div class="concept-formula">numerator / denominator</div>
-      <div class="concept-explain">A fraction is a piece of something whole. Think of a pizza cut into 8 slices. If you eat 3 slices, you ate <strong>3/8</strong> of the pizza.
+      <div class="concept-explain"><strong>Fraction:</strong> A number used to represent equal parts of a whole.
+<strong>Numerator:</strong> The top number — how many parts you have.
+<strong>Denominator:</strong> The bottom number — how many equal parts the whole is divided into.
 
-The <strong>top number (numerator)</strong> = how many pieces you have.
-The <strong>bottom number (denominator)</strong> = how many equal pieces the whole thing was cut into.
-
-<strong>Important rule:</strong> The denominator tells you the SIZE of the pieces. Bigger denominator = smaller pieces. So 1/8 is smaller than 1/4 (even though 8 is bigger than 4) because you cut the pizza into more pieces.
-
-<em>On the test: when comparing fractions, make sure both fractions have the same denominator first.</em></div>
-      <a class="concept-external" href="https://www.youtube.com/watch?v=n0FZhQ_GkKw" target="_blank">📺 Math with Mr. J: Fractions Basics →</a>
+<strong>Proper fraction:</strong> Numerator is less than denominator (value less than 1).
+<strong>Improper fraction:</strong> Numerator is greater than denominator (value greater than 1). Example: 9/2.
+<strong>Mixed number:</strong> A whole number and a fraction. 9/2 = 4 1/2.
+<strong>Unit fraction:</strong> A proper fraction with a numerator of 1. Example: 1/4.</div>
     </div>
 
     <div class="concept-card" id="equivalent-fractions">
-      <h4>Equivalent Fractions — Same Amount, Different Numbers</h4>
+      <h4>Equivalent Fractions &amp; Comparing</h4>
       <div class="concept-formula">1/2 = 2/4 = 3/6 = 4/8 = 5/10</div>
-      <div class="concept-explain">Equivalent fractions look different but represent the same amount. Half a pizza is the same whether you cut it into 2 pieces or 8 pieces — you still have half.
+      <div class="concept-explain"><strong>Equivalent fractions:</strong> Fractions that have the same value. Created by multiplying the numerator and denominator by the same number (which is like multiplying by 1).
+  Example: (1 × 4) / (2 × 4) = 4/8, so 4/8 is equivalent to 1/2.
 
-<strong>How to make equivalent fractions:</strong> Multiply (or divide) the top AND bottom by the same number.
-  1/3 × 2/2 = 2/6 (same fraction, just cut into smaller pieces)
-  4/8 ÷ 4/4 = 1/2 (simplified — same fraction, bigger pieces)
+<strong>Comparing fractions:</strong> Use both the numerator and denominator. Create a common denominator or common numerator to compare.
+  <strong>></strong> means "greater than"
+  <strong><</strong> means "less than"
+  <strong>=</strong> means "equal to"
 
-<strong>How to check if two fractions are equivalent:</strong> Cross-multiply.
-  Is 2/3 = 4/6? → 2 × 6 = 12 and 3 × 4 = 12 → Yes! ✓
-  Is 2/3 = 3/4? → 2 × 4 = 8 and 3 × 3 = 9 → No. ✗
+<strong>Benchmark fraction:</strong> Common fractions like 1/2 used to compare other fractions.
 
-<em>On the test: "which fraction is equivalent to ___?" → multiply or divide top and bottom by the same number.</em></div>
-      <a class="concept-external" href="https://www.youtube.com/watch?v=qLEBGEL1bMs" target="_blank">📺 Math with Mr. J: Equivalent Fractions →</a>
+When comparing fractions, the wholes must be the same size.</div>
     </div>
 
-    <div class="concept-card" id="place-value">
-      <h4>Place Value — What Each Digit Is Worth</h4>
-      <div class="concept-formula">45,678 = 40,000 + 5,000 + 600 + 70 + 8</div>
-      <div class="concept-explain">Every digit in a number has a value based on its position.
+    <div class="concept-card" id="fraction-operations">
+      <h4>Adding, Subtracting &amp; Multiplying Fractions</h4>
+      <div class="concept-formula">3/5 = 1/5 + 2/5 | 1/4 × 3 = 1/4 + 1/4 + 1/4 = 3/4</div>
+      <div class="concept-explain"><strong>Common denominator:</strong> Fractions can only be added or subtracted when they have the same denominator.
 
-In the number <strong>45,678</strong>:
-  <strong>4</strong> is in the ten-thousands place → worth 40,000
-  <strong>5</strong> is in the thousands place → worth 5,000
-  <strong>6</strong> is in the hundreds place → worth 600
-  <strong>7</strong> is in the tens place → worth 70
-  <strong>8</strong> is in the ones place → worth 8
+<strong>Decompose a fraction:</strong> Break a fraction into a sum of smaller fractions. 3/5 = 1/5 + 2/5.
 
-<strong>Key idea:</strong> Each place is 10 times bigger than the one to its right. The tens place is 10× the ones place. The hundreds place is 10× the tens place.
+<strong>Multiplying by a whole number:</strong> A fraction times a whole number is the same as repeatedly adding the fraction. 1/4 × 3 = 1/4 + 1/4 + 1/4 = 3/4.
 
-<strong>Rounding:</strong> Look at the digit to the RIGHT of the place you're rounding to.
-  If it's 5 or more → round UP.
-  If it's 4 or less → round DOWN (keep it the same).
+Word problems can be represented using an equation or a fraction model.</div>
+    </div>
 
-<em>On the test: "what is the value of the 6 in 362,481?" means what's it worth (60,000), not just the digit (6).</em></div>
+    <div class="concept-card" id="decimals">
+      <h4>Decimals &amp; Decimal Place Value</h4>
+      <div class="concept-formula">0.6 = 6/10 | 0.35 = 35/100 = 3/10 + 5/100</div>
+      <div class="concept-explain"><strong>Decimal:</strong> Another way to write a fraction. Both show a value between whole numbers.
+
+<strong>Tenths place:</strong> First place to the right of the decimal point. 0.1 = 1/10.
+<strong>Hundredths place:</strong> Second place to the right. 0.01 = 1/100.
+
+<strong>Comparing decimals:</strong> Look at the place value of each digit. The location determines its value. Fraction models and drawings can be used to compare.</div>
     </div>
 
     <div class="concept-card" id="area-perimeter">
-      <h4>Area &amp; Perimeter — Inside vs. Outside</h4>
-      <div class="concept-formula">Area = length × width | Perimeter = 2 × (length + width)</div>
-      <div class="concept-explain"><strong>Perimeter</strong> = the distance AROUND the outside of a shape. Imagine walking along the edge of a basketball court — that's the perimeter. You ADD all the sides.
+      <h4>Area &amp; Perimeter</h4>
+      <div class="concept-formula">Area = length × width | Perimeter = 2(length + width)</div>
+      <div class="concept-explain"><strong>Area:</strong> The amount of space inside a two-dimensional shape. Measured in square units.
+<strong>Perimeter:</strong> The distance around a two-dimensional shape. Measured in regular units.
 
-<strong>Area</strong> = how much space is INSIDE the shape. Imagine covering the basketball court with tiles — that's the area. You MULTIPLY length × width.
+<strong>Conversions to know:</strong>
+  1 foot = 12 inches | 1 yard = 3 feet
+  1 pound = 16 ounces | 1 gallon = 4 quarts
+  4 cups = 1 quart | 2 cups = 1 pint
+  1 cup = 8 ounces
 
-Example: A room is 12 feet long and 8 feet wide.
-  Perimeter = 2 × (12 + 8) = 2 × 20 = <strong>40 feet</strong> (how much baseboard you need)
-  Area = 12 × 8 = <strong>96 square feet</strong> (how much carpet you need)
-
-<strong>Units matter:</strong> Perimeter is in regular units (feet, meters). Area is in SQUARE units (square feet, sq meters) because you're measuring a flat surface.
-
-<em>On the test: read carefully — "how much fencing" = perimeter, "how much carpet" = area.</em></div>
+To convert: bigger unit to smaller unit = multiply. Smaller to bigger = divide.</div>
     </div>
 
     <div class="concept-card" id="angles">
-      <h4>Angles — Measuring Turns</h4>
-      <div class="concept-formula">Right = 90° | Straight = 180° | Full turn = 360°</div>
-      <div class="concept-explain">An angle measures how much something turns. Think of opening a door:
+      <h4>Angles, Lines &amp; Symmetry</h4>
+      <div class="concept-formula">Acute < 90° | Right = 90° | Obtuse > 90° | Straight = 180°</div>
+      <div class="concept-explain"><strong>Point:</strong> A location represented by a dot.
+<strong>Line:</strong> Continues in each direction with no endpoints.
+<strong>Line segment:</strong> Part of a line with two endpoints.
+<strong>Ray:</strong> Part of a line with one endpoint, continues in one direction.
 
-<strong>Right angle (90°)</strong> = a perfect L shape, like the corner of a book
-<strong>Acute angle</strong> = smaller than 90°, like a pizza slice
-<strong>Obtuse angle</strong> = bigger than 90° but less than 180°, like a reclining chair leaned back
-<strong>Straight angle (180°)</strong> = a flat line
+<strong>Parallel lines:</strong> Two lines always an equal distance apart — they never cross.
+<strong>Perpendicular lines:</strong> Two lines that intersect at a 90° angle.
 
-<strong>Adding angles:</strong> When two angles share a side and form a bigger angle, you ADD them.
-  If angle A = 35° and angle B = 55° and they sit next to each other, together they make 35 + 55 = 90° (a right angle).
+<strong>Line of symmetry:</strong> A line across a figure such that the figure can be folded along the line into matching parts.
 
-<em>On the test: they might give you a big angle and one piece, then ask for the other piece. Just subtract.</em></div>
+An angle can be divided into smaller non-overlapping angles. Their measures add up to the whole angle.</div>
     </div>
 
-    <div class="concept-card" id="context-clues">
-      <h4>Context Clues — Figuring Out Unknown Words</h4>
-      <div class="concept-explain"><strong>When you see a word you don't know, DON'T panic.</strong> The answer is usually hiding in the sentences around it.
-
-<strong>Types of clues to look for:</strong>
-  <strong>Definition clue:</strong> The sentence tells you what the word means.
-    "The <em>arid</em> desert, which is extremely dry, gets very little rain."
-    → arid = extremely dry
-
-  <strong>Example clue:</strong> The sentence gives examples.
-    "Nelson enjoys <em>aquatic</em> activities such as swimming, surfing, and kayaking."
-    → aquatic = related to water
-
-  <strong>Opposite clue:</strong> The sentence tells you what the word is NOT.
-    "Unlike her <em>timid</em> brother, Maya was bold and fearless."
-    → timid = shy, not bold
-
-  <strong>Word parts:</strong> Look at the prefix (beginning) or suffix (ending).
-    un- = not, re- = again, -ful = full of, -less = without
-
-<em>On the test: "What does the word ___ mean as used in the passage?" Go back and reread the sentence PLUS the sentences before and after it.</em></div>
+    <div class="concept-card" id="literary-text">
+      <h4>Literary Text — Key ELA Terms</h4>
+      <div class="concept-explain"><strong>Literary text:</strong> Stories, dramas, or poems.
+<strong>Inference:</strong> A reasonable conclusion based on evidence in the passage (not stated directly).
+<strong>Theme:</strong> The lesson or message of a passage.
+<strong>Summarize:</strong> Give the main events in order.
+<strong>Character:</strong> A person or thing in a work of literature.
+<strong>Setting:</strong> Where and when a passage takes place.
+<strong>Plot:</strong> The events in the beginning, middle, and end.
+<strong>Point of view:</strong> The perspective from which a story is told (first person, third person).
+<strong>Compare vs. Contrast:</strong> Comparing analyzes similarities; contrasting analyzes differences.
+<strong>Genre:</strong> A category of passages, such as fiction and nonfiction.
+<strong>Prose:</strong> Ordinary language writing (opposite of poetry).
+<strong>Drama:</strong> A play written for people to act out, with dialogue and stage directions.</div>
     </div>
 
-    <div class="concept-card" id="main-idea">
-      <h4>Main Idea &amp; Details — What's the Point?</h4>
-      <div class="concept-explain">The <strong>main idea</strong> is what the passage is mostly about. It's the big picture.
-
-<strong>Supporting details</strong> are the facts, examples, or reasons that back up the main idea.
-
-Think of it like a table:
-  The <strong>tabletop</strong> = main idea (the one big thing)
-  The <strong>legs</strong> = supporting details (they hold the main idea up)
-
-<strong>How to find the main idea:</strong>
-  1. Read the whole passage first.
-  2. Ask yourself: "If I had to describe this passage in one sentence, what would I say?"
-  3. Check the first and last sentences of the passage — the main idea is often there.
-  4. Make sure your answer covers the WHOLE passage, not just one part.
-
-<strong>Trick:</strong> Wrong answers on the test are often details that are true but too specific. The main idea has to be broad enough to cover the whole passage.
-
-<em>On the test: "What is the main idea?" or "What is this passage mainly about?" Don't pick a detail — pick the umbrella statement.</em></div>
+    <div class="concept-card" id="informational-text">
+      <h4>Informational Text — Key ELA Terms</h4>
+      <div class="concept-explain"><strong>Informational text:</strong> Passages that explain or inform.
+<strong>Main idea:</strong> The most important idea the author is trying to say.
+<strong>Key details:</strong> Facts and ideas that support the main idea.
+<strong>Summary:</strong> Contains the most important points but not all the details.
+<strong>Organization:</strong> How writing is structured — chronological order, cause and effect, compare and contrast, problem and solution.
+<strong>Firsthand account:</strong> Written by someone who was actually there.
+<strong>Secondhand account:</strong> Written by someone who got the story from another source.
+<strong>Evidence:</strong> Something that proves the truth of something else.
+<strong>Author's purpose:</strong> The specific reason for writing — often not directly stated.</div>
     </div>
+
+    <div class="concept-card" id="language-terms">
+      <h4>Language &amp; Vocabulary — Key ELA Terms</h4>
+      <div class="concept-explain"><strong>Context clues:</strong> Words and phrases around an unknown word that help explain its meaning.
+<strong>Root word:</strong> The base word. Knowing it helps determine the meaning of other forms.
+<strong>Affix:</strong> Letters added to a root word that change its meaning (e.g., dis- + interest = disinterest).
+<strong>Simile:</strong> A comparison using "like" or "as" — "She is as pretty as a picture."
+<strong>Metaphor:</strong> A direct comparison stating one thing IS another — "It was a zoo."
+<strong>Idiom:</strong> A saying where the meaning is different from the literal words — "a piece of cake" = easy.
+<strong>Adage/Proverb:</strong> Short sayings accepted as truth — "A penny saved is a penny earned."
+<strong>Synonyms:</strong> Words with the same meaning (small/little).
+<strong>Antonyms:</strong> Words with opposite meanings (small/large).</div>
+    </div>
+
     </div>
   </details>
 
@@ -798,7 +829,7 @@ Think of it like a table:
   <div class="section">
     <div class="section-label">Study by Subject</div>
     <div class="section-title">Pick a Subject</div>
-    <p class="section-desc">Choose Math or ELA, then pick a topic to practice.</p>
+    <p class="section-desc">Choose Math or ELA, then pick a topic to practice. All questions from the official GaDOE Study Guide.</p>
 
     <div class="subject-toggle">
       <button class="subject-btn active" onclick="switchSubject('math',this)">📐 Math</button>
@@ -818,589 +849,624 @@ Think of it like a table:
         <button class="domain-btn" data-domain="geo" onclick="switchDomain('geo',this,'math')">Geometry<span class="domain-pts">10%</span></button>
       </div>
 
-      <!-- FRACTIONS (30%) -->
+      <!-- ==================== FRACTIONS (30%) ==================== -->
       <div class="domain-section active" id="ds-nf">
-        <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples</div>
+        <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples (Units 3, 4, 5)</div>
 
-        <div class="teach-card" id="q-nf-t1">
-          <h3>Equivalent Fractions</h3>
-          <div class="problem">Which fraction is equivalent to 3/4?
-(A) 6/12 &nbsp; (B) 9/12 &nbsp; (C) 6/8 &nbsp; (D) 3/8</div>
+        <!-- Item 9 -->
+        <div class="teach-card">
+          <h3>Item 9 — Equivalent Fractions from a Model</h3>
+          <div class="problem">[A circle is divided into 12 equal parts, with 4 parts shaded.]
+
+Which fraction is equivalent to the shaded part of this model?
+(A) 1/4 &nbsp; (B) 1/3 &nbsp; (C) 1/2 &nbsp; (D) 1/6</div>
           <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
           <div class="steps">
-<span class="step-num">Step 1:</span> To make an equivalent fraction, multiply the top AND bottom by the same number.
+<span class="step-num">Step 1:</span> The circle is divided into 12 equal parts, and 4 are shaded. That's 4/12.
 
-<span class="step-num">Step 2:</span> Try multiplying 3/4 by 2/2:
-   3 × 2 = 6
-   4 × 2 = 8
-   3/4 = 6/8 ✓ — that's choice (C)!
+<span class="step-num">Step 2:</span> Simplify 4/12 by dividing top and bottom by 4:
+   4 ÷ 4 = 1
+   12 ÷ 4 = 3
+   4/12 = <strong>1/3</strong>
 
-<span class="step-num">Step 3:</span> Let's check the others:
-   6/12 = 1/2 (not 3/4) ✗
-   9/12 = 3/4? → 9 ÷ 3 = 3, 12 ÷ 3 = 4 → yes, 9/12 = 3/4 too!
+<span class="step-num">Step 3:</span> Check the other choices:
+   1/4 = 3/12 (not 4 shaded) ✗
+   1/2 = 6/12 (not 4 shaded) ✗
+   1/6 = 2/12 (not 4 shaded) ✗
 
-Wait — both (B) and (C) are equivalent to 3/4. But 6/8 is the simplest match (multiply by 2). On a real test, there would be only one correct answer.
-
-<div class="answer">Answer: (B) 9/12 and (C) 6/8 are both correct — both equal 3/4</div>
-<div class="tip">💡 To check: divide both the top and bottom by the same number until you can't anymore. If you end up with the same fraction, they're equivalent. See <a class="concept-link" href="#equivalent-fractions">Equivalent Fractions</a>.</div></div>
+<div class="answer">Answer: (B) 1/3</div>
+<div class="tip">💡 To find equivalent fractions, divide both numerator and denominator by their greatest common factor. See <a class="concept-link" href="#equivalent-fractions">Equivalent Fractions</a>.</div></div>
         </div>
 
-        <div class="teach-card" id="q-nf-t2">
-          <h3>Comparing Fractions</h3>
-          <div class="problem">Which is greater: 3/5 or 2/3?</div>
-          <div class="choices">(A) 3/5 &nbsp; (B) 2/3 &nbsp; (C) They are equal &nbsp; (D) Cannot tell</div>
+        <!-- Item 10 -->
+        <div class="teach-card">
+          <h3>Item 10 — Comparing Fractions</h3>
+          <div class="problem">Look at the expression:
+☐ > 1/2
+
+Which fraction goes in the ☐ to make this expression TRUE?
+(A) 1/4 &nbsp; (B) 2/3 &nbsp; (C) 2/4 &nbsp; (D) 1/3</div>
           <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
           <div class="steps">
-<span class="step-num">Step 1:</span> To compare fractions, make the denominators the same.
-   Find a common denominator for 5 and 3. The smallest number both go into is 15.
+<span class="step-num">Step 1:</span> We need a fraction that is GREATER than 1/2. Rewrite each with a common denominator of 6:
+   1/2 = 3/6
 
-<span class="step-num">Step 2:</span> Convert both fractions.
-   3/5 = (3 × 3)/(5 × 3) = 9/15
-   2/3 = (2 × 5)/(3 × 5) = 10/15
-
-<span class="step-num">Step 3:</span> Now compare — same size pieces, so just look at the tops.
-   9/15 vs. 10/15
-   10 is bigger, so <strong>2/3 is greater</strong>.
+<span class="step-num">Step 2:</span> Check each choice:
+   (A) 1/4 → less than 1/2 ✗
+   (B) 2/3 = 4/6 → 4/6 > 3/6 ✓
+   (C) 2/4 = 1/2 → equal, not greater ✗
+   (D) 1/3 = 2/6 → less than 3/6 ✗
 
 <div class="answer">Answer: (B) 2/3</div>
-<div class="tip">💡 When comparing fractions with different denominators: find a common denominator, convert both, then compare the numerators. The fraction with the bigger numerator wins.</div></div>
+<div class="tip">💡 When comparing fractions, find a common denominator so you can compare the numerators directly. The fraction with the bigger numerator is greater. See <a class="concept-link" href="#equivalent-fractions">Comparing Fractions</a>.</div></div>
         </div>
 
-        <div class="teach-card" id="q-nf-t3">
-          <h3>Adding Fractions with Like Denominators</h3>
-          <div class="problem">Nelson ate 2/8 of a pizza. His friend ate 3/8 of the same pizza. How much of the pizza did they eat altogether?</div>
-          <div class="choices">(A) 5/16 &nbsp; (B) 5/8 &nbsp; (C) 6/8 &nbsp; (D) 1/2</div>
+        <!-- Item 13 -->
+        <div class="teach-card">
+          <h3>Item 13 — Decomposing Fractions into Unit Fractions</h3>
+          <div class="problem">Which equation is TRUE?
+(A) 2/8 = 1/5 + 1/3
+(B) 3/8 = 1/3 + 1/3 + 1/3
+(C) 6/8 = 1/8 + 1/8 + 1/8 + 1/8 + 1/8 + 1/8
+(D) 6/8 = 1/6 + 1/6 + 1/6 + 1/6 + 1/6 + 1/6 + 1/6 + 1/6</div>
           <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
           <div class="steps">
-<span class="step-num">Step 1:</span> Both fractions have the same denominator (8). When denominators match, just add the tops.
+<span class="step-num">Step 1:</span> A fraction can be decomposed by joining unit fractions of the SAME denominator.
 
-<span class="step-num">Step 2:</span> Add the numerators.
-   2/8 + 3/8 = (2 + 3)/8 = 5/8
+<span class="step-num">Step 2:</span> Check (C): 6/8 = 1/8 + 1/8 + 1/8 + 1/8 + 1/8 + 1/8
+   Six copies of 1/8 = 6/8 ✓
 
-<span class="step-num">Step 3:</span> Do NOT add the denominators!
-   The denominator stays 8 because the pizza is still cut into 8 slices.
-   You ate 2 slices + 3 slices = 5 slices out of 8.
+<span class="step-num">Step 3:</span> Why the others fail:
+   (A) 1/5 + 1/3 = 8/15, not 2/8 ✗
+   (B) 1/3 + 1/3 + 1/3 = 3/3 = 1, not 3/8 ✗
+   (D) Eight copies of 1/6 = 8/6, not 6/8 ✗
 
-<div class="answer">Answer: (B) 5/8</div>
-<div class="tip">💡 Same denominator? Add the tops, keep the bottom. NEVER add the bottoms together — the size of the pieces doesn't change, only how many you have. See <a class="concept-link" href="#fractions-basics">Fractions Basics</a>.</div></div>
+<div class="answer">Answer: (C) 6/8 = 1/8 + 1/8 + 1/8 + 1/8 + 1/8 + 1/8</div>
+<div class="tip">💡 A fraction a/b is the same as adding the unit fraction 1/b exactly "a" times. The denominators MUST match. See <a class="concept-link" href="#fraction-operations">Fraction Operations</a>.</div></div>
         </div>
 
-        <div class="teach-card" id="q-nf-t4">
-          <h3>Multiplying a Fraction by a Whole Number</h3>
-          <div class="problem">A recipe needs 2/3 cup of sugar. Nelson wants to make 4 batches. How much sugar does he need?</div>
-          <div class="choices">(A) 6/3 cups &nbsp; (B) 8/3 cups &nbsp; (C) 2/12 cups &nbsp; (D) 8/12 cups</div>
+        <!-- Item 14 -->
+        <div class="teach-card">
+          <h3>Item 14 — Multiplying a Fraction by a Whole Number</h3>
+          <div class="problem">Sarita has 3 rolls of ribbon. Sarita cuts off 1/2 yard from each roll.
+
+How much ribbon does she cut off in all?
+(A) 1 yard &nbsp; (B) 1 1/2 yards &nbsp; (C) 3 yards &nbsp; (D) 3 1/2 yards</div>
           <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
           <div class="steps">
-<span class="step-num">Step 1:</span> "4 batches of 2/3 cup" means 4 × 2/3.
+<span class="step-num">Step 1:</span> She cuts 1/2 yard from EACH of 3 rolls, so:
+   3 × 1/2 = 1/2 + 1/2 + 1/2
 
-<span class="step-num">Step 2:</span> Multiply the whole number by the numerator. Keep the denominator.
-   4 × 2/3 = (4 × 2)/3 = 8/3
+<span class="step-num">Step 2:</span> Add: 1/2 + 1/2 + 1/2 = 3/2
 
-<span class="step-num">Step 3:</span> Convert to a mixed number (optional but helpful).
-   8 ÷ 3 = 2 with remainder 2
-   8/3 = 2⅔ cups
+<span class="step-num">Step 3:</span> Convert to a mixed number: 3/2 = 1 1/2 yards.
+   Two halves make 1 whole yard, plus one more half = 1 1/2.
 
-<div class="answer">Answer: (B) 8/3 cups (or 2⅔ cups)</div>
-<div class="tip">💡 Whole number × fraction: multiply the whole number by the top, keep the bottom the same. Think of it as adding the fraction that many times: 2/3 + 2/3 + 2/3 + 2/3 = 8/3.</div></div>
+<div class="answer">Answer: (B) 1 1/2 yards</div>
+<div class="tip">💡 Multiplying a fraction by a whole number is the same as repeatedly adding the fraction. 3 × 1/2 = 1/2 + 1/2 + 1/2 = 3/2 = 1 1/2. See <a class="concept-link" href="#fraction-operations">Fraction Operations</a>.</div></div>
+        </div>
+
+        <!-- Item 18 -->
+        <div class="teach-card">
+          <h3>Item 18 — Equivalent Fractions with Denominators of 10 and 100</h3>
+          <div class="problem">Which fraction is equivalent to 3/10?
+(A) 3/100 &nbsp; (B) 6/100 &nbsp; (C) 10/100 &nbsp; (D) 30/100</div>
+          <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+          <div class="steps">
+<span class="step-num">Step 1:</span> To convert 3/10 to hundredths, multiply top and bottom by 10:
+   (3 × 10) / (10 × 10) = 30/100
+
+<span class="step-num">Step 2:</span> Check the others:
+   3/100 ≠ 3/10 (way too small) ✗
+   6/100 = 3/50 ✗
+   10/100 = 1/10 ✗
+
+<div class="answer">Answer: (D) 30/100</div>
+<div class="tip">💡 To change tenths to hundredths, multiply both the numerator and denominator by 10. See <a class="concept-link" href="#decimals">Decimals</a>.</div></div>
+        </div>
+
+        <!-- Item 19 -->
+        <div class="teach-card">
+          <h3>Item 19 — Converting Fractions to Decimals</h3>
+          <div class="problem">Which decimal is equivalent to 43/100?
+(A) 0.043 &nbsp; (B) 0.43 &nbsp; (C) 4.3 &nbsp; (D) 43.00</div>
+          <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+          <div class="steps">
+<span class="step-num">Step 1:</span> 43/100 means 43 hundredths. The hundredths place is two digits to the right of the decimal: 0.43.
+
+<span class="step-num">Step 2:</span> Check the others:
+   0.043 = 43 thousandths = 43/1000 ✗
+   4.3 = 4 wholes and 3 tenths = 4 3/10 ✗
+   43.00 = 43 wholes ✗
+
+<div class="answer">Answer: (B) 0.43</div>
+<div class="tip">💡 The denominator tells you the place value. /10 → tenths place (one decimal place). /100 → hundredths place (two decimal places). See <a class="concept-link" href="#decimals">Decimals</a>.</div></div>
         </div>
 
         <div class="sub-header"><span class="sub-icon">✏️</span> Practice — Your Turn</div>
         <div class="practice-grid">
-          <div class="practice-card" id="q-nf-p1">
-            <div class="p-num">Practice 1</div>
-            <div class="p-question">Simplify: 6/8</div>
-            <div class="p-choices">(A) 2/4 &nbsp; (B) 3/4 &nbsp; (C) 3/8 &nbsp; (D) 1/2</div>
+
+          <!-- Item 12 -->
+          <div class="practice-card">
+            <div class="p-num">Item 12 — Extended Constructed-Response</div>
+            <div class="p-question">[Two rectangle models are shown. Both rectangles are the same size. The first is divided into 5 equal columns with 2 shaded. The second is divided into 10 equal columns with 4 shaded.]
+
+Part A: Write the fraction represented by the first model.
+Part B: Write the fraction represented by the second model.
+Part C: Explain why the fractions are equivalent.
+Part D: Describe how you could model a third fraction that is equivalent to these two.</div>
             <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: <a class="concept-link" href="#equivalent-fractions">Simplifying Fractions</a></strong>
+            <div class="p-answer"><strong>Topic: <a class="concept-link" href="#equivalent-fractions">Equivalent Fractions</a></strong>
 
-Find the biggest number that divides evenly into BOTH 6 and 8. That's 2.
-6 ÷ 2 = 3
-8 ÷ 2 = 4
-6/8 = <strong>3/4</strong>
+<strong>Part A: 2/5</strong>
+<strong>Part B: 4/10</strong>
 
-In plain English: You had 6 out of 8 slices. If you push pairs of slices together, you have 3 out of 4 bigger slices. Same amount of pizza, just fewer, bigger pieces.
+<strong>Part C:</strong> Both fractions represent the same shaded amount of rectangles that are the same size. They both represent the same amount out of the same whole. 2/5 = 4/10 because (2 × 2)/(5 × 2) = 4/10.
 
-Answer: <strong>(B) 3/4</strong></div>
+<strong>Part D:</strong> Start with a rectangle that is the same size as the models. Divide the rectangle into 100 equal parts and shade 40 parts. That gives 40/100, which is equivalent.
+
+Scored 0–4 points. Full credit requires all four parts correct with clear explanations.</div>
           </div>
-          <div class="practice-card" id="q-nf-p2">
-            <div class="p-num">Practice 2</div>
-            <div class="p-question">5/6 − 2/6 = ?</div>
-            <div class="p-choices">(A) 3/6 &nbsp; (B) 3/0 &nbsp; (C) 7/6 &nbsp; (D) 3/12</div>
+
+          <!-- Item 15 -->
+          <div class="practice-card">
+            <div class="p-num">Item 15 — Multi-Select</div>
+            <div class="p-question">Yolanda has 4/5 of a bag of dog food remaining. She will put the remaining dog food in smaller bags.
+
+Select THREE equations that can represent fractions of the bag of dog food that Yolanda can put in smaller bags.
+
+(A) 4/5 = 1/5 + 1/5 + 1/5 + 1/5
+(B) 4/5 = 2/3 + 2/2
+(C) 4/5 = 4/1 + 1/5
+(D) 4/5 = 3/5 + 1/5
+(E) 4/5 = 2/5 + 1/5 + 1/5
+(F) 4/5 = 1/5 + 4/5</div>
             <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: <a class="concept-link" href="#fractions-basics">Subtracting Fractions</a></strong>
+            <div class="p-answer"><strong>Topic: <a class="concept-link" href="#fraction-operations">Decomposing Fractions</a></strong>
 
-Same denominator → subtract the tops, keep the bottom.
-5/6 − 2/6 = (5 − 2)/6 = <strong>3/6</strong>
+<strong>Correct: (A), (D), and (E)</strong>
 
-You can simplify: 3/6 = 1/2. But 3/6 matches the answer choice.
+(A) 1/5 + 1/5 + 1/5 + 1/5 = 4/5 ✓ — four unit fractions with same denominator
+(D) 3/5 + 1/5 = 4/5 ✓ — numerators add to 4, denominator stays 5
+(E) 2/5 + 1/5 + 1/5 = 4/5 ✓ — numerators add to 4, denominator stays 5
 
-Answer: <strong>(A) 3/6</strong> (which equals 1/2)</div>
+Why the others fail:
+(B) Different denominators — can't just add 2/3 + 2/2 ✗
+(C) 4/1 = 4 wholes, way too much ✗
+(F) 1/5 + 4/5 = 5/5 = 1, not 4/5 ✗
+
+When adding fractions, denominators must be the same and only the numerators are added together.</div>
           </div>
-          <div class="practice-card" id="q-nf-p3">
-            <div class="p-num">Practice 3</div>
-            <div class="p-question">Which fraction is greater: 4/5 or 7/10?</div>
-            <div class="p-choices">(A) 4/5 &nbsp; (B) 7/10 &nbsp; (C) They are equal &nbsp; (D) Cannot tell</div>
+
+          <!-- Item 17 -->
+          <div class="practice-card">
+            <div class="p-num">Item 17 — Constructed-Response</div>
+            <div class="p-question">A dog's bowl is 4/5 full of water. The dog's owner adds another 1/5 bowl of water to the dog's bowl.
+
+Part A: Explain how you know that the dog's bowl is completely full of water.
+Part B: The dog drinks 2/5 of the water in the bowl. What fraction of the bowl of water is left?</div>
             <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: Comparing Fractions</strong>
+            <div class="p-answer"><strong>Topic: <a class="concept-link" href="#fraction-operations">Adding &amp; Subtracting Fractions</a></strong>
 
-Make the denominators the same. The common denominator of 5 and 10 is 10.
-4/5 = 8/10 (multiply top and bottom by 2)
-7/10 stays as 7/10
+<strong>Part A:</strong> When I add the fractions I get 4/5 + 1/5 = 5/5, which is 1 — a full bowl. The denominators are the same (both fifths), so I add the numerators: 4 + 1 = 5. Five fifths equals one whole.
 
-8/10 vs. 7/10 → 8 > 7, so <strong>4/5 is greater</strong>.
+<strong>Part B: 3/5</strong>
+The bowl was full (5/5). The dog drinks 2/5: 5/5 − 2/5 = 3/5.
 
-Answer: <strong>(A) 4/5</strong></div>
+Scored 0–2 points. Full credit requires both parts correct with an explanation for Part A.</div>
           </div>
-          <div class="practice-card" id="q-nf-p4">
-            <div class="p-num">Practice 4</div>
-            <div class="p-question">What is 3 × 4/5?</div>
-            <div class="p-choices">(A) 7/5 &nbsp; (B) 12/5 &nbsp; (C) 12/15 &nbsp; (D) 4/15</div>
+
+          <!-- Item 20 -->
+          <div class="practice-card">
+            <div class="p-num">Item 20 — Constructed-Response</div>
+            <div class="p-question">Is 0.54 mile greater than, less than, or equal to 0.45 mile? Explain how you determined your answer.</div>
             <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: Multiplying Fractions by Whole Numbers</strong>
+            <div class="p-answer"><strong>Topic: <a class="concept-link" href="#decimals">Comparing Decimals</a></strong>
 
-Multiply the whole number by the numerator, keep the denominator.
-3 × 4/5 = (3 × 4)/5 = <strong>12/5</strong>
+<strong>0.54 is greater than 0.45.</strong>
 
-As a mixed number: 12 ÷ 5 = 2 remainder 2, so 12/5 = 2⅖.
+Exemplar explanation: I compared the two decimals by using hundredths grids. I shaded in 54 of the 100 squares to show the first decimal. It is made up of 5 tenths and 4 hundredths. I shaded in 45 of the 100 squares to show the second decimal. It is made up of 4 tenths and 5 hundredths. The first decimal is the greater decimal.
 
-Answer: <strong>(B) 12/5</strong></div>
-          </div>
-          <div class="practice-card" id="q-nf-p5">
-            <div class="p-num">Practice 5</div>
-            <div class="p-question">Convert 0.75 to a fraction.</div>
-            <div class="p-choices">(A) 7/5 &nbsp; (B) 75/10 &nbsp; (C) 3/4 &nbsp; (D) 7/10</div>
-            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: Decimals and Fractions</strong>
+You can also compare digit by digit: both have 0 ones. In the tenths place, 5 > 4, so 0.54 > 0.45.
 
-0.75 means 75 hundredths = 75/100
-Simplify: 75 ÷ 25 = 3, 100 ÷ 25 = 4
-75/100 = <strong>3/4</strong>
-
-In plain English: 0.75 is three quarters. Think of money — 75 cents is three quarters.
-
-Answer: <strong>(C) 3/4</strong></div>
+Scored 0–2 points. Full credit requires the correct answer AND a clear explanation.</div>
           </div>
         </div>
       </div>
 
-      <!-- OPERATIONS & ALGEBRAIC THINKING (20%) -->
+      <!-- ==================== OPERATIONS & ALGEBRAIC THINKING (20%) ==================== -->
       <div class="domain-section" id="ds-oa">
-        <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples</div>
+        <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples (Unit 2)</div>
 
-        <div class="teach-card" id="q-oa-t1">
-          <h3>Multi-Step Word Problems</h3>
-          <div class="problem">A movie theater has 12 rows with 14 seats in each row. 38 seats are empty. How many people are sitting in the theater?</div>
-          <div class="choices">(A) 130 &nbsp; (B) 168 &nbsp; (C) 64 &nbsp; (D) 206</div>
+        <!-- Item 5 -->
+        <div class="teach-card">
+          <h3>Item 5 — Multi-Digit Multiplication</h3>
+          <div class="problem">Multiply:
+35 × 43
+
+(A) 45 &nbsp; (B) 1,355 &nbsp; (C) 1,455 &nbsp; (D) 1,505</div>
           <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
           <div class="steps">
-<span class="step-num">Step 1:</span> Find the total number of seats.
-   12 rows × 14 seats = 168 total seats
+<span class="step-num">Step 1:</span> Use an area model. Break 43 into 40 + 3 and 35 into 30 + 5:
+   30 × 40 = 1,200
+   30 × 3 = 90
+   5 × 40 = 200
+   5 × 3 = 15
 
-<span class="step-num">Step 2:</span> Subtract the empty seats.
-   168 − 38 = 130 people sitting
+<span class="step-num">Step 2:</span> Add all the partial products:
+   1,200 + 200 + 90 + 15 = 1,505
 
-<div class="answer">Answer: (A) 130</div>
-<div class="tip">💡 Multi-step problems: break it into smaller steps. Do one operation at a time. Watch for the word "how many" — it tells you what the final answer should represent.</div></div>
+<span class="step-num">Step 3:</span> Why the others are wrong:
+   (A) 45 — looks like just adding 40 + 5 ✗
+   (B) 1,355 — error multiplying 40 × 5 as 20 ✗
+   (C) 1,455 — error adding the tens ✗
+
+<div class="answer">Answer: (D) 1,505</div>
+<div class="tip">💡 Use place value and properties of operations to multiply. Break numbers apart with an area model: multiply each part, then add all the partial products together.</div></div>
         </div>
 
-        <div class="teach-card" id="q-oa-t2">
-          <h3>Factors and Multiples</h3>
-          <div class="problem">Which number is a factor of BOTH 12 and 18?
-(A) 5 &nbsp; (B) 8 &nbsp; (C) 6 &nbsp; (D) 9</div>
+        <!-- Item 6 -->
+        <div class="teach-card">
+          <h3>Item 6 — Multiplicative Comparison</h3>
+          <div class="problem">There are 3 times as many red crayons in a bucket as blue crayons. There are 8 blue crayons.
+
+Which equation represents the number of red crayons in the bucket?
+(A) 16 ÷ 8 = 2 &nbsp; (B) 8 − 3 = 5 &nbsp; (C) 3 + 8 = 11 &nbsp; (D) 3 × 8 = 24</div>
           <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
           <div class="steps">
-<span class="step-num">Step 1:</span> What is a factor? A factor is a number that divides evenly into another number (no remainder).
+<span class="step-num">Step 1:</span> "3 times as many" means multiplication. There are 3 times as many red as blue.
 
-<span class="step-num">Step 2:</span> List the factors of 12: 1, 2, 3, 4, 6, 12
-   List the factors of 18: 1, 2, 3, 6, 9, 18
+<span class="step-num">Step 2:</span> Blue = 8, so Red = 3 × 8 = 24.
 
-<span class="step-num">Step 3:</span> Which numbers appear in BOTH lists?
-   1, 2, 3, and 6
+<span class="step-num">Step 3:</span> Why the others are wrong:
+   (A) 16 ÷ 8 = 2 — the equation isn't even true for the given numbers ✗
+   (B) 8 − 3 = 5 — subtraction, not multiplication ✗
+   (C) 3 + 8 = 11 — addition, not multiplication ✗
 
-<span class="step-num">Step 4:</span> Check the choices: 6 is in both lists. ✓
-
-<div class="answer">Answer: (C) 6</div>
-<div class="tip">💡 Factor = divides evenly into. Multiple = the number times something. Factors are smaller or equal. Multiples are bigger or equal. To find common factors, list the factors of each number and see what matches.</div></div>
-        </div>
-
-        <div class="teach-card" id="q-oa-t3">
-          <h3>Input-Output Patterns</h3>
-          <div class="problem">Look at the pattern:
-Input: 2, 4, 6, 8
-Output: 7, 13, 19, 25
-What is the rule?</div>
-          <div class="choices">(A) Multiply by 3, add 1 &nbsp; (B) Add 5 &nbsp; (C) Multiply by 4, subtract 1 &nbsp; (D) Multiply by 3, subtract 1</div>
-          <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
-          <div class="steps">
-<span class="step-num">Step 1:</span> Try each rule with the first pair (input = 2, output = 7).
-   (A) 2 × 3 + 1 = 7 ✓
-   (B) 2 + 5 = 7 ✓
-   (C) 2 × 4 − 1 = 7 ✓
-   (D) 2 × 3 − 1 = 5 ✗
-
-<span class="step-num">Step 2:</span> Multiple rules worked! Try the second pair (input = 4, output = 13).
-   (A) 4 × 3 + 1 = 13 ✓
-   (B) 4 + 5 = 9 ✗
-   (C) 4 × 4 − 1 = 15 ✗
-
-<span class="step-num">Step 3:</span> Only (A) still works. Verify with all pairs:
-   6 × 3 + 1 = 19 ✓
-   8 × 3 + 1 = 25 ✓
-
-<div class="answer">Answer: (A) Multiply by 3, add 1</div>
-<div class="tip">💡 Pattern problems: test each rule with ALL the pairs, not just the first one. If more than one rule works for the first pair, keep testing with the next pairs until only one rule survives.</div></div>
+<div class="answer">Answer: (D) 3 × 8 = 24</div>
+<div class="tip">💡 "Times as many" always means multiply. If there are 3 times as many red as blue, and there are 8 blue, then red = 3 × 8. See <a class="concept-link" href="#factors-multiples">Factors &amp; Multiples</a>.</div></div>
         </div>
 
         <div class="sub-header"><span class="sub-icon">✏️</span> Practice — Your Turn</div>
         <div class="practice-grid">
-          <div class="practice-card" id="q-oa-p1">
-            <div class="p-num">Practice 1</div>
-            <div class="p-question">A school ordered 8 boxes of pencils with 24 pencils in each box. They gave 15 pencils to each of 12 classrooms. How many pencils are left over?</div>
-            <div class="p-choices">(A) 12 &nbsp; (B) 192 &nbsp; (C) 180 &nbsp; (D) 0</div>
+
+          <!-- Item 7 -->
+          <div class="practice-card">
+            <div class="p-num">Item 7 — Multi-Part Multi-Select</div>
+            <div class="p-question"><strong>Part A:</strong> A factor pair of 93 is 1 and 93. What is another factor pair of 93?
+(A) 3 and 9 &nbsp; (B) 3 and 31 &nbsp; (C) 9 and 10 &nbsp; (D) 3 and 90
+
+<strong>Part B:</strong> Select TWO numbers that are multiples of 8.
+(A) 16 &nbsp; (B) 18 &nbsp; (C) 48 &nbsp; (D) 68 &nbsp; (E) 84</div>
             <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: Multi-Step Word Problems</strong>
+            <div class="p-answer"><strong>Topic: <a class="concept-link" href="#factors-multiples">Factors &amp; Multiples</a></strong>
 
-Step 1: Total pencils = 8 × 24 = 192
-Step 2: Pencils given out = 15 × 12 = 180
-Step 3: Left over = 192 − 180 = <strong>12</strong>
+<strong>Part A: (B) 3 and 31</strong>
+93 ÷ 3 = 31. So 3 × 31 = 93. ✓
+(A) 3 × 9 = 27, not 93 ✗
+(C) 9 × 10 = 90, not 93 ✗
+(D) 3 + 90 = 93 but 90 is NOT a factor of 93 ✗
 
-Answer: <strong>(A) 12</strong></div>
+<strong>Part B: (A) 16 and (C) 48</strong>
+8 × 2 = 16 ✓
+8 × 6 = 48 ✓
+18, 68, and 84 cannot be made by multiplying 8 by a whole number ✗</div>
           </div>
-          <div class="practice-card" id="q-oa-p2">
-            <div class="p-num">Practice 2</div>
-            <div class="p-question">Is the number 17 prime or composite?</div>
-            <div class="p-choices">(A) Prime &nbsp; (B) Composite &nbsp; (C) Neither &nbsp; (D) Both</div>
+
+          <!-- Item 8 -->
+          <div class="practice-card">
+            <div class="p-num">Item 8 — Constructed-Response</div>
+            <div class="p-question">There are 60 books that need to be shipped to a bookstore. Each shipping box holds 8 books.
+
+How many shipping boxes are needed? Explain how you found your answer.</div>
             <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: Prime and Composite Numbers</strong>
+            <div class="p-answer"><strong>Topic: Division with Remainders</strong>
 
-A prime number has exactly 2 factors: 1 and itself.
-A composite number has more than 2 factors.
+<strong>8 boxes are needed.</strong>
 
-Factors of 17: 1 and 17. That's it — nothing else divides evenly into 17.
-Since it has exactly 2 factors, it's <strong>prime</strong>.
+Exemplar: I used division: 60 ÷ 8. The answer is 7 with a remainder of 4. That means 7 boxes will be completely filled with 8 books in each box, and there will be 4 books left over. Since all 60 books need to be shipped, the remaining books will need to go in an eighth box that will not be completely full.
 
-Quick check: Is it divisible by 2? No (it's odd). By 3? 1+7=8, not divisible by 3. By 5? Doesn't end in 0 or 5. By 7? 7×2=14, 7×3=21, nope. Since we only need to check up to about 4 (√17 ≈ 4), we're done.
-
-Answer: <strong>(A) Prime</strong></div>
-          </div>
-          <div class="practice-card" id="q-oa-p3">
-            <div class="p-num">Practice 3</div>
-            <div class="p-question">What are the first 5 multiples of 7?</div>
-            <div class="p-choices">(A) 1, 2, 3, 4, 5 &nbsp; (B) 7, 14, 21, 28, 35 &nbsp; (C) 7, 17, 27, 37, 47 &nbsp; (D) 0, 7, 14, 21, 28</div>
-            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: Multiples</strong>
-
-Multiples of 7 = 7 × 1, 7 × 2, 7 × 3, 7 × 4, 7 × 5...
-= <strong>7, 14, 21, 28, 35</strong>
-
-In plain English: Multiples are what you get when you skip-count. Count by 7s: 7, 14, 21, 28, 35.
-
-Answer: <strong>(B) 7, 14, 21, 28, 35</strong></div>
+Scored 0–2 points. Full credit requires the correct answer AND a valid explanation of the process.</div>
           </div>
         </div>
       </div>
 
-      <!-- NUMBERS & OPERATIONS IN BASE 10 (20%) -->
+      <!-- ==================== NUMBERS & OPERATIONS IN BASE 10 (20%) ==================== -->
       <div class="domain-section" id="ds-nbt">
-        <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples</div>
+        <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples (Unit 1)</div>
 
-        <div class="teach-card" id="q-nbt-t1">
-          <h3>Rounding to Any Place</h3>
-          <div class="problem">Round 45,862 to the nearest thousand.</div>
-          <div class="choices">(A) 45,000 &nbsp; (B) 46,000 &nbsp; (C) 45,900 &nbsp; (D) 50,000</div>
+        <!-- Item 1 -->
+        <div class="teach-card">
+          <h3>Item 1 — Rounding to the Nearest Hundred</h3>
+          <div class="problem">The population of Pleasantville is 2,378.
+
+What is the population of the city, rounded to the nearest hundred?
+(A) 2,000 &nbsp; (B) 2,300 &nbsp; (C) 2,380 &nbsp; (D) 2,400</div>
           <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
           <div class="steps">
-<span class="step-num">Step 1:</span> Find the thousands digit. In 45,862, the thousands digit is <strong>5</strong>.
+<span class="step-num">Step 1:</span> Find the hundreds digit in 2,378. It's the <strong>3</strong> (in the hundreds place).
 
-<span class="step-num">Step 2:</span> Look at the digit to the RIGHT of it. That's <strong>8</strong> (the hundreds digit).
+<span class="step-num">Step 2:</span> Look at the digit to the RIGHT (the tens digit): <strong>7</strong>.
 
-<span class="step-num">Step 3:</span> Is 8 five or more? YES → round UP.
-   The 5 becomes a 6. Everything after it becomes 0.
-   45,862 → <strong>46,000</strong>
+<span class="step-num">Step 3:</span> Is 7 five or more? YES → round UP.
+   The 3 becomes a 4, everything after it becomes 0: <strong>2,400</strong>.
 
-<div class="answer">Answer: (B) 46,000</div>
-<div class="tip">💡 Rounding recipe: 1) Underline the digit you're rounding to. 2) Look ONE place to the right. 3) If it's 5+ → round up. If it's 4 or less → keep it. 4) Replace everything to the right with zeros. See <a class="concept-link" href="#place-value">Place Value</a>.</div></div>
+Why the others are wrong:
+   (A) 2,000 — rounded to the nearest thousand ✗
+   (B) 2,300 — rounded the wrong direction ✗
+   (C) 2,380 — rounded to the nearest ten ✗
+
+<div class="answer">Answer: (D) 2,400</div>
+<div class="tip">💡 Rounding recipe: 1) Find the digit you're rounding to. 2) Look ONE place to the right. 3) If it's 5+ → round up. If 4 or less → keep it. 4) Replace everything to the right with zeros. See <a class="concept-link" href="#place-value">Place Value</a>.</div></div>
         </div>
 
-        <div class="teach-card" id="q-nbt-t2">
-          <h3>Multi-Digit Multiplication</h3>
-          <div class="problem">What is 36 × 27?</div>
-          <div class="choices">(A) 882 &nbsp; (B) 972 &nbsp; (C) 792 &nbsp; (D) 962</div>
+        <!-- Item 2 -->
+        <div class="teach-card">
+          <h3>Item 2 — Multi-Digit Subtraction with Regrouping</h3>
+          <div class="problem">Subtract:
+2,406 − 157
+
+(A) 2,249 &nbsp; (B) 2,259 &nbsp; (C) 2,349 &nbsp; (D) 2,359</div>
           <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
           <div class="steps">
-<span class="step-num">Step 1:</span> Break it into parts (area model or standard algorithm).
-   36 × 27 = 36 × 20 + 36 × 7
+<span class="step-num">Step 1:</span> Line up the numbers by place value:
+     2,406
+   −   157
 
-<span class="step-num">Step 2:</span> Multiply each part.
-   36 × 20 = 720
-   36 × 7 = 252
+<span class="step-num">Step 2:</span> Start from the ones: 6 − 7. Can't do it! Regroup from the tens.
+   But the tens digit is 0 — chain regroup from the hundreds.
+   The 4 in the hundreds becomes 3, the 0 in the tens becomes 10, then borrow 1 for the ones: 16 − 7 = 9.
 
-<span class="step-num">Step 3:</span> Add the parts together.
-   720 + 252 = <strong>972</strong>
+<span class="step-num">Step 3:</span> Tens: 9 − 5 = 4. Hundreds: 3 − 1 = 2. Thousands: 2.
+   Result: <strong>2,249</strong>
 
-<div class="answer">Answer: (B) 972</div>
-<div class="tip">💡 For big multiplication: break one number apart (like 27 = 20 + 7), multiply each piece, then add. This is called the "partial products" method and it makes hard multiplication way easier.</div></div>
-        </div>
+Why the others are wrong:
+   (B) and (C) — incorrect regrouping ✗
+   (D) — subtracted without regrouping ✗
 
-        <div class="teach-card" id="q-nbt-t3">
-          <h3>Division with Remainders</h3>
-          <div class="problem">There are 135 students going on a field trip. Each bus holds 28 students. How many buses are needed?</div>
-          <div class="choices">(A) 4 &nbsp; (B) 4 R23 &nbsp; (C) 5 &nbsp; (D) 28</div>
-          <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
-          <div class="steps">
-<span class="step-num">Step 1:</span> Divide: 135 ÷ 28
-   28 × 4 = 112
-   28 × 5 = 140 (too many)
-   So 135 ÷ 28 = 4 remainder 23
-
-<span class="step-num">Step 2:</span> Think about what the remainder means.
-   4 buses hold 112 students, but there are 23 students left over.
-   Those 23 students still need a ride! So we need ONE MORE bus.
-
-<span class="step-num">Step 3:</span> We need <strong>5 buses</strong>.
-
-<div class="answer">Answer: (C) 5</div>
-<div class="tip">💡 When a word problem has a remainder, THINK about what it means. If the question says "how many buses/boxes/groups are NEEDED," you usually round UP because the leftover items still need to go somewhere. Don't just write "4 R23" — answer the actual question.</div></div>
+<div class="answer">Answer: (A) 2,249</div>
+<div class="tip">💡 This problem requires regrouping with a zero. When the tens digit is 0, you have to chain-borrow from the hundreds first. See <a class="concept-link" href="#place-value">Place Value</a>.</div></div>
         </div>
 
         <div class="sub-header"><span class="sub-icon">✏️</span> Practice — Your Turn</div>
         <div class="practice-grid">
-          <div class="practice-card" id="q-nbt-p1">
-            <div class="p-num">Practice 1</div>
-            <div class="p-question">In the number 582,376, what is the value of the digit 8?</div>
-            <div class="p-choices">(A) 8 &nbsp; (B) 800 &nbsp; (C) 8,000 &nbsp; (D) 80,000</div>
+
+          <!-- Item 3 -->
+          <div class="practice-card">
+            <div class="p-num">Item 3 — Technology-Enhanced (Drag-and-Drop)</div>
+            <div class="p-question">[On the test, students drag digits into blanks to write a number in expanded form.]
+
+The number 1,507 is shown. Write this number in expanded form by filling in each blank:
+
+___ × 1,000 + ___ × 100 + ___ × 10 + ___ × 1</div>
             <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: <a class="concept-link" href="#place-value">Place Value</a></strong>
+            <div class="p-answer"><strong>Topic: <a class="concept-link" href="#place-value">Expanded Form</a></strong>
 
-Read the number: 582,376
-The 8 is in the ten-thousands place.
-Value = 8 × 10,000 = <strong>80,000</strong>
+<strong>1 × 1,000 + 5 × 100 + 0 × 10 + 7 × 1</strong>
 
-Remember: the question asks for the VALUE (80,000), not just the digit (8).
+The number 1,507 is read "one thousand five hundred seven."
+  1 is in the thousands place → 1 × 1,000
+  5 is in the hundreds place → 5 × 100
+  0 is in the tens place → 0 × 10
+  7 is in the ones place → 7 × 1
 
-Answer: <strong>(D) 80,000</strong></div>
+Don't forget the zero in the tens place — it's important!</div>
           </div>
-          <div class="practice-card" id="q-nbt-p2">
-            <div class="p-num">Practice 2</div>
-            <div class="p-question">What is 4,215 − 2,867?</div>
-            <div class="p-choices">(A) 1,248 &nbsp; (B) 1,348 &nbsp; (C) 1,448 &nbsp; (D) 2,348</div>
+
+          <!-- Item 4 -->
+          <div class="practice-card">
+            <div class="p-num">Item 4 — Extended Constructed-Response</div>
+            <div class="p-question">On Monday, workers at a toy factory made 529 teddy bears. On Tuesday, they made 207 teddy bears. On Wednesday, they made 174 teddy bears.
+
+Part A: Rounding to the nearest hundred, about how many total teddy bears did the factory workers make in those three days?
+Part B: Explain how you found the answer.
+Part C: What is the exact number of teddy bears made in those three days?
+Part D: Explain how you know that your estimate is a reasonable answer.</div>
             <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: Multi-Digit Subtraction with Regrouping</strong>
+            <div class="p-answer"><strong>Topic: <a class="concept-link" href="#place-value">Estimation &amp; Multi-Digit Addition</a></strong>
 
-Line up the numbers and subtract right to left:
-  4,215
-− 2,867
-You'll need to borrow (regroup) several times:
-  5 can't subtract 7 → borrow from tens → 15 − 7 = 8
-  0 can't subtract 6 → borrow from hundreds → 10 − 6 = 4 (actually chain borrow)
-  Working through carefully: <strong>1,348</strong>
+<strong>Part A: About 900 teddy bears.</strong>
 
-Answer: <strong>(B) 1,348</strong></div>
-          </div>
-          <div class="practice-card" id="q-nbt-p3">
-            <div class="p-num">Practice 3</div>
-            <div class="p-question">What is 247 × 5?</div>
-            <div class="p-choices">(A) 1,135 &nbsp; (B) 1,235 &nbsp; (C) 1,225 &nbsp; (D) 1,335</div>
-            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: Multi-Digit Multiplication</strong>
+<strong>Part B:</strong> I used rounding. I rounded each number to the nearest hundred and then added the estimates together: 500 + 200 + 200 = 900.
 
-Break it up: 247 × 5
-  200 × 5 = 1,000
-  40 × 5 = 200
-  7 × 5 = 35
-  1,000 + 200 + 35 = <strong>1,235</strong>
+<strong>Part C: Exactly 910 teddy bears.</strong> (529 + 207 + 174 = 910)
 
-Answer: <strong>(B) 1,235</strong></div>
+<strong>Part D:</strong> My estimate was a reasonable answer because my estimate, 900, and the exact answer, 910, are close.
+
+Scored 0–4 points. Full credit requires all four parts correct with explanations.</div>
           </div>
         </div>
       </div>
 
-      <!-- MEASUREMENT & DATA (20%) -->
+      <!-- ==================== MEASUREMENT & DATA (20%) ==================== -->
       <div class="domain-section" id="ds-md">
-        <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples</div>
+        <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples (Unit 7)</div>
 
-        <div class="teach-card" id="q-md-t1">
-          <h3>Area and Perimeter</h3>
-          <div class="problem">A rectangular garden is 15 feet long and 9 feet wide. How much fencing is needed to go around the garden?</div>
-          <div class="choices">(A) 24 feet &nbsp; (B) 48 feet &nbsp; (C) 135 square feet &nbsp; (D) 135 feet</div>
+        <!-- Item 26 -->
+        <div class="teach-card">
+          <h3>Item 26 — Perimeter of a Rectangle</h3>
+          <div class="problem">Ms. Johnson planted a rectangular garden. The length of the garden is 8 feet. The width is 7 feet.
+
+What is the perimeter of the garden?
+Perimeter = 2(length + width)
+
+(A) 15 feet &nbsp; (B) 20 feet &nbsp; (C) 30 feet &nbsp; (D) 56 feet</div>
           <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
           <div class="steps">
-<span class="step-num">Step 1:</span> "Go around the garden" = perimeter.
-   Perimeter = 2 × (length + width)
+<span class="step-num">Step 1:</span> Use the formula: Perimeter = 2(length + width)
 
-<span class="step-num">Step 2:</span> Plug in.
-   Perimeter = 2 × (15 + 9) = 2 × 24 = <strong>48 feet</strong>
+<span class="step-num">Step 2:</span> Plug in: P = 2(8 + 7) = 2(15) = <strong>30 feet</strong>
 
-<span class="step-num">Step 3:</span> Watch the traps!
-   Choice (C) is the AREA (15 × 9 = 135 sq ft) — that's if you needed sod/grass/carpet.
-   The question asked for fencing → perimeter → add the sides.
+<span class="step-num">Step 3:</span> Why the others are wrong:
+   (A) 15 — added just two sides (8 + 7) but didn't double ✗
+   (B) 20 — incorrectly added 16 + 14 = 20 ✗
+   (D) 56 — that's the AREA (8 × 7), not the perimeter ✗
 
-<div class="answer">Answer: (B) 48 feet</div>
-<div class="tip">💡 "How much fencing/border/trim?" = PERIMETER (add around). "How much carpet/paint/grass?" = AREA (multiply inside). See <a class="concept-link" href="#area-perimeter">Area &amp; Perimeter</a>.</div></div>
+<div class="answer">Answer: (C) 30 feet</div>
+<div class="tip">💡 Perimeter = distance AROUND (add all sides). Area = space INSIDE (multiply length × width). Watch out — choice (D) is the area, which is a common trap! See <a class="concept-link" href="#area-perimeter">Area &amp; Perimeter</a>.</div></div>
         </div>
 
-        <div class="teach-card" id="q-md-t2">
-          <h3>Unit Conversion</h3>
-          <div class="problem">How many inches are in 4 feet?</div>
-          <div class="choices">(A) 16 &nbsp; (B) 36 &nbsp; (C) 48 &nbsp; (D) 44</div>
+        <!-- Item 27 -->
+        <div class="teach-card">
+          <h3>Item 27 — Finding an Unknown Angle in a Right Angle</h3>
+          <div class="problem">[A right angle is shown divided into two smaller angles. One angle measures 75°. The other angle is labeled n.]
+
+What is the measure of the unknown angle, n?
+(A) 15° &nbsp; (B) 25° &nbsp; (C) 90° &nbsp; (D) 180°</div>
           <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
           <div class="steps">
-<span class="step-num">Step 1:</span> Know the conversion: 1 foot = 12 inches.
+<span class="step-num">Step 1:</span> The two smaller angles together form a right angle, so their sum = 90°.
 
-<span class="step-num">Step 2:</span> Going from a BIGGER unit (feet) to a SMALLER unit (inches) → MULTIPLY.
-   4 feet × 12 inches/foot = <strong>48 inches</strong>
+<span class="step-num">Step 2:</span> One angle is 75°, so: n = 90° − 75° = <strong>15°</strong>
 
-<div class="answer">Answer: (C) 48</div>
-<div class="tip">💡 Conversions to memorize:
-   1 foot = 12 inches
-   1 yard = 3 feet
-   1 mile = 5,280 feet
-   1 pound = 16 ounces
-   1 gallon = 4 quarts
-   1 quart = 2 pints
-   1 pint = 2 cups
-Big → small = multiply (more small pieces). Small → big = divide (fewer big pieces).</div></div>
+<span class="step-num">Step 3:</span> Why the others are wrong:
+   (B) 25° — would give 100° total, not 90° ✗
+   (C) 90° — that's the whole right angle, not the missing piece ✗
+   (D) 180° — that's a straight line ✗
+
+<div class="answer">Answer: (A) 15°</div>
+<div class="tip">💡 When two angles form a right angle, they add up to 90°. Find the missing angle by subtracting: 90° − known angle = unknown angle. See <a class="concept-link" href="#angles">Angles</a>.</div></div>
         </div>
 
-        <div class="teach-card" id="q-md-t3">
-          <h3>Measuring Angles</h3>
-          <div class="problem">Two angles share a side and together they form a right angle (90°). If one angle measures 35°, what does the other angle measure?</div>
-          <div class="choices">(A) 45° &nbsp; (B) 55° &nbsp; (C) 65° &nbsp; (D) 125°</div>
+        <!-- Item 28 -->
+        <div class="teach-card">
+          <h3>Item 28 — Unit Conversions</h3>
+          <div class="problem">Katie buys a container that has 24 ounces of iced tea mix. This container has enough iced tea mix to make 10 quarts of iced tea. (1 cup = 8 ounces, 4 cups = 1 quart, 1 gallon = 4 quarts, 2 cups = 1 pint)
+
+<strong>Part A:</strong> Which quantity is equivalent to 10 quarts?
+(A) 2 gallons &nbsp; (B) 3 pints &nbsp; (C) 32 ounces &nbsp; (D) 40 cups
+
+<strong>Part B:</strong> Katie used 1 1/2 tablespoons of iced tea mix for every cup of water. She used 6 cups of water. Which statement describes the number of tablespoons and ounces Katie used?
+(A) 9 tablespoons, 14 ounces of water
+(B) 9 tablespoons, 48 ounces of water
+(C) 12 tablespoons, 14 ounces of water
+(D) 12 tablespoons, 48 ounces of water</div>
           <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
           <div class="steps">
-<span class="step-num">Step 1:</span> Together they make 90°.
-   One angle is 35°.
+<span class="step-num">Part A:</span>
+10 quarts × 4 cups per quart = 40 cups ✓
+   (A) 10 quarts ÷ 4 = 2.5 gallons, not 2 ✗
+   (B) 10 quarts = 20 pints, not 3 ✗
+   (C) 10 quarts = 320 ounces, not 32 ✗
 
-<span class="step-num">Step 2:</span> Subtract to find the other.
-   90° − 35° = <strong>55°</strong>
+<span class="step-num">Part B:</span>
+6 cups of water × 8 ounces per cup = 48 ounces of water.
+6 cups × 1 1/2 tablespoons per cup = 6 whole tablespoons + 6 half tablespoons = 6 + 3 = 9 tablespoons.
 
-<div class="answer">Answer: (B) 55°</div>
-<div class="tip">💡 When two angles add up to form a bigger angle, you can find the missing one by subtracting. Right angle = 90°. Straight line = 180°. See <a class="concept-link" href="#angles">Angles</a>.</div></div>
+<div class="answer">Part A: (D) 40 cups
+Part B: (B) 9 tablespoons and 48 ounces of water</div>
+<div class="tip">💡 Know your conversion facts! 4 cups = 1 quart, 1 cup = 8 ounces. Bigger to smaller unit = multiply. See <a class="concept-link" href="#area-perimeter">Measurement Conversions</a>.</div></div>
         </div>
 
         <div class="sub-header"><span class="sub-icon">✏️</span> Practice — Your Turn</div>
         <div class="practice-grid">
-          <div class="practice-card" id="q-md-p1">
-            <div class="p-num">Practice 1</div>
-            <div class="p-question">A room is 11 feet long and 8 feet wide. How much carpet is needed to cover the floor?</div>
-            <div class="p-choices">(A) 38 square feet &nbsp; (B) 19 square feet &nbsp; (C) 88 square feet &nbsp; (D) 88 feet</div>
+
+          <!-- Item 25 -->
+          <div class="practice-card">
+            <div class="p-num">Item 25 — Constructed-Response</div>
+            <div class="p-question">[A protractor is shown with an angle ABC. Ray BA points to the left along the 0°/180° line. Ray BC extends upward.]
+
+Part A: What is the measure of angle ABC to the nearest whole degree?
+Part B: Describe how you would create a 90° angle by moving ray BC.</div>
             <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: <a class="concept-link" href="#area-perimeter">Area</a></strong>
+            <div class="p-answer"><strong>Topic: <a class="concept-link" href="#angles">Measuring Angles</a></strong>
 
-"Cover the floor" = area.
-Area = length × width = 11 × 8 = <strong>88 square feet</strong>
+<strong>Part A: 65°</strong>
+The angle starts at 0° where ray BA lies along the base of the protractor. Ray BC points to the 65° mark.
 
-Notice the unit is "square feet" not just "feet" — area always uses square units.
+<strong>Part B:</strong> Move the ray BC to the right 25 degrees to go straight up through the 90 on the protractor. Since the angle is currently 65°, you need to add 25° more to reach 90°.
 
-Answer: <strong>(C) 88 square feet</strong></div>
+Scored 0–2 points. Full credit requires both parts correct.</div>
           </div>
-          <div class="practice-card" id="q-md-p2">
-            <div class="p-num">Practice 2</div>
-            <div class="p-question">How many quarts are in 3 gallons?</div>
-            <div class="p-choices">(A) 6 &nbsp; (B) 9 &nbsp; (C) 12 &nbsp; (D) 16</div>
+
+          <!-- Item 29 -->
+          <div class="practice-card">
+            <div class="p-num">Item 29 — Technology-Enhanced (Bar Graph)</div>
+            <div class="p-question">[On the test, students create a bar graph by setting bar heights.]
+
+Leo has 20 pounds of dog food, 15 pounds of cat food, and 5 pounds of rabbit food. There are 16 ounces in 1 pound. Create a bar graph showing the number of ounces of each type of animal food.
+
+How many ounces of each food?</div>
             <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: Unit Conversion</strong>
+            <div class="p-answer"><strong>Topic: <a class="concept-link" href="#area-perimeter">Unit Conversions &amp; Data Display</a></strong>
 
-1 gallon = 4 quarts
-3 gallons = 3 × 4 = <strong>12 quarts</strong>
+Convert pounds to ounces (1 pound = 16 ounces):
+<strong>Dog food:</strong> 20 × 16 = <strong>320 ounces</strong>
+<strong>Cat food:</strong> 15 × 16 = <strong>240 ounces</strong>
+<strong>Rabbit food:</strong> 5 × 16 = <strong>80 ounces</strong>
 
-Answer: <strong>(C) 12</strong></div>
-          </div>
-          <div class="practice-card" id="q-md-p3">
-            <div class="p-num">Practice 3</div>
-            <div class="p-question">An angle measures 140°. Is it acute, right, or obtuse?</div>
-            <div class="p-choices">(A) Acute &nbsp; (B) Right &nbsp; (C) Obtuse &nbsp; (D) Straight</div>
-            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: <a class="concept-link" href="#angles">Classifying Angles</a></strong>
+On the bar graph, the first bar stops at 320, the second at 240, and the third at 80.
 
-Acute = less than 90°
-Right = exactly 90°
-Obtuse = more than 90° but less than 180°
-Straight = exactly 180°
-
-140° is between 90° and 180° → <strong>obtuse</strong>.
-
-Answer: <strong>(C) Obtuse</strong></div>
+Scored 0–2 points. Full credit requires all three bars correct.</div>
           </div>
         </div>
       </div>
 
-      <!-- GEOMETRY (10%) -->
+      <!-- ==================== GEOMETRY (10%) ==================== -->
       <div class="domain-section" id="ds-geo">
-        <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples</div>
+        <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples (Unit 6)</div>
 
-        <div class="teach-card" id="q-geo-t1">
-          <h3>Lines of Symmetry</h3>
-          <div class="problem">How many lines of symmetry does a square have?</div>
-          <div class="choices">(A) 1 &nbsp; (B) 2 &nbsp; (C) 4 &nbsp; (D) 0</div>
-          <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
-          <div class="steps">
-<span class="step-num">Step 1:</span> A line of symmetry divides a shape into two halves that are mirror images.
-
-<span class="step-num">Step 2:</span> Think about folding a square:
-   Fold top to bottom → matches ✓ (horizontal line)
-   Fold left to right → matches ✓ (vertical line)
-   Fold corner to corner (both diagonals) → matches ✓ ✓
-
-<span class="step-num">Step 3:</span> Count them: <strong>4 lines of symmetry</strong>.
-
-<div class="answer">Answer: (C) 4</div>
-<div class="tip">💡 To find lines of symmetry, imagine folding the shape. If both halves match perfectly, that fold line is a line of symmetry.
-   Rectangle: 2 lines | Square: 4 lines | Circle: infinite lines
-   Equilateral triangle: 3 lines | Regular hexagon: 6 lines</div></div>
-        </div>
-
-        <div class="teach-card" id="q-geo-t2">
-          <h3>Parallel and Perpendicular Lines</h3>
-          <div class="problem">Which pair of lines is perpendicular?
-(A) Train tracks &nbsp; (B) The letter L &nbsp; (C) The letter V &nbsp; (D) A zigzag</div>
+        <!-- Item 21 -->
+        <div class="teach-card">
+          <h3>Item 21 — Perpendicular Lines</h3>
+          <div class="problem">Which type of lines meet at a 90° angle?
+(A) curved &nbsp; (B) diagonal &nbsp; (C) parallel &nbsp; (D) perpendicular</div>
           <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
           <div class="steps">
 <span class="step-num">Step 1:</span> Definitions:
-   <strong>Parallel lines</strong> = lines that go the same direction and never cross (like train tracks or the = sign).
-   <strong>Perpendicular lines</strong> = lines that cross at a right angle (90°), making an L or + shape.
+   <strong>Perpendicular lines</strong> intersect at a right angle (90°).
+   <strong>Parallel lines</strong> are always the same distance apart — they never cross.
 
-<span class="step-num">Step 2:</span> Check each:
-   Train tracks → parallel (same direction, never cross) ✗
-   The letter L → makes a right angle at the corner ✓
-   The letter V → the lines meet but NOT at 90° ✗
-   A zigzag → lines cross at sharp angles, not 90° ✗
+<span class="step-num">Step 2:</span> Why the others are wrong:
+   (A) Curved lines don't meet at an angle — an angle is formed by the intersection of two lines, segments, or rays ✗
+   (B) Not all diagonal lines intersect ✗
+   (C) Parallel lines will never intersect ✗
 
-<div class="answer">Answer: (B) The letter L</div>
-<div class="tip">💡 Parallel = never touch (like railroad tracks, opposite sides of a rectangle). Perpendicular = cross at 90° (like a + sign, the corner of a book, the letter T).</div></div>
+<div class="answer">Answer: (D) perpendicular</div>
+<div class="tip">💡 Perpendicular = cross at 90° (like a + sign or the corner of a book). Parallel = never touch (like railroad tracks). See <a class="concept-link" href="#angles">Lines &amp; Angles</a>.</div></div>
+        </div>
+
+        <!-- Item 22 -->
+        <div class="teach-card">
+          <h3>Item 22 — Lines of Symmetry</h3>
+          <div class="problem">[Four figures are shown: (A) a square, (B) an irregular quadrilateral, (C) a circle, (D) an isosceles triangle.]
+
+Which figure has exactly one line of symmetry?
+(A) Square &nbsp; (B) Irregular quadrilateral &nbsp; (C) Circle &nbsp; (D) Isosceles triangle</div>
+          <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+          <div class="steps">
+<span class="step-num">Step 1:</span> A line of symmetry divides a figure into two equal halves that fold onto each other.
+
+<span class="step-num">Step 2:</span> Count lines of symmetry for each:
+   (A) Square → 4 lines of symmetry ✗ (too many)
+   (B) Irregular quadrilateral → 0 lines of symmetry ✗ (none)
+   (C) Circle → unlimited lines of symmetry ✗ (too many)
+   (D) Isosceles triangle → <strong>exactly 1</strong> line of symmetry ✓ (straight down the middle)
+
+<div class="answer">Answer: (D) Isosceles triangle</div>
+<div class="tip">💡 An isosceles triangle has two equal sides and exactly one line of symmetry (down the middle). A square has 4, a circle has unlimited, and irregular shapes often have none. See <a class="concept-link" href="#angles">Symmetry</a>.</div></div>
         </div>
 
         <div class="sub-header"><span class="sub-icon">✏️</span> Practice — Your Turn</div>
         <div class="practice-grid">
-          <div class="practice-card" id="q-geo-p1">
-            <div class="p-num">Practice 1</div>
-            <div class="p-question">A triangle has angles measuring 60°, 60°, and 60°. What type of triangle is it?</div>
-            <div class="p-choices">(A) Right &nbsp; (B) Scalene &nbsp; (C) Equilateral &nbsp; (D) Obtuse</div>
+
+          <!-- Item 24 -->
+          <div class="practice-card">
+            <div class="p-num">Item 24 — Constructed-Response</div>
+            <div class="p-question">A rectangle that is not a square is shown.
+
+Part A: What other category could the rectangle be classified as, knowing that opposite sides are parallel?
+Part B: What could be changed about the rectangle to make it a square?</div>
             <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: Classifying Triangles</strong>
+            <div class="p-answer"><strong>Topic: <a class="concept-link" href="#angles">Classifying 2-D Figures</a></strong>
 
-All three angles are equal (60° each), which means all three sides are also equal.
-A triangle with all equal sides and angles is <strong>equilateral</strong>.
+<strong>Part A: Parallelogram</strong> (or other valid response)
+A rectangle has two pairs of parallel sides, which makes it a parallelogram.
 
-Also: 60 + 60 + 60 = 180°. All triangles add up to 180° — good check!
+<strong>Part B: Make all the sides the same length.</strong>
+A square is a special rectangle where all four sides are equal. Change the shorter sides to match the longer sides (or vice versa).
 
-Answer: <strong>(C) Equilateral</strong></div>
-          </div>
-          <div class="practice-card" id="q-geo-p2">
-            <div class="p-num">Practice 2</div>
-            <div class="p-question">How many lines of symmetry does a rectangle (that is NOT a square) have?</div>
-            <div class="p-choices">(A) 0 &nbsp; (B) 1 &nbsp; (C) 2 &nbsp; (D) 4</div>
-            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: Lines of Symmetry</strong>
-
-A rectangle can be folded:
-  - Top to bottom (horizontal fold) ✓
-  - Left to right (vertical fold) ✓
-  - Diagonally? No — the halves DON'T match on a rectangle (they do on a square)
-
-So a rectangle has <strong>2 lines of symmetry</strong>.
-
-Answer: <strong>(C) 2</strong></div>
+Scored 0–2 points. Full credit requires both parts correct.</div>
           </div>
         </div>
       </div>
@@ -1416,338 +1482,371 @@ Answer: <strong>(C) 2</strong></div>
         <button class="domain-btn" data-domain="wl" onclick="switchDomain('wl',this,'ela')">Writing &amp; Language<span class="domain-pts">47%</span></button>
       </div>
 
-      <!-- READING & VOCABULARY (53%) -->
+      <!-- ==================== READING & VOCABULARY (53%) ==================== -->
       <div class="domain-section active" id="ds-rv">
-        <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples</div>
+        <div class="sub-header"><span class="sub-icon">📖</span> Learn — DOK Example Items</div>
 
-        <div class="teach-card" id="q-rv-t1">
-          <h3>Main Idea &amp; Supporting Details</h3>
+        <!-- ELA Example Item 1 — Capitalization -->
+        <div class="teach-card">
+          <h3>DOK 1 — Capitalization</h3>
+          <div class="problem">Read the sentence:
+My mother picked out our next family car from a dealership in texas.
+
+Which underlined word in the sentence should start with a capital letter?
+(A) mother &nbsp; (B) family &nbsp; (C) dealership &nbsp; (D) texas</div>
+          <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
+          <div class="steps">
+<span class="step-num">Step 1:</span> Which words need to be capitalized? Names of states are always capitalized. "Texas" is a state.
+
+<span class="step-num">Step 2:</span> Why the others don't need capitals:
+   (A) "mother" — not used as a name here ✗
+   (B) "family" — common noun ✗
+   (C) "dealership" — common noun ✗
+
+<div class="answer">Answer: (D) texas → should be "Texas"</div>
+<div class="tip">💡 Cities, towns, states, and nations are ALWAYS capitalized. Regular common nouns (mother, family, dealership) are not capitalized unless they start a sentence. See <a class="concept-link" href="#language-terms">Language Terms</a>.</div></div>
+        </div>
+
+        <!-- ELA Example Item 2 — Central Park Informational -->
+        <div class="teach-card">
+          <h3>DOK 2 — Reading Informational Text</h3>
           <div class="passage-box">
-            <div class="passage-title">Read this passage:</div>
-            Honeybees are some of the hardest workers in nature. Every day, worker bees fly from flower to flower collecting nectar and pollen. They carry these back to the hive, where other bees turn the nectar into honey. Bees also do a special "waggle dance" to tell other bees where to find the best flowers. Without bees, many of the fruits and vegetables we eat would not exist because bees help plants grow by spreading pollen.
+            <div class="passage-title">Central Park</div>
+Before 1850, many of the world's great cities had nice parks. However, there were no city parks in the United States. New York City was a busy city, and there were no places to escape from the noise or from the smell of horses. Some important people in New York City decided that a park was needed. The city had a contest to see who could design the best park.
+
+There were many different designs for the park. People argued about the purpose of the park. Some people said that it should be like parks in England and France. Those parks were mostly for people who had lots of money. The parks had long, straight roads. People who could afford horses and carriages could ride in the parks. The gardens in those parks were very square. They had lots of large stone buildings. The parks were built like the gardens around palaces.
+
+Other people said that a park should be designed for all the people, not just the rich. That meant the park should be good for walking, and there shouldn't be long, straight roads. Straight roads and big buildings allowed for less natural scenery.
+
+The plan that the city chose was more like a park for all the people. It included large green areas and curvy walking paths. These paths were built around natural features, like large rocks. The park had very few buildings. It had special paths for horses to keep the animals separate from people. Today, Central Park is considered one of the greatest parks in the world.
           </div>
-          <div class="problem">What is the main idea of this passage?
-(A) Bees do a waggle dance.
-(B) Bees are important and hard-working insects.
-(C) Nectar is turned into honey.
-(D) Fruits and vegetables need pollen.</div>
+          <div class="problem">Which sentence BEST describes why Central Park was designed to have few straight roads?
+(A) Curved roads were better for horses.
+(B) More natural features were left in place.
+(C) The builders used roads that already existed.
+(D) The roads were built to go around the gardens.</div>
           <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
           <div class="steps">
-<span class="step-num">Step 1:</span> Ask: "What is the WHOLE passage about?"
-   It talks about bees working hard, making honey, dancing, and helping plants grow.
+<span class="step-num">Step 1:</span> Go back to the passage. It says the park was built to show as much natural scenery as possible, so roads curved around existing rocks and other features.
 
-<span class="step-num">Step 2:</span> Check each choice.
-   (A) The waggle dance — this is just ONE detail, not the whole point.
-   (B) Bees are important and hard-working — this covers EVERYTHING the passage talks about. ✓
-   (C) Nectar into honey — just one detail.
-   (D) Pollen for fruits — just one detail.
+<span class="step-num">Step 2:</span> Check each choice:
+   (A) The author does NOT say curved roads are better for horses ✗
+   (B) The park kept natural features, so roads curved around them ✓
+   (C) The author never says they used existing roads ✗
+   (D) The author never mentions gardens in Central Park ✗
 
-<span class="step-num">Step 3:</span> The main idea is like an umbrella — it covers ALL the details.
-
-<div class="answer">Answer: (B) Bees are important and hard-working insects.</div>
-<div class="tip">💡 Main idea = the big umbrella that covers the whole passage. Details are the specific facts under the umbrella. If an answer only covers ONE part of the passage, it's a detail, not the main idea. See <a class="concept-link" href="#main-idea">Main Idea &amp; Details</a>.</div></div>
+<div class="answer">Answer: (B) More natural features were left in place.</div>
+<div class="tip">💡 Always go BACK to the passage to find the answer. The key detail is that "paths were built around natural features, like large rocks." See <a class="concept-link" href="#informational-text">Informational Text</a>.</div></div>
         </div>
 
-        <div class="teach-card" id="q-rv-t2">
-          <h3>Context Clues — Figuring Out a Word</h3>
-          <div class="passage-box">
-            <div class="passage-title">Read this sentence:</div>
-            The explorers were <strong>famished</strong> after hiking for six hours without stopping to eat, so they devoured their sandwiches the moment they sat down.
-          </div>
-          <div class="problem">What does "famished" most likely mean?
-(A) Tired &nbsp; (B) Very hungry &nbsp; (C) Lost &nbsp; (D) Excited</div>
+        <!-- ELA Example Item 3 — Inference / Constructed-Response -->
+        <div class="teach-card">
+          <h3>DOK 3 — Constructed-Response (Central Park)</h3>
+          <div class="problem">Explain how the purpose of the park impacted Central Park's design.
+Use details from the article to support your answer.</div>
           <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
           <div class="steps">
-<span class="step-num">Step 1:</span> Look at the clues around the word "famished."
-   Clue 1: "hiking for six hours without stopping to eat" → they haven't eaten
-   Clue 2: "devoured their sandwiches" → they ate really fast
+<span class="step-num">Step 1:</span> Identify the purpose: The city decided Central Park should be a park for ALL people.
 
-<span class="step-num">Step 2:</span> If they haven't eaten in hours and then ate really fast, they must have been very hungry.
+<span class="step-num">Step 2:</span> Connect purpose to design: Because it was for all people (not just the rich), it was designed with green areas, curvy walking paths around natural features, and very few buildings.
 
-<div class="answer">Answer: (B) Very hungry</div>
-<div class="tip">💡 Don't just guess — look at what's happening in the sentence. The clues are almost always RIGHT NEXT to the unknown word. See <a class="concept-link" href="#context-clues">Context Clues</a>.</div></div>
+<span class="step-num">Exemplar 2-point response:</span> "People did not agree about the purpose of the park. Some thought it should be for wealthy people to drive carriages through, like parks in England and France. Those parks were designed to be very square with straight roads. Instead, the city decided Central Park should be a park for all people to walk through and enjoy natural scenery. That's why the park was designed with a lot of green areas, curvy walking paths, and natural things like rocks."
+
+<div class="answer">Scored 0–2 points. Full credit requires explaining the connection between purpose and design with specific details from the article.</div>
+<div class="tip">💡 For constructed-response: 1) Answer the question directly. 2) Use SPECIFIC details from the passage. 3) Explain HOW the details support your answer.</div></div>
         </div>
 
-        <div class="teach-card" id="q-rv-t3">
-          <h3>Making Inferences</h3>
-          <div class="passage-box">
-            <div class="passage-title">Read this passage:</div>
-            Marcus looked out the window and frowned. The sky had turned dark gray, and the trees were bending sideways. He could hear the wind howling. He quickly closed his laptop, unplugged his phone charger, and started filling the bathtub with water.
-          </div>
-          <div class="problem">What can you infer about what is about to happen?
-(A) Marcus is going to take a bath.
-(B) A bad storm is coming and Marcus is preparing.
-(C) Marcus is bored and looking for something to do.
-(D) Marcus is going to play outside.</div>
-          <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
-          <div class="steps">
-<span class="step-num">Step 1:</span> What does the passage TELL us?
-   Dark sky, bending trees, howling wind → signs of a storm
-   Closing laptop, unplugging → protecting electronics from power surges
-   Filling bathtub → storing water in case the power/water goes out
+        <div class="sub-header"><span class="sub-icon">✏️</span> Practice — "The Piano" (Sample Items 1–8)</div>
 
-<span class="step-num">Step 2:</span> An inference = what the passage SHOWS without directly SAYING.
-   The passage never says "a storm is coming." But all the clues point to it.
+        <div class="passage-box">
+          <div class="passage-title">The Piano</div>
+Greta did not like change. She didn't like it when they changed the design on the wrapper of her favorite kind of ice cream (strawberry mango). She didn't like it when her father shaved his beard, because it made him look too young. And she didn't like it when she came home to find this thing in the living room. It was old and brown and heavy, and it practically took up a whole wall. It had yellow teeth, and it made noise. It was a piano.
 
-<div class="answer">Answer: (B) A bad storm is coming and Marcus is preparing.</div>
-<div class="tip">💡 An inference is like being a detective. The passage gives you clues, and you figure out what they mean. It's NOT your opinion — it has to be supported by evidence in the text.</div></div>
+When her older brother Richard started banging on the instrument with his elbows, Greta ran to her room and closed the door. That's when she noticed something even worse: the toy chest was now in the middle of her room. This was the toy chest that had stood against the wall in the living room forever.
+
+"Don't you like our new family member?" Greta's mother asked from outside the door.
+
+Greta opened the door and blurted, "Where did you get that thing?"
+
+"The Kleins are moving out, and they didn't want to move it."
+
+"The Kleins are moving?" That meant more change. The Kleins had always lived in the apartment down the hall. It was all too much.
+
+"Yes, and it will all be fine," said Greta's mother, and she walked back toward the living room.
+
+Greta closed the door, flopped onto her bed face-down, and did what she always did when she didn't like what was going on: she fell asleep.
+
+In her dream, Greta was floating on a raft in the middle of a river. The breeze stirred the water and made the most beautiful sound. The sound rose and fell and became louder when the wind became stronger.
+
+Greta woke up and opened her eyes, but the sound continued. She got up and stumbled into the living room, where her mother sat at the piano. The sound was pouring out of her mother's fingers, but she was looking straight ahead with her head cocked slightly to the right. Then she stopped playing and remained still, in a different world.
+
+"Come and sit here," Greta's mother said as she scooted over and patted the bench next to her.
+
+"I didn't know . . . ," Greta began.
+
+"Of course you didn't know, because I never told you I could play. I started when I was about five years old."
+
+"Why did you stop?"
+
+"I didn't really stop. I guess I kind of drifted away from it. When I moved out of my parents' house, I left the piano behind, and I never got another one."
+
+Greta stared at her mother's face, which held a half smile. "You never should have stopped," said Greta.
+
+"You might be right," Greta's mother said, and she stole a quick look at her daughter.
+
+Greta felt like her mother had just told her a secret, and a bubble of warmth rose inside her.
+
+"Will you play some more?" she asked.
         </div>
 
-        <div class="teach-card" id="q-rv-t4">
-          <h3>Author's Purpose</h3>
-          <div class="problem">A passage explains how butterflies go through metamorphosis: egg, caterpillar, chrysalis, and butterfly. What is the author's purpose?
-(A) To persuade you to protect butterflies
-(B) To entertain you with a funny story
-(C) To inform you about how butterflies develop
-(D) To describe what a butterfly looks like</div>
-          <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
-          <div class="steps">
-<span class="step-num">Step 1:</span> Three main author purposes: <strong>PIE</strong>
-   <strong>P</strong>ersuade = trying to convince you to believe something or take action
-   <strong>I</strong>nform = teaching you facts or explaining something
-   <strong>E</strong>ntertain = telling a story to make you laugh, feel emotions, or enjoy reading
-
-<span class="step-num">Step 2:</span> This passage explains a process (how butterflies develop). It's teaching you something.
-   That's <strong>inform</strong>.
-
-<div class="answer">Answer: (C) To inform you about how butterflies develop</div>
-<div class="tip">💡 Remember PIE: Persuade, Inform, Entertain. Ask: "Is the author trying to teach me something, make me believe something, or make me feel something?" Most nonfiction passages = inform. Stories = entertain. Ads/arguments = persuade.</div></div>
-        </div>
-
-        <div class="sub-header"><span class="sub-icon">✏️</span> Practice — Your Turn</div>
         <div class="practice-grid">
-          <div class="practice-card" id="q-rv-p1">
-            <div class="p-num">Practice 1</div>
-            <div class="p-question">Read: "The boy was <strong>reluctant</strong> to jump into the cold pool, but his friends kept encouraging him."
-What does "reluctant" most likely mean?</div>
-            <div class="p-choices">(A) Eager &nbsp; (B) Unwilling &nbsp; (C) Brave &nbsp; (D) Happy</div>
+
+          <div class="practice-card">
+            <div class="p-num">Item 1 — Selected-Response</div>
+            <div class="p-question">What is the MOST LIKELY reason Greta's mother invites Greta to sit on the piano bench with her?
+(A) She would like to show Greta how to play the piano.
+(B) She knows Greta is upset and is trying to comfort her.
+(C) She would like to explain to Greta how she learned to play the piano.
+(D) She knows Greta is nervous about having new neighbors.</div>
             <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: <a class="concept-link" href="#context-clues">Context Clues</a></strong>
+            <div class="p-answer"><strong>Answer: (B) She knows Greta is upset and is trying to comfort her.</strong>
 
-Clues: the pool is cold (not appealing), and his friends had to "keep encouraging him" (he wasn't jumping on his own).
-If he needed convincing, he was <strong>unwilling</strong> — he didn't want to do it.
+This is supported by Greta's mother's earlier comment, "Yes, and it will all be fine." She knows Greta doesn't like change.
 
-Answer: <strong>(B) Unwilling</strong></div>
+(A) No evidence she wants to teach Greta to play ✗
+(C) She mentions she can play, but not how she learned ✗
+(D) The neighbors moving isn't Greta's main concern ✗</div>
           </div>
-          <div class="practice-card" id="q-rv-p2">
-            <div class="p-num">Practice 2</div>
-            <div class="p-question">A passage begins: "Have you ever wondered why the sky is blue? It all starts with sunlight..." What text structure is this?</div>
-            <div class="p-choices">(A) Problem and solution &nbsp; (B) Compare and contrast &nbsp; (C) Cause and effect &nbsp; (D) Sequence/chronological order</div>
+
+          <div class="practice-card">
+            <div class="p-num">Item 2 — Selected-Response</div>
+            <div class="p-question">Which explanation BEST describes the meaning of the phrase "drifted away from it" as used in these sentences from the story?
+
+"I didn't really stop. I guess I kind of drifted away from it. When I moved out of my parents' house, I left the piano behind, and I never got another one."
+
+(A) Greta's mother stopped enjoying music.
+(B) Greta's mother felt sad about playing music.
+(C) Greta's mother stopped playing the piano bit by bit.
+(D) Greta's mother suddenly finished listening to a song.</div>
             <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: Text Structure</strong>
+            <div class="p-answer"><strong>Answer: (C) Greta's mother stopped playing the piano bit by bit.</strong>
 
-The passage starts with a question (why is the sky blue?) and then explains the answer (it starts with sunlight → cause → effect). It's explaining WHY something happens.
+"Drifted away" means she gradually, perhaps unintentionally, moved away from playing piano — not a sudden stop, but a slow fading.
 
-Answer: <strong>(C) Cause and effect</strong>
-
-Text structures to know:
-- <strong>Cause/Effect:</strong> why things happen (signal words: because, so, as a result)
-- <strong>Compare/Contrast:</strong> how things are alike or different (signal words: but, however, similarly)
-- <strong>Problem/Solution:</strong> a problem and how to fix it
-- <strong>Sequence:</strong> events in order (signal words: first, next, then, finally)
-- <strong>Description:</strong> describing what something is like</div>
+(A) No evidence she stopped enjoying music ✗
+(B) No evidence music made her sad ✗
+(D) "Drifting away" is about quitting over time, not stopping mid-song ✗</div>
           </div>
-          <div class="practice-card" id="q-rv-p3">
-            <div class="p-num">Practice 3</div>
-            <div class="p-question">What does the prefix "un-" mean in the word "unhappy"?</div>
-            <div class="p-choices">(A) Very &nbsp; (B) Not &nbsp; (C) Again &nbsp; (D) Before</div>
+
+          <div class="practice-card">
+            <div class="p-num">Item 3 — Selected-Response</div>
+            <div class="p-question">At the end of the story, Greta asks her mother, "Will you play some more?"
+
+Based on the story, why does Greta MOST LIKELY ask this question?
+(A) She wants her neighbors to hear her mother playing the piano.
+(B) She worries that her mother does not like playing the piano.
+(C) She hopes her mother can become better at playing the piano.
+(D) She enjoys hearing her mother playing the piano.</div>
             <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: Prefixes</strong>
+            <div class="p-answer"><strong>Answer: (D) She enjoys hearing her mother playing the piano.</strong>
 
-un- = <strong>not</strong>
-unhappy = not happy
-unfair = not fair
-unable = not able
+Greta has come to love the piano music. Knowing her mother can play feels like "a secret," causing "a bubble of warmth" inside her.
 
-Other prefixes to know:
-- re- = again (redo, rewrite)
-- pre- = before (preview, preheat)
-- mis- = wrong (mistake, misunderstand)
-- dis- = not/opposite (disagree, disappear)
-
-Answer: <strong>(B) Not</strong></div>
+(A) No evidence she cares about neighbors hearing ✗
+(B) She's not nudging her mom into a difficult task ✗
+(C) Her mother is already an adept pianist ✗</div>
           </div>
-          <div class="practice-card" id="q-rv-p4">
-            <div class="p-num">Practice 4</div>
-            <div class="p-question">"The wind whispered through the trees." What type of figurative language is this?</div>
-            <div class="p-choices">(A) Simile &nbsp; (B) Metaphor &nbsp; (C) Personification &nbsp; (D) Alliteration</div>
+
+          <div class="practice-card">
+            <div class="p-num">Item 4 — Selected-Response</div>
+            <div class="p-question">Why does the author use dialogue in the scene at the piano?
+(A) to show how Greta's feelings are changing
+(B) to show why Greta's mother is upset
+(C) to show Greta's excitement about having new neighbors
+(D) to show that Greta's mother worries about her daughter</div>
             <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: Figurative Language</strong>
+            <div class="p-answer"><strong>Answer: (A) to show how Greta's feelings are changing</strong>
 
-The wind can't actually whisper — only people can whisper. Giving human qualities to something that isn't human is called <strong>personification</strong>.
+There are two sections of dialogue — the first shows Greta's dismay at the piano's arrival, the second shows her pleasure at her mother's playing. The dialogue reveals her transformation.
 
-Quick guide:
-- <strong>Simile:</strong> compares using "like" or "as" ("fast AS a cheetah")
-- <strong>Metaphor:</strong> compares WITHOUT like/as ("he IS a rock")
-- <strong>Personification:</strong> gives human traits to non-human things ("the sun smiled")
-- <strong>Alliteration:</strong> repeating the same starting sound ("Peter Piper picked")
+(B) Greta's mother is not upset ✗
+(C) Greta's emotions are about the piano, not neighbors ✗
+(D) The mother reassures but doesn't express worry ✗</div>
+          </div>
 
-Answer: <strong>(C) Personification</strong></div>
+          <div class="practice-card">
+            <div class="p-num">Item 5 — Selected-Response</div>
+            <div class="p-question">Which sentence correctly states the point of view in the story?
+(A) The story is told by a narrator who provides Greta's point of view.
+(B) The story is told by a narrator who provides Greta's mother's point of view.
+(C) The story is told by a narrator who provides Richard's point of view.
+(D) The story is told by a narrator who provides many family members' points of view.</div>
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="p-answer"><strong>Answer: (A) The story is told by a narrator who provides Greta's point of view.</strong>
+
+The story is third-person limited, limited to Greta's thoughts and emotions. We know what Greta thinks and feels, but not what her mother or Richard are thinking.
+
+(B), (C), (D) are all incorrect because the story only shows Greta's perspective ✗</div>
+          </div>
+
+          <div class="practice-card">
+            <div class="p-num">Item 6 — Evidence-Based Selected-Response (EBSR)</div>
+            <div class="p-question"><strong>Part A:</strong> Which word BEST describes Greta's mother?
+(A) generous &nbsp; (B) humorous &nbsp; (C) talented &nbsp; (D) forgiving
+
+<strong>Part B:</strong> Which sentence from the story BEST supports the answer in Part A?
+(A) "Yes, and it will all be fine," said Greta's mother, and she walked back toward the living room.
+(B) The sound was pouring out of her mother's fingers, but she was looking straight ahead with her head cocked slightly to the right.
+(C) "You might be right," Greta's mother said, and she stole a quick look at her daughter.
+(D) Greta felt like her mother had just told her a secret, and a bubble of warmth rose inside her.</div>
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="p-answer"><strong>Part A: (C) talented</strong>
+<strong>Part B: (B) The sound was pouring out of her mother's fingers...</strong>
+
+Greta hears beautiful music and cannot identify the source right away — she is pleasantly surprised to find that it is her mother playing the piano. The description of music "pouring out of her mother's fingers" shows her talent.
+
+Part A wrong choices:
+(A) generous — while appealing, her piano talent is emphasized more ✗
+(B) humorous — no indication she is humorous ✗
+(D) forgiving — no scenario requires forgiveness ✗</div>
+          </div>
+
+          <div class="practice-card">
+            <div class="p-num">Item 7 — Constructed-Response</div>
+            <div class="p-question">Explain the theme of "The Piano."
+Use details from the story to support your answer.</div>
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="p-answer"><strong>Topic: <a class="concept-link" href="#literary-text">Theme</a></strong>
+
+<strong>Exemplar (2 points):</strong> "The theme of the story is to not judge change as always being bad. Greta immediately reacts with suspicion and dread of the new piano. By the end of the story, though, she has learned to welcome it. Greta tells her mother she never should have stopped playing the piano. When Greta learns that her mother can play she feels 'a bubble of warmth.' Knowing this secret has brought them closer together."
+
+<strong>1-point response:</strong> "The theme of the story is to think before you judge a change. The piano turns out to be a good change."
+
+Scored 0–2 points. Full credit requires identifying the theme AND supporting it with specific text details.</div>
+          </div>
+
+          <div class="practice-card">
+            <div class="p-num">Item 8 — Extended Constructed-Response (Narrative Writing)</div>
+            <div class="p-question">Write an ending to the story that starts with Greta's mother saying to Greta, "Now tell me why you were so upset when you saw the piano."
+
+Be sure that your story ending flows naturally from the rest of the story. Use dialogue and descriptions in your story.
+
+<strong>Narrative Writer's Checklist:</strong> Develop a real or imagined experience. Establish a situation. Organize events in order. Use transitional words. Use dialogue and description. Use concrete words and sensory details. Include a conclusion. Use ideas from the passage. Check for correct usage, grammar, spelling, capitalization, and punctuation.</div>
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="p-answer"><strong>Topic: <a class="concept-link" href="#literary-text">Narrative Writing</a></strong>
+
+<strong>Exemplar (4 points):</strong>
+Greta's mother said, "Now tell me why you were so upset when you saw the piano."
+
+"Well, for one thing, you know me. I don't like surprises."
+
+"That's for sure! I did know that," her mother said.
+
+"Well, then Richard was pounding on the piano really loudly. And it replaced my toy chest. My toy chest has always been in that spot in the living room." Greta felt a little foolish for a moment. She giggled softly.
+
+"Well," said her mother, raising her eyebrows, "we could always bring the toy chest back in here and get rid of the piano. Then you can play with your stuffed animals all day."
+
+They both laughed.
+
+"Now let me show you a simple little melody," Greta's mother said, turning to the piano keys.
+
+Scored 0–4 points using the narrative holistic rubric. The best responses use dialogue, description, and flow naturally from the story.</div>
           </div>
         </div>
       </div>
 
-      <!-- WRITING & LANGUAGE (47%) -->
+      <!-- ==================== WRITING & LANGUAGE (47%) ==================== -->
       <div class="domain-section" id="ds-wl">
-        <div class="sub-header"><span class="sub-icon">📖</span> Learn — Worked Examples</div>
+        <div class="sub-header"><span class="sub-icon">📖</span> Learn — Writing Task Structure</div>
 
-        <div class="teach-card" id="q-wl-t1">
-          <h3>Opinion Writing — Building an Argument</h3>
-          <div class="problem">The test will ask you to read two passages and then write an essay giving your opinion. Here's how to organize it:</div>
+        <div class="teach-card">
+          <h3>Opinion/Informational Essay — How It Works</h3>
+          <div class="problem" style="white-space: pre-line;">On Section 1 of the EOG, you will read two passages and write an essay. You may get an <strong>opinion essay</strong> or an <strong>informational/explanatory essay</strong>.
+
+<strong>Opinion Essay:</strong> State your opinion, support it with reasons and evidence from the passages.
+<strong>Informational Essay:</strong> Examine a topic, explain ideas using facts and details from both passages.
+
+You will also answer 3 selected-response questions about the passages before writing.
+
+<strong>Writer's Checklist (use before, during, and after writing):</strong>
+• Introduce your topic/opinion clearly
+• Support with reasons and details from the passages
+• Give your reasons in a clear order
+• Use YOUR OWN words (except when quoting directly)
+• Identify passages by title or number when using their details
+• Use linking words and phrases to connect ideas
+• Use clear language and vocabulary
+• Have a strong conclusion
+• Check for correct usage, grammar, spelling, capitalization, and punctuation</div>
           <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
           <div class="steps">
-<span class="step-num">Step 1: Plan (2 minutes)</span>
-   Pick a side. Write your opinion in one sentence.
-   Find 2-3 reasons from the passages that support your opinion.
+<span class="step-num">Structure for a strong essay:</span>
 
-<span class="step-num">Step 2: Introduction (1 paragraph)</span>
-   Start with a hook (question or interesting statement).
-   State your opinion clearly: "I believe that ___ because ___."
+<span class="step-num">1. Introduction (1 paragraph):</span>
+   State your opinion or introduce your topic clearly.
+   "I believe that ___ because ___."
 
-<span class="step-num">Step 3: Body (2-3 paragraphs)</span>
+<span class="step-num">2. Body (2–3 paragraphs):</span>
    One reason per paragraph.
-   Use evidence from the passage: "In the passage, it says '___.' This shows that ___."
+   Use evidence: "In the passage, it says '___.' This shows that ___."
    Explain WHY your reason matters.
 
-<span class="step-num">Step 4: Conclusion (1 paragraph)</span>
-   Restate your opinion in different words.
+<span class="step-num">3. Conclusion (1 paragraph):</span>
+   Restate your opinion/main idea in different words.
    End with a strong closing statement.
 
-<div class="tip">💡 Linking words for opinion writing:
-   First, Second, Third, In addition, Furthermore, For example, Most importantly, In conclusion, Therefore
-   
-   DON'T forget to use EVIDENCE from the passage! The rubric checks for this.</div></div>
+<div class="tip">💡 Linking words: First, Second, Third, In addition, Furthermore, For example, Most importantly, In conclusion, Therefore, However, On the other hand.
+
+Scored on TWO traits: Ideas (0–4 points) + Conventions (0–3 points) = up to 7 points total.</div></div>
         </div>
 
-        <div class="teach-card" id="q-wl-t2">
-          <h3>Commas in a Series</h3>
-          <div class="problem">Which sentence uses commas correctly?
-(A) Nelson packed his backpack lunch, and water bottle.
-(B) Nelson packed his backpack lunch and, water bottle.
-(C) Nelson packed his backpack, lunch, and water bottle.
-(D) Nelson, packed his backpack lunch and water bottle.</div>
-          <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
-          <div class="steps">
-<span class="step-num">Step 1:</span> When listing 3 or more items, put a comma AFTER each item except the last one. Put "and" before the last item.
-
-<span class="step-num">Step 2:</span> The items in the list: backpack, lunch, water bottle (3 items).
-   "Nelson packed his backpack, lunch, and water bottle." ✓
-
-<div class="answer">Answer: (C)</div>
-<div class="tip">💡 Comma rules to know:
-   • Lists of 3+ items: "apples, bananas, and oranges"
-   • Before a conjunction joining two complete sentences: "I ran, and she walked."
-   • After an introductory word: "However, the game was canceled."
-   • Around the city/state: "Roswell, Georgia, is home."
-   • In dates: "April 29, 2026"</div></div>
-        </div>
-
-        <div class="teach-card" id="q-wl-t3">
-          <h3>Subject-Verb Agreement</h3>
-          <div class="problem">Which sentence is correct?
-(A) The dogs runs in the yard.
-(B) The dogs run in the yard.
-(C) The dogs is running in the yard.
-(D) The dogs running in the yard.</div>
-          <button class="step-toggle" onclick="toggleSteps(this)">Show step-by-step →</button>
-          <div class="steps">
-<span class="step-num">Step 1:</span> Find the subject: "The dogs" → plural (more than one dog).
-
-<span class="step-num">Step 2:</span> The verb must match.
-   Singular subjects → "runs," "is"
-   Plural subjects → "run," "are"
-
-<span class="step-num">Step 3:</span> Check each:
-   (A) dogs runs ✗ (plural + singular verb)
-   (B) dogs run ✓ (plural + plural verb)
-   (C) dogs is ✗ ("is" is singular)
-   (D) dogs running ✗ (no main verb — "running" alone isn't complete)
-
-<div class="answer">Answer: (B) The dogs run in the yard.</div>
-<div class="tip">💡 Trick that confuses people: with most nouns, adding "s" makes it plural (dogs). But with verbs, adding "s" makes it singular (runs). So: "The dog runs" but "The dogs run."</div></div>
-        </div>
-
-        <div class="sub-header"><span class="sub-icon">✏️</span> Practice — Your Turn</div>
+        <div class="sub-header"><span class="sub-icon">✏️</span> Practice — Lindbergh &amp; Earhart Writing Task</div>
         <div class="practice-grid">
-          <div class="practice-card" id="q-wl-p1">
-            <div class="p-num">Practice 1</div>
-            <div class="p-question">Which sentence has correct capitalization?
-(A) Nelson goes to northwood elementary school.
-(B) nelson goes to Northwood Elementary School.
-(C) Nelson goes to Northwood Elementary School.
-(D) Nelson Goes To Northwood Elementary School.</div>
+
+          <div class="practice-card">
+            <div class="p-num">Extended Writing-Response — Compare &amp; Contrast</div>
+            <div class="passage-box">
+              <div class="passage-title">Charles Lindbergh</div>
+In 1927, Charles Lindbergh became the first person to fly nonstop across the Atlantic Ocean. This was a famous event in an event-filled life.
+
+Lindbergh was born in 1902. At that time, flying was in its early days. Young Lindbergh found flight fascinating. He left college to go to flight school. After two years, he went into the U.S. Army. He became a pilot for the U.S. Army Air Corps.
+
+After the army, Lindbergh flew for the U.S. Postal Service. He flew a mail plane from St. Louis to Chicago. During this time, he earned his nickname, "Lucky Lindy." He had to jump out of his plane four times. He got lucky and lived every time!
+
+In 1919, a man named Raymond Orteig started a contest. He offered $25,000 to the first person who could fly across the Atlantic Ocean. Lindbergh spent the next eight years getting the right plane. He named the plane the Spirit of St. Louis. Then, in May 1927, he made his famous flight across the Atlantic.
+
+Lindbergh received many awards in his life. One was a Pulitzer Prize for a book he wrote about his life. Lindbergh died at the age of 72.
+            </div>
+            <div class="passage-box">
+              <div class="passage-title">Amelia Earhart</div>
+Amelia Earhart was born in 1898 in Kansas. She was a good student. However, she left college at the age of 19. Soon afterward, Earhart went to an air show in Long Beach, California. It was there that she took her first airplane ride. It changed her life forever. She started taking flying lessons. Earhart spent the next couple of years learning all about flying. She even bought her own plane.
+
+Unfortunately, Earhart ran out of money and had to sell her plane. She went back to school for a while. Then she worked as a teacher and a social worker. In 1927, Charles Lindbergh made his famous flight across the Atlantic Ocean. People began asking, "Who will be the first woman?" In 1928, Earhart was a passenger on a flight across the Atlantic. She was the first woman to fly across the Atlantic. She later wrote a book about the experience. But being a passenger wasn't enough for Earhart.
+
+In 1935, Earhart became the first person to fly from Hawaii to the U.S. mainland. The government gave her a medal for this. In 1937, she decided to try to fly around the world. She made it to an island in the Pacific Ocean. But then her plane disappeared. She was never found. Earhart will always be remembered, though. She showed the world what women pilots can do.
+            </div>
+            <div class="p-question"><strong>WRITING TASK:</strong> Think about the ideas in BOTH passages. Then write an informational essay in your own words explaining how Charles Lindbergh and Amelia Earhart were similar and how they were different.
+
+Be sure to use information from BOTH passages in your informational essay.</div>
             <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: Capitalization Rules</strong>
+            <div class="p-answer"><strong>Exemplar 7-point response:</strong>
 
-Capitalize:
-- The first word of a sentence ✓
-- Names of people (Nelson) ✓
-- Names of specific places (Northwood Elementary School) ✓
-- Do NOT capitalize regular words in the middle of a sentence (goes, to)
+"Charles Lindbergh and Amelia Earhart had many similarities. They were both pilots at around the same time. Both left college and studied flying. They were both first at many flying goals, like flying across the Atlantic Ocean. They both wrote books about what they did.
 
-Answer: <strong>(C) Nelson goes to Northwood Elementary School.</strong></div>
-          </div>
-          <div class="practice-card" id="q-wl-p2">
-            <div class="p-num">Practice 2</div>
-            <div class="p-question">Which sentence correctly uses quotation marks?
-(A) Nelson said I'm ready for the test.
-(B) Nelson said, "I'm ready for the test."
-(C) Nelson said, I'm ready for the test.
-(D) "Nelson said," I'm ready for the test.</div>
-            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: Quotation Marks</strong>
+The two pilots were different in some ways, however. One clear difference is that Lindbergh was a man, and Earhart was a woman. Also, Lindbergh didn't have the problems with money that Earhart had. I think the biggest difference between them, though, was that Lucky Lindy had good luck. He survived four plane crashes and lived to be 72 years old. But Earhart didn't have such good luck. At a young age, she disappeared while trying to fly around the world.
 
-Rules for dialogue:
-1. Put quotation marks around the exact words someone says.
-2. Put a comma after "said" (or "asked," "shouted," etc.) before the quote.
-3. The period goes INSIDE the quotation marks.
+In the end, we will remember both Lindbergh and Earhart for being great pilots."
 
-Nelson said, "I'm ready for the test." ✓
-
-Answer: <strong>(B) Nelson said, "I'm ready for the test."</strong></div>
-          </div>
-          <div class="practice-card" id="q-wl-p3">
-            <div class="p-num">Practice 3</div>
-            <div class="p-question">Choose the correct word: "The team played _____ best game of the season."</div>
-            <div class="p-choices">(A) they're &nbsp; (B) there &nbsp; (C) their &nbsp; (D) thier</div>
-            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: Commonly Confused Words</strong>
-
-<strong>their</strong> = belongs to them ("their best game")
-<strong>there</strong> = a place ("over there")
-<strong>they're</strong> = they are ("they're playing well")
-
-The sentence is talking about something that belongs to the team (the team's best game) → <strong>their</strong>.
-
-Answer: <strong>(C) their</strong></div>
-          </div>
-          <div class="practice-card" id="q-wl-p4">
-            <div class="p-num">Practice 4</div>
-            <div class="p-question">Which is a complete sentence?
-(A) Running down the street.
-(B) Because the bus was late.
-(C) The cat jumped over the fence.
-(D) After school on Friday.</div>
-            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
-            <div class="p-answer"><strong>Topic: Complete Sentences vs. Fragments</strong>
-
-A complete sentence needs:
-1. A subject (who or what)
-2. A verb (what they did)
-3. A complete thought
-
-(A) Running down the street → Who is running? No subject. Fragment.
-(B) Because the bus was late → This starts with "because" and leaves you hanging. Fragment.
-(C) The cat jumped over the fence → Subject (cat) + verb (jumped) + complete thought ✓
-(D) After school on Friday → No verb, no subject. Fragment.
-
-Answer: <strong>(C) The cat jumped over the fence.</strong></div>
+<strong>Scoring:</strong> Ideas (0–4 pts) + Conventions (0–3 pts) = up to 7 points.
+Key: Introduce topic clearly, use details from BOTH passages, organize similarities and differences, use linking words, strong conclusion.</div>
           </div>
         </div>
       </div>
     </div>
 
   </div>
+
+  <div class="source-note">All questions and content from the <strong>Georgia Milestones Grade 4 EOG Study/Resource Guide for Students and Parents</strong>. Copyright &copy; 2020 by Georgia Department of Education. All rights reserved.</div>
 
   <footer>Built for Nelson Bynum &middot; Northwood Explorer &middot; April 2026</footer>
 </div>
