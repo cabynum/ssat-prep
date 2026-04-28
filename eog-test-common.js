@@ -1,34 +1,42 @@
-/* ====== SSAT Practice Test Engine ====== */
+/* ====== EOG Practice Test Engine ====== */
 
 var STORAGE_KEY = 'eogTestResults';
 var LETTERS = ['A','B','C','D'];
 
-const CATEGORIES = {
-  'Algebra': [
-    'Classic Problem Solving','Exponential Expressions','Factoring','Functions',
-    'Graphs','Linear Equations / Systems','Polynomial Expressions','Quadratic Equations',
-    'Radical Expressions','Rates / Ratios / Proportions / Percentages',
-    'Rational Expressions','Slope'
+var ALL_TEST_DATA = (typeof EOG_TEST_DATA !== 'undefined') ? EOG_TEST_DATA : {};
+var TIMED_TEST_META = (typeof EOG_TEST_META !== 'undefined') ? EOG_TEST_META : [];
+
+var CATEGORIES = {
+  'Number and Operations—Fractions': [
+    'Equivalent Fractions','Comparing Fractions','Adding Fractions','Subtracting Fractions',
+    'Multiplying Fractions by Whole Numbers','Mixed Numbers','Decimals and Fractions','Comparing Decimals'
   ],
-  'Geometry & Measurement': [
-    '3D: Volume / Surface Area','Angles','Area',
-    'Converting Units / Dimensional Analysis','Coordinate Geometry',
-    'Length / Perimeter / Circumference','Pythagorean Theorem',
-    'Transformations'
+  'Operations and Algebraic Thinking': [
+    'Multi-Step Word Problems','Multiplicative Comparison','Factors','Multiples',
+    'Prime and Composite','Patterns','Input-Output Patterns'
   ],
-  'Data Analysis': [
-    'Counting','Data Graphs & Tables','Mean / Median / Mode / Range',
-    'Probability','Set Theory'
+  'Number and Operations in Base 10': [
+    'Place Value','Rounding','Multi-Digit Addition','Multi-Digit Subtraction',
+    'Multi-Digit Multiplication','Division with Remainders','Expanded Form','Comparing Numbers'
   ],
-  'Numbers & Operations': [
-    'Arithmetic','Estimation','Number Sense / Number Theory','Order of Operations'
+  'Measurement and Data': [
+    'Unit Conversions','Area','Perimeter','Angles','Elapsed Time'
   ],
-  'Reasoning': [
-    'Puzzle / Logical Reasoning','Sequences & Patterns','Visual Spatial Reasoning'
+  'Geometry': [
+    'Lines of Symmetry','Parallel and Perpendicular Lines','Classifying Angles',
+    'Classifying Triangles','Classifying Quadrilaterals','Perpendicular Lines','Parallel Lines'
+  ],
+  'Reading and Vocabulary': [
+    'Main Idea','Supporting Details','Inference','Author\'s Purpose','Context Clues',
+    'Text Structure','Theme','Figurative Language'
+  ],
+  'Writing and Language': [
+    'Capitalization','Commas','Commas in a Series','Quotation Marks','Subject-Verb Agreement',
+    'Complete Sentences','Commonly Confused Words','Prefixes','Suffixes','Punctuation'
   ]
 };
 
-const ALL_TOPICS = Object.values(CATEGORIES).flat();
+var ALL_TOPICS = Object.values(CATEGORIES).flat();
 
 /* ---------- State ---------- */
 let testId = null;
