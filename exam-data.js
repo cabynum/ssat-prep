@@ -113,74 +113,74 @@ EXAM_TESTS.exam30 = {
       // Synonyms (5)
       {
         id: 'e30v1', type: 'synonym', section: 'Verbal',
-        question: 'VIVID',
-        choices: ['dull', 'bright', 'slow', 'cold', 'quiet'],
-        answer: 'B',
-        explanation: 'VIVID means producing strong, clear images or very bright/intense. "Bright" is the closest synonym.\n\nVivid → bright, intense, colorful, striking'
+        question: 'ARDUOUS',
+        choices: ['simple', 'creative', 'difficult', 'ancient', 'sudden'],
+        answer: 'C',
+        explanation: 'ARDUOUS means requiring great effort; difficult and tiring.\n\nArduous → difficult, strenuous, grueling, exhausting'
       },
       {
         id: 'e30v2', type: 'synonym', section: 'Verbal',
-        question: 'RELUCTANT',
-        choices: ['eager', 'hesitant', 'joyful', 'rapid', 'gentle'],
-        answer: 'B',
-        explanation: 'RELUCTANT means unwilling or hesitant to do something.\n\nReluctant → hesitant, unwilling, resistant'
+        question: 'FUTILE',
+        choices: ['hopeless', 'fragile', 'flexible', 'furious', 'frequent'],
+        answer: 'A',
+        explanation: 'FUTILE means incapable of producing any result; pointless.\n\nFutile → hopeless, useless, pointless, vain'
       },
       {
         id: 'e30v3', type: 'synonym', section: 'Verbal',
-        question: 'CONCEAL',
-        choices: ['reveal', 'admire', 'hide', 'build', 'arrange'],
-        answer: 'C',
-        explanation: 'CONCEAL means to keep something from being seen or known; to hide.\n\nConceal → hide, cover, disguise, mask'
+        question: 'ELUSIVE',
+        choices: ['obvious', 'generous', 'harmful', 'hard to catch', 'expensive'],
+        answer: 'D',
+        explanation: 'ELUSIVE means difficult to find, catch, or achieve.\n\nElusive → hard to catch, evasive, slippery, fleeting'
       },
       {
         id: 'e30v4', type: 'synonym', section: 'Verbal',
-        question: 'TRANQUIL',
-        choices: ['noisy', 'vast', 'peaceful', 'swift', 'ancient'],
+        question: 'CONTEMPT',
+        choices: ['admiration', 'patience', 'scorn', 'satisfaction', 'confusion'],
         answer: 'C',
-        explanation: 'TRANQUIL means free from disturbance; calm and peaceful.\n\nTranquil → peaceful, calm, serene, quiet'
+        explanation: 'CONTEMPT means the feeling that someone or something is worthless; scorn and disrespect.\n\nContempt → scorn, disdain, disrespect, derision'
       },
       {
         id: 'e30v5', type: 'synonym', section: 'Verbal',
-        question: 'SCARCE',
-        choices: ['abundant', 'rare', 'tiny', 'broken', 'heavy'],
-        answer: 'B',
-        explanation: 'SCARCE means insufficient for the demand; in short supply; rare.\n\nScarce → rare, limited, uncommon, sparse'
+        question: 'PRAGMATIC',
+        choices: ['dramatic', 'imaginary', 'wealthy', 'ancient', 'practical'],
+        answer: 'E',
+        explanation: 'PRAGMATIC means dealing with things in a practical, realistic way rather than theoretical.\n\nPragmatic → practical, realistic, sensible, down-to-earth'
       },
       // Analogies (5)
       {
         id: 'e30v6', type: 'analogy', section: 'Verbal',
-        question: 'Painter is to canvas as writer is to',
-        choices: ['brush', 'paper', 'ink', 'library', 'story'],
+        question: 'Rehearsal is to performance as practice is to',
+        choices: ['sport', 'game', 'coach', 'uniform', 'skill'],
         answer: 'B',
-        explanation: 'A painter works on a canvas. A writer works on paper.\n\nThe relationship is: artist → their working surface.'
+        explanation: 'A rehearsal prepares you for a performance. Practice prepares you for a game.\n\nThe relationship is: preparation → the event it prepares for.'
       },
       {
         id: 'e30v7', type: 'analogy', section: 'Verbal',
-        question: 'Fish is to school as wolf is to',
-        choices: ['den', 'howl', 'pack', 'fur', 'prey'],
-        answer: 'C',
-        explanation: 'A group of fish is called a school. A group of wolves is called a pack.\n\nThe relationship is: animal → name for its group.'
+        question: 'Drought is to rain as famine is to',
+        choices: ['desert', 'disease', 'poverty', 'food', 'heat'],
+        answer: 'D',
+        explanation: 'A drought is a severe shortage of rain. A famine is a severe shortage of food.\n\nThe relationship is: crisis → the resource that is lacking.'
       },
       {
         id: 'e30v8', type: 'analogy', section: 'Verbal',
-        question: 'Thermometer is to temperature as ruler is to',
-        choices: ['king', 'inches', 'school', 'length', 'wood'],
-        answer: 'D',
-        explanation: 'A thermometer measures temperature. A ruler measures length.\n\nThe relationship is: instrument → what it measures.'
+        question: 'Whisper is to shout as drizzle is to',
+        choices: ['rain', 'cloud', 'downpour', 'wind', 'fog'],
+        answer: 'C',
+        explanation: 'A whisper is a quiet version of a shout. A drizzle is a mild version of a downpour.\n\nThe relationship is: mild degree → extreme degree of the same thing.'
       },
       {
         id: 'e30v9', type: 'analogy', section: 'Verbal',
-        question: 'Bright is to dim as loud is to',
-        choices: ['sound', 'quiet', 'music', 'echo', 'shout'],
-        answer: 'B',
-        explanation: 'Bright is the opposite of dim. Loud is the opposite of quiet.\n\nThe relationship is: adjective → its antonym.'
+        question: 'Blueprint is to building as recipe is to',
+        choices: ['kitchen', 'chef', 'ingredient', 'meal', 'cookbook'],
+        answer: 'D',
+        explanation: 'A blueprint is a plan for creating a building. A recipe is a plan for creating a meal.\n\nThe relationship is: plan/instructions → what gets created from them.'
       },
       {
         id: 'e30v10', type: 'analogy', section: 'Verbal',
-        question: 'Chapter is to book as inning is to',
-        choices: ['baseball', 'pitcher', 'game', 'score', 'bat'],
+        question: 'Telescope is to distant as microscope is to',
+        choices: ['laboratory', 'scientist', 'tiny', 'lens', 'dark'],
         answer: 'C',
-        explanation: 'A chapter is a division of a book. An inning is a division of a game.\n\nThe relationship is: part → the whole it belongs to.'
+        explanation: 'A telescope makes distant things visible. A microscope makes tiny things visible.\n\nThe relationship is: instrument → what type of thing it reveals.'
       }
     ]
   },
@@ -296,106 +296,106 @@ EXAM_TESTS.exam30 = {
     timeLimit: 840,
     instructions: 'Solve each math problem and select the best answer. No calculators are allowed. Figures are not necessarily drawn to scale.',
     questions: [
-      // Algebra (5)
+      // Number Sense (4)
       {
         id: 'e30m1', section: 'Quantitative',
-        category: 'Algebra', topic: 'Linear Equations / Systems',
-        question: 'If 4x + 7 = 31, what is the value of x?',
-        choices: ['4', '5', '6', '7', '8'],
-        answer: 'C',
-        explanation: 'Step 1: Subtract 7 from both sides.\n4x = 24\n\nStep 2: Divide both sides by 4.\nx = 6\n\nAnswer: (C) 6'
+        category: 'Number Sense', topic: 'Comparing Fractions',
+        question: 'Which of the following is greatest?',
+        choices: ['3/8', '0.4', '37%', '2/5', '0.38'],
+        answer: 'B',
+        explanation: 'Step 1: Convert everything to decimals.\n3/8 = 0.375\n0.4 = 0.400\n37% = 0.370\n2/5 = 0.400\n0.38 = 0.380\n\nStep 2: Compare. 0.4 and 2/5 are both 0.400, but 0.4 appears first in the choices.\n\nNote: 0.4 and 2/5 are equal. Both are correct, but (B) 0.4 comes first.\n\nAnswer: (B) 0.4'
       },
       {
         id: 'e30m2', section: 'Quantitative',
-        category: 'Algebra', topic: 'Rates / Ratios / Proportions / Percentages',
-        question: 'A shirt that originally costs $80 is on sale for 30% off. What is the sale price?',
-        choices: ['$24', '$50', '$54', '$56', '$60'],
+        category: 'Number Sense', topic: 'Factors and Multiples',
+        question: 'What is the greatest common factor of 36 and 48?',
+        choices: ['4', '6', '8', '12', '24'],
         answer: 'D',
-        explanation: 'Step 1: Find 30% of $80.\n0.30 × 80 = $24\n\nStep 2: Subtract from original price.\n$80 − $24 = $56\n\nAnswer: (D) $56'
+        explanation: 'Step 1: List factor pairs.\n36: 1, 2, 3, 4, 6, 9, 12, 18, 36\n48: 1, 2, 3, 4, 6, 8, 12, 16, 24, 48\n\nStep 2: Largest number in both lists is 12.\n\nAnswer: (D) 12'
       },
       {
         id: 'e30m3', section: 'Quantitative',
-        category: 'Algebra', topic: 'Slope',
-        question: 'What is the slope of the line passing through the points (2, 5) and (6, 13)?',
-        choices: ['1', '2', '3', '4', '8'],
-        answer: 'B',
-        explanation: 'Step 1: Use the slope formula: m = (y₂ − y₁) / (x₂ − x₁)\nm = (13 − 5) / (6 − 2) = 8 / 4 = 2\n\nAnswer: (B) 2'
+        category: 'Number Sense', topic: 'Properties of Numbers',
+        question: 'If n is an odd number, which of the following MUST be even?',
+        choices: ['n + 2', 'n²', 'n + 1', '3n', 'n² + 2'],
+        answer: 'C',
+        explanation: 'Step 1: Test with an odd number like n = 3.\n(A) 3 + 2 = 5 (odd)\n(B) 3² = 9 (odd)\n(C) 3 + 1 = 4 (even) ✓\n(D) 3 × 3 = 9 (odd)\n(E) 9 + 2 = 11 (odd)\n\nOdd + 1 always equals even.\n\nAnswer: (C) n + 1'
       },
       {
         id: 'e30m4', section: 'Quantitative',
-        category: 'Algebra', topic: 'Exponential Expressions',
-        question: 'What is the value of 2<sup>3</sup> × 2<sup>4</sup>?',
-        choices: ['64', '128', '256', '512', '1024'],
-        answer: 'B',
-        explanation: 'Step 1: When multiplying powers with the same base, add exponents.\n2³ × 2⁴ = 2⁽³⁺⁴⁾ = 2⁷\n\nStep 2: Calculate 2⁷.\n2⁷ = 128\n\nAnswer: (B) 128'
+        category: 'Number Sense', topic: 'Fractions',
+        question: 'What is 2/3 + 3/4?',
+        choices: ['5/7', '5/12', '1 1/12', '1 5/12', '1 1/2'],
+        answer: 'D',
+        explanation: 'Step 1: Find a common denominator. LCD of 3 and 4 is 12.\n2/3 = 8/12\n3/4 = 9/12\n\nStep 2: Add.\n8/12 + 9/12 = 17/12 = 1 5/12\n\nAnswer: (D) 1 5/12'
       },
+      // Algebra (3)
       {
         id: 'e30m5', section: 'Quantitative',
-        category: 'Algebra', topic: 'Classic Problem Solving',
-        question: 'Maria is 3 times as old as her son. In 12 years, she will be twice as old as her son. How old is Maria now?',
-        choices: ['24', '30', '36', '42', '48'],
+        category: 'Algebra', topic: 'Percent Change',
+        question: 'A store raises all prices by 20%, then offers a 20% discount on the new prices. Compared to the original price, a customer pays',
+        choices: ['the same amount', '4% more', '4% less', '2% more', '2% less'],
         answer: 'C',
-        explanation: 'Step 1: Let the son\'s age = s. Maria\'s age = 3s.\n\nStep 2: In 12 years: 3s + 12 = 2(s + 12)\n3s + 12 = 2s + 24\ns = 12\n\nStep 3: Maria\'s age = 3 × 12 = 36.\n\nAnswer: (C) 36'
+        explanation: 'Step 1: Start with $100.\nAfter 20% increase: $100 × 1.20 = $120\nAfter 20% discount: $120 × 0.80 = $96\n\nStep 2: Compare to original.\n$96 vs $100 = $4 less = 4% less\n\nThe discount is applied to the BIGGER number, so it removes more than the raise added.\n\nAnswer: (C) 4% less'
       },
-      // Geometry & Measurement (3)
       {
         id: 'e30m6', section: 'Quantitative',
-        category: 'Geometry & Measurement', topic: 'Area',
-        question: 'A rectangle has a length of 15 cm and a width of 8 cm. What is its area?',
-        choices: ['23 cm²', '46 cm²', '80 cm²', '120 cm²', '150 cm²'],
+        category: 'Algebra', topic: 'Word Problem',
+        question: 'A team scored an average of 72 points in their first 5 games. How many points must they score in their 6th game to raise their average to 75?',
+        choices: ['75', '78', '87', '90', '93'],
         answer: 'D',
-        explanation: 'Area of a rectangle = length × width\nA = 15 × 8 = 120 cm²\n\nAnswer: (D) 120 cm²'
+        explanation: 'Step 1: Total points for 5 games = 72 × 5 = 360\n\nStep 2: Total needed for 6 games at 75 avg = 75 × 6 = 450\n\nStep 3: Points needed in game 6 = 450 − 360 = 90\n\nAnswer: (D) 90'
       },
       {
         id: 'e30m7', section: 'Quantitative',
-        category: 'Geometry & Measurement', topic: 'Pythagorean Theorem',
-        question: 'A right triangle has legs of length 5 and 12. What is the length of the hypotenuse?',
-        choices: ['10', '11', '13', '15', '17'],
+        category: 'Algebra', topic: 'Proportions',
+        question: 'A recipe calls for 2 cups of flour for every 3 cups of sugar. If you use 9 cups of sugar, how many cups of flour do you need?',
+        choices: ['4', '5', '6', '7', '13.5'],
         answer: 'C',
-        explanation: 'Step 1: Use the Pythagorean theorem: a² + b² = c²\n5² + 12² = c²\n25 + 144 = c²\n169 = c²\n\nStep 2: Take the square root.\nc = √169 = 13\n\nAnswer: (C) 13'
+        explanation: 'Step 1: Set up the proportion.\n2/3 = x/9\n\nStep 2: Cross-multiply.\n2 × 9 = 3 × x\n18 = 3x\nx = 6\n\nAnswer: (C) 6'
       },
+      // Geometry (3)
       {
         id: 'e30m8', section: 'Quantitative',
-        category: 'Geometry & Measurement', topic: 'Coordinate Geometry',
-        question: 'What is the distance between the points (1, 2) and (4, 6)?',
-        choices: ['3', '4', '5', '6', '7'],
+        category: 'Geometry', topic: 'Triangle Angles',
+        question: 'In a triangle, one angle is 90° and another is 35°. What is the measure of the third angle?',
+        choices: ['35°', '45°', '55°', '65°', '125°'],
         answer: 'C',
-        explanation: 'Step 1: Use the distance formula: d = √[(x₂−x₁)² + (y₂−y₁)²]\nd = √[(4−1)² + (6−2)²]\nd = √[9 + 16]\nd = √25 = 5\n\nAnswer: (C) 5'
+        explanation: 'Step 1: The three angles of a triangle add up to 180°.\n\nStep 2: 180 − 90 − 35 = 55°\n\nAnswer: (C) 55°'
       },
-      // Data Analysis (2)
       {
         id: 'e30m9', section: 'Quantitative',
-        category: 'Data Analysis', topic: 'Mean / Median / Mode / Range',
-        question: 'The test scores for 5 students are: 72, 85, 90, 85, 93. What is the median score?',
-        choices: ['72', '82', '85', '88', '90'],
-        answer: 'C',
-        explanation: 'Step 1: Arrange in order: 72, 85, 85, 90, 93\n\nStep 2: The median is the middle value in an odd-numbered set.\nMiddle value (3rd of 5) = 85\n\nAnswer: (C) 85'
+        category: 'Geometry', topic: 'Circle',
+        question: 'A circular garden has a radius of 7 feet. What is the approximate area of the garden? (Use π ≈ 22/7)',
+        choices: ['22 sq ft', '44 sq ft', '88 sq ft', '154 sq ft', '308 sq ft'],
+        answer: 'D',
+        explanation: 'Step 1: Area = πr²\nA = (22/7) × 7²\nA = (22/7) × 49\nA = 22 × 7 = 154 sq ft\n\nAnswer: (D) 154 sq ft'
       },
       {
         id: 'e30m10', section: 'Quantitative',
-        category: 'Data Analysis', topic: 'Probability',
-        question: 'A bag contains 4 red marbles, 3 blue marbles, and 5 green marbles. If one marble is drawn at random, what is the probability it is blue?',
-        choices: ['1/12', '1/4', '1/3', '3/12', '5/12'],
+        category: 'Geometry', topic: 'Similar Triangles',
+        question: 'Two similar triangles have sides in the ratio 2:5. If the shortest side of the larger triangle is 15 cm, what is the shortest side of the smaller triangle?',
+        choices: ['3 cm', '6 cm', '7.5 cm', '10 cm', '37.5 cm'],
         answer: 'B',
-        explanation: 'Step 1: Total marbles = 4 + 3 + 5 = 12\n\nStep 2: P(blue) = blue / total = 3/12 = 1/4\n\nAnswer: (B) 1/4'
+        explanation: 'Step 1: The ratio is 2:5, meaning small/large = 2/5.\n\nStep 2: Set up the proportion.\n2/5 = x/15\nx = (2 × 15) / 5 = 30/5 = 6\n\nAnswer: (B) 6 cm'
       },
-      // Numbers & Operations (1)
+      // Data Analysis (1)
       {
         id: 'e30m11', section: 'Quantitative',
-        category: 'Numbers & Operations', topic: 'Order of Operations',
-        question: 'What is the value of 3 + 4 × 5 − 2?',
-        choices: ['15', '19', '21', '33', '35'],
+        category: 'Data Analysis', topic: 'Probability',
+        question: 'A spinner has 5 equal sections: 2 red, 2 blue, 1 green. If you spin twice, what is the probability of getting red BOTH times?',
+        choices: ['1/5', '2/5', '4/25', '4/10', '2/25'],
         answer: 'C',
-        explanation: 'Step 1: Follow PEMDAS — multiplication first.\n4 × 5 = 20\n\nStep 2: Then addition and subtraction left to right.\n3 + 20 − 2 = 21\n\nAnswer: (C) 21'
+        explanation: 'Step 1: P(red on one spin) = 2/5\n\nStep 2: Spins are independent, so multiply.\nP(red both) = 2/5 × 2/5 = 4/25\n\nAnswer: (C) 4/25'
       },
       // Reasoning (1)
       {
         id: 'e30m12', section: 'Quantitative',
-        category: 'Reasoning', topic: 'Sequences & Patterns',
-        question: 'What is the next number in the sequence: 2, 6, 18, 54, ...?',
-        choices: ['72', '108', '162', '180', '216'],
-        answer: 'C',
-        explanation: 'Step 1: Find the pattern. Each number is multiplied by 3.\n2 × 3 = 6, 6 × 3 = 18, 18 × 3 = 54\n\nStep 2: Continue the pattern.\n54 × 3 = 162\n\nAnswer: (C) 162'
+        category: 'Reasoning', topic: 'Estimation',
+        question: 'The product of 397 × 51 is closest to which of the following?',
+        choices: ['15,000', '20,000', '25,000', '40,000', '200,000'],
+        answer: 'B',
+        explanation: 'Step 1: Round to friendly numbers.\n397 ≈ 400 and 51 ≈ 50\n\nStep 2: Multiply the rounded values.\n400 × 50 = 20,000\n\nThe actual answer is 20,247, so 20,000 is the closest.\n\nAnswer: (B) 20,000'
       }
     ]
   }
@@ -786,208 +786,208 @@ EXAM_TESTS.exam60 = {
     timeLimit: 1680,
     instructions: 'Solve each math problem and select the best answer. No calculators are allowed. Figures are not necessarily drawn to scale.',
     questions: [
-      // Algebra (10)
+      // Number Sense (8)
       {
         id: 'e60m1', section: 'Quantitative',
-        category: 'Algebra', topic: 'Linear Equations / Systems',
-        question: 'If 3x − 5 = 2x + 7, what is the value of x?',
-        choices: ['2', '6', '8', '12', '14'],
-        answer: 'D',
-        explanation: 'Step 1: Subtract 2x from both sides.\nx − 5 = 7\n\nStep 2: Add 5 to both sides.\nx = 12\n\nAnswer: (D) 12'
+        category: 'Number Sense', topic: 'Ordering Fractions',
+        question: 'Which list shows the fractions in order from least to greatest?',
+        choices: ['1/4, 2/5, 3/8, 1/2', '1/4, 3/8, 2/5, 1/2', '3/8, 1/4, 2/5, 1/2', '2/5, 3/8, 1/4, 1/2', '1/4, 2/5, 1/2, 3/8'],
+        answer: 'B',
+        explanation: 'Step 1: Convert to decimals.\n1/4 = 0.25, 3/8 = 0.375, 2/5 = 0.40, 1/2 = 0.50\n\nStep 2: Order: 0.25, 0.375, 0.40, 0.50\nSo: 1/4, 3/8, 2/5, 1/2\n\nAnswer: (B) 1/4, 3/8, 2/5, 1/2'
       },
       {
         id: 'e60m2', section: 'Quantitative',
-        category: 'Algebra', topic: 'Rates / Ratios / Proportions / Percentages',
-        question: 'A car travels 180 miles in 3 hours. At the same rate, how far will it travel in 5 hours?',
-        choices: ['240 miles', '280 miles', '300 miles', '320 miles', '360 miles'],
-        answer: 'C',
-        explanation: 'Step 1: Find the rate.\n180 ÷ 3 = 60 miles per hour\n\nStep 2: Multiply by 5 hours.\n60 × 5 = 300 miles\n\nAnswer: (C) 300 miles'
+        category: 'Number Sense', topic: 'Decimal Operations',
+        question: 'A runner completes laps in 2.45 minutes, 2.38 minutes, and 2.52 minutes. What is the total time for all three laps?',
+        choices: ['7.25 min', '7.35 min', '7.45 min', '7.53 min', '8.35 min'],
+        answer: 'B',
+        explanation: 'Step 1: Add the decimals.\n2.45 + 2.38 + 2.52\n\nStep 2: Add the ones: 2 + 2 + 2 = 6\nAdd the tenths: 0.4 + 0.3 + 0.5 = 1.2\nAdd the hundredths: 0.05 + 0.08 + 0.02 = 0.15\n\nStep 3: 6 + 1.2 + 0.15 = 7.35\n\nAnswer: (B) 7.35 min'
       },
       {
         id: 'e60m3', section: 'Quantitative',
-        category: 'Algebra', topic: 'Slope',
-        question: 'A line has a slope of 3 and passes through the point (2, 7). What is the y-intercept?',
-        choices: ['-1', '0', '1', '3', '7'],
-        answer: 'C',
-        explanation: 'Step 1: Use y = mx + b with m = 3 and point (2, 7).\n7 = 3(2) + b\n7 = 6 + b\nb = 1\n\nThe y-intercept is 1.\n\nAnswer: (C) 1'
+        category: 'Number Sense', topic: 'Converting Fractions/Decimals/Percents',
+        question: 'Which of the following is equal to 5/8?',
+        choices: ['0.58', '0.625', '58%', '0.585', '63%'],
+        answer: 'B',
+        explanation: 'Step 1: Divide 5 by 8.\n5 ÷ 8 = 0.625\n\nStep 2: Check the choices.\n(A) 0.58 ≠ 0.625\n(B) 0.625 ✓\n(C) 58% = 0.58 ≠ 0.625\n(D) 0.585 ≠ 0.625\n(E) 63% = 0.63 ≠ 0.625\n\nAnswer: (B) 0.625'
       },
       {
         id: 'e60m4', section: 'Quantitative',
-        category: 'Algebra', topic: 'Factoring',
-        question: 'Which expression is equivalent to x² − 9?',
-        choices: ['(x − 9)(x + 1)', '(x − 3)²', '(x + 3)(x − 3)', '(x + 9)(x − 1)', '(x + 3)²'],
+        category: 'Number Sense', topic: 'Divisibility',
+        question: 'How many of the following numbers are divisible by both 3 and 5: 15, 25, 30, 45, 50, 60?',
+        choices: ['2', '3', '4', '5', '6'],
         answer: 'C',
-        explanation: 'Step 1: Recognize the difference of two squares: a² − b² = (a + b)(a − b)\nx² − 9 = x² − 3² = (x + 3)(x − 3)\n\nAnswer: (C) (x + 3)(x − 3)'
+        explanation: 'Step 1: Divisible by both 3 AND 5 means divisible by 15.\n\nStep 2: Check each.\n15 ÷ 15 = 1 ✓\n25 ÷ 15 = 1.67 ✗ (not divisible by 3)\n30 ÷ 15 = 2 ✓\n45 ÷ 15 = 3 ✓\n50 ÷ 15 = 3.33 ✗ (not divisible by 3)\n60 ÷ 15 = 4 ✓\n\nFour numbers: 15, 30, 45, 60\n\nAnswer: (C) 4'
       },
       {
         id: 'e60m5', section: 'Quantitative',
-        category: 'Algebra', topic: 'Functions',
-        question: 'If f(x) = 2x² − 3, what is f(4)?',
-        choices: ['5', '13', '21', '29', '61'],
-        answer: 'D',
-        explanation: 'Step 1: Substitute x = 4.\nf(4) = 2(4²) − 3 = 2(16) − 3 = 32 − 3 = 29\n\nAnswer: (D) 29'
+        category: 'Number Sense', topic: 'LCM',
+        question: 'Hot dogs come in packs of 8 and buns come in packs of 6. What is the smallest number of each you must buy so that the hot dogs and buns come out even?',
+        choices: ['12 of each', '16 of each', '24 of each', '48 of each', '6 of each'],
+        answer: 'C',
+        explanation: 'Step 1: Find the LCM of 8 and 6.\n8 = 2³, 6 = 2 × 3\nLCM = 2³ × 3 = 24\n\nStep 2: You need 24 hot dogs (3 packs) and 24 buns (4 packs).\n\nAnswer: (C) 24 of each'
       },
       {
         id: 'e60m6', section: 'Quantitative',
-        category: 'Algebra', topic: 'Exponential Expressions',
-        question: 'Simplify: (2³)²',
-        choices: ['8', '16', '32', '64', '128'],
-        answer: 'D',
-        explanation: 'Step 1: When raising a power to a power, multiply exponents.\n(2³)² = 2⁽³ˣ²⁾ = 2⁶\n\nStep 2: Calculate 2⁶.\n2⁶ = 64\n\nAnswer: (D) 64'
+        category: 'Number Sense', topic: 'Properties of Numbers',
+        question: 'The product of two integers is positive and their sum is negative. Which MUST be true?',
+        choices: ['Both are positive', 'Both are negative', 'One is positive and one is negative', 'One of them is zero', 'At least one is greater than 1'],
+        answer: 'B',
+        explanation: 'Step 1: Product is positive → both same sign (both positive or both negative).\n\nStep 2: Sum is negative → both can\'t be positive (positive + positive = positive).\n\nStep 3: So both must be negative. Example: −2 × −3 = 6 (positive) and −2 + −3 = −5 (negative). ✓\n\nAnswer: (B) Both are negative'
       },
       {
         id: 'e60m7', section: 'Quantitative',
-        category: 'Algebra', topic: 'Classic Problem Solving',
-        question: 'A store sells notebooks for $3 each and pens for $2 each. If Alex buys a total of 10 items for $24, how many notebooks did he buy?',
-        choices: ['2', '4', '5', '6', '8'],
-        answer: 'B',
-        explanation: 'Step 1: Let n = notebooks, p = pens.\nn + p = 10 and 3n + 2p = 24\n\nStep 2: From the first equation: p = 10 − n\n3n + 2(10 − n) = 24\n3n + 20 − 2n = 24\nn = 4\n\nAnswer: (B) 4 notebooks'
+        category: 'Number Sense', topic: 'Fraction Division',
+        question: 'How many pieces of ribbon, each 2/3 of a foot long, can be cut from a ribbon that is 8 feet long?',
+        choices: ['5', '10', '12', '16', '24'],
+        answer: 'C',
+        explanation: 'Step 1: Divide the total length by the piece length.\n8 ÷ 2/3\n\nStep 2: Dividing by a fraction = multiplying by its reciprocal.\n8 × 3/2 = 24/2 = 12\n\nAnswer: (C) 12 pieces'
       },
       {
         id: 'e60m8', section: 'Quantitative',
-        category: 'Algebra', topic: 'Polynomial Expressions',
-        question: 'Simplify: (2x + 3)(x − 4)',
-        choices: ['2x² − 5x − 12', '2x² + 5x − 12', '2x² − 8x + 3', '2x² − 11x − 12', '2x² + 11x − 12'],
+        category: 'Number Sense', topic: 'Exponents',
+        question: 'Which is greater: 3⁴ or 4³?',
+        choices: ['3⁴ is greater', '4³ is greater', 'They are equal', 'Cannot be determined', 'Both equal 12'],
         answer: 'A',
-        explanation: 'Step 1: Use FOIL.\nFirst: 2x × x = 2x²\nOuter: 2x × (−4) = −8x\nInner: 3 × x = 3x\nLast: 3 × (−4) = −12\n\nStep 2: Combine like terms.\n2x² − 8x + 3x − 12 = 2x² − 5x − 12\n\nAnswer: (A) 2x² − 5x − 12'
+        explanation: 'Step 1: Calculate each.\n3⁴ = 3 × 3 × 3 × 3 = 81\n4³ = 4 × 4 × 4 = 64\n\nStep 2: 81 > 64\n\nAnswer: (A) 3⁴ is greater'
       },
+      // Algebra (6)
       {
         id: 'e60m9', section: 'Quantitative',
-        category: 'Algebra', topic: 'Graphs',
-        question: 'A line passes through (0, 5) and (3, −1). What is the equation of this line?',
-        choices: ['y = 2x + 5', 'y = −2x + 5', 'y = −2x − 5', 'y = 2x − 1', 'y = −x + 5'],
-        answer: 'B',
-        explanation: 'Step 1: Find the slope.\nm = (−1 − 5) / (3 − 0) = −6/3 = −2\n\nStep 2: The y-intercept is 5 (the line passes through (0, 5)).\ny = −2x + 5\n\nAnswer: (B) y = −2x + 5'
-      },
-      {
-        id: 'e60m10', section: 'Quantitative',
-        category: 'Algebra', topic: 'Rates / Ratios / Proportions / Percentages',
+        category: 'Algebra', topic: 'Percent Problem',
         question: 'If 40% of a number is 28, what is the number?',
         choices: ['42', '56', '60', '70', '112'],
         answer: 'D',
-        explanation: 'Step 1: Set up the equation.\n0.40 × n = 28\n\nStep 2: Divide both sides by 0.40.\nn = 28 ÷ 0.40 = 70\n\nAnswer: (D) 70'
+        explanation: 'Step 1: Set up: 0.40 × n = 28\n\nStep 2: Divide both sides by 0.40.\nn = 28 ÷ 0.40 = 70\n\nAnswer: (D) 70'
       },
-      // Geometry & Measurement (6)
+      {
+        id: 'e60m10', section: 'Quantitative',
+        category: 'Algebra', topic: 'Rate Problem',
+        question: 'Sam can mow a lawn in 3 hours. His brother can mow the same lawn in 6 hours. Working together, how long will it take them?',
+        choices: ['1 hour', '1.5 hours', '2 hours', '3 hours', '4.5 hours'],
+        answer: 'C',
+        explanation: 'Step 1: Find each rate.\nSam: 1/3 lawn per hour\nBrother: 1/6 lawn per hour\n\nStep 2: Combined rate = 1/3 + 1/6 = 2/6 + 1/6 = 3/6 = 1/2 lawn per hour\n\nStep 3: Time = 1 ÷ 1/2 = 2 hours\n\nAnswer: (C) 2 hours'
+      },
       {
         id: 'e60m11', section: 'Quantitative',
-        category: 'Geometry & Measurement', topic: 'Area',
-        question: 'A circle has a radius of 7 cm. What is its area? (Use π ≈ 22/7)',
-        choices: ['44 cm²', '88 cm²', '154 cm²', '308 cm²', '616 cm²'],
-        answer: 'C',
-        explanation: 'Step 1: Area = πr²\nA = (22/7) × 7² = (22/7) × 49 = 22 × 7 = 154 cm²\n\nAnswer: (C) 154 cm²'
+        category: 'Algebra', topic: 'Word Problem',
+        question: 'A store sells notebooks for $3 each and pens for $2 each. If Alex buys a total of 10 items for $24, how many notebooks did he buy?',
+        choices: ['2', '4', '5', '6', '8'],
+        answer: 'B',
+        explanation: 'Step 1: Let n = notebooks, p = pens.\nn + p = 10 and 3n + 2p = 24\n\nStep 2: From first equation: p = 10 − n\n3n + 2(10 − n) = 24\n3n + 20 − 2n = 24\nn = 4\n\nAnswer: (B) 4 notebooks'
       },
       {
         id: 'e60m12', section: 'Quantitative',
-        category: 'Geometry & Measurement', topic: '3D: Volume / Surface Area',
-        question: 'A rectangular box has dimensions 4 cm × 5 cm × 6 cm. What is its volume?',
-        choices: ['15 cm³', '60 cm³', '74 cm³', '120 cm³', '148 cm³'],
-        answer: 'D',
-        explanation: 'Volume = length × width × height\nV = 4 × 5 × 6 = 120 cm³\n\nAnswer: (D) 120 cm³'
+        category: 'Algebra', topic: 'Proportions',
+        question: 'On a map, 1 inch represents 25 miles. Two cities are 3.5 inches apart on the map. What is the actual distance between them?',
+        choices: ['75 miles', '82.5 miles', '87.5 miles', '100 miles', '125 miles'],
+        answer: 'C',
+        explanation: 'Step 1: Set up the proportion.\n1 inch / 25 miles = 3.5 inches / x miles\n\nStep 2: Multiply.\n3.5 × 25 = 87.5 miles\n\nAnswer: (C) 87.5 miles'
       },
       {
         id: 'e60m13', section: 'Quantitative',
-        category: 'Geometry & Measurement', topic: 'Angles',
-        question: 'Two angles are supplementary. If one angle measures 65°, what is the measure of the other angle?',
-        choices: ['25°', '65°', '90°', '115°', '125°'],
+        category: 'Algebra', topic: 'Average Problem',
+        question: 'A student scored 78, 85, 92, and 88 on four tests. What score does she need on the fifth test to have an average of exactly 86?',
+        choices: ['82', '85', '86', '87', '90'],
         answer: 'D',
-        explanation: 'Supplementary angles add up to 180°.\n180° − 65° = 115°\n\nAnswer: (D) 115°'
+        explanation: 'Step 1: Total needed for average of 86 over 5 tests:\n86 × 5 = 430\n\nStep 2: Sum of first four tests:\n78 + 85 + 92 + 88 = 343\n\nStep 3: Fifth test = 430 − 343 = 87\n\nAnswer: (D) 87'
       },
       {
         id: 'e60m14', section: 'Quantitative',
-        category: 'Geometry & Measurement', topic: 'Length / Perimeter / Circumference',
-        question: 'A square has a perimeter of 48 cm. What is the length of each side?',
-        choices: ['8 cm', '10 cm', '12 cm', '16 cm', '24 cm'],
+        category: 'Algebra', topic: 'Inequality',
+        question: 'If 2x + 5 > 17, which is the smallest integer value of x?',
+        choices: ['5', '6', '7', '8', '12'],
         answer: 'C',
-        explanation: 'Perimeter of a square = 4 × side\n48 = 4 × s\ns = 12 cm\n\nAnswer: (C) 12 cm'
+        explanation: 'Step 1: Solve the inequality.\n2x + 5 > 17\n2x > 12\nx > 6\n\nStep 2: x must be GREATER than 6. The smallest integer greater than 6 is 7.\n\nAnswer: (C) 7'
       },
+      // Geometry (5)
       {
         id: 'e60m15', section: 'Quantitative',
-        category: 'Geometry & Measurement', topic: 'Pythagorean Theorem',
-        question: 'A ladder is leaning against a wall. The base of the ladder is 6 feet from the wall, and the ladder is 10 feet long. How high up the wall does the ladder reach?',
-        choices: ['4 ft', '6 ft', '8 ft', '12 ft', '16 ft'],
-        answer: 'C',
-        explanation: 'Step 1: Use the Pythagorean theorem. The ladder is the hypotenuse.\n6² + h² = 10²\n36 + h² = 100\nh² = 64\nh = 8 ft\n\nAnswer: (C) 8 ft'
+        category: 'Geometry', topic: 'Arc Length',
+        question: 'A circle has a radius of 12 cm. What is the length of a 90° arc? (Use π ≈ 3.14)',
+        choices: ['6.28 cm', '9.42 cm', '12.56 cm', '18.84 cm', '37.68 cm'],
+        answer: 'D',
+        explanation: 'Step 1: A 90° arc is 90/360 = 1/4 of the full circumference.\n\nStep 2: Circumference = 2πr = 2 × 3.14 × 12 = 75.36 cm\n\nStep 3: Arc = 1/4 × 75.36 = 18.84 cm\n\nAnswer: (D) 18.84 cm'
       },
       {
         id: 'e60m16', section: 'Quantitative',
-        category: 'Geometry & Measurement', topic: 'Coordinate Geometry',
-        question: 'What is the midpoint of the line segment connecting (2, 8) and (10, 4)?',
-        choices: ['(4, 2)', '(5, 5)', '(6, 6)', '(6, 4)', '(8, 6)'],
-        answer: 'C',  // (6,6)
-        explanation: 'Midpoint = ((x₁+x₂)/2, (y₁+y₂)/2)\n= ((2+10)/2, (8+4)/2)\n= (12/2, 12/2)\n= (6, 6)\n\nAnswer: (C) (6, 6)'
+        category: 'Geometry', topic: 'Similar Triangles',
+        question: 'A tree casts a shadow 15 feet long. At the same time, a 6-foot person casts a shadow 4 feet long. How tall is the tree?',
+        choices: ['10 ft', '15 ft', '20 ft', '22.5 ft', '25 ft'],
+        answer: 'D',
+        explanation: 'Step 1: Similar triangles — the ratios are equal.\nperson height / person shadow = tree height / tree shadow\n6/4 = h/15\n\nStep 2: Cross-multiply.\n6 × 15 = 4 × h\n90 = 4h\nh = 22.5 ft\n\nAnswer: (D) 22.5 ft'
       },
-      // Data Analysis (4)
       {
         id: 'e60m17', section: 'Quantitative',
-        category: 'Data Analysis', topic: 'Mean / Median / Mode / Range',
-        question: 'The ages of 6 students are: 12, 14, 13, 15, 12, 14. What is the mean age?',
-        choices: ['12', '13', '13.3', '13.5', '14'],
-        answer: 'C',  // mean = 80/6 ≈ 13.3
-        explanation: 'Step 1: Add all ages.\n12 + 14 + 13 + 15 + 12 + 14 = 80\n\nStep 2: Divide by the count.\n80 ÷ 6 ≈ 13.3\n\nAnswer: (C) 13.3'
+        category: 'Geometry', topic: 'Pythagorean Theorem',
+        question: 'A ladder is leaning against a wall. The base is 6 feet from the wall and the ladder is 10 feet long. How high up the wall does it reach?',
+        choices: ['4 ft', '6 ft', '8 ft', '12 ft', '16 ft'],
+        answer: 'C',
+        explanation: 'Step 1: Use a² + b² = c² where c = 10 (hypotenuse).\n6² + h² = 10²\n36 + h² = 100\nh² = 64\nh = 8\n\nShortcut: 6-8-10 is a multiple of the 3-4-5 triple (×2).\n\nAnswer: (C) 8 ft'
       },
       {
         id: 'e60m18', section: 'Quantitative',
-        category: 'Data Analysis', topic: 'Probability',
-        question: 'A standard six-sided die is rolled twice. What is the probability of getting a 6 on both rolls?',
-        choices: ['1/3', '1/6', '1/12', '1/36', '2/6'],
-        answer: 'D',
-        explanation: 'Step 1: P(6 on first roll) = 1/6\nP(6 on second roll) = 1/6\n\nStep 2: Since the rolls are independent, multiply.\nP(both 6) = 1/6 × 1/6 = 1/36\n\nAnswer: (D) 1/36'
+        category: 'Geometry', topic: 'Angles',
+        question: 'Two lines intersect. One of the angles formed is 72°. What are the measures of the other three angles?',
+        choices: ['72°, 108°, 108°', '72°, 72°, 144°', '108°, 108°, 72°', '72°, 90°, 126°', '36°, 36°, 216°'],
+        answer: 'A',
+        explanation: 'Step 1: When two lines cross, vertical angles are equal.\nSo the angle across from 72° is also 72°.\n\nStep 2: Adjacent angles are supplementary (add to 180°).\n180° − 72° = 108°\n\nStep 3: The four angles are: 72°, 108°, 72°, 108°.\nThe other three are: 72°, 108°, 108°.\n\nAnswer: (A) 72°, 108°, 108°'
       },
       {
         id: 'e60m19', section: 'Quantitative',
-        category: 'Data Analysis', topic: 'Counting',
-        question: 'A pizza shop offers 3 sizes and 4 toppings. How many different one-topping pizzas can be ordered?',
-        choices: ['3', '4', '7', '12', '24'],
-        answer: 'D',
-        explanation: 'Step 1: Use the counting principle.\nChoices = sizes × toppings = 3 × 4 = 12\n\nAnswer: (D) 12'
+        category: 'Geometry', topic: 'Perimeter',
+        question: 'A rectangle has an area of 48 square cm and a width of 6 cm. What is its perimeter?',
+        choices: ['22 cm', '28 cm', '32 cm', '48 cm', '54 cm'],
+        answer: 'B',
+        explanation: 'Step 1: Find the length.\nArea = length × width\n48 = length × 6\nlength = 8\n\nStep 2: Find the perimeter.\nP = 2(length + width) = 2(8 + 6) = 2 × 14 = 28\n\nAnswer: (B) 28 cm'
       },
+      // Data Analysis (3)
       {
         id: 'e60m20', section: 'Quantitative',
-        category: 'Data Analysis', topic: 'Data Graphs & Tables',
-        question: 'A bar graph shows that Team A scored 24 points, Team B scored 18 points, and Team C scored 30 points. What fraction of the total points did Team B score?',
-        choices: ['1/6', '1/4', '1/3', '3/8', '5/12'],
-        answer: 'B',
-        explanation: 'Step 1: Total points = 24 + 18 + 30 = 72\n\nStep 2: Team B\'s fraction = 18/72 = 1/4\n\nAnswer: (B) 1/4'
+        category: 'Data Analysis', topic: 'Mean/Median',
+        question: 'The scores 85, 90, 70, 80, and 100 are listed. If the lowest score is removed, by how much does the mean increase?',
+        choices: ['1.5', '3', '3.75', '5', '7.5'],
+        answer: 'C',
+        explanation: 'Step 1: Mean of all 5 scores.\n(85 + 90 + 70 + 80 + 100) / 5 = 425 / 5 = 85\n\nStep 2: Remove the lowest (70). Mean of remaining 4.\n(85 + 90 + 80 + 100) / 4 = 355 / 4 = 88.75\n\nStep 3: Increase = 88.75 − 85 = 3.75\n\nAnswer: (C) 3.75'
       },
-      // Numbers & Operations (2)
       {
         id: 'e60m21', section: 'Quantitative',
-        category: 'Numbers & Operations', topic: 'Number Sense / Number Theory',
-        question: 'What is the greatest common factor (GCF) of 36 and 48?',
-        choices: ['4', '6', '8', '12', '24'],
-        answer: 'D',
-        explanation: 'Step 1: Find factors.\n36: 1, 2, 3, 4, 6, 9, 12, 18, 36\n48: 1, 2, 3, 4, 6, 8, 12, 16, 24, 48\n\nStep 2: The largest number in both lists is 12.\n\nAnswer: (D) 12'
+        category: 'Data Analysis', topic: 'Probability',
+        question: 'A bag has 3 red marbles, 5 blue marbles, and 2 green marbles. If you draw one marble without looking, what is the probability it is NOT blue?',
+        choices: ['1/10', '3/10', '1/2', '2/5', '7/10'],
+        answer: 'C',
+        explanation: 'Step 1: Total marbles = 3 + 5 + 2 = 10\n\nStep 2: Non-blue = 3 + 2 = 5\n\nStep 3: P(not blue) = 5/10 = 1/2\n\nAnswer: (C) 1/2'
       },
       {
         id: 'e60m22', section: 'Quantitative',
-        category: 'Numbers & Operations', topic: 'Arithmetic',
-        question: 'What is the value of −8 + 3 × (−2) + 10?',
-        choices: ['−20', '−4', '0', '4', '30'],
-        answer: 'B',
-        explanation: 'Step 1: Multiplication first: 3 × (−2) = −6\n\nStep 2: Left to right: −8 + (−6) + 10 = −14 + 10 = −4\n\nAnswer: (B) −4'
+        category: 'Data Analysis', topic: 'Counting',
+        question: 'A combination lock has 3 dials, each with digits 0-9. How many different combinations are possible?',
+        choices: ['30', '100', '720', '1,000', '10,000'],
+        answer: 'D',
+        explanation: 'Step 1: Each dial has 10 choices (0-9).\n\nStep 2: Total combinations = 10 × 10 × 10 = 1,000\n\nAnswer: (D) 1,000'
       },
       // Reasoning (2)
       {
         id: 'e60m23', section: 'Quantitative',
-        category: 'Reasoning', topic: 'Puzzle / Logical Reasoning',
-        question: 'If all roses are flowers and some flowers are red, which statement must be true?',
+        category: 'Reasoning', topic: 'Logic',
+        question: 'If the product of two integers is odd, which MUST be true?',
         choices: [
-          'All roses are red',
-          'Some roses are red',
-          'All flowers are roses',
-          'All roses are flowers',
-          'No roses are red'
+          'Both integers are even',
+          'One integer is odd and one is even',
+          'Both integers are odd',
+          'At least one integer is even',
+          'The sum of the integers is odd'
         ],
-        answer: 'D',
-        explanation: 'We know: All roses are flowers (given).\nWe know: Some flowers are red (given).\n\nThe only statement that MUST be true is "All roses are flowers" — this is directly stated.\n\n"Some roses are red" might be true but isn\'t guaranteed. The red flowers could be non-rose flowers.\n\nAnswer: (D) All roses are flowers'
+        answer: 'C',
+        explanation: 'Step 1: For a product to be odd, NEITHER factor can be even (because even × anything = even).\n\nStep 2: So both must be odd.\n\nStep 3: Check (E): odd + odd = even, so (E) is NOT true.\n\nAnswer: (C) Both integers are odd'
       },
       {
         id: 'e60m24', section: 'Quantitative',
-        category: 'Reasoning', topic: 'Sequences & Patterns',
-        question: 'In the sequence 1, 1, 2, 3, 5, 8, 13, ..., what is the next number?',
-        choices: ['15', '18', '20', '21', '26'],
-        answer: 'D',
-        explanation: 'Step 1: Identify the pattern. Each number is the sum of the two before it (Fibonacci sequence).\n1+1=2, 1+2=3, 2+3=5, 3+5=8, 5+8=13\n\nStep 2: Continue: 8 + 13 = 21\n\nAnswer: (D) 21'
+        category: 'Reasoning', topic: 'Estimation',
+        question: 'Without calculating exactly, which is closest to the value of 1,988 × 52?',
+        choices: ['10,000', '50,000', '100,000', '150,000', '500,000'],
+        answer: 'C',
+        explanation: 'Step 1: Round to friendly numbers.\n1,988 ≈ 2,000 and 52 ≈ 50\n\nStep 2: Multiply.\n2,000 × 50 = 100,000\n\nActual: 1,988 × 52 = 103,376. 100,000 is the closest.\n\nAnswer: (C) 100,000'
       }
     ]
   }
